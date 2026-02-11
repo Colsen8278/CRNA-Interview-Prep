@@ -6,6 +6,7 @@ import { dlDiagram } from "../../utils/diagramExport";
 import PropofolDiagram from "../diagrams/PropofolDiagram";
 import NorepinephrineDiagram from "../diagrams/NorepinephrineDiagram";
 import VasopressinDiagram from "../diagrams/VasopressinDiagram";
+import EtomidateDiagram from "../diagrams/EtomidateDiagram";
 
 const TABS = ["overview", "receptor", "dosing", "metabolism", "warnings", "pearls", "diagram"];
 const TAB_LABELS = { overview: "Overview & MOA", receptor: "Receptor Physiology", dosing: "Dosing & Kinetics", metabolism: "Metabolism", warnings: "Warnings", pearls: "Clinical Pearls", diagram: "Diagram" };
@@ -31,17 +32,15 @@ export default function MedDetail({ item, t, theme, tab, setTab, conf, setConf, 
     dlPDF(item.name, s);
   };
 
-  const DiagramComponent = item.id === "norepinephrine" ? NorepinephrineDiagram
-    : item.id === "vasopressin" ? VasopressinDiagram
-    : PropofolDiagram;
-
-  const diagramTitle = item.id === "norepinephrine" ? "α₁/β₁/α₂ Adrenergic Receptor Pathways"
-    : item.id === "vasopressin" ? "V₁a / V₂ / KATP Channel Pathways"
-    : "GABA-A Receptor Diagram";
-
-  const diagramSub = item.id === "norepinephrine" ? "NE binding → Gq/Gs/Gi cascades → vasoconstriction + inotropy + autoregulation"
-    : item.id === "vasopressin" ? "AVP binding → V₁a/Gq vasoconstriction + KATP closure + V₂/Gs antidiuresis"
-    : "Propofol binding → Cl⁻ influx → hyperpolarization";
+  const DIAGRAM_MAP = {
+    norepinephrine: { component: NorepinephrineDiagram, title: "α₁/β₁/α₂ Adrenergic Receptor Pathways", sub: "NE binding → Gq/Gs/Gi cascades → vasoconstriction + inotropy + autoregulation" },
+    vasopressin: { component: VasopressinDiagram, title: "V₁a / V₂ / KATP Channel Pathways", sub: "AVP binding → V₁a/Gq vasoconstriction + KATP closure + V₂/Gs antidiuresis" },
+    etomidate: { component: EtomidateDiagram, title: "GABA-A Receptor & 11β-Hydroxylase Dual Mechanism", sub: "Etomidate binding → Cl⁻ influx + 11β-hydroxylase inhibition → hypnosis + adrenal suppression" },
+  };
+  const diagInfo = DIAGRAM_MAP[item.id] || { component: PropofolDiagram, title: "GABA-A Receptor Diagram", sub: "Propofol binding → Cl⁻ influx → hyperpolarization" };
+  const DiagramComponent = diagInfo.component;
+  const diagramTitle = diagInfo.title;
+  const diagramSub = diagInfo.sub;
 
   return (
     <div>

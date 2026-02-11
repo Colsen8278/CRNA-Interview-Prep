@@ -143,6 +143,92 @@ In multi-organ dysfunction, NE pharmacokinetics remain remarkably reliable becau
     { q: "Why NE over phenylephrine intraop?", a: "Phenylephrine (pure α₁) raises SVR but ↓CO via reflex bradycardia without β₁ compensation. NE's β₁ activity preserves CO while supporting BP. EPON trial and POQI 2024 consensus support NE." },
   ],
 },{
+  id: "etomidate", name: "Etomidate", brand: "Amidate",
+  tags: ["Sedative-Hypnotic", "GABA-A Agonist", "Carboxylated Imidazole Derivative", "IV Induction Agent"],
+  systems: ["neuro", "pharm"], type: "medication",
+  ov: { "Drug Class": "Carboxylated imidazole sedative-hypnotic", "Primary Target": "GABA-A receptor (β₂/β₃ subunits)", "Action": "Positive allosteric modulator + direct agonist", "Ion Channel": "Cl⁻ channel → hyperpolarization", "Formulation": "2 mg/mL in 35% propylene glycol", "DEA Schedule": "Not a controlled substance" },
+  moa: `Etomidate is a carboxylated imidazole derivative used exclusively as an intravenous induction agent. Its primary mechanism is positive allosteric modulation and direct agonism of the GABA-A receptor, the major inhibitory ligand-gated chloride ion channel in the CNS. It binds to the β₂ and β₃ subunits at the transmembrane domain with particular selectivity for β₂-containing receptors.
+
+At lower (clinical) concentrations, etomidate enhances endogenous GABA affinity for the GABA-A receptor, increasing frequency and duration of Cl⁻ channel opening, producing sedation and hypnosis with minimal cardiovascular effects.
+
+At higher (induction) concentrations, etomidate directly activates the GABA-A receptor Cl⁻ channel independent of GABA binding (direct gating), driving rapid, profound CNS depression sufficient for loss of consciousness and anesthetic induction.
+
+The net result is enhanced Cl⁻ influx causing neuronal hyperpolarization, moving the membrane potential from approximately −70 mV toward −80 to −90 mV, suppressing action potential generation across cortical and subcortical structures.
+
+What distinguishes etomidate from propofol is its minimal effect on the cardiovascular system. Etomidate does not significantly inhibit sympathetic outflow, does not directly vasodilate, and does not depress myocardial contractility at induction doses.
+
+However, etomidate carries a critical trade-off: it inhibits 11β-hydroxylase, the adrenal enzyme responsible for the final step in cortisol synthesis (converting 11-deoxycortisol to cortisol). Even a single induction dose produces measurable adrenocortical suppression lasting 24–72 hours.`,
+  recPhys: `Etomidate acts on the same GABA-A receptor as propofol — a pentameric ligand-gated chloride ion channel with the standard 2α, 2β, 1γ configuration. However, etomidate has important subunit selectivity that differs from propofol and affects both its clinical profile and side-effect signature.
+
+Etomidate binds to the transmembrane domain (TM2) at the interface between the β and α subunits, with strong selectivity for β₂- and β₃-containing GABA-A receptors. This is critically important — β₃-containing receptors are concentrated in the cortex, thalamus, and reticular activating system (mediating the hypnotic effect), while β₂-containing receptors are abundant in the spinal cord and subcortical structures. Etomidate's selectivity for these subtypes over β₁-containing receptors contributes to its relatively clean hypnotic profile with minimal respiratory depression compared to barbiturates.
+
+Like propofol, etomidate acts on an ionotropic receptor — no G-protein intermediaries, no second messenger cascades. Drug binding directly opens the ion channel, which is why onset is measured in seconds rather than minutes.
+
+Step 1 — Drug Binding: Etomidate binds to the β₂/β₃ subunit at the TM2 transmembrane interface. The imidazole ring and ester moiety occupy a hydrophobic pocket in the β-α subunit interface. Etomidate's binding orientation is stereospecific — only the R(+) enantiomer is pharmacologically active (approximately 10× more potent than the S(−) form). Commercial etomidate is supplied as the R(+) isomer.
+
+Step 2 — Conformational Change: Binding stabilizes the open configuration of the Cl⁻ pore. At allosteric (lower) concentrations, this enhances GABA's affinity and efficacy at the receptor, prolonging channel open time. At direct-gating (higher) concentrations, the conformational change is sufficient to open the pore without GABA present.
+
+Step 3 — Chloride Influx: Cl⁻ ions flow into the neuron down their electrochemical gradient. This influx of negative charge shifts the resting membrane potential from approximately −70 mV toward −80 to −90 mV, producing hyperpolarization.
+
+Step 4 — Neuronal Hyperpolarization & CNS Depression: The hyperpolarized neuron requires substantially greater excitatory input to reach firing threshold (−55 mV). Global CNS inhibition produces loss of consciousness, amnesia, and suppression of motor responses. Importantly, brainstem cardiovascular centers are relatively spared compared to propofol, which is why hemodynamic stability is maintained.
+
+The key to hemodynamic stability is multifactorial: (1) Etomidate has minimal effect on sympathetic outflow — it does not blunt the baroreflex the way propofol does, so compensatory heart rate and vascular tone adjustments remain intact. (2) Etomidate does not directly relax vascular smooth muscle — unlike propofol, which decreases SVR by 15–40%, etomidate produces negligible changes in SVR. (3) Etomidate does not depress myocardial contractility at clinical doses — cardiac output, stroke volume, and ejection fraction remain essentially unchanged. (4) The β-subunit selectivity profile may contribute — etomidate's preferential action on β₂/β₃ over β₁ subunits means less disruption of brainstem autonomic circuits.
+
+The net result: HR, MAP, CO, SVR, and PVR remain essentially unchanged at induction doses. This is unique among IV induction agents.
+
+Etomidate vs. propofol: both are GABA-A positive allosteric modulators with direct gating at high doses. Both bind β-subunits. Etomidate has stereospecific activity (R(+) enantiomer only); propofol does not (achiral molecule). Etomidate preserves hemodynamics; propofol causes vasodilation and myocardial depression. Etomidate inhibits 11β-hydroxylase; propofol does not. Know also that benzodiazepines increase frequency of Cl⁻ channel opening (require GABA), while etomidate/propofol/barbiturates increase duration and can directly gate the channel at high doses.`,
+  dosing: [
+    { ind: "Induction of General Anesthesia / RSI", dose: "0.2–0.6 mg/kg IV", notes: "Standard induction: 0.3 mg/kg IV push over 30–60 seconds. For RSI in hemodynamically unstable patients, 0.2–0.3 mg/kg is typical. Produces loss of consciousness in one arm-brain circulation time. No significant dose reduction needed for elderly or hemodynamically compromised patients.", clr: "ac" },
+    { ind: "Hemodynamically Neutral Dose Range", dose: "0.2–0.3 mg/kg IV", notes: "At this range, HR, MAP, CO, SVR, and PAP remain essentially unchanged. This is the dose range that maintains etomidate's hemodynamic advantage. Higher doses (0.4–0.6 mg/kg) may still be used but offer no additional benefit for induction.", clr: "wn" },
+    { ind: "Procedural Sedation", dose: "0.1–0.15 mg/kg IV", notes: "Lower doses for brief procedures. Can supplement with 0.05 mg/kg increments q3–5 min. Less commonly used for procedural sedation due to lack of analgesia and myoclonus. Not recommended for repeated dosing or continuous infusion due to adrenocortical suppression.", clr: "pr" },
+  ],
+  kin: { onset: "15–30 sec", onsetD: "One arm-brain circulation time. Rapid onset due to high lipid solubility at physiologic pH", peak: "~1 min", peakD: "Full induction effect within 60 seconds of IV push", dur: "3–12 min (bolus)", durD: "Duration of hypnosis is dose-dependent; at 0.3 mg/kg, expect 3–5 minutes. Recovery via redistribution", vd: "2.5–4.5 L/kg", pb: "76%", hl: "3–5 hours", csht: "Not applicable (single bolus use only)", cl: "18–25 mL/kg/min", model: "Three-compartment" },
+  metab: `Etomidate undergoes rapid hepatic metabolism primarily via ester hydrolysis — the ester bond in the carboxylated imidazole structure is cleaved by hepatic esterases (and to a lesser extent, plasma esterases). The primary metabolic pathway is hydrolysis of the ethyl ester group to its corresponding carboxylic acid metabolite, which is pharmacologically inactive and water-soluble. A secondary pathway involves N-dealkylation via hepatic microsomal enzymes (CYP-mediated), but this is a minor contributor to total clearance.
+
+Unlike propofol, etomidate's clearance does NOT exceed hepatic blood flow, meaning there is no significant extrahepatic metabolism. The liver is the primary organ of clearance, which has clinical implications for patients with severe hepatic dysfunction — expect prolonged effect and slower recovery in end-stage liver disease.
+
+Approximately 85% of etomidate metabolites are excreted renally, with 13% eliminated via biliary excretion. Only about 2% of the administered dose is excreted unchanged in urine. The terminal elimination half-life of 3–5 hours is clinically academic for a single-bolus induction agent, since clinical recovery is governed by redistribution (3–12 minutes), not metabolism.
+
+CRITICAL: Etomidate inhibits 11β-hydroxylase (CYP11B1), the mitochondrial enzyme in the adrenal cortex zona fasciculata that catalyzes the final step in cortisol biosynthesis: conversion of 11-deoxycortisol → cortisol. This inhibition is dose-dependent and reversible, but even a single 0.3 mg/kg induction dose measurably suppresses cortisol production for 24–72 hours. The adrenal gland cannot mount an appropriate cortisol stress response during this window.
+
+Etomidate also inhibits 17α-hydroxylase and cholesterol side-chain cleavage enzyme (CYP11A1 / P450scc) to a lesser degree, further suppressing mineralocorticoid (aldosterone) synthesis. This dual glucocorticoid-mineralocorticoid suppression is why etomidate was abandoned for continuous ICU sedation after the Ledingham & Watt study (1983) demonstrated increased mortality.
+
+Special Populations:
+Elderly: No significant dose reduction required for hemodynamic purposes. However, elderly patients may be more sensitive to CNS effects — consider using the lower end of the induction range (0.2 mg/kg).
+Hepatic impairment: Clearance is reduced because etomidate is primarily hepatically metabolized. Expect prolonged duration and slower recovery in severe hepatic dysfunction.
+Renal impairment: Metabolites are inactive and renally cleared. Minimal dose adjustment needed, though accumulation of propylene glycol solvent is a theoretical concern with repeated dosing.
+Sepsis/Critical illness: Etomidate's hemodynamic stability makes it attractive for RSI in septic shock, but adrenal suppression may worsen outcomes in patients with relative adrenal insufficiency. The CORTICUS substudy, KETASED trial, and ongoing debate shape practice.`,
+  warn: [
+    { tp: "bb", ti: "Adrenocortical Suppression", tx: "Even a single induction dose of etomidate (0.3 mg/kg) inhibits 11β-hydroxylase for 24–72 hours, suppressing cortisol synthesis. In critically ill patients with septic shock, this adrenal suppression may impair the stress response and has been associated with increased vasopressor requirements, longer ICU stays, and potentially increased mortality. NEVER use as continuous infusion or repeated bolus dosing." },
+    { tp: "bb", ti: "Myoclonus", tx: "Etomidate produces myoclonic movements (involuntary skeletal muscle jerking) in up to 30–60% of patients during induction. This is NOT seizure activity — it results from subcortical disinhibition. Can complicate intubation, increase oxygen consumption, and raise intragastric pressure. Mitigation: pre-treat with benzodiazepine (midazolam 1–2 mg), opioid (fentanyl 1–2 mcg/kg), or non-depolarizing NMBA (rocuronium 0.06 mg/kg)." },
+    { tp: "ci", ti: "Known Hypersensitivity", tx: "Absolute contraindication to etomidate or any component." },
+    { tp: "ci", ti: "Known Adrenal Insufficiency", tx: "Primary or secondary adrenal insufficiency — etomidate will worsen an already compromised HPA axis." },
+    { tp: "cau", ti: "Active Seizure Disorder", tx: "While etomidate itself does not cause true seizures, it increases EEG epileptiform activity and lowers seizure threshold in patients with seizure history." },
+    { tp: "cau", ti: "Septic Shock (Debated)", tx: "Adrenal suppression in the context of relative adrenal insufficiency. Major debate in emergency medicine — some institutions favor ketamine for RSI in sepsis instead." },
+    { tp: "cau", ti: "Coronary Artery Disease", tx: "Not because of hemodynamic instability, but because myoclonus increases myocardial oxygen demand." },
+  ],
+  ix: [
+    { dr: "Non-depolarizing neuromuscular blockers", ef: "Etomidate enhances and prolongs the effect of NDNMBs. Likely mechanism: inhibition of plasma cholinesterase. May need to reduce NDNMB dose.", sv: "mod" },
+    { dr: "Opioids (fentanyl, remifentanil)", ef: "Synergistic CNS and respiratory depression. Reduces etomidate dose requirement. Opioid pretreatment also reduces myoclonus incidence.", sv: "mod" },
+    { dr: "Corticosteroids", ef: "Patients on chronic corticosteroids already have suppressed HPA axis. Etomidate further inhibits endogenous cortisol production. Consider stress-dose hydrocortisone if using etomidate.", sv: "high" },
+    { dr: "Benzodiazepines (midazolam)", ef: "Additive CNS depression. Pretreatment with midazolam 1–2 mg reduces myoclonus but deepens sedation. Adjust etomidate dose accordingly.", sv: "mod" },
+  ],
+  pearls: [
+    { ti: "Hemodynamically neutral induction agent", tx: "HR, MAP, CO, SVR, PAP, and PVR remain essentially unchanged at induction doses. This makes it the agent of choice for induction in hemodynamically compromised patients: cardiogenic shock, undifferentiated shock, severe aortic stenosis, cardiac tamponade, massive hemorrhage, and septic shock (with adrenal caveat). When an interviewer asks about a trauma patient with BP 82/50, the answer is etomidate or ketamine, not propofol." },
+    { ti: "The adrenal suppression debate — know both sides", tx: "Anti-etomidate camp: CORTICUS substudy (etomidate use associated with higher 28-day mortality) and Albert et al. meta-analysis. Pro-etomidate camp: these are observational/retrospective data, hemodynamic instability from propofol may cause more harm than transient cortisol suppression, single dose can be 'covered' with stress-dose hydrocortisone 100 mg IV. Your interview answer should present both perspectives." },
+    { ti: "Etomidate and ICP — neuro-ICU perspective", tx: "Like propofol and thiopental, etomidate reduces CMRO₂, CBF, and ICP via cerebral vasoconstriction (flow-metabolism coupling). CPP is typically maintained because MAP doesn't drop. This makes etomidate ideal for intubation of the brain-injured patient — you get ICP reduction without the MAP penalty." },
+    { ti: "Myoclonus ≠ Seizures", tx: "Etomidate-induced myoclonus is subcortical in origin (disinhibition of deep nuclei). EEG during myoclonus shows NO epileptiform activity. However, etomidate paradoxically increases EEG epileptiform activity in patients with known seizure foci — used diagnostically during epilepsy surgery. Avoid in patients with active seizure disorders." },
+    { ti: "Etomidate vs. Ketamine for RSI in shock", tx: "Ketamine increasingly preferred because: (1) no adrenal suppression, (2) sympathomimetic properties (releases catecholamines, supports BP), (3) bronchodilator effects in reactive airway disease, (4) analgesic properties. Counterargument for etomidate: ketamine's sympathomimetic effect depends on endogenous catecholamine stores — in catecholamine-depleted patients, ketamine can paradoxically cause direct myocardial depression and hypotension." },
+    { ti: "No analgesic properties", tx: "Like propofol, etomidate provides zero analgesia. It is a pure hypnotic. A patient induced with etomidate alone has no pain control. Induction for intubation typically includes an opioid (fentanyl 1–3 mcg/kg) and a neuromuscular blocker, not just the induction agent." },
+    { ti: "The propylene glycol vehicle", tx: "Etomidate is formulated in 35% propylene glycol (poorly water-soluble). This vehicle causes high incidence of injection site pain and venous irritation. Osmolality extremely high (4640 mOsm/L). Newer lipid emulsion formulations have been developed to reduce injection pain and venous irritation." },
+    { ti: "Landmark studies to know", tx: "Ledingham & Watt (1983): Etomidate continuous infusion for ICU sedation → increased mortality. CORTICUS substudy (Sprung et al., 2008): etomidate use associated with worse outcomes in septic shock. Albert et al. (2011): Meta-analysis suggesting increased mortality with etomidate in sepsis. Bruder et al. (2015) / KETASED trial: Single-dose etomidate before emergent intubation — no difference in organ failure or mortality vs. ketamine." },
+  ],
+  intQs: [
+    { q: "Septic patient needs emergent intubation. MAP is 62 on levophed. Etomidate or ketamine?", a: "Either defensible. For etomidate: 'It maintains hemodynamics; I'll follow with stress-dose hydrocortisone 100 mg IV.' For ketamine: 'Avoids adrenal suppression, provides sympathomimetic support, has analgesic properties. 1.5 mg/kg IV.' State your preference and acknowledge the counter-argument." },
+    { q: "Surgeon says patient is having a seizure during etomidate induction. What do you tell them?", a: "Educate that etomidate-induced myoclonus is subcortical disinhibition, not epileptiform activity. It's self-limited and resolves as the drug takes full effect. No anticonvulsant treatment needed." },
+    { q: "Patient induced with etomidate 8 hours ago has cortisol level of 8 mcg/dL. Is this expected?", a: "Yes. Single-dose etomidate suppresses cortisol for 24–72 hours. This reflects etomidate-induced 11β-hydroxylase inhibition. If hemodynamically unstable, treat empirically with stress-dose hydrocortisone 100 mg IV q8h. Cosyntropin testing unreliable during this window." },
+  ],
+},{
   id: "vasopressin", name: "Vasopressin (AVP)", brand: "Vasostrict",
   tags: ["Vasopressor", "Non-Catecholamine", "V₁/V₂ Agonist", "Antidiuretic Hormone"],
   systems: ["cardio", "pharm"], type: "medication",
