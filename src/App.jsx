@@ -993,543 +993,556 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
       {tab === "diagram" && <div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px", marginBottom: "14px" }}>
-          <div><h3 style={{ color: t.ac, fontSize: "17px", margin: "0 0 3px" }}>{item.id === "norepinephrine" ? "alpha-1 / beta-1 / alpha-2 Adrenergic Receptor Pathways" : item.id === "vasopressin" ? "V1a / V2 / V1b + KATP Channel Pathways" : "GABA-A Receptor Diagram"}</h3>
-            <p style={{ color: t.tM, margin: 0, fontSize: "12px" }}>{item.id === "norepinephrine" ? "NE binding to Gq/Gs/Gi cascades producing vasoconstriction + inotropy + autoregulation" : item.id === "vasopressin" ? "AVP binding to V1a vasoconstriction + KATP closure + V2/Gs antidiuresis" : "Propofol binding to beta-subunit producing Cl- influx and hyperpolarization"}</p></div>
+          <div><h3 style={{ color: t.ac, fontSize: "17px", margin: "0 0 3px" }}>{item.id === "norepinephrine" ? "α Adrenergic Receptor Pathways" : item.id === "vasopressin" ? "V / V₂ / KATP Channel Pathways" : "GABA-A Receptor Diagram"}</h3>
+            <p style={{ color: t.tM, margin: 0, fontSize: "12px" }}>{item.id === "norepinephrine" ? "NE binding → Gq/Gs/Gi cascades → vasoconstriction + inotropy + autoregulation" : item.id === "vasopressin" ? "AVP binding → V vasoconstriction + KATP closure + V₂/Gs antidiuresis" : "Propofol binding → Cl⁻ influx → hyperpolarization"}</p></div>
           <div style={{ display: "flex", gap: "6px" }}>
             <button onClick={() => dlDiagram(svgRef, item.name, "jpeg")} style={{ background: t.bgS, border: `1px solid ${t.bd}`, borderRadius: "7px", padding: "6px 12px", cursor: "pointer", color: t.t2, fontSize: "12px", fontWeight: 600 }}> JPEG</button>
             <button onClick={() => dlDiagram(svgRef, item.name, "png")} style={{ background: t.bgS, border: `1px solid ${t.bd}`, borderRadius: "7px", padding: "6px 12px", cursor: "pointer", color: t.t2, fontSize: "12px", fontWeight: 600 }}>ï¸ PNG</button>
           </div>
         </div>
         {item.id === "norepinephrine" ? (
-        <svg ref={svgRef} viewBox="0 0 960 1020" style={{ width: "100%", maxWidth: "960px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
+        <svg ref={svgRef} viewBox="0 0 800 760" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
           <defs>
-            <marker id="arG" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#10b981" /></marker>
-            <marker id="arB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6" /></marker>
-            <marker id="arO" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b" /></marker>
-            <marker id="arR" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" /></marker>
-            <marker id="arT" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#06b6d4" /></marker>
-            <marker id="arP" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a855f7" /></marker>
-            <marker id="arGr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill={t.tM} /></marker>
+            <marker id="arG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#10b981" /></marker>
+            <marker id="arB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" /></marker>
+            <marker id="arO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b" /></marker>
+            <marker id="arR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" /></marker>
+            <marker id="arT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#06b6d4" /></marker>
+            <marker id="arP" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a855f7" /></marker>
+            <marker id="arGr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={t.tM} /></marker>
           </defs>
 
-          {/* === TITLE === */}
-          <text x="480" y="32" textAnchor="middle" fill={t.tx} fontSize="18" fontWeight="700">Norepinephrine — Adrenergic Receptor Signal Transduction</text>
-          <text x="480" y="56" textAnchor="middle" fill={t.tM} fontSize="13">Receptor affinity: alpha-2 {">"} alpha-1 {">"} beta-1 {">>>"} beta-2 — Three parallel G-protein cascades</text>
+          {/* Title */}
+          <text x="400" y="26" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="700">Norepinephrine — Adrenergic Receptor Signal Transduction</text>
+          <text x="400" y="44" textAnchor="middle" fill={t.tM} fontSize="10">Receptor affinity: α₂ {">"} α {">"} β {">>>"} β₂ — Three parallel G-protein cascades</text>
 
-          {/* ═══ COLUMN 1: alpha-1 / Gq PATHWAY (x center ~180) ═══ */}
-          <text x="180" y="90" textAnchor="middle" fill="#ef4444" fontSize="16" fontWeight="700">alpha-1 Receptor</text>
-          <text x="180" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Vascular Smooth Muscle</text>
+          {/*  COLUMN 1: α / Gq PATHWAY (x center ~155)  */}
+          <text x="155" y="72" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">α Receptor</text>
+          <text x="155" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Vascular Smooth Muscle</text>
 
           {/* Cell membrane band */}
-          <rect x="60" y="120" width="240" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <text x="70" y="140" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="12" fontWeight="500">MEMBRANE</text>
+          <rect x="55" y="92" width="200" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
+          <text x="60" y="108" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="7" fontWeight="500">MEMBRANE</text>
 
-          {/* alpha-1 7-TM receptor */}
-          <rect x="130" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="180" y="140" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">alpha-1 (7-TM)</text>
+          {/* α 7-TM receptor */}
+          <rect x="120" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
+          <text x="155" y="108" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">α (7-TM)</text>
 
           {/* NE molecule binding */}
-          <circle cx="120" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="120" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">NE</text>
-          <line x1="130" y1="108" x2="140" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
+          <circle cx="110" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
+          <text x="110" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
+          <line x1="118" y1="83" x2="125" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
 
           {/* Gq protein */}
-          <line x1="180" y1="154" x2="180" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#arP)" />
-          <rect x="130" y="180" width="100" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="180" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gq / G11</text>
+          <line x1="155" y1="120" x2="155" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
+          <rect x="120" y="136" width="70" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="155" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gq / G11</text>
 
           {/* PLC */}
-          <line x1="180" y1="210" x2="180" y2="234" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <rect x="140" y="236" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="180" y="255" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">PLC</text>
-          <text x="236" y="252" fill={t.tM} fontSize="12" fontStyle="italic">PIP2 cleavage</text>
+          <line x1="155" y1="158" x2="155" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <rect x="125" y="173" width="60" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="155" y="187" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">PLC</text>
 
-          {/* IP3 and DAG split */}
-          <line x1="160" y1="264" x2="120" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <line x1="200" y1="264" x2="240" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
+          {/* PIP₂ cleavage label */}
+          <text x="200" y="185" fill={t.tM} fontSize="7" fontStyle="italic">PIP₂ →</text>
 
-          <rect x="80" y="300" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="120" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">IP3</text>
+          {/* IP₃ and DAG split */}
+          <line x1="140" y1="193" x2="115" y2="215" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <line x1="170" y1="193" x2="195" y2="215" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
 
-          <rect x="200" y="300" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="240" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">DAG</text>
+          <rect x="85" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="112" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">IP₃</text>
 
-          {/* SR Ca2+ release */}
-          <line x1="120" y1="328" x2="120" y2="362" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#arT)" />
-          <rect x="60" y="364" width="120" height="36" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="120" y="380" textAnchor="middle" fill="#06b6d4" fontSize="12" fontWeight="600">SR releases Ca2+</text>
-          <text x="120" y="394" textAnchor="middle" fill={t.tM} fontSize="12">to cytoplasm</text>
+          <rect x="170" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="197" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">DAG</text>
 
-          {/* PKC */}
-          <line x1="240" y1="328" x2="240" y2="362" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <rect x="200" y="364" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="240" y="383" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">PKC</text>
+          {/* IP₃ → SR Ca²⁺ release */}
+          <line x1="112" y1="236" x2="112" y2="255" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arB)" />
+          <rect x="72" y="256" width="80" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="112" y="270" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">SR → Ca²⁺</text>
+          <text x="112" y="280" textAnchor="middle" fill="#3b82f6" fontSize="7">release to cytoplasm</text>
 
-          {/* Ca2+-Calmodulin */}
-          <line x1="120" y1="400" x2="180" y2="430" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#arT)" />
-          <line x1="240" y1="392" x2="180" y2="430" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,3" />
-          <rect x="110" y="432" width="140" height="28" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="180" y="451" textAnchor="middle" fill="#06b6d4" fontSize="12" fontWeight="600">Ca2+-Calmodulin</text>
+          {/* DAG → PKC */}
+          <line x1="197" y1="236" x2="197" y2="255" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <rect x="172" y="256" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="197" y="270" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">PKC</text>
+
+          {/* Converge to Ca²⁺-Calmodulin */}
+          <line x1="112" y1="284" x2="145" y2="306" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
+          <line x1="197" y1="276" x2="170" y2="306" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#arO)" />
+          <rect x="110" y="307" width="90" height="22" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="155" y="322" textAnchor="middle" fill="#3b82f6" fontSize="9" fontWeight="600">Ca²⁺-Calmodulin</text>
 
           {/* MLCK */}
-          <line x1="180" y1="460" x2="180" y2="488" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#arT)" />
-          <rect x="130" y="490" width="100" height="28" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="180" y="509" textAnchor="middle" fill="#06b6d4" fontSize="13" fontWeight="700">MLCK</text>
-
-          {/* VASOCONSTRICTION */}
-          <line x1="180" y1="518" x2="180" y2="548" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arR)" />
-          <rect x="90" y="550" width="180" height="40" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="180" y="570" textAnchor="middle" fill="#ef4444" fontSize="14" fontWeight="700">VASOCONSTRICTION</text>
-          <text x="180" y="586" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#b91c1c"} fontSize="12">+SVR → +MAP</text>
-
-
-          {/* ═══ COLUMN 2: beta-1 / Gs PATHWAY (x center ~520) ═══ */}
-          <text x="520" y="90" textAnchor="middle" fill="#3b82f6" fontSize="16" fontWeight="700">beta-1 Receptor</text>
-          <text x="520" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Cardiac Myocyte</text>
-
-          <rect x="400" y="120" width="240" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <rect x="470" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="2" />
-          <text x="520" y="140" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="700">beta-1 (7-TM)</text>
-
-          {/* NE molecule */}
-          <circle cx="460" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="460" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">NE</text>
-          <line x1="470" y1="108" x2="480" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-
-          {/* Gs-alpha */}
-          <line x1="520" y1="154" x2="520" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#arP)" />
-          <rect x="475" y="180" width="90" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="520" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gs-alpha</text>
-
-          {/* Adenylyl Cyclase */}
-          <line x1="520" y1="210" x2="520" y2="234" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <rect x="445" y="236" width="150" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="520" y="255" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">Adenylyl Cyclase</text>
-          <text x="520" y="275" textAnchor="middle" fill={t.tM} fontSize="12" fontStyle="italic">ATP → cAMP</text>
-
-          {/* cAMP */}
-          <line x1="520" y1="280" x2="520" y2="304" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <rect x="470" y="306" width="100" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="520" y="325" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">+cAMP</text>
-
-          {/* PKA */}
-          <line x1="520" y1="334" x2="520" y2="362" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arO)" />
-          <rect x="475" y="364" width="90" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="520" y="383" textAnchor="middle" fill="#f59e0b" fontSize="14" fontWeight="700">PKA</text>
-
-          {/* PKA targets: L-type Ca, RyR2, Phospholamban */}
-          <line x1="460" y1="392" x2="400" y2="420" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arB)" />
-          <line x1="520" y1="392" x2="520" y2="420" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arB)" />
-          <line x1="580" y1="392" x2="640" y2="420" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arB)" />
-
-          <rect x="340" y="422" width="120" height="36" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="400" y="438" textAnchor="middle" fill="#3b82f6" fontSize="12" fontWeight="600">L-type Ca2+</text>
-          <text x="400" y="453" textAnchor="middle" fill={t.tM} fontSize="12">+Ca2+ influx</text>
-
-          <rect x="475" y="422" width="90" height="36" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="520" y="438" textAnchor="middle" fill="#3b82f6" fontSize="12" fontWeight="600">RyR2</text>
-          <text x="520" y="453" textAnchor="middle" fill={t.tM} fontSize="12">+CICR</text>
-
-          <rect x="590" y="422" width="120" height="36" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="650" y="438" textAnchor="middle" fill="#3b82f6" fontSize="12" fontWeight="600">Phospholamban</text>
-          <text x="650" y="453" textAnchor="middle" fill={t.tM} fontSize="12">+SERCA2a</text>
-
-          {/* Ca2+ Transient */}
-          <line x1="400" y1="458" x2="520" y2="486" stroke="#3b82f6" strokeWidth="1.5" />
-          <line x1="520" y1="458" x2="520" y2="486" stroke="#3b82f6" strokeWidth="1.5" />
-          <line x1="650" y1="458" x2="520" y2="486" stroke="#3b82f6" strokeWidth="1.5" />
-          <rect x="420" y="488" width="200" height="30" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="520" y="508" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="600">+Ca2+ Transient Amplitude</text>
-
-          {/* INOTROPY + LUSITROPY */}
-          <line x1="520" y1="518" x2="520" y2="548" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arB)" />
-          <rect x="400" y="550" width="240" height="40" rx="8" fill={theme === "dark" ? "#1e3a5f" : "#dbeafe"} stroke="#3b82f6" strokeWidth="2" />
-          <text x="520" y="570" textAnchor="middle" fill="#3b82f6" fontSize="14" fontWeight="700">INOTROPY + LUSITROPY</text>
-          <text x="520" y="586" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1e40af"} fontSize="12">+Contractility + +Relaxation Rate</text>
-
-
-          {/* ═══ COLUMN 3: alpha-2 / Gi PATHWAY (x center ~830) ═══ */}
-          <text x="830" y="90" textAnchor="middle" fill="#ef4444" fontSize="16" fontWeight="700">alpha-2 Receptor</text>
-          <text x="830" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Presynaptic Terminal</text>
-
-          <rect x="710" y="120" width="240" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <rect x="780" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="830" y="140" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">alpha-2 (7-TM)</text>
-
-          <circle cx="770" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="770" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">NE</text>
-          <line x1="780" y1="108" x2="790" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-
-          {/* Gi-alpha */}
-          <line x1="830" y1="154" x2="830" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#arP)" />
-          <rect x="785" y="180" width="90" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="830" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gi-alpha</text>
-
-          {/* GIRK side path */}
-          <text x="900" y="176" fill={t.tM} fontSize="12" fontStyle="italic">G-beta-gamma</text>
-          <text x="900" y="192" fill={t.tM} fontSize="12" fontStyle="italic">→ GIRK K+ channels</text>
-          <text x="900" y="208" fill={t.tM} fontSize="12" fontStyle="italic">→ hyperpolarization</text>
-
-          {/* Inhibit Adenylyl Cyclase */}
-          <line x1="830" y1="210" x2="830" y2="244" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arR)" />
-          <rect x="750" y="246" width="160" height="36" rx="4" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="830" y="262" textAnchor="middle" fill="#ef4444" fontSize="12" fontWeight="600">INHIBIT</text>
-          <text x="830" y="278" textAnchor="middle" fill="#ef4444" fontSize="12">Adenylyl Cyclase</text>
-
-          {/* Decreased cAMP */}
-          <line x1="830" y1="282" x2="830" y2="312" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arR)" />
-          <rect x="780" y="314" width="100" height="28" rx="4" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="830" y="333" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">-cAMP</text>
-
-          {/* Negative Feedback */}
-          <line x1="830" y1="342" x2="830" y2="372" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arR)" />
-          <rect x="740" y="374" width="180" height="44" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="830" y="394" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">NEGATIVE FEEDBACK</text>
-          <text x="830" y="412" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#b91c1c"} fontSize="12">Decreases NE release</text>
-
-          <rect x="748" y="434" width="164" height="26" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="830" y="452" textAnchor="middle" fill={t.tM} fontSize="12">Same target as clonidine/dexmed</text>
-
-
-          {/* ═══ BARORECEPTOR REFLEX (bottom section) ═══ */}
-          <rect x="40" y="620" width="880" height="140" rx="10" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="480" y="648" textAnchor="middle" fill={t.tx} fontSize="16" fontWeight="700">BARORECEPTOR REFLEX — The Clinical Paradox</text>
-
-          {/* Reflex arc boxes */}
-          <rect x="60" y="664" width="100" height="36" rx="6" fill={theme === "dark" ? "#7f1d1d" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
-          <text x="110" y="686" textAnchor="middle" fill="#ef4444" fontSize="12" fontWeight="600">+MAP</text>
-
-          <line x1="160" y1="682" x2="185" y2="682" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="190" y="664" width="130" height="36" rx="6" fill={theme === "dark" ? "#1e293b" : "#e2e8f0"} stroke={t.bd} strokeWidth="1.5" />
-          <text x="255" y="680" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">Carotid / Aortic</text>
-          <text x="255" y="694" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">Baroreceptors</text>
-
-          <line x1="320" y1="682" x2="345" y2="682" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="350" y="664" width="100" height="36" rx="6" fill={theme === "dark" ? "#1e293b" : "#e2e8f0"} stroke={t.bd} strokeWidth="1.5" />
-          <text x="400" y="680" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">+CN IX / X</text>
-          <text x="400" y="694" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">afferents</text>
-
-          <line x1="450" y1="682" x2="475" y2="682" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="480" y="666" width="70" height="32" rx="6" fill={theme === "dark" ? "#1e293b" : "#e2e8f0"} stroke={t.bd} strokeWidth="1.5" />
-          <text x="515" y="687" textAnchor="middle" fill={t.tx} fontSize="13" fontWeight="600">NTS</text>
-
-          <line x1="550" y1="682" x2="575" y2="682" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="580" y="664" width="120" height="36" rx="6" fill={theme === "dark" ? "#1e293b" : "#e2e8f0"} stroke={t.bd} strokeWidth="1.5" />
-          <text x="640" y="680" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">+Vagal Tone</text>
-          <text x="640" y="694" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="500">(parasympathetic)</text>
-
-          <line x1="700" y1="682" x2="725" y2="682" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="730" y="664" width="170" height="36" rx="6" fill={theme === "dark" ? "#7f1d1d" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
-          <text x="815" y="680" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">REFLEX BRADYCARDIA</text>
-          <text x="815" y="694" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#b91c1c"} fontSize="12">Offsets beta-1 → NET HR stable</text>
-
-          <text x="480" y="730" textAnchor="middle" fill={t.tM} fontSize="12" fontStyle="italic">This reflex is WHY NE does not equal epinephrine. Epi's beta-2 vasodilation prevents MAP spike → no baroreceptor trigger → tachycardia dominates.</text>
-
-
-          {/* ═══ NET EFFECT ═══ */}
-          <rect x="200" y="750" width="560" height="50" rx="10" fill={theme === "dark" ? "#052e16" : "#dcfce7"} stroke="#10b981" strokeWidth="2" />
-          <text x="480" y="775" textAnchor="middle" fill="#10b981" fontSize="16" fontWeight="700">NET EFFECT: +MAP + +CO + stable/decreased HR</text>
-          <text x="480" y="793" textAnchor="middle" fill={theme === "dark" ? "#6ee7b7" : "#166534"} fontSize="12">Ideal vasopressor profile — vasoconstriction WITH cardiac output preservation</text>
-
-          {/* Metabolism note */}
-          <rect x="120" y="820" width="720" height="44" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="480" y="840" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="600">Termination: Uptake-1 (neuronal reuptake) → COMT/MAO → normetanephrine → VMA | t1/2 = 2.4 min | Zero CYP450</text>
-          <text x="480" y="857" textAnchor="middle" fill={t.tM} fontSize="12">Context-INSENSITIVE offset — no accumulation regardless of infusion duration</text>
-
-          {/* ═══ LEGEND ═══ */}
-          <rect x="60" y="882" width="840" height="120" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="90" y="906" fill={t.tx} fontSize="13" fontWeight="600">LEGEND</text>
-          <line x1="90" y1="912" x2="880" y2="912" stroke={t.bd} strokeWidth="0.5" />
-
-          <circle cx="90" cy="932" r="7" fill="#10b981" /><text x="104" y="937" fill={t.tM} fontSize="12">Norepinephrine</text>
-          <rect x="220" y="925" width="14" height="14" rx="3" fill={theme === "dark" ? "#fee2e2" : "#fee2e2"} stroke="#ef4444" strokeWidth="1" /><text x="240" y="937" fill={t.tM} fontSize="12">alpha receptors / inhibition</text>
-          <rect x="420" y="925" width="14" height="14" rx="3" fill={theme === "dark" ? "#dbeafe" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1" /><text x="440" y="937" fill={t.tM} fontSize="12">beta-1 / ions (Ca2+)</text>
-          <rect x="600" y="925" width="14" height="14" rx="3" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="620" y="937" fill={t.tM} fontSize="12">G-proteins</text>
-          <rect x="720" y="925" width="14" height="14" rx="3" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="740" y="937" fill={t.tM} fontSize="12">Second messengers</text>
-
-          <text x="90" y="968" fill={t.tM} fontSize="12">7-TM = seven-transmembrane (GPCR) | PLC = phospholipase C | IP3 = inositol trisphosphate | DAG = diacylglycerol | PKC/PKA = protein kinase C/A</text>
-          <text x="90" y="986" fill={t.tM} fontSize="12">MLCK = myosin light chain kinase | SR = sarcoplasmic reticulum | CICR = Ca2+-induced Ca2+ release | GIRK = G-protein inwardly rectifying K+ channel</text>
-        </svg>
-        ) : item.id === "vasopressin" ? (
-        <svg ref={svgRef} viewBox="0 0 960 940" style={{ width: "100%", maxWidth: "960px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
-          <defs>
-            <marker id="avG" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#10b981" /></marker>
-            <marker id="avB" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6" /></marker>
-            <marker id="avO" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b" /></marker>
-            <marker id="avR" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" /></marker>
-            <marker id="avP" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a855f7" /></marker>
-            <marker id="avT" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#06b6d4" /></marker>
-            <marker id="avGr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill={t.tM} /></marker>
-          </defs>
-
-          {/* === TITLE === */}
-          <text x="480" y="32" textAnchor="middle" fill={t.tx} fontSize="18" fontWeight="700">Vasopressin (AVP) — Receptor Signal Transduction</text>
-          <text x="480" y="56" textAnchor="middle" fill={t.tM} fontSize="13">Three receptor subtypes: V1a (Gq) → vasoconstriction | V2 (Gs) → antidiuresis | V1b (Gq) → ACTH release</text>
-
-
-          {/* ═══ COLUMN 1: V1a / Gq PATHWAY (x ~180) ═══ */}
-          <text x="180" y="90" textAnchor="middle" fill="#ef4444" fontSize="16" fontWeight="700">V1a Receptor</text>
-          <text x="180" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Vascular Smooth Muscle</text>
-
-          <rect x="60" y="120" width="240" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <text x="70" y="140" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="12" fontWeight="500">MEMBRANE</text>
-
-          <rect x="130" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="180" y="140" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">V1a (7-TM)</text>
-
-          <circle cx="120" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="120" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">AVP</text>
-          <line x1="130" y1="108" x2="140" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-
-          {/* Gq protein */}
-          <line x1="180" y1="154" x2="180" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#avP)" />
-          <rect x="130" y="180" width="100" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="180" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gq / G11</text>
-
-          {/* PLC */}
-          <line x1="180" y1="210" x2="180" y2="234" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="140" y="236" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="180" y="255" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">PLC</text>
-
-          {/* IP3 + DAG */}
-          <line x1="160" y1="264" x2="120" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <line x1="200" y1="264" x2="240" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-
-          <rect x="80" y="300" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="120" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">IP3</text>
-
-          <rect x="200" y="300" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="240" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">DAG</text>
-
-          {/* Ca2+ release + PKC */}
-          <line x1="120" y1="328" x2="120" y2="362" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#avT)" />
-          <rect x="60" y="364" width="120" height="28" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="120" y="383" textAnchor="middle" fill="#06b6d4" fontSize="12" fontWeight="600">SR → Ca2+ release</text>
-
-          <line x1="240" y1="328" x2="240" y2="362" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="200" y="364" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="240" y="383" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">PKC</text>
-
-          {/* MLCK + Vasoconstriction */}
-          <line x1="120" y1="392" x2="180" y2="420" stroke="#06b6d4" strokeWidth="1.5" />
-          <line x1="240" y1="392" x2="180" y2="420" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,3" />
-          <rect x="120" y="422" width="120" height="28" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="180" y="441" textAnchor="middle" fill="#06b6d4" fontSize="13" fontWeight="700">MLCK</text>
-
-          <line x1="180" y1="450" x2="180" y2="480" stroke="#ef4444" strokeWidth="2" markerEnd="url(#avR)" />
-          <rect x="90" y="482" width="180" height="40" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fee2e2"} stroke="#ef4444" strokeWidth="2" />
-          <text x="180" y="502" textAnchor="middle" fill="#ef4444" fontSize="14" fontWeight="700">VASOCONSTRICTION</text>
-          <text x="180" y="518" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#b91c1c"} fontSize="12">Splanchnic, renal, skin beds</text>
-
-
-          {/* ═══ COLUMN 2: V2 / Gs PATHWAY (x ~500) ═══ */}
-          <text x="500" y="90" textAnchor="middle" fill="#3b82f6" fontSize="16" fontWeight="700">V2 Receptor</text>
-          <text x="500" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Renal Collecting Duct</text>
-
-          <rect x="380" y="120" width="240" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <rect x="450" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="2" />
-          <text x="500" y="140" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="700">V2 (7-TM)</text>
-
-          <circle cx="440" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="440" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">AVP</text>
-          <line x1="450" y1="108" x2="460" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-
-          {/* Gs */}
-          <line x1="500" y1="154" x2="500" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#avP)" />
-          <rect x="455" y="180" width="90" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="500" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gs-alpha</text>
-
-          {/* AC + cAMP */}
-          <line x1="500" y1="210" x2="500" y2="234" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="425" y="236" width="150" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="500" y="255" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">Adenylyl Cyclase</text>
-
-          <line x1="500" y1="264" x2="500" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="450" y="300" width="100" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="500" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">+cAMP → PKA</text>
-
-          {/* AQP2 insertion */}
-          <line x1="500" y1="328" x2="500" y2="362" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#avB)" />
-          <rect x="415" y="364" width="170" height="36" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="500" y="380" textAnchor="middle" fill="#3b82f6" fontSize="12" fontWeight="600">AQP2 Insertion</text>
-          <text x="500" y="395" textAnchor="middle" fill={t.tM} fontSize="12">into apical membrane</text>
-
-          {/* vWF release */}
-          <line x1="560" y1="328" x2="620" y2="362" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#avT)" />
-          <rect x="590" y="364" width="100" height="28" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="640" y="383" textAnchor="middle" fill="#06b6d4" fontSize="12" fontWeight="600">vWF release</text>
-
-          {/* ANTIDIURESIS */}
-          <line x1="500" y1="400" x2="500" y2="430" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#avB)" />
-          <rect x="400" y="432" width="200" height="40" rx="8" fill={theme === "dark" ? "#1e3a5f" : "#dbeafe"} stroke="#3b82f6" strokeWidth="2" />
-          <text x="500" y="452" textAnchor="middle" fill="#3b82f6" fontSize="14" fontWeight="700">ANTIDIURESIS</text>
-          <text x="500" y="468" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1e40af"} fontSize="12">Water reabsorption</text>
-
-
-          {/* ═══ COLUMN 3: V1b + KATP (x ~810) ═══ */}
-          <text x="810" y="90" textAnchor="middle" fill="#a855f7" fontSize="16" fontWeight="700">V1b Receptor</text>
-          <text x="810" y="110" textAnchor="middle" fill={t.tM} fontSize="12">Anterior Pituitary</text>
-
-          <rect x="710" y="120" width="200" height="30" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <rect x="760" y="116" width="100" height="38" rx="6" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="810" y="140" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">V1b (7-TM)</text>
-
-          <circle cx="750" cy="96" r="16" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="750" y="100" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">AVP</text>
-          <line x1="760" y1="108" x2="770" y2="118" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-
-          {/* Gq → PLC → ACTH */}
-          <line x1="810" y1="154" x2="810" y2="178" stroke="#a855f7" strokeWidth="2" markerEnd="url(#avP)" />
-          <rect x="765" y="180" width="90" height="30" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="810" y="200" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">Gq</text>
-
-          <line x1="810" y1="210" x2="810" y2="238" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="770" y="240" width="80" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
-          <text x="810" y="259" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="700">PLC</text>
-
-          <line x1="810" y1="268" x2="810" y2="298" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#avO)" />
-          <rect x="760" y="300" width="100" height="28" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="810" y="319" textAnchor="middle" fill="#f59e0b" fontSize="13" fontWeight="600">IP3 / DAG</text>
-
-          <line x1="810" y1="328" x2="810" y2="362" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#avT)" />
-          <rect x="730" y="364" width="160" height="40" rx="8" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="2" />
-          <text x="810" y="384" textAnchor="middle" fill="#06b6d4" fontSize="14" fontWeight="700">ACTH Release</text>
-          <text x="810" y="400" textAnchor="middle" fill={theme === "dark" ? "#67e8f9" : "#0e7490"} fontSize="12">→ Cortisol (adrenal)</text>
-
-
-          {/* ═══ KATP CHANNEL BOX ═══ */}
-          <rect x="40" y="550" width="880" height="140" rx="10" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="480" y="578" textAnchor="middle" fill={t.tx} fontSize="16" fontWeight="700">KATP Channel Mechanism — Why Vasopressin Works in Catecholamine-Resistant Shock</text>
-
-          <text x="80" y="608" fill={t.tx} fontSize="13" fontWeight="600">In severe acidosis / sepsis:</text>
-          <text x="80" y="628" fill={t.tM} fontSize="13">1. Lactate / NO → KATP channels OPEN → K+ efflux → smooth muscle hyperpolarization</text>
-          <text x="80" y="648" fill={t.tM} fontSize="13">2. Hyperpolarized membrane → alpha-1 receptors cannot transduce signal → catecholamine resistance</text>
-          <text x="80" y="668" fill="#10b981" fontSize="13" fontWeight="600">3. Vasopressin V1a → PKC → directly CLOSES KATP channels → restores membrane potential → restores vascular tone</text>
-
-          {/* ═══ NET EFFECT ═══ */}
-          <rect x="200" y="710" width="560" height="50" rx="10" fill={theme === "dark" ? "#052e16" : "#dcfce7"} stroke="#10b981" strokeWidth="2" />
-          <text x="480" y="735" textAnchor="middle" fill="#10b981" fontSize="16" fontWeight="700">Non-adrenergic vasoconstriction + water retention + KATP rescue</text>
-          <text x="480" y="753" textAnchor="middle" fill={theme === "dark" ? "#6ee7b7" : "#166534"} fontSize="12">Catecholamine-sparing | No tachycardia | Synergistic with NE in septic shock</text>
-
-          {/* ═══ LEGEND ═══ */}
-          <rect x="60" y="782" width="840" height="140" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="90" y="806" fill={t.tx} fontSize="13" fontWeight="600">LEGEND</text>
-          <line x1="90" y1="812" x2="880" y2="812" stroke={t.bd} strokeWidth="0.5" />
-
-          <circle cx="90" cy="832" r="7" fill="#10b981" /><text x="104" y="837" fill={t.tM} fontSize="12">Vasopressin (AVP)</text>
-          <rect x="240" y="825" width="14" height="14" rx="3" fill={theme === "dark" ? "#fee2e2" : "#fee2e2"} stroke="#ef4444" strokeWidth="1" /><text x="260" y="837" fill={t.tM} fontSize="12">V1a (vasoconstriction)</text>
-          <rect x="430" y="825" width="14" height="14" rx="3" fill={theme === "dark" ? "#dbeafe" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1" /><text x="450" y="837" fill={t.tM} fontSize="12">V2 (antidiuresis)</text>
-          <rect x="600" y="825" width="14" height="14" rx="3" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="620" y="837" fill={t.tM} fontSize="12">V1b / G-proteins</text>
-          <rect x="760" y="825" width="14" height="14" rx="3" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="780" y="837" fill={t.tM} fontSize="12">Second messengers</text>
-
-          <text x="90" y="868" fill={t.tM} fontSize="12">7-TM = GPCR | PLC = phospholipase C | IP3/DAG = 2nd messengers | PKC/PKA = protein kinases</text>
-          <text x="90" y="886" fill={t.tM} fontSize="12">AQP2 = aquaporin-2 | KATP = ATP-sensitive K+ channel | vWF = von Willebrand factor</text>
-          <text x="90" y="904" fill={t.tM} fontSize="12">Highest V1a density: splanchnic bed | V1a receptors maintain function in acidosis (unlike alpha-1)</text>
-        </svg>
-        ) : (
-        <svg ref={svgRef} viewBox="0 0 800 680" style={{ width: "100%", maxWidth: "800px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
-          <defs>
-            <marker id="apAr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill={t.bl || "#3b82f6"} /></marker>
-          </defs>
-
-          {/* === TITLE === */}
-          <text x="400" y="32" textAnchor="middle" fill={t.tx} fontSize="18" fontWeight="700">Propofol at GABA-A Receptor</text>
-          <text x="400" y="56" textAnchor="middle" fill={t.tM} fontSize="13">Positive allosteric modulator + direct agonist at beta-subunit TM2/TM3 domains</text>
+          <line x1="155" y1="329" x2="155" y2="348" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
+          <rect x="120" y="349" width="70" height="20" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
+          <text x="155" y="363" textAnchor="middle" fill="#06b6d4" fontSize="9" fontWeight="700">MLCK</text>
+
+          {/* Final effect: Vasoconstriction */}
+          <line x1="155" y1="369" x2="155" y2="390" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
+          <rect x="85" y="391" width="140" height="32" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fecaca"} stroke="#ef4444" strokeWidth="2" />
+          <text x="155" y="407" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="10" fontWeight="700">VASOCONSTRICTION</text>
+          <text x="155" y="419" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="7">↑SVR → ↑MAP</text>
+
+
+          {/*  COLUMN 2: β / Gs PATHWAY (x center ~430)  */}
+          <text x="430" y="72" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="700">β Receptor</text>
+          <text x="430" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Cardiac Myocyte</text>
 
           {/* Cell membrane band */}
-          <rect x="60" y="230" width="680" height="80" rx="6" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <text x="80" y="275" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="13" fontWeight="500">CELL MEMBRANE</text>
-          <text x="680" y="222" fill={t.tM} fontSize="12" fontStyle="italic">Extracellular</text>
-          <text x="680" y="330" fill={t.tM} fontSize="12" fontStyle="italic">Intracellular</text>
+          <rect x="330" y="92" width="200" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
 
-          {/* Cl- pore (central channel) */}
-          <rect x="350" y="218" width="70" height="106" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke={t.bl || "#3b82f6"} strokeWidth="2" />
-          <text x="385" y="278" textAnchor="middle" fill={t.bl || "#3b82f6"} fontSize="13" fontWeight="600">Cl- PORE</text>
+          {/* β 7-TM receptor */}
+          <rect x="395" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="430" y="108" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="700">β (7-TM)</text>
 
-          {/* GABA-A receptor subunits - pentameric arrangement */}
-          {/* alpha subunit (left) */}
-          <rect x="268" y="228" width="86" height="86" rx="43" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="2" />
-          <text x="311" y="278" textAnchor="middle" fill="#60a5fa" fontSize="18" fontWeight="700">alpha</text>
+          {/* NE molecule */}
+          <circle cx="385" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
+          <text x="385" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
+          <line x1="393" y1="83" x2="400" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
 
-          {/* beta subunit (upper-left) */}
-          <rect x="292" y="170" width="78" height="60" rx="30" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="331" y="206" textAnchor="middle" fill="#a855f7" fontSize="18" fontWeight="700">beta</text>
+          {/* Gs protein */}
+          <line x1="430" y1="120" x2="430" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
+          <rect x="400" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="430" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gsα</text>
 
-          {/* gamma subunit (top) */}
-          <rect x="374" y="160" width="62" height="56" rx="28" fill={theme === "dark" ? "#0f2918" : "#dcfce7"} stroke="#4ade80" strokeWidth="2" />
-          <text x="405" y="194" textAnchor="middle" fill="#4ade80" fontSize="16" fontWeight="700">gamma</text>
+          {/* Adenylyl cyclase */}
+          <line x1="430" y1="158" x2="430" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <rect x="395" y="173" width="70" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="430" y="187" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="700">Adenylyl Cyclase</text>
 
-          {/* beta subunit (upper-right) */}
-          <rect x="415" y="170" width="78" height="60" rx="30" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="2" />
-          <text x="454" y="206" textAnchor="middle" fill="#a855f7" fontSize="18" fontWeight="700">beta</text>
+          {/* ATP → cAMP */}
+          <text x="380" y="200" fill={t.tM} fontSize="7" fontStyle="italic">ATP →</text>
+          <line x1="430" y1="193" x2="430" y2="210" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <rect x="402" y="211" width="56" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="430" y="225" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">↑cAMP</text>
 
-          {/* alpha subunit (right) */}
-          <rect x="416" y="228" width="86" height="86" rx="43" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="2" />
-          <text x="459" y="278" textAnchor="middle" fill="#60a5fa" fontSize="18" fontWeight="700">alpha</text>
+          {/* PKA */}
+          <line x1="430" y1="231" x2="430" y2="248" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
+          <rect x="405" y="249" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="430" y="263" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">PKA</text>
 
-          {/* Propofol molecules binding to beta subunits */}
-          <circle cx="278" cy="172" r="18" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="278" y="176" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">PROP</text>
-          <line x1="290" y1="184" x2="300" y2="192" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
+          {/* PKA targets fan out */}
+          <line x1="415" y1="269" x2="365" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
+          <line x1="430" y1="269" x2="430" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
+          <line x1="445" y1="269" x2="495" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
 
-          <circle cx="498" cy="172" r="18" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="498" y="176" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700">PROP</text>
-          <line x1="486" y1="184" x2="470" y2="192" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
+          {/* L-type Ca²⁺ */}
+          <rect x="325" y="296" width="80" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
+          <text x="365" y="310" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="600">L-type Ca²⁺</text>
+          <text x="365" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">↑Ca²⁺ influx</text>
 
-          {/* Binding site labels */}
-          <line x1="260" y1="254" x2="200" y2="138" stroke={t.wn || "#f59e0b"} strokeWidth="1.5" strokeDasharray="4,3" />
-          <rect x="110" y="120" width="100" height="26" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke={t.wn || "#f59e0b"} strokeWidth="1" />
-          <text x="160" y="138" textAnchor="middle" fill={t.wn || "#f59e0b"} fontSize="12" fontWeight="600">GABA site (alpha-beta)</text>
+          {/* RyR2 */}
+          <rect x="398" y="296" width="64" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
+          <text x="430" y="310" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="600">RyR2</text>
+          <text x="430" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">↑CICR</text>
 
-          <line x1="278" y1="154" x2="180" y2="92" stroke="#10b981" strokeWidth="1.5" strokeDasharray="4,3" />
-          <rect x="82" y="76" width="120" height="26" rx="4" fill={theme === "dark" ? "#052e16" : "#dcfce7"} stroke="#10b981" strokeWidth="1" />
-          <text x="142" y="94" textAnchor="middle" fill="#10b981" fontSize="12" fontWeight="600">Propofol (beta TM2/3)</text>
+          {/* Phospholamban */}
+          <rect x="470" y="296" width="75" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
+          <text x="507" y="310" textAnchor="middle" fill="#3b82f6" fontSize="7" fontWeight="600">Phospholamban</text>
+          <text x="507" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">↑SERCA2a</text>
 
-          {/* Cl- ion flow */}
-          <circle cx="376" cy="140" r="12" fill="none" stroke={t.bl || "#3b82f6"} strokeWidth="2" />
-          <text x="376" y="145" textAnchor="middle" fill={t.bl || "#3b82f6"} fontSize="12" fontWeight="600">Cl-</text>
-          <line x1="388" y1="155" x2="388" y2="352" stroke={t.bl || "#3b82f6"} strokeWidth="2.5" markerEnd="url(#apAr)" />
-          <circle cx="378" cy="370" r="12" fill="none" stroke={t.bl || "#3b82f6"} strokeWidth="2" />
-          <text x="378" y="375" textAnchor="middle" fill={t.bl || "#3b82f6"} fontSize="12" fontWeight="600">Cl-</text>
+          {/* Converge to effects */}
+          <line x1="365" y1="324" x2="400" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
+          <line x1="430" y1="324" x2="430" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
+          <line x1="507" y1="324" x2="470" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
 
-          {/* HYPERPOLARIZATION */}
-          <rect x="270" y="410" width="230" height="70" rx="8" fill={theme === "dark" ? "#0c1a30" : "#eff6ff"} stroke={t.bl || "#3b82f6"} strokeWidth="2" />
-          <text x="385" y="434" textAnchor="middle" fill={t.bl || "#3b82f6"} fontSize="15" fontWeight="700">HYPERPOLARIZATION</text>
-          <text x="385" y="454" textAnchor="middle" fill={t.t2 || "#64748b"} fontSize="13">-70 mV → -85 mV</text>
-          <text x="385" y="472" textAnchor="middle" fill={t.dg || "#ef4444"} fontSize="12" fontWeight="500">Action potential blocked</text>
+          {/* Inotropy + Lusitropy + Chronotropy */}
+          <rect x="355" y="351" width="150" height="22" rx="5" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
+          <text x="430" y="366" textAnchor="middle" fill="#06b6d4" fontSize="9" fontWeight="600">↑Ca²⁺ Transient Amplitude</text>
 
-          <line x1="385" y1="480" x2="385" y2="510" stroke={t.tM} strokeWidth="1.5" strokeDasharray="4,3" />
+          {/* Final cardiac effects */}
+          <line x1="430" y1="373" x2="430" y2="390" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
+          <rect x="345" y="391" width="170" height="32" rx="8" fill={theme === "dark" ? "#0c2d48" : "#bfdbfe"} stroke="#3b82f6" strokeWidth="2" />
+          <text x="430" y="406" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="9" fontWeight="700">INOTROPY + LUSITROPY</text>
+          <text x="430" y="418" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="7">↑Contractility + ↑Relaxation Rate</text>
 
-          {/* Clinical effect */}
-          <rect x="260" y="512" width="240" height="36" rx="8" fill={theme === "dark" ? "#14532d" : "#dcfce7"} stroke={t.ok || "#22c55e"} strokeWidth="2" />
-          <text x="380" y="535" textAnchor="middle" fill={t.ok || "#22c55e"} fontSize="13" fontWeight="700">Sedation → Amnesia → LOC</text>
+          {/* If/HCN chronotropy note */}
+          <line x1="455" y1="262" x2="530" y2="262" stroke={t.tM} strokeWidth="1" strokeDasharray="3,2" />
+          <text x="535" y="258" fill={t.tM} fontSize="7" fontStyle="italic">Also: If/HCN channels</text>
+          <text x="535" y="268" fill={t.tM} fontSize="7" fontStyle="italic">→ ↑Phase 4 slope → Chronotropy</text>
 
-          {/* Comparison box */}
-          <rect x="560" y="385" width="200" height="100" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="660" y="406" textAnchor="middle" fill={t.tx} fontSize="13" fontWeight="600">Cl- Channel Modulation</text>
-          <line x1="575" y1="412" x2="745" y2="412" stroke={t.bd} strokeWidth="1" />
-          <text x="580" y="432" fill="#10b981" fontSize="12">Propofol: +duration + direct gate</text>
-          <text x="580" y="452" fill="#10b981" fontSize="12">Barbs: +duration + direct gate</text>
-          <text x="580" y="472" fill={t.wn || "#f59e0b"} fontSize="12">BZDs: +frequency, NO direct gate</text>
 
-          {/* LEGEND */}
-          <rect x="60" y="572" width="680" height="90" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="90" y="596" fill={t.tx} fontSize="13" fontWeight="600">LEGEND</text>
-          <line x1="90" y1="602" x2="720" y2="602" stroke={t.bd} strokeWidth="0.5" />
-          <circle cx="90" cy="622" r="7" fill="#10b981" /><text x="104" y="627" fill={t.tM} fontSize="12">Propofol</text>
-          <circle cx="195" cy="622" r="7" fill="none" stroke={t.bl || "#3b82f6"} strokeWidth="2" /><text x="209" y="627" fill={t.tM} fontSize="12">Cl- ion</text>
-          <rect x="270" y="615" width="14" height="14" rx="7" fill="none" stroke="#60a5fa" strokeWidth="1.5" /><text x="290" y="627" fill={t.tM} fontSize="12">alpha subunit</text>
-          <rect x="380" y="615" width="14" height="14" rx="7" fill="none" stroke="#a855f7" strokeWidth="1.5" /><text x="400" y="627" fill={t.tM} fontSize="12">beta subunit</text>
-          <rect x="486" y="615" width="14" height="14" rx="7" fill="none" stroke="#4ade80" strokeWidth="1.5" /><text x="506" y="627" fill={t.tM} fontSize="12">gamma subunit</text>
-          <text x="90" y="650" fill={t.tM} fontSize="12">GABA-A = pentameric ligand-gated Cl- channel (2alpha + 2beta + 1gamma) | TM = transmembrane domain | LOC = loss of consciousness</text>
+          {/*  COLUMN 3: α₂ / Gi PATHWAY (x center ~680)  */}
+          <text x="680" y="72" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">α₂ Receptor</text>
+          <text x="680" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Presynaptic Terminal</text>
+
+          {/* Membrane band */}
+          <rect x="590" y="92" width="180" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
+
+          {/* α₂ receptor */}
+          <rect x="645" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
+          <text x="680" y="108" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">α₂ (7-TM)</text>
+
+          {/* NE molecule */}
+          <circle cx="635" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
+          <text x="635" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
+          <line x1="643" y1="83" x2="650" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
+
+          {/* Gi protein */}
+          <line x1="680" y1="120" x2="680" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
+          <rect x="650" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="680" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Giα</text>
+
+          {/* Inhibit AC */}
+          <line x1="680" y1="158" x2="680" y2="175" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
+          <rect x="640" y="176" width="80" height="20" rx="4" fill={theme === "dark" ? "#1c0505" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.2" />
+          <text x="680" y="190" textAnchor="middle" fill="#ef4444" fontSize="8" fontWeight="700">⊘ Adenylyl Cyclase</text>
+
+          {/* ↓cAMP */}
+          <line x1="680" y1="196" x2="680" y2="213" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
+          <rect x="652" y="214" width="56" height="20" rx="4" fill={theme === "dark" ? "#1c0505" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.2" />
+          <text x="680" y="228" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">↓cAMP</text>
+
+          {/* Gβγ → GIRK */}
+          <line x1="710" y1="148" x2="740" y2="148" stroke={t.tM} strokeWidth="1" strokeDasharray="3,2" />
+          <text x="745" y="144" fill={t.tM} fontSize="7" fontStyle="italic">Gβγ → GIRK K⁺</text>
+          <text x="745" y="154" fill={t.tM} fontSize="7" fontStyle="italic">→ hyperpolarization</text>
+
+          {/* Negative feedback */}
+          <line x1="680" y1="234" x2="680" y2="260" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
+          <rect x="610" y="261" width="140" height="32" rx="8" fill={theme === "dark" ? "#450a0a" : "#fecaca"} stroke="#ef4444" strokeWidth="2" />
+          <text x="680" y="277" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="9" fontWeight="700">NEGATIVE FEEDBACK</text>
+          <text x="680" y="289" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="7">↓NE release from terminal</text>
+
+          {/* Same target note */}
+          <rect x="618" y="302" width="125" height="18" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="680" y="314" textAnchor="middle" fill={t.tM} fontSize="7" fontStyle="italic">Same target as clonidine/dexmed</text>
+
+
+          {/*  BARORECEPTOR REFLEX ARC (bottom)  */}
+          <rect x="55" y="450" width="690" height="100" rx="10" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1.5" />
+          <text x="400" y="468" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="700">BARORECEPTOR REFLEX — The Clinical Paradox</text>
+
+          {/* Flow: ↑MAP → Baroreceptors → ↑CN IX/X → NTS → ↑Vagal → ↓HR */}
+          <rect x="72" y="482" width="65" height="28" rx="5" fill={theme === "dark" ? "#7f1d1d" : "#fecaca"} stroke="#ef4444" strokeWidth="1.2" />
+          <text x="104" y="497" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="8" fontWeight="600">↑MAP</text>
+          <text x="104" y="507" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="6">(from alpha-1)</text>
+
+          <line x1="137" y1="496" x2="162" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
+
+          <rect x="163" y="482" width="90" height="28" rx="5" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="208" y="497" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">Carotid / Aortic</text>
+          <text x="208" y="506" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">Baroreceptors</text>
+
+          <line x1="253" y1="496" x2="278" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
+
+          <rect x="279" y="482" width="72" height="28" rx="5" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="315" y="497" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">↑CN IX / X</text>
+          <text x="315" y="506" textAnchor="middle" fill="#f59e0b" fontSize="7">afferents</text>
+
+          <line x1="351" y1="496" x2="376" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
+
+          <rect x="377" y="482" width="55" height="28" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.2" />
+          <text x="404" y="500" textAnchor="middle" fill="#a855f7" fontSize="8" fontWeight="600">NTS</text>
+
+          <line x1="432" y1="496" x2="457" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
+
+          <rect x="458" y="482" width="75" height="28" rx="5" fill={theme === "dark" ? "#0c2d48" : "#bfdbfe"} stroke="#3b82f6" strokeWidth="1.2" />
+          <text x="495" y="497" textAnchor="middle" fill="#3b82f6" fontSize="7" fontWeight="600">↑Vagal Tone</text>
+          <text x="495" y="506" textAnchor="middle" fill="#3b82f6" fontSize="7">(parasympathetic)</text>
+
+          <line x1="533" y1="496" x2="558" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
+
+          <rect x="559" y="478" width="170" height="36" rx="8" fill={theme === "dark" ? "#14532d" : "#dcfce7"} stroke="#10b981" strokeWidth="2" />
+          <text x="644" y="496" textAnchor="middle" fill="#10b981" fontSize="10" fontWeight="700">REFLEX BRADYCARDIA</text>
+          <text x="644" y="508" textAnchor="middle" fill="#10b981" fontSize="7" fontWeight="500">Offsets β chronotropy → NET HR ≈ unchanged</text>
+
+          {/* Key distinction callout */}
+          <text x="400" y="540" textAnchor="middle" fill={t.tM} fontSize="8" fontWeight="500" fontStyle="italic">This reflex is WHY NE ≠ epinephrine. Epi's β₂ vasodilation prevents the MAP spike → no baroreceptor trigger → tachycardia dominates.</text>
+
+
+          {/*  NET HEMODYNAMIC EFFECT  */}
+          <rect x="170" y="564" width="460" height="50" rx="10" fill={theme === "dark" ? "#052e16" : "#d1fae5"} stroke="#10b981" strokeWidth="2" />
+          <text x="400" y="584" textAnchor="middle" fill="#10b981" fontSize="13" fontWeight="700">NET EFFECT: ↑MAP + ↑CO + ↔/↓HR</text>
+          <text x="400" y="600" textAnchor="middle" fill={theme === "dark" ? "#6ee7b7" : "#047857"} fontSize="9">Ideal vasopressor profile — vasoconstriction WITH cardiac output preservation</text>
+
+          {/* Metabolism note */}
+          <rect x="100" y="626" width="600" height="32" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="400" y="641" textAnchor="middle" fill={t.tx} fontSize="9" fontWeight="600">Termination: Uptake-1 (neuronal reuptake) → COMT/MAO → normetanephrine → VMA | t½ = 2.4 min | Zero CYP450</text>
+          <text x="400" y="653" textAnchor="middle" fill={t.tM} fontSize="8">Context-INSENSITIVE offset — no accumulation regardless of infusion duration</text>
+
+          {/*  LEGEND  */}
+          <rect x="55" y="672" width="690" height="76" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="80" y="690" fill={t.tx} fontSize="9" fontWeight="600">LEGEND</text>
+          <line x1="80" y1="694" x2="730" y2="694" stroke={t.bd} strokeWidth="0.5" />
+
+          <circle cx="80" cy="710" r="5" fill="#10b981" /><text x="90" y="714" fill={t.tM} fontSize="8">Norepinephrine</text>
+          <rect x="175" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#fee2e2" : "#fee2e2"} stroke="#ef4444" strokeWidth="1" /><text x="190" y="714" fill={t.tM} fontSize="8">α receptors / inhibition</text>
+          <rect x="310" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#dbeafe" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1" /><text x="325" y="714" fill={t.tM} fontSize="8">β / ions (Ca²⁺)</text>
+          <rect x="420" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="435" y="714" fill={t.tM} fontSize="8">G-proteins</text>
+          <rect x="520" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="535" y="714" fill={t.tM} fontSize="8">Second messengers</text>
+          <rect x="650" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#cffafe" : "#cffafe"} stroke="#06b6d4" strokeWidth="1" /><text x="665" y="714" fill={t.tM} fontSize="8">Effectors</text>
+
+          <text x="80" y="736" fill={t.tM} fontSize="8">7-TM = seven-transmembrane (GPCR) | PLC = phospholipase C | IP₃ = inositol trisphosphate | DAG = diacylglycerol | PKC/PKA = protein kinase C/A</text>
+          <text x="80" y="746" fill={t.tM} fontSize="8">MLCK = myosin light chain kinase | SR = sarcoplasmic reticulum | CICR = Ca²⁺-induced Ca²⁺ release | GIRK = G-protein inwardly rectifying K⁺ channel</text>
+        </svg>
+        ) : item.id === "vasopressin" ? (
+        <svg ref={svgRef} viewBox="0 0 800 700" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
+          <defs>
+            <marker id="avB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" /></marker>
+            <marker id="avO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b" /></marker>
+            <marker id="avR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" /></marker>
+            <marker id="avT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#06b6d4" /></marker>
+            <marker id="avP" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a855f7" /></marker>
+            <marker id="avGr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={t.tM} /></marker>
+          </defs>
+
+          {/* Title */}
+          <text x="400" y="26" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="700">Vasopressin (AVP) — Non-Adrenergic Signal Transduction</text>
+          <text x="400" y="44" textAnchor="middle" fill={t.tM} fontSize="10">Three receptor subtypes: V (Gq) → vasoconstriction | V₂ (Gs) → antidiuresis | V (Gq) → ACTH release</text>
+
+          {/*  COLUMN 1: V / Gq PATHWAY (x ~165)  */}
+          <text x="165" y="72" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">V Receptor</text>
+          <text x="165" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Vascular Smooth Muscle</text>
+
+          {/* Membrane */}
+          <rect x="55" y="92" width="220" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
+          <text x="60" y="108" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="7" fontWeight="500">MEMBRANE</text>
+
+          {/* V receptor */}
+          <rect x="130" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
+          <text x="165" y="108" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">V (7-TM)</text>
+
+          {/* AVP molecule */}
+          <circle cx="120" cy="76" r="11" fill="#8b5cf6" stroke="#a78bfa" strokeWidth="2" />
+          <text x="120" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">AVP</text>
+          <line x1="128" y1="83" x2="135" y2="90" stroke="#a78bfa" strokeWidth="2" strokeDasharray="3,2" />
+
+          {/* Gq */}
+          <line x1="165" y1="120" x2="165" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
+          <rect x="130" y="136" width="70" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="165" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gq / G11</text>
+
+          {/* PLC */}
+          <line x1="165" y1="158" x2="165" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="135" y="173" width="60" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="165" y="187" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">PLC</text>
+
+          {/* IP₃ and DAG */}
+          <line x1="150" y1="193" x2="110" y2="215" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#avO)" />
+          <line x1="180" y1="193" x2="220" y2="215" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#avO)" />
+
+          <rect x="78" y="216" width="60" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="108" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">IP₃</text>
+
+          <rect x="195" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="222" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">DAG</text>
+
+          {/* IP₃ → SR Ca²⁺ */}
+          <line x1="108" y1="236" x2="108" y2="255" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#avB)" />
+          <rect x="70" y="256" width="78" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="109" y="270" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">SR → Ca²⁺</text>
+          <text x="109" y="280" textAnchor="middle" fill="#3b82f6" fontSize="7">cytoplasmic release</text>
+
+          {/* DAG → PKC */}
+          <line x1="222" y1="236" x2="222" y2="255" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="197" y="256" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="222" y="270" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">PKC</text>
+
+          {/* PKC → closes KATP (branching right) */}
+          <line x1="247" y1="266" x2="265" y2="266" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="3,2" />
+          <text x="270" y="262" fill="#ef4444" fontSize="7" fontWeight="600">CLOSES</text>
+          <text x="270" y="272" fill="#ef4444" fontSize="7" fontWeight="600">KATP </text>
+
+          {/* Converge → Ca²⁺-CaM → MLCK */}
+          <line x1="109" y1="284" x2="150" y2="305" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#avB)" />
+          <line x1="222" y1="276" x2="180" y2="305" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#avO)" />
+          <rect x="115" y="306" width="100" height="22" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="165" y="321" textAnchor="middle" fill="#3b82f6" fontSize="9" fontWeight="600">Ca²⁺-CaM → MLCK</text>
+
+          {/* Vasoconstriction */}
+          <line x1="165" y1="328" x2="165" y2="348" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#avT)" />
+          <rect x="90" y="349" width="150" height="34" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fecaca"} stroke="#ef4444" strokeWidth="2" />
+          <text x="165" y="366" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="10" fontWeight="700">VASOCONSTRICTION</text>
+          <text x="165" y="378" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="7">↑SVR → ↑MAP (non-adrenergic)</text>
+
+          {/* Efferent > Afferent note */}
+          <rect x="65" y="392" width="200" height="20" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="165" y="406" textAnchor="middle" fill={t.tM} fontSize="7" fontStyle="italic">Efferent arteriole {">"}{">>"} Afferent → ↑GFP → ↑UOP</text>
+
+
+          {/*  COLUMN 2: V₂ / Gs PATHWAY (x ~440)  */}
+          <text x="440" y="72" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="700">V₂ Receptor</text>
+          <text x="440" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Renal Collecting Duct</text>
+
+          {/* Membrane */}
+          <rect x="340" y="92" width="200" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
+
+          {/* V₂ receptor */}
+          <rect x="405" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="440" y="108" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="700">V₂ (7-TM)</text>
+
+          {/* AVP */}
+          <circle cx="395" cy="76" r="11" fill="#8b5cf6" stroke="#a78bfa" strokeWidth="2" />
+          <text x="395" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">AVP</text>
+          <line x1="403" y1="83" x2="410" y2="90" stroke="#a78bfa" strokeWidth="2" strokeDasharray="3,2" />
+
+          {/* Gs */}
+          <line x1="440" y1="120" x2="440" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
+          <rect x="410" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="440" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gsα</text>
+
+          {/* AC → cAMP */}
+          <line x1="440" y1="158" x2="440" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="405" y="173" width="70" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="440" y="187" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="700">Adenylyl Cyclase</text>
+
+          <line x1="440" y1="193" x2="440" y2="210" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="412" y="211" width="56" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="440" y="225" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">↑cAMP</text>
+
+          {/* PKA */}
+          <line x1="440" y1="231" x2="440" y2="248" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="415" y="249" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
+          <text x="440" y="263" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">PKA</text>
+
+          {/* AQP2 translocation */}
+          <line x1="440" y1="269" x2="440" y2="295" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#avB)" />
+          <rect x="390" y="296" width="100" height="30" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
+          <text x="440" y="311" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">AQP2 → Apical</text>
+          <text x="440" y="322" textAnchor="middle" fill="#3b82f6" fontSize="7">Membrane Insertion</text>
+
+          {/* Water reabsorption */}
+          <line x1="440" y1="326" x2="440" y2="348" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#avT)" />
+          <rect x="365" y="349" width="150" height="34" rx="8" fill={theme === "dark" ? "#0c2d48" : "#bfdbfe"} stroke="#3b82f6" strokeWidth="2" />
+          <text x="440" y="366" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="10" fontWeight="700">WATER REABSORPTION</text>
+          <text x="440" y="378" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="7">↑Urine concentration + ↓Free water excretion</text>
+
+          {/* vWF / Factor VIII note */}
+          <rect x="365" y="392" width="150" height="20" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="440" y="406" textAnchor="middle" fill={t.tM} fontSize="7" fontStyle="italic">Endothelial V₂: ↑vWF + Factor VIII (DDAVP basis)</text>
+
+
+          {/*  COLUMN 3: V (small) + KATP detail (x ~680)  */}
+          <text x="680" y="72" textAnchor="middle" fill="#a855f7" fontSize="13" fontWeight="700">V Receptor</text>
+          <text x="680" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Anterior Pituitary</text>
+
+          {/* Membrane */}
+          <rect x="590" y="92" width="180" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
+
+          {/* V receptor */}
+          <rect x="645" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="680" y="108" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">V (7-TM)</text>
+
+          {/* AVP */}
+          <circle cx="635" cy="76" r="11" fill="#8b5cf6" stroke="#a78bfa" strokeWidth="2" />
+          <text x="635" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">AVP</text>
+          <line x1="643" y1="83" x2="650" y2="90" stroke="#a78bfa" strokeWidth="2" strokeDasharray="3,2" />
+
+          {/* Gq → ACTH */}
+          <line x1="680" y1="120" x2="680" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
+          <rect x="650" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="680" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gq</text>
+
+          <line x1="680" y1="158" x2="680" y2="176" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
+          <rect x="640" y="177" width="80" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="680" y="192" textAnchor="middle" fill="#a855f7" fontSize="9" fontWeight="600">PLC → Ca²⁺</text>
+
+          <line x1="680" y1="199" x2="680" y2="218" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
+          <rect x="625" y="219" width="110" height="32" rx="8" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
+          <text x="680" y="236" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">ACTH Secretion</text>
+          <text x="680" y="247" textAnchor="middle" fill="#f59e0b" fontSize="7">→ Cortisol from adrenals</text>
+
+          {/* Stress response note */}
+          <rect x="618" y="260" width="125" height="18" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="680" y="272" textAnchor="middle" fill={t.tM} fontSize="7" fontStyle="italic">Links VP to HPA axis / stress response</text>
+
+
+          {/*  KATP CHANNEL MECHANISM BOX (bottom-right)  */}
+          <rect x="560" y="300" width="215" height="112" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1.5" />
+          <text x="667" y="318" textAnchor="middle" fill={t.tx} fontSize="10" fontWeight="700">KATP Channel Mechanism</text>
+          <line x1="575" y1="324" x2="760" y2="324" stroke={t.bd} strokeWidth="0.5" />
+          <text x="575" y="340" fill="#ef4444" fontSize="8" fontWeight="600">In Septic Shock:</text>
+          <text x="575" y="352" fill={t.tM} fontSize="7">↓ATP + ↑H⁺ + ↑NO → KATP OPEN</text>
+          <text x="575" y="364" fill={t.tM} fontSize="7">→ K⁺ efflux → hyperpolarization</text>
+          <text x="575" y="376" fill={t.tM} fontSize="7">→ VGCCs stuck closed → vasoplegia</text>
+          <text x="575" y="392" fill="#10b981" fontSize="8" fontWeight="600">Vasopressin Rescue:</text>
+          <text x="575" y="404" fill="#10b981" fontSize="7">V → PKC → CLOSES KATP → restores</text>
+          <text x="704" y="404" fill="#10b981" fontSize="7">Ca²⁺ entry</text>
+
+
+          {/*  NET EFFECT  */}
+          <rect x="55" y="440" width="690" height="55" rx="10" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1.5" />
+          <text x="400" y="460" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="700">WHY VASOPRESSIN WORKS WHEN CATECHOLAMINES FAIL</text>
+          <text x="400" y="478" textAnchor="middle" fill={t.tM} fontSize="9">Non-adrenergic pathway | V receptors maintain affinity in acidosis | Closes KATP channels directly via PKC</text>
+          <text x="400" y="490" textAnchor="middle" fill={t.tM} fontSize="9">No pulmonary vasoconstriction | Efferent {">"} Afferent renal vasoconstriction → preserves GFR | Inhibits iNOS</text>
+
+          {/*  NET HEMODYNAMIC  */}
+          <rect x="170" y="510" width="460" height="50" rx="10" fill={theme === "dark" ? "#1e1b4b" : "#e0e7ff"} stroke="#8b5cf6" strokeWidth="2" />
+          <text x="400" y="530" textAnchor="middle" fill="#8b5cf6" fontSize="13" fontWeight="700">NET: ↑MAP + ↔CO + ↔HR + ↑UOP</text>
+          <text x="400" y="546" textAnchor="middle" fill={theme === "dark" ? "#c4b5fd" : "#6d28d9"} fontSize="9">Non-adrenergic vasopressor — catecholamine-sparing — pulmonary-sparing</text>
+
+          {/* Metabolism note */}
+          <rect x="100" y="574" width="600" height="28" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="400" y="589" textAnchor="middle" fill={t.tx} fontSize="9" fontWeight="600">Metabolism: Hepatic/renal peptidases (serine protease, carboxypeptidase) | t½ = 10–20 min | Zero CYP450 | Not COMT/MAO</text>
+          <text x="400" y="599" textAnchor="middle" fill={t.tM} fontSize="8">Deficiency in sepsis: posterior pituitary stores deplete within 24–48h → exogenous VP = hormone replacement</text>
+
+          {/*  LEGEND  */}
+          <rect x="55" y="618" width="690" height="68" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="80" y="636" fill={t.tx} fontSize="9" fontWeight="600">LEGEND</text>
+          <line x1="80" y1="640" x2="730" y2="640" stroke={t.bd} strokeWidth="0.5" />
+
+          <circle cx="80" cy="656" r="5" fill="#8b5cf6" /><text x="90" y="660" fill={t.tM} fontSize="8">Vasopressin (AVP)</text>
+          <rect x="185" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#fee2e2" : "#fee2e2"} stroke="#ef4444" strokeWidth="1" /><text x="200" y="660" fill={t.tM} fontSize="8">V (vasoconstriction)</text>
+          <rect x="320" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#dbeafe" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1" /><text x="335" y="660" fill={t.tM} fontSize="8">V₂ (antidiuresis)</text>
+          <rect x="445" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="460" y="660" fill={t.tM} fontSize="8">V / G-proteins</text>
+          <rect x="570" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="585" y="660" fill={t.tM} fontSize="8">2nd messengers</text>
+
+          <text x="80" y="678" fill={t.tM} fontSize="8">7-TM = GPCR | PLC = phospholipase C | IP₃/DAG = 2nd messengers | PKC/PKA = protein kinases | AQP2 = aquaporin-2 | KATP = ATP-sensitive K⁺ channel | vWF = von Willebrand factor</text>
+        </svg>
+        ) : (
+        <svg ref={svgRef} viewBox="0 0 800 580" style={{ width: "100%", maxWidth: "800px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
+          <text x="400" y="30" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="600">Propofol at GABA-A Receptor</text>
+          <rect x="50" y="200" width="700" height="70" rx="6" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.5" />
+          <text x="65" y="238" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="10">CELL MEMBRANE</text>
+          <text x="680" y="192" fill={t.tM} fontSize="10" fontStyle="italic">Extracellular</text>
+          <text x="680" y="288" fill={t.tM} fontSize="10" fontStyle="italic">Intracellular</text>
+          <rect x="340" y="188" width="60" height="96" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke={t.bl} strokeWidth="1.5" />
+          <text x="370" y="242" textAnchor="middle" fill={t.bl} fontSize="9" fontWeight="500">Cl⁻ PORE</text>
+          <rect x="268" y="198" width="76" height="76" rx="38" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="1.5" />
+          <text x="306" y="240" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="700">α</text>
+          <rect x="295" y="152" width="66" height="52" rx="26" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="328" y="182" textAnchor="middle" fill="#a855f7" fontSize="14" fontWeight="700">β</text>
+          <rect x="365" y="146" width="50" height="46" rx="23" fill={theme === "dark" ? "#0f2918" : "#dcfce7"} stroke="#4ade80" strokeWidth="1.5" />
+          <text x="390" y="174" textAnchor="middle" fill="#4ade80" fontSize="14" fontWeight="700">γ</text>
+          <rect x="405" y="152" width="66" height="52" rx="26" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
+          <text x="438" y="182" textAnchor="middle" fill="#a855f7" fontSize="14" fontWeight="700">β</text>
+          <rect x="404" y="198" width="76" height="76" rx="38" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="1.5" />
+          <text x="442" y="240" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="700">α</text>
+          <circle cx="280" cy="155" r="14" fill="#10b981" stroke="#34d399" strokeWidth="2" /><text x="280" y="159" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="700">PROP</text>
+          <line x1="288" y1="165" x2="302" y2="170" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
+          <circle cx="480" cy="155" r="14" fill="#10b981" stroke="#34d399" strokeWidth="2" /><text x="480" y="159" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="700">PROP</text>
+          <line x1="472" y1="165" x2="458" y2="170" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
+          <line x1="260" y1="218" x2="210" y2="120" stroke={t.wn} strokeWidth="1" strokeDasharray="3,3" />
+          <rect x="130" y="107" width="82" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke={t.wn} strokeWidth="1" /><text x="171" y="121" textAnchor="middle" fill={t.wn} fontSize="9" fontWeight="500">GABA site (α-β)</text>
+          <line x1="280" y1="141" x2="190" y2="80" stroke="#10b981" strokeWidth="1" strokeDasharray="3,3" />
+          <rect x="95" y="67" width="100" height="20" rx="4" fill={theme === "dark" ? "#052e16" : "#dcfce7"} stroke="#10b981" strokeWidth="1" /><text x="145" y="81" textAnchor="middle" fill="#10b981" fontSize="9" fontWeight="500">Propofol (β TM2/3)</text>
+          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={t.bl} /></marker></defs>
+          <circle cx="362" cy="118" r="7" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="362" y="122" textAnchor="middle" fill={t.bl} fontSize="7" fontWeight="600">Cl⁻</text>
+          <line x1="370" y1="130" x2="370" y2="305" stroke={t.bl} strokeWidth="2" markerEnd="url(#ar)" />
+          <circle cx="358" cy="320" r="7" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="358" y="324" textAnchor="middle" fill={t.bl} fontSize="7" fontWeight="600">Cl⁻</text>
+          <rect x="260" y="360" width="220" height="65" rx="8" fill={theme === "dark" ? "#0c1a30" : "#eff6ff"} stroke={t.bl} strokeWidth="1.5" />
+          <text x="370" y="382" textAnchor="middle" fill={t.bl} fontSize="12" fontWeight="600">HYPERPOLARIZATION</text>
+          <text x="370" y="398" textAnchor="middle" fill={t.t2} fontSize="10">−70 mV → −85 mV</text>
+          <text x="370" y="414" textAnchor="middle" fill={t.dg} fontSize="10" fontWeight="500">Action potential blocked</text>
+          <line x1="370" y1="425" x2="370" y2="450" stroke={t.tM} strokeWidth="1" strokeDasharray="4,3" />
+          <rect x="250" y="450" width="240" height="35" rx="8" fill={theme === "dark" ? "#14532d" : "#dcfce7"} stroke={t.ok} strokeWidth="1.5" />
+          <text x="370" y="472" textAnchor="middle" fill={t.ok} fontSize="10" fontWeight="600">Sedation → Amnesia → LOC</text>
+          <rect x="555" y="340" width="185" height="90" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <text x="647" y="358" textAnchor="middle" fill={t.tx} fontSize="10" fontWeight="600">Cl⁻ Channel Modulation</text>
+          <line x1="570" y1="365" x2="725" y2="365" stroke={t.bd} strokeWidth="1" />
+          <text x="570" y="382" fill="#10b981" fontSize="9">Propofol: ↑ duration + direct gate</text>
+          <text x="570" y="398" fill="#10b981" fontSize="9">Barbs: ↑ duration + direct gate</text>
+          <text x="570" y="414" fill={t.wn} fontSize="9">BZDs: ↑ frequency, NO direct gate</text>
+          <rect x="50" y="520" width="700" height="38" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
+          <circle cx="80" cy="539" r="5" fill="#10b981" /><text x="90" y="543" fill={t.tM} fontSize="9">Propofol</text>
+          <circle cx="165" cy="539" r="5" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="175" y="543" fill={t.tM} fontSize="9">Cl⁻</text>
+          <rect x="225" y="534" width="10" height="10" rx="5" fill="none" stroke="#60a5fa" strokeWidth="1" /><text x="240" y="543" fill={t.tM} fontSize="9">α subunit</text>
+          <rect x="305" y="534" width="10" height="10" rx="5" fill="none" stroke="#a855f7" strokeWidth="1" /><text x="320" y="543" fill={t.tM} fontSize="9">β subunit</text>
+          <rect x="395" y="534" width="10" height="10" rx="5" fill="none" stroke="#4ade80" strokeWidth="1" /><text x="410" y="543" fill={t.tM} fontSize="9">γ subunit</text>
         </svg>
         )}
-
       </div>}
     </div>
   </div>;
