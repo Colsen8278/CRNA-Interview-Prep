@@ -1,7 +1,7 @@
 {
-  "name": "crna-study-site",
+  "name": "crna-interview-prep",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,9 +13,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
     "@vitejs/plugin-react": "^4.3.4",
-    "tailwindcss": "^4.1.18",
     "vite": "^6.0.0"
   }
 }
