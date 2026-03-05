@@ -3394,6 +3394,398 @@ function VentModeWaveform({ modeKey, modeColor, t }) {
   );
 }
 
+// ── Extra Vent Page Diagrams ──────────────────────────────────────────────────
+
+function genWaveformScenarioData(scenId) {
+  const N=300,P=[],F=[],V=[],cycles=2;
+  for(let i=0;i<N;i++){
+    const tg=(i/N)*cycles,ph=tg%1;
+    let p=0.1,f=0,v=0;
+    switch(scenId){
+      case 'vc_normal':{const ie=0.27,vt=0.55,peep=0.1,ppk=0.70,ppl=0.55;if(ph<ie){p=peep+(ppk-peep)*(ph/ie);f=0.9;v=ph/ie*vt;}else{const ep=(ph-ie)/(1-ie);p=peep+(ppl-peep)*Math.exp(-ep*4);f=-0.50*Math.exp(-ep*2.5);v=vt*(1-ep*0.97);}break;}
+      case 'pc_normal':{const ie=0.30,vt=0.55,peep=0.1,pset=0.65;if(ph<ie){p=pset;f=0.85*Math.exp(-(ph/ie)*2);v=vt*(1-Math.exp(-(ph/ie)*3));}else{const ep=(ph-ie)/(1-ie);p=peep+(pset-peep)*Math.exp(-ep*3.5);f=-0.45*Math.exp(-ep*2.5);v=vt*(1-ep);}break;}
+      case 'auto_peep':{const ie=0.35,vt=0.55,peep=0.1,ppk=0.76,ppl=0.62,iP=0.14;if(ph<ie){p=peep+iP+(ppk-peep)*(ph/ie);f=0.9;v=ph/ie*vt;}else{const ep=(ph-ie)/(1-ie);f=-0.55*Math.exp(-ep*1.8)+0.12;p=peep+iP+(ppl-peep)*Math.exp(-ep*2.5);v=Math.max(0,vt*(1-ep*0.85));}break;}
+      case 'bronchospasm':{const ie=0.27,vt=0.55,peep=0.1,ppk=0.88,ppl=0.57;if(ph<ie){p=peep+(ppk-peep)*(ph/ie);f=0.9;v=ph/ie*vt;}else{const ep=(ph-ie)/(1-ie);f=-0.55*Math.pow(ep,0.4)*Math.exp(-ep*0.8);p=peep+(ppl-peep)*Math.exp(-ep*4);v=vt*Math.exp(-ep*1.2);}break;}
+      case 'compliance':{const ie=0.27,vt=0.50,peep=0.1,ppk=0.90,ppl=0.84;if(ph<ie){p=peep+(ppk-peep)*(ph/ie);f=0.9;v=ph/ie*vt;}else{const ep=(ph-ie)/(1-ie);p=peep+(ppl-peep)*Math.exp(-ep*4);f=-0.5*Math.exp(-ep*2.5);v=vt*(1-ep);}break;}
+      case 'cuff_leak':{const ie=0.27,peep=0.1,ppk=0.65,ppl=0.50;if(ph<ie){p=peep+(ppk-peep)*(ph/ie);f=0.9;v=ph/ie*0.55;}else{const ep=(ph-ie)/(1-ie);p=peep+(ppl-peep)*Math.exp(-ep*4);f=-0.35*Math.exp(-ep*2.5);v=Math.max(0,0.55-ep*0.55*0.65);}break;}
+      default:break;
+    }
+    P.push(Math.max(0.01,Math.min(0.99,p)));
+    F.push(Math.max(-1,Math.min(1,f)));
+    V.push(Math.max(0,Math.min(0.99,v)));
+  }
+  return {P,F,V};
+}
+
+function genPVLoopPts(scenId) {
+  const pts=[],N=80;
+  for(let i=0;i<=N;i++){
+    const t2=i/N;let p,v;
+    if(scenId==='normal'){
+      if(t2<=0.5){const r=t2*2;p=5+r*20;v=r*r*510;}
+      else{const r=1-(t2-0.5)*2;p=5+r*20;v=r*510*(1-0.09*(1-r));}
+    }else if(scenId==='ards'){
+      if(t2<=0.5){const r=t2*2;p=5+r*30;v=r<0.17?r*105:r<0.83?18+(r-0.17)*630:410+(r-0.83)*60;}
+      else{const r=1-(t2-0.5)*2;p=5+r*30;v=Math.max(0,r<0.17?r*90:r*420);}
+    }else{
+      if(t2<=0.5){const r=t2*2;p=8+r*17;v=r*530;}
+      else{const r=1-(t2-0.5)*2;p=8+r*17;v=r*530*(1-0.07*(1-r));}
+    }
+    pts.push({p:Math.min(40,Math.max(0,p)),v:Math.min(600,Math.max(0,v))});
+  }
+  return pts;
+}
+
+function CircleSystemDiagram({t}) {
+  const [tick,setTick]=useState(0);
+  useEffect(()=>{const id=setInterval(()=>setTick(v=>(v+1)%240),45);return()=>clearInterval(id);},[]);
+  const W=580,H=330;
+  const wpts=[{x:290,y:50},{x:450,y:95},{x:505,y:185},{x:440,y:278},{x:290,y:300},{x:148,y:278},{x:82,y:185},{x:145,y:95},{x:290,y:50}];
+  const getPos=(prog)=>{
+    const seg=wpts.length-1,t2=((prog%1)+1)%1*seg,i=Math.floor(t2),fr=t2-i;
+    const a=wpts[Math.min(i,seg-1)],b=wpts[Math.min(i+1,seg)];
+    return {x:a.x+(b.x-a.x)*fr,y:a.y+(b.y-a.y)*fr};
+  };
+  const dots=Array.from({length:10},(_,i)=>{
+    const prog=((tick/240)+(i/10))%1,pos=getPos(prog);
+    const col=prog<0.12||prog>0.88?t.ac:prog<0.5?'#f59e0b':'#3b82f6';
+    return {...pos,color:col};
+  });
+  const comps=[
+    {x:290,y:50,label:'PATIENT',sub:'ETT / Mask',color:t.ac,isCircle:true,r:26},
+    {x:450,y:95,label:'EXP VALVE',sub:'Unidirectional',color:'#f59e0b',w:84,h:34},
+    {x:505,y:185,label:'CO\u2082 ABSORBER',sub:'Soda Lime',color:'#94a3b8',w:88,h:38},
+    {x:290,y:300,label:'BELLOWS / FGF',sub:'O\u2082 + Volatile Agent',color:'#22c55e',w:102,h:34},
+    {x:148,y:278,label:'APL VALVE',sub:'Pressure relief',color:'#a855f7',w:82,h:34},
+    {x:82,y:185,label:'INSP VALVE',sub:'Unidirectional',color:'#3b82f6',w:84,h:34},
+  ];
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`1px solid ${t.ac}40`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"8px"}}>
+        <span style={{fontSize:"12px",color:t.ac,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>&#9654; Anesthesia Circle System &mdash; Animated Gas Flow</span>
+        <div style={{display:"flex",gap:"14px",fontSize:"11px",color:t.tM}}>
+          <span><span style={{color:'#f59e0b'}}>&#9679;</span> Expired (CO&#8322;-laden)</span>
+          <span><span style={{color:'#3b82f6'}}>&#9679;</span> Inspired (fresh gas)</span>
+        </div>
+      </div>
+      <div style={{background:t.bgH}}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{display:"block",minWidth:"380px"}}>
+          <polyline points={`${wpts[0].x},${wpts[0].y} ${wpts[1].x},${wpts[1].y} ${wpts[2].x},${wpts[2].y} ${wpts[3].x},${wpts[3].y} ${wpts[4].x},${wpts[4].y}`} fill="none" stroke="#f59e0b" strokeWidth="7" strokeOpacity="0.18" strokeLinejoin="round"/>
+          <polyline points={`${wpts[4].x},${wpts[4].y} ${wpts[5].x},${wpts[5].y} ${wpts[6].x},${wpts[6].y} ${wpts[7].x},${wpts[7].y} ${wpts[8].x},${wpts[8].y}`} fill="none" stroke="#3b82f6" strokeWidth="7" strokeOpacity="0.18" strokeLinejoin="round"/>
+          <text x={510} y={152} fill="#f59e0b" fontSize="16" opacity="0.6">&#8595;</text>
+          <text x={68} y={222} fill="#3b82f6" fontSize="16" opacity="0.6">&#8593;</text>
+          <text x={362} y={72} fill="#f59e0b" fontSize="14" opacity="0.6">&#8594;</text>
+          <text x={200} y={72} fill="#3b82f6" fontSize="14" opacity="0.6">&#8592;</text>
+          {dots.map((d,i)=><circle key={i} cx={d.x} cy={d.y} r="5" fill={d.color} opacity="0.9"/>)}
+          {comps.map((c,i)=>c.isCircle
+            ?<g key={i}><circle cx={c.x} cy={c.y} r={c.r} fill={t.bgC} stroke={c.color} strokeWidth="2.5"/><text x={c.x} y={c.y-3} fill={c.color} fontSize="8" textAnchor="middle" fontWeight="700">{c.label}</text><text x={c.x} y={c.y+9} fill={t.tM} fontSize="7" textAnchor="middle">{c.sub}</text></g>
+            :<g key={i}><rect x={c.x-c.w/2} y={c.y-c.h/2} width={c.w} height={c.h} rx="5" fill={t.bgC} stroke={c.color} strokeWidth="1.5"/><text x={c.x} y={c.y-3} fill={c.color} fontSize="8" textAnchor="middle" fontWeight="700">{c.label}</text><text x={c.x} y={c.y+9} fill={t.tM} fontSize="7" textAnchor="middle">{c.sub}</text></g>
+          )}
+        </svg>
+      </div>
+      <div style={{padding:"10px 16px",background:t.bgC,borderTop:`1px solid ${t.bd}`}}>
+        <p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}>Gas flows <strong style={{color:'#f59e0b'}}>unidirectionally</strong>: expired gas traverses the CO&#8322; absorber (CO&#8322; &#8594; CaCO&#8323;) before returning as inspired gas. FGF replaces consumed O&#8322; and washed-out volatile agent. APL valve prevents over-pressurization. Low-flow anesthesia (&le;1 L/min) conserves heat and agent but demands reliable CO&#8322; monitoring.</p>
+      </div>
+    </div>
+  );
+}
+
+function OLVDiagram({t}) {
+  const [mode,setMode]=useState('twol');
+  const modes=[{id:'twol',label:'Two-Lung Ventilation',color:t.bl},{id:'olv',label:'OLV Initiated',color:t.wn},{id:'hpv',label:'HPV Response',color:t.ok},{id:'cpap',label:'CPAP Rescue',color:t.ac}];
+  const W=480,H=280;
+  const lRx=mode==='twol'?65:72,lRy=mode==='twol'?90:100;
+  const rRx=mode==='twol'?60:mode==='cpap'?50:38,rRy=mode==='twol'?88:mode==='cpap'?70:52;
+  const lFill=`#3b82f6${mode==='twol'?'18':'22'}`;
+  const rFill=mode==='twol'?'#3b82f618':mode==='cpap'?`${t.ac}18`:'#64748b14';
+  const rStroke=mode==='twol'?'#3b82f6':mode==='cpap'?t.ac:'#64748b';
+  const showHPV=mode==='hpv'||mode==='cpap';
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`1px solid ${t.pr}40`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`}}>
+        <span style={{fontSize:"12px",color:t.pr,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>One-Lung Ventilation (OLV) &mdash; Step Through</span>
+      </div>
+      <div style={{display:"flex",gap:"6px",padding:"10px 14px",background:t.bgH,borderBottom:`1px solid ${t.bd}`,flexWrap:"wrap"}}>
+        {modes.map(m=><button key={m.id} onClick={()=>setMode(m.id)} style={{padding:"5px 12px",borderRadius:"6px",border:`1px solid ${mode===m.id?m.color:t.bd}`,background:mode===m.id?`${m.color}18`:t.bgC,color:mode===m.id?m.color:t.tM,fontSize:"11px",fontWeight:mode===m.id?700:400,cursor:"pointer"}}>{m.label}</button>)}
+      </div>
+      <div style={{background:t.bgH}}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{display:"block",minWidth:"300px"}}>
+          <rect x="30" y="16" width="420" height="240" rx="18" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <rect x="222" y="24" width="28" height="208" rx="3" fill={t.bgH} stroke={t.bd} strokeWidth="1"/>
+          <text x="236" y="132" fill={t.tM} fontSize="7" textAnchor="middle">MED</text>
+          <ellipse cx="128" cy="128" rx={lRx} ry={lRy} fill={lFill} stroke="#3b82f6" strokeWidth="2"/>
+          <text x="128" y="120" fill="#3b82f6" fontSize="10" textAnchor="middle" fontWeight="700">{mode==='twol'?'L. LUNG':'DEPENDENT'}</text>
+          <text x="128" y="132" fill="#3b82f6" fontSize="8" textAnchor="middle">Ventilated</text>
+          {mode!=='twol'&&<text x="128" y="144" fill="#3b82f6" fontSize="8" textAnchor="middle">PEEP 5&ndash;10</text>}
+          <ellipse cx="353" cy="128" rx={rRx} ry={rRy} fill={rFill} stroke={rStroke} strokeWidth={mode==='twol'?2:1.5} strokeDasharray={mode!=='twol'?'5,2':'none'}/>
+          <text x="353" y="120" fill={rStroke} fontSize="10" textAnchor="middle" fontWeight="700">{mode==='twol'?'R. LUNG':'OPERATIVE'}</text>
+          <text x="353" y="132" fill={rStroke} fontSize="8" textAnchor="middle">{mode==='twol'?'Ventilated':mode==='cpap'?'CPAP 5-10':'Collapsed'}</text>
+          {mode==='olv'&&<text x="353" y="146" fill="#f59e0b" fontSize="8" textAnchor="middle">Surgical access</text>}
+          <rect x="208" y="10" width="44" height="18" rx="3" fill={t.bgC} stroke={t.ac} strokeWidth="1.5"/>
+          <text x="230" y="22" fill={t.ac} fontSize="8" textAnchor="middle" fontWeight="700">{mode==='twol'?'ETT':'DLT'}</text>
+          <line x1="208" y1="19" x2="128" y2="50" stroke="#3b82f6" strokeWidth="2"/>
+          {mode!=='twol'&&<line x1="252" y1="19" x2="353" y2="50" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4,2"/>}
+          {showHPV&&<g>
+            <defs><marker id="arrowR2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 Z" fill="#ef4444"/></marker></defs>
+            <path d="M338,172 C290,168 258,162 200,158 C178,156 156,157 142,158" fill="none" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arrowR2)"/>
+            <text x="250" y="152" fill="#ef4444" fontSize="8" textAnchor="middle" fontWeight="600">HPV redirects blood &#8594;</text>
+          </g>}
+          {mode!=='twol'&&<g><rect x="308" y="12" width="112" height="14" rx="3" fill="#ef444420" stroke="#ef4444" strokeWidth="1"/><text x="364" y="22" fill="#ef4444" fontSize="8" textAnchor="middle" fontWeight="700">SURGICAL FIELD</text></g>}
+          <text x="128" y="258" fill={t.tM} fontSize="8" textAnchor="middle">Left (Dependent)</text>
+          <text x="353" y="258" fill={t.tM} fontSize="8" textAnchor="middle">Right (Operative)</text>
+        </svg>
+      </div>
+      <div style={{padding:"10px 16px",background:t.bgC,borderTop:`1px solid ${t.bd}`}}>
+        {mode==='twol'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}>Standard two-lung ventilation via single-lumen ETT.</p>}
+        {mode==='olv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:t.wn,fontWeight:600}}>DLT isolates operative lung.</span> Reduce Vt to 4&ndash;6 mL/kg IBW (one lung receives the full breath). FiO&#8322; to 1.0 initially. PEEP 5&ndash;10 to dependent lung.</p>}
+        {mode==='hpv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:t.ok,fontWeight:600}}>HPV:</span> Non-ventilated alveoli sense low PAO&#8322; &#8594; local pulmonary arteriolar constriction &#8594; diverts blood to ventilated lung, reducing shunt. Volatile anesthetics inhibit HPV dose-dependently (&gt;1 MAC). TIVA preserves HPV.</p>}
+        {mode==='cpap'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:t.ac,fontWeight:600}}>Rescue:</span> CPAP 5&ndash;10 to operative lung &mdash; maintains alveolar O&#8322; while keeping lung decompressed enough for surgery. First-line for OLV hypoxemia. If inadequate: partial ventilation, surgeon PA clamp.</p>}
+      </div>
+    </div>
+  );
+}
+
+function WaveformPatternSelector({t}) {
+  const [scenario,setScenario]=useState('vc_normal');
+  const scenarios=[{id:'vc_normal',label:'Normal VC',color:'#3b82f6'},{id:'pc_normal',label:'Normal PC',color:'#8b5cf6'},{id:'auto_peep',label:'Auto-PEEP',color:'#ef4444'},{id:'bronchospasm',label:'Bronchospasm',color:'#f59e0b'},{id:'compliance',label:'Low Compliance',color:'#ec4899'},{id:'cuff_leak',label:'Cuff Leak',color:'#64748b'}];
+  const data=useMemo(()=>genWaveformScenarioData(scenario),[scenario]);
+  const sc=scenarios.find(s=>s.id===scenario);
+  const N=300,LW=48,CW=490,ROW_H=72,GAP=14;
+  const pY=14,fY=pY+ROW_H+GAP,vY=fY+ROW_H+GAP;
+  const W=LW+CW+10,totalH=vY+ROW_H+22;
+  const fZero=fY+ROW_H/2;
+  const mkLine=(pts,yBase,rH,color,sw=2)=>{
+    const points=pts.map((v,i)=>`${(LW+(i/N)*CW).toFixed(1)},${(yBase+rH-v*rH).toFixed(1)}`).join(' ');
+    return <polyline key={color+yBase} points={points} fill="none" stroke={color} strokeWidth={sw} strokeLinejoin="round"/>;
+  };
+  const annotations={
+    vc_normal:[{chart:'p',x:0.09,y:0.84,label:'Ppeak',color:'#3b82f6'},{chart:'p',x:0.22,y:0.68,label:'Pplat',color:'#22c55e'},{chart:'f',x:0.08,y:0.88,label:'Const. flow',color:'#3b82f6'}],
+    auto_peep:[{chart:'f',x:0.42,y:0.35,label:'Flow\u22600 at end',color:'#ef4444'},{chart:'p',x:0.09,y:0.90,label:'Elevated base',color:'#ef4444'}],
+    bronchospasm:[{chart:'p',x:0.08,y:0.94,label:'High Ppeak',color:'#f59e0b'},{chart:'p',x:0.21,y:0.65,label:'Norm Pplat',color:'#22c55e'},{chart:'f',x:0.55,y:0.18,label:'Scooped exp',color:'#f59e0b'}],
+    compliance:[{chart:'p',x:0.08,y:0.94,label:'High Ppeak',color:'#ec4899'},{chart:'p',x:0.21,y:0.88,label:'High Pplat &gt;30',color:'#ef4444'}],
+    cuff_leak:[{chart:'v',x:0.22,y:0.80,label:'Inspired Vt',color:'#3b82f6'},{chart:'v',x:0.65,y:0.28,label:'Exhaled (less)',color:'#ef4444'}],
+  };
+  const annots=annotations[scenario]||[];
+  const getAP=(a)=>({x:LW+a.x*CW,y:{p:pY,f:fY,v:vY}[a.chart]+(1-a.y)*ROW_H});
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`1px solid ${t.bl}40`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`}}>
+        <span style={{fontSize:"12px",color:t.bl,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>&#9654; Waveform Pattern Recognition</span>
+      </div>
+      <div style={{display:"flex",gap:"6px",padding:"10px 14px",background:t.bgH,borderBottom:`1px solid ${t.bd}`,flexWrap:"wrap"}}>
+        {scenarios.map(s=><button key={s.id} onClick={()=>setScenario(s.id)} style={{padding:"5px 12px",borderRadius:"6px",border:`1px solid ${scenario===s.id?s.color:t.bd}`,background:scenario===s.id?`${s.color}18`:t.bgC,color:scenario===s.id?s.color:t.tM,fontSize:"11px",fontWeight:scenario===s.id?700:400,cursor:"pointer"}}>{s.label}</button>)}
+      </div>
+      <div style={{background:t.bgH,overflowX:"auto"}}>
+        <svg viewBox={`0 0 ${W} ${totalH}`} width="100%" style={{display:"block",minWidth:"420px"}}>
+          {[pY,fY,vY].map((yo,ri)=><rect key={ri} x={LW} y={yo} width={CW} height={ROW_H} fill={t.bgC} rx="2"/>)}
+          {[pY,fY,vY].flatMap((yo,ri)=>[0,0.5,1].map(fr=><line key={`g${ri}${fr}`} x1={LW} y1={yo+fr*ROW_H} x2={LW+CW} y2={yo+fr*ROW_H} stroke={t.bd} strokeWidth="0.5"/>))}
+          {[0,0.5,1].map((fr,i)=><line key={i} x1={LW+fr*CW} y1={pY} x2={LW+fr*CW} y2={vY+ROW_H} stroke={t.bd} strokeWidth="1" strokeDasharray="3,3"/>)}
+          <line x1={LW} y1={fZero} x2={LW+CW} y2={fZero} stroke={t.bd} strokeWidth="1.5" strokeDasharray="3,2"/>
+          <text x={LW-4} y={pY+12} fill={sc.color} fontSize="9" textAnchor="end" fontWeight="700">PRESSURE</text>
+          <text x={LW-4} y={fY+12} fill="#f59e0b" fontSize="9" textAnchor="end" fontWeight="700">FLOW</text>
+          <text x={LW-4} y={vY+12} fill="#22c55e" fontSize="9" textAnchor="end" fontWeight="700">VOLUME</text>
+          {mkLine(data.P,pY,ROW_H,sc.color,2)}
+          {(()=>{const fp=data.F.map((v,i)=>`${(LW+(i/N)*CW).toFixed(1)},${(fZero-v*(ROW_H*0.42)).toFixed(1)}`).join(' ');return <polyline key="flow" points={fp} fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinejoin="round"/>;})()}
+          {mkLine(data.V,vY,ROW_H,'#22c55e',2)}
+          {annots.map((a,i)=>{const pos=getAP(a);return <g key={i}><rect x={pos.x-2} y={pos.y-11} width={a.label.length*5.5+4} height="13" rx="2" fill={t.bgH} opacity="0.85"/><text x={pos.x} y={pos.y} fill={a.color} fontSize="9" fontWeight="600">{a.label}</text></g>;})}
+          <text x={LW+CW*0.125} y={totalH-4} fill={t.tM} fontSize="8" textAnchor="middle">Breath 1</text>
+          <text x={LW+CW*0.625} y={totalH-4} fill={t.tM} fontSize="8" textAnchor="middle">Breath 2</text>
+        </svg>
+      </div>
+      <div style={{padding:"10px 16px",background:t.bgC,borderTop:`1px solid ${t.bd}`}}>
+        {scenario==='vc_normal'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>VC pattern:</span> Constant (square) flow &#8594; rising pressure. Ppeak &minus; Pplat = resistive pressure. Inspiratory hold reveals Pplat (elastic only). Normal Pplat &lt;30 cmH&#8322;O.</p>}
+        {scenario==='pc_normal'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>PC pattern:</span> Square pressure plateau, decelerating flow. More physiologic. Volume varies with compliance &mdash; monitor exhaled Vt closely.</p>}
+        {scenario==='auto_peep'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>Auto-PEEP:</span> Expiratory flow does NOT reach zero before next breath. Perform expiratory hold to quantify. Treat: decrease RR, lengthen expiratory time, bronchodilators.</p>}
+        {scenario==='bronchospasm'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>Bronchospasm:</span> High Ppeak, normal Pplat (resistance problem). Ppeak &minus; Pplat &gt;10. Scooped (shark-fin) expiratory flow = slow obstructed emptying.</p>}
+        {scenario==='compliance'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>Low compliance:</span> Both Ppeak AND Pplat elevated. Pplat &gt;30 = ARDSNet violation. Reduce Vt, check for PTX, mainstem intubation, pulmonary edema.</p>}
+        {scenario==='cuff_leak'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:sc.color,fontWeight:600}}>Cuff leak:</span> Inspired Vt exceeds exhaled Vt on volume trace. Causes: cuff leak, circuit disconnect, bronchopleural fistula. Check cuff pressure and circuit integrity.</p>}
+      </div>
+    </div>
+  );
+}
+
+function PVLoopDiagram({t}) {
+  const [scenario,setScenario]=useState('normal');
+  const [animStep,setAnimStep]=useState(0);
+  const [running,setRunning]=useState(true);
+  useEffect(()=>{if(!running)return;const id=setInterval(()=>setAnimStep(s=>(s+1)%100),40);return()=>clearInterval(id);},[running]);
+  const W=380,H=290,ml={l:52,r:16,t:16,b:36};
+  const cW=W-ml.l-ml.r,cH=H-ml.t-ml.b;
+  const toSVG=(p,v)=>({x:ml.l+(p/40)*cW,y:ml.t+cH-(v/600)*cH});
+  const loops=useMemo(()=>({normal:genPVLoopPts('normal'),ards:genPVLoopPts('ards'),recruited:genPVLoopPts('recruited')}),[]);
+  const lp=loops[scenario]||[];
+  const toPath=(pts)=>pts.map((p,i)=>`${i===0?'M':'L'}${toSVG(p.p,p.v).x.toFixed(1)},${toSVG(p.p,p.v).y.toFixed(1)}`).join(' ');
+  const fullPath=toPath(lp);
+  const animIdx=Math.floor(animStep/100*lp.length);
+  const tracePath=lp.length>1?toPath(lp.slice(0,Math.max(2,animIdx))):'';
+  const scColor=scenario==='normal'?'#22c55e':scenario==='ards'?'#ef4444':t.ac;
+  const LIP=toSVG(10,65),UIP=toSVG(33,420);
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`1px solid ${t.wn}40`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"8px"}}>
+        <span style={{fontSize:"12px",color:t.wn,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>&#9654; Pressure-Volume Loop</span>
+        <button onClick={()=>{setRunning(r=>!r);setAnimStep(0);}} style={{fontSize:"11px",color:t.ac,background:t.aD,border:`1px solid ${t.aB}`,borderRadius:"4px",padding:"3px 10px",cursor:"pointer"}}>{running?'Pause':'Replay'}</button>
+      </div>
+      <div style={{display:"flex",gap:"6px",padding:"10px 14px",background:t.bgH,borderBottom:`1px solid ${t.bd}`,flexWrap:"wrap"}}>
+        {[{id:'normal',label:'Normal',color:'#22c55e'},{id:'ards',label:'ARDS (pre-recruit)',color:'#ef4444'},{id:'recruited',label:'Post-Recruitment',color:t.ac}].map(s=><button key={s.id} onClick={()=>{setScenario(s.id);setAnimStep(0);}} style={{padding:"5px 12px",borderRadius:"6px",border:`1px solid ${scenario===s.id?s.color:t.bd}`,background:scenario===s.id?`${s.color}18`:t.bgC,color:scenario===s.id?s.color:t.tM,fontSize:"11px",fontWeight:scenario===s.id?700:400,cursor:"pointer"}}>{s.label}</button>)}
+      </div>
+      <div style={{background:t.bgH,display:"flex",justifyContent:"center"}}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{display:"block",maxWidth:"460px"}}>
+          <rect x={ml.l} y={ml.t} width={cW} height={cH} fill={t.bgC} rx="2"/>
+          {[0,10,20,30,40].map(p=><g key={p}><line x1={ml.l+(p/40)*cW} y1={ml.t} x2={ml.l+(p/40)*cW} y2={ml.t+cH} stroke={t.bd} strokeWidth="0.5"/><text x={ml.l+(p/40)*cW} y={ml.t+cH+12} fill={t.tM} fontSize="8" textAnchor="middle">{p}</text></g>)}
+          {[0,100,200,300,400,500,600].map(v=><g key={v}><line x1={ml.l} y1={ml.t+cH-(v/600)*cH} x2={ml.l+cW} y2={ml.t+cH-(v/600)*cH} stroke={t.bd} strokeWidth="0.5"/><text x={ml.l-4} y={ml.t+cH-(v/600)*cH+3} fill={t.tM} fontSize="8" textAnchor="end">{v}</text></g>)}
+          <text x={ml.l+cW/2} y={H-4} fill={t.t2} fontSize="9" textAnchor="middle">Pressure (cmH&#8322;O)</text>
+          <text x={8} y={ml.t+cH/2+4} fill={t.t2} fontSize="9" textAnchor="middle" transform={`rotate(-90,8,${ml.t+cH/2})`}>Volume (mL)</text>
+          {scenario==='ards'&&<g>
+            <circle cx={LIP.x} cy={LIP.y} r="5" fill="#22c55e" opacity="0.9"/>
+            <text x={LIP.x+8} y={LIP.y+4} fill="#22c55e" fontSize="9" fontWeight="700">LIP</text>
+            <line x1={ml.l} y1={LIP.y} x2={ml.l+cW} y2={LIP.y} stroke="#22c55e" strokeWidth="1" strokeDasharray="4,2" opacity="0.5"/>
+            <text x={ml.l+6} y={LIP.y-3} fill="#22c55e" fontSize="8">Set PEEP above LIP</text>
+            <circle cx={UIP.x} cy={UIP.y} r="5" fill="#ef4444" opacity="0.9"/>
+            <text x={UIP.x-8} y={UIP.y-6} fill="#ef4444" fontSize="9" fontWeight="700" textAnchor="end">UIP</text>
+          </g>}
+          <path d={fullPath} fill="none" stroke={scColor} strokeWidth="1" opacity="0.18"/>
+          {tracePath&&<path d={tracePath} fill="none" stroke={scColor} strokeWidth="2.5" strokeLinejoin="round"/>}
+          <text x={ml.l+cW*0.22} y={ml.t+cH*0.18} fill={t.tM} fontSize="9">&#8593; Inflation</text>
+          <text x={ml.l+cW*0.55} y={ml.t+cH*0.82} fill={t.tM} fontSize="9">&#8595; Deflation</text>
+          <text x={ml.l+cW*0.5} y={ml.t+cH*0.5} fill={t.tM} fontSize="9" textAnchor="middle" opacity="0.45">Hysteresis</text>
+        </svg>
+      </div>
+      <div style={{padding:"10px 16px",background:t.bgC,borderTop:`1px solid ${t.bd}`}}>
+        {scenario==='normal'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}>Normal counterclockwise loop. Inflation limb (left) vs. deflation limb (right) &mdash; the gap between them is <strong>hysteresis</strong>: lungs require less pressure to stay open than to open. Area inside loop = work of breathing.</p>}
+        {scenario==='ards'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:'#ef4444',fontWeight:600}}>ARDS:</span> S-shaped inflation curve. <span style={{color:'#22c55e',fontWeight:600}}>LIP</span> = alveolar recruitment begins &mdash; set PEEP above LIP to prevent atelectrauma. <span style={{color:'#ef4444',fontWeight:600}}>UIP</span> = overdistension begins &mdash; keep Pplat below UIP to prevent volutrauma.</p>}
+        {scenario==='recruited'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.7}}><span style={{color:t.ac,fontWeight:600}}>Post-recruitment:</span> Steeper slope = improved compliance. Hysteresis means alveoli stay open at lower PEEP once recruited at high pressure. This is the physiology behind recruitment maneuvers.</p>}
+      </div>
+    </div>
+  );
+}
+
+function IBWCalculator({t}) {
+  const [sex,setSex]=useState('male');
+  const [ft,setFt]=useState(5);
+  const [inch,setInch]=useState(10);
+  const [actualWt,setActualWt]=useState('');
+  const totalIn=ft*12+inch;
+  const ibw=Math.max(0,sex==='male'?50+2.3*(totalIn-60):45.5+2.3*(totalIn-60));
+  const ibwR=Math.round(ibw*10)/10;
+  const actN=parseFloat(actualWt);
+  const showCmp=!isNaN(actN)&&actN>30;
+  const diff=showCmp?Math.round(actN*6)-Math.round(ibwR*6):0;
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`2px solid ${t.wn}`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"8px"}}>
+        <span style={{fontSize:"12px",color:t.wn,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>IBW Calculator &mdash; Vt Targeting</span>
+        <span style={{fontSize:"11px",color:t.tM}}>Always IBW, never actual body weight</span>
+      </div>
+      <div style={{padding:"16px",background:t.bgC}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(155px,1fr))",gap:"14px",marginBottom:"16px"}}>
+          <div>
+            <div style={{fontSize:"11px",color:t.tM,marginBottom:"6px",textTransform:"uppercase",letterSpacing:"0.5px"}}>Sex</div>
+            <div style={{display:"flex",gap:"8px"}}>
+              {['male','female'].map(s=><button key={s} onClick={()=>setSex(s)} style={{flex:1,padding:"7px",borderRadius:"6px",border:`1px solid ${sex===s?t.ac:t.bd}`,background:sex===s?t.aD:t.bgH,color:sex===s?t.ac:t.tM,fontSize:"12px",fontWeight:sex===s?700:400,cursor:"pointer",textTransform:"capitalize"}}>{s}</button>)}
+            </div>
+          </div>
+          <div>
+            <div style={{fontSize:"11px",color:t.tM,marginBottom:"6px",textTransform:"uppercase",letterSpacing:"0.5px"}}>Height</div>
+            <div style={{display:"flex",gap:"8px"}}>
+              <select value={ft} onChange={e=>setFt(parseInt(e.target.value))} style={{flex:1,padding:"6px",borderRadius:"6px",border:`1px solid ${t.bd}`,background:t.bgH,color:t.tx,fontSize:"13px"}}>
+                {[4,5,6,7].map(f=><option key={f} value={f}>{f} ft</option>)}
+              </select>
+              <select value={inch} onChange={e=>setInch(parseInt(e.target.value))} style={{flex:1,padding:"6px",borderRadius:"6px",border:`1px solid ${t.bd}`,background:t.bgH,color:t.tx,fontSize:"13px"}}>
+                {[0,1,2,3,4,5,6,7,8,9,10,11].map(i2=><option key={i2} value={i2}>{i2} in</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <div style={{fontSize:"11px",color:t.tM,marginBottom:"6px",textTransform:"uppercase",letterSpacing:"0.5px"}}>Actual Wt (optional)</div>
+            <div style={{display:"flex",gap:"6px",alignItems:"center"}}>
+              <input type="number" value={actualWt} onChange={e=>setActualWt(e.target.value)} placeholder="kg" min="30" max="300" style={{width:"80px",padding:"6px 8px",borderRadius:"6px",border:`1px solid ${t.bd}`,background:t.bgH,color:t.tx,fontSize:"13px"}}/>
+              <span style={{fontSize:"12px",color:t.tM}}>kg</span>
+            </div>
+          </div>
+        </div>
+        <div style={{padding:"12px 16px",background:t.aD,borderRadius:"8px",border:`1px solid ${t.aB}`,marginBottom:"14px"}}>
+          <div style={{fontSize:"10px",color:t.tM,marginBottom:"2px",textTransform:"uppercase"}}>Ideal Body Weight</div>
+          <div style={{fontSize:"28px",fontWeight:700,color:t.ac}}>{ibwR} <span style={{fontSize:"16px"}}>kg</span></div>
+          <div style={{fontSize:"10px",color:t.tM}}>{sex==='male'?`50 + 2.3 \u00d7 (${totalIn} \u2212 60)`:`45.5 + 2.3 \u00d7 (${totalIn} \u2212 60)`}</div>
+        </div>
+        <div style={{marginBottom:"14px"}}>
+          <div style={{fontSize:"11px",color:t.tM,marginBottom:"8px",textTransform:"uppercase",letterSpacing:"0.5px"}}>Tidal Volume Targets</div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"8px"}}>
+            {[4,6,8].map(v=><div key={v} style={{padding:"10px",background:v===6?t.aD:t.bgH,borderRadius:"8px",border:`1px solid ${v===6?t.aB:t.bd}`,textAlign:"center"}}>
+              <div style={{fontSize:"10px",color:v===6?t.ac:t.tM,marginBottom:"2px"}}>{v} mL/kg{v===4?' (ARDS min)':v===6?' (Target)':' (Max)'}</div>
+              <div style={{fontSize:"22px",fontWeight:700,color:v===6?t.ac:t.tx}}>{Math.round(ibwR*v)} <span style={{fontSize:"11px"}}>mL</span></div>
+            </div>)}
+          </div>
+        </div>
+        {showCmp&&<div style={{padding:"12px 16px",background:diff>100?'#ef444412':'#22c55e10',borderRadius:"8px",border:`1px solid ${diff>100?t.dg:t.ok}`}}>
+          <div style={{fontSize:"12px",fontWeight:700,color:diff>100?t.dg:t.ok,marginBottom:"4px"}}>{diff>100?'\u26a0 Obese \u2014 DO NOT use actual weight':'\u2713 Actual weight close to IBW'}</div>
+          {diff>100&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}>6 mL/kg <strong>IBW</strong> = <span style={{color:t.ac,fontWeight:700}}>{Math.round(ibwR*6)} mL</span> vs. actual weight ({actN} kg) = <span style={{color:t.dg,fontWeight:700}}>{Math.round(actN*6)} mL</span> &mdash; <span style={{color:t.dg,fontWeight:700}}>{diff} mL</span> over target ({Math.round((diff/Math.round(ibwR*6))*100)}% excess).</p>}
+        </div>}
+      </div>
+    </div>
+  );
+}
+
+function PressureTroubleshooter({t}) {
+  const [peak,setPeak]=useState('');
+  const [plat,setPlat]=useState('');
+  const pkN=parseFloat(peak),plN=parseFloat(plat);
+  const valid=!isNaN(pkN)&&!isNaN(plN)&&pkN>0&&plN>0&&pkN>=plN;
+  const gap=valid?pkN-plN:0;
+  const dx=valid?(plN>30?'compliance':gap>10?'resistance':pkN<=35&&plN<=28?'normal':'borderline'):null;
+  return(
+    <div style={{marginTop:"20px",borderRadius:"10px",overflow:"hidden",border:`1px solid ${t.dg}40`}}>
+      <div style={{background:t.bgH,padding:"10px 14px",borderBottom:`1px solid ${t.bd}`}}>
+        <span style={{fontSize:"12px",color:t.dg,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.5px"}}>Pressure Troubleshooter</span>
+      </div>
+      <div style={{padding:"16px",background:t.bgC}}>
+        <p style={{margin:"0 0 14px",fontSize:"13px",color:t.t2}}>Enter Ppeak and Pplat (from inspiratory hold) to get a guided differential.</p>
+        <div style={{display:"flex",gap:"16px",flexWrap:"wrap",marginBottom:"16px",alignItems:"flex-end"}}>
+          <div>
+            <div style={{fontSize:"11px",color:t.tM,marginBottom:"4px",textTransform:"uppercase"}}>Ppeak (cmH&#8322;O)</div>
+            <input type="number" value={peak} onChange={e=>setPeak(e.target.value)} placeholder="e.g. 42" min="5" max="80" style={{width:"100px",padding:"8px 10px",borderRadius:"6px",border:`1px solid ${t.bd}`,background:t.bgH,color:t.tx,fontSize:"15px",fontWeight:600}}/>
+          </div>
+          <div>
+            <div style={{fontSize:"11px",color:t.tM,marginBottom:"4px",textTransform:"uppercase"}}>Pplat (cmH&#8322;O)</div>
+            <input type="number" value={plat} onChange={e=>setPlat(e.target.value)} placeholder="e.g. 28" min="5" max="60" style={{width:"100px",padding:"8px 10px",borderRadius:"6px",border:`1px solid ${t.bd}`,background:t.bgH,color:t.tx,fontSize:"15px",fontWeight:600}}/>
+            <div style={{fontSize:"10px",color:t.tM,marginTop:"2px"}}>From inspiratory hold</div>
+          </div>
+          {valid&&<div style={{padding:"10px 16px",background:t.bgH,borderRadius:"8px",textAlign:"center"}}>
+            <div style={{fontSize:"10px",color:t.tM}}>Ppeak &minus; Pplat</div>
+            <div style={{fontSize:"22px",fontWeight:700,color:gap>10?t.wn:t.ok}}>{gap.toFixed(0)} cmH&#8322;O</div>
+            <div style={{fontSize:"10px",color:t.tM}}>Resistance component</div>
+          </div>}
+        </div>
+        {dx==='normal'&&<div style={{padding:"14px 16px",background:'#22c55e10',borderRadius:"10px",border:`2px solid #22c55e`}}>
+          <div style={{fontSize:"15px",fontWeight:700,color:'#22c55e',marginBottom:"6px"}}>&#10003; Pressures Within Target</div>
+          <p style={{margin:0,fontSize:"13px",color:t.t2,lineHeight:1.7}}>Ppeak &lt;35, Pplat &lt;30, resistance component &lt;10 cmH&#8322;O. Lung-protective ventilation maintained.</p>
+        </div>}
+        {dx==='resistance'&&<div style={{padding:"14px 16px",background:'#f59e0b10',borderRadius:"10px",border:`2px solid ${t.wn}`}}>
+          <div style={{fontSize:"15px",fontWeight:700,color:t.wn,marginBottom:"8px"}}>&#9888; Airway Resistance Problem</div>
+          <p style={{fontSize:"13px",color:t.t2,marginBottom:"10px",lineHeight:1.7,margin:"0 0 10px"}}>Ppeak &minus; Pplat = <strong>{gap.toFixed(0)} cmH&#8322;O &gt;10</strong> &#8594; Resistance elevated; elastic component (Pplat) normal.</p>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"12px",fontSize:"12px"}}>
+            <div><div style={{color:t.tx,fontWeight:600,marginBottom:"5px"}}>Causes</div><div style={{color:t.t2,lineHeight:1.9}}>Bronchospasm<br/>Secretions / mucus plug<br/>Kinked or bitten ETT<br/>Small ETT diameter<br/>Circuit obstruction</div></div>
+            <div><div style={{color:t.tx,fontWeight:600,marginBottom:"5px"}}>Treatment</div><div style={{color:t.t2,lineHeight:1.9}}>Suction ETT<br/>Albuterol / bronchodilator<br/>Check circuit + ETT<br/>Add bite block<br/>Consider larger ETT</div></div>
+          </div>
+        </div>}
+        {dx==='compliance'&&<div style={{padding:"14px 16px",background:'#ef444412',borderRadius:"10px",border:`2px solid ${t.dg}`}}>
+          <div style={{fontSize:"15px",fontWeight:700,color:t.dg,marginBottom:"8px"}}>&#9888; Compliance Problem &mdash; ARDSNet Violation</div>
+          <p style={{fontSize:"13px",color:t.t2,marginBottom:"10px",lineHeight:1.7,margin:"0 0 10px"}}>Pplat = <strong>{plN} cmH&#8322;O &gt;30</strong> &#8594; Stiff lungs. Immediate action required.</p>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"12px",fontSize:"12px"}}>
+            <div><div style={{color:t.tx,fontWeight:600,marginBottom:"5px"}}>Causes</div><div style={{color:t.t2,lineHeight:1.9}}>ARDS / pulmonary edema<br/>Tension pneumothorax<br/>Mainstem intubation<br/>Atelectasis<br/>Obesity / abdominal HTN<br/>Chest wall rigidity</div></div>
+            <div><div style={{color:t.tx,fontWeight:600,marginBottom:"5px"}}>Treatment</div><div style={{color:t.t2,lineHeight:1.9}}>&#8595; Vt to 5 then 4 mL/kg IBW<br/>Treat underlying cause<br/>CXR / assess for PTX<br/>Verify ETT position<br/>Permissive hypercapnia<br/>Consider PC mode</div></div>
+          </div>
+        </div>}
+        {dx==='borderline'&&<div style={{padding:"14px 16px",background:t.bgH,borderRadius:"10px",border:`1px solid ${t.bd}`}}>
+          <p style={{margin:0,fontSize:"13px",color:t.t2}}>Borderline pressures. Monitor closely. Ensure Vt is 6 mL/kg IBW and PEEP is optimized.</p>
+        </div>}
+        {!dx&&<div style={{padding:"24px",textAlign:"center",color:t.tM,background:t.bgH,borderRadius:"8px",border:`1px dashed ${t.bd}`,fontSize:"13px"}}>Enter Ppeak and Pplat values above to generate differential</div>}
+      </div>
+    </div>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 function VentDevice({ t, theme }) {
@@ -3580,6 +3972,7 @@ function VentDevice({ t, theme }) {
             <p style={{marginTop:"10px"}}><strong style={{color:t.tx}}>Soda lime exhaustion signs:</strong> Color change (indicator dye), rising inspired CO2 on capnography, tachycardia, hypertension, flushing. Compound A production with sevoflurane at low flows (clinically insignificant at FGF &ge;1 L/min).</p>
           </div>
         </div>
+        <CircleSystemDiagram t={t} />
 
         <div style={{padding:"24px",background:t.bgC,borderRadius:"12px",borderLeft:`5px solid ${t.wn}`}}>
           <div style={{color:t.wn,fontSize:"17px",fontWeight:700,marginBottom:"12px"}}>Anesthesia vs. ICU Ventilator</div>
@@ -3610,6 +4003,7 @@ function VentDevice({ t, theme }) {
             <p style={{marginTop:"10px"}}><strong style={{color:t.wn}}>Hypoxic Pulmonary Vasoconstriction (HPV):</strong> Intrinsic protective mechanism. Non-ventilated alveoli sense low PAO2 &rarr; local arteriolar constriction &rarr; diverts blood away from collapsed lung toward ventilated lung. Volatile anesthetics inhibit HPV in a dose-dependent manner (&gt;1 MAC). IV anesthesia (TIVA) preserves HPV.</p>
           </div>
         </div>
+        <OLVDiagram t={t} />
       </div>
     </div>}
 
@@ -3648,6 +4042,8 @@ function VentDevice({ t, theme }) {
           <p style={{marginTop:"10px"}}><strong style={{color:t.wn}}>Hysteresis:</strong> Inflation and deflation limbs don\u2019t overlap \u2014 the lung requires less pressure to stay open than to open. This is why recruitment maneuvers work: once recruited at high pressure, alveoli stay open at lower PEEP.</p>
         </div>
       </div>
+      <WaveformPatternSelector t={t} />
+      <PVLoopDiagram t={t} />
     </div>}
 
     {activeTab==="management"&&<div>
@@ -3672,6 +4068,7 @@ function VentDevice({ t, theme }) {
         </div>
         <p style={{color:t.t2,fontSize:"13px",marginTop:"10px"}}>A 5&rsquo;4&rdquo; female: IBW = 45.5 + 2.3(64&minus;60) = 54.7 kg. Vt at 6 mL/kg = 328 mL. A common error: using actual weight of 95 kg &rarr; Vt 570 mL = volutrauma.</p>
       </div>
+      <IBWCalculator t={t} />
 
       <H title="Troubleshooting High Pressures" />
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"16px",marginTop:"16px"}}>
@@ -3686,6 +4083,7 @@ function VentDevice({ t, theme }) {
           <div style={{fontSize:"13px",color:t.t2,lineHeight:1.7,marginTop:"8px"}}>Causes: ARDS, pneumothorax, mainstem intubation, pulmonary edema, atelectasis, abdominal distension, chest wall rigidity, obesity. Treatment: reduce Vt, treat underlying cause, consider PC mode.</div>
         </div>
       </div>
+      <PressureTroubleshooter t={t} />
 
       <H title="ARDSNet Protocol" />
       <div style={{padding:"24px",background:t.bgC,borderRadius:"12px",border:`1px solid ${t.bd}`}}>
