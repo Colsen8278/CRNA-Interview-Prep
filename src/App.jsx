@@ -1310,6 +1310,7 @@ export default function App() {
   const [sbOpen, setSbOpen] = useState(true);
   const [recSel, setRecSel] = useState(null);
   const [recTab, setRecTab] = useState("overview");
+  const [ipTab, setIpTab] = useState("Narrative");
   const sRef = useRef(null);
   const t = TH[theme];
 
@@ -1676,77 +1677,281 @@ export default function App() {
 
         {/* INTERVIEW POINTS PAGE */}
         {pg === "pg-behav" && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
-          <div style={{ marginBottom: "28px" }}>
+          <div style={{ marginBottom: "24px" }}>
             <h2 style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: 700 }}>Interview Points</h2>
             <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>Core narratives, frameworks, and angles for CRNA program interviews</p>
           </div>
 
-          {/* Clinical Systems Thinker Card */}
-          <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ac}`, borderRadius: "12px", padding: "28px", marginBottom: "20px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-              <div style={{ width: "44px", height: "44px", borderRadius: "10px", background: `${t.ac}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ fontSize: "18px", fontWeight: 700, color: t.ac }}>CS</span>
-              </div>
-              <div>
-                <div style={{ fontSize: "18px", fontWeight: 700 }}>Clinical Systems Thinker</div>
-                <div style={{ fontSize: "12px", color: t.tM, marginTop: "2px" }}>Why CRNA &mdash; Core Identity Narrative</div>
-              </div>
-            </div>
+          {/* Tab Nav */}
+          <div style={{ display: "flex", gap: "6px", marginBottom: "24px", borderBottom: `1px solid ${t.bd}`, paddingBottom: "0" }}>
+            {["Narrative", "Analogies", "Stories", "Questions"].map(tab => (
+              <button key={tab} onClick={() => setIpTab(tab)} style={{
+                padding: "9px 18px", border: "none", background: "transparent", cursor: "pointer",
+                fontSize: "13px", fontWeight: ipTab === tab ? 700 : 500,
+                color: ipTab === tab ? t.ac : t.t2,
+                borderBottom: ipTab === tab ? `2px solid ${t.ac}` : "2px solid transparent",
+                marginBottom: "-1px", transition: "color 0.15s, border-color 0.15s",
+              }}>{tab}</button>
+            ))}
+          </div>
 
-            {/* Core Concept */}
-            <div style={{ marginBottom: "22px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>The Core Concept</div>
-              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
-                You analyze complex, dynamic systems &mdash; identify inefficiencies or gaps &mdash; then engineer a solution. You&apos;ve done this repeatedly at the unit level. Anesthesia is that exact skill applied at the individual patient level. Every anesthetic plan is a custom-built solution for a single patient&apos;s unique physiology.
-              </p>
-            </div>
+          {/* NARRATIVE TAB */}
+          {ipTab === "Narrative" && <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 
-            {/* Why It Lands */}
-            <div style={{ marginBottom: "22px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Why This Lands in an Interview</div>
-              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
-                Most CRNA candidates describe <em>wanting</em> autonomy. You&apos;re describing a <strong>proven pattern of thinking</strong> that demonstrates you&apos;re already wired for it. The committee hears:
+            {/* Clinical Systems Thinker */}
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ac}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.ac}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.ac }}>CS</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Clinical Systems Thinker</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>Core identity &mdash; Why CRNA</div>
+                </div>
+              </div>
+              <p style={{ margin: "0 0 14px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                You analyze complex, dynamic systems &mdash; identify inefficiencies or gaps &mdash; then engineer a solution. You have done this repeatedly at the unit level. Anesthesia is that exact skill applied at the individual patient level. Every anesthetic plan is a custom-built solution for a single patient&apos;s unique physiology.
               </p>
-              <div style={{ margin: "12px 0 0", padding: "14px 18px", background: t.bgS, borderLeft: `3px solid ${t.ac}`, borderRadius: "0 8px 8px 0", fontSize: "13px", lineHeight: "1.7", color: t.t2, fontStyle: "italic" }}>
+              <div style={{ padding: "14px 18px", background: t.bgS, borderLeft: `3px solid ${t.ac}`, borderRadius: "0 8px 8px 0", fontSize: "13px", lineHeight: "1.75", color: t.t2, fontStyle: "italic" }}>
                 &ldquo;I don&apos;t just want to make independent decisions &mdash; I have a demonstrated methodology for doing so, and a track record of outcomes.&rdquo;
               </div>
-            </div>
-
-            {/* Interview Response */}
-            <div style={{ marginBottom: "22px" }}>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Interview-Ready Response &mdash; &ldquo;Why CRNA?&rdquo;</div>
-              <div style={{ padding: "16px 18px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}`, fontSize: "13px", lineHeight: "1.8", color: t.t2, fontStyle: "italic" }}>
-                &ldquo;I&apos;ve always been drawn to problems that require you to understand a system deeply before you can change it. My improvement projects at the TNICU reflect that &mdash; I don&apos;t implement solutions until I understand the mechanism driving the problem. Anesthesia is that same discipline applied to human physiology. Every patient walks in as a unique system &mdash; their pharmacogenomics, hemodynamics, airway anatomy, comorbidities &mdash; and the CRNA builds a solution tailored precisely to that individual. That&apos;s the work I want to do.&rdquo;
-              </div>
-            </div>
-
-            {/* Titles Worth Owning */}
-            <div>
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>Titles Worth Owning in Your Narrative</div>
-              <p style={{ margin: "0 0 12px", fontSize: "13px", color: t.tM }}>Rather than one label, use layered language:</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "14px" }}>
                 {[
                   { label: "Clinical Systems Thinker", sub: "your cognitive style" },
                   { label: "Unit-Level Process Engineer", sub: "your track record" },
-                  { label: "Precision Practitioner", sub: "where you&apos;re headed" },
+                  { label: "Precision Practitioner", sub: "where you are headed" },
                 ].map((item, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 14px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}` }}>
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "9px 14px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}` }}>
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: t.ac, flexShrink: 0 }} />
-                    <div>
-                      <span style={{ fontSize: "14px", fontWeight: 600, color: t.tx }}>&ldquo;{item.label}&rdquo;</span>
-                      <span style={{ fontSize: "12px", color: t.tM, marginLeft: "8px" }} dangerouslySetInnerHTML={{ __html: `&mdash; ${item.sub}` }} />
-                    </div>
+                    <span style={{ fontSize: "13px", fontWeight: 600, color: t.tx }}>&ldquo;{item.label}&rdquo;</span>
+                    <span style={{ fontSize: "12px", color: t.tM }}>&mdash; {item.sub}</span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* More coming soon */}
-          <div style={{ padding: "16px 20px", background: t.bgC, border: `1px dashed ${t.bd}`, borderRadius: "10px", textAlign: "center" }}>
-            <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>More interview points coming soon &mdash; STAR framework stories, experience bank, behavioral Q&amp;A</p>
-          </div>
+            {/* Solution-Oriented / Curiosity-Driven */}
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.bl}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.bl}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.bl }}>SO</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Solution-Oriented &amp; Curiosity-Driven</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>How I think &mdash; the mechanism behind the approach</div>
+                </div>
+              </div>
+              <p style={{ margin: "0 0 12px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                When something doesn&apos;t have an immediate answer, that&apos;s not frustrating &mdash; that&apos;s exciting. I ask why things are the way they are, not to challenge the process, but to understand it fully. If there&apos;s no answer, I get curious. That same curiosity is what drives my educational growth.
+              </p>
+              <p style={{ margin: "0 0 12px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                I don&apos;t create new processes just to generate work. The goal is always to make processes more efficient, enhance safety, and improve outcomes. Any new process has to improve the current workflow, reduce workload, and increase satisfaction &mdash; otherwise it won&apos;t be adopted, and adoption is everything.
+              </p>
+              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                When rolling out something new, I explain the reason behind it. I don&apos;t develop and implement and stop. I roll it out, gather feedback, and continue refining. I am committed to every stage &mdash; development through post-implementation &mdash; because the needs of the system keep evolving.
+              </p>
+            </div>
+
+            {/* Cross-Functional Collaboration */}
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.pr}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.pr}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.pr }}>CF</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Cross-Functional Collaboration</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>Gift of Life &amp; Implementation Specialist roles</div>
+                </div>
+              </div>
+              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                Meaningful improvement in complex healthcare systems requires experts across disciplines working together toward a unified goal. My work with the Gift of Life project and in Implementation Specialist roles placed me at exactly that intersection &mdash; coordinating across nursing, surgery, organ procurement, and administration to execute processes where the margin for error was zero and the stakes were the highest possible.
+              </p>
+            </div>
+
+            {/* Speed vs Safety */}
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.wn}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.wn}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.wn }}>SS</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Speed vs. Safety</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>How I prioritize under pressure</div>
+                </div>
+              </div>
+              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                It is never acceptable to sacrifice patient safety or risk patient outcomes just to meet a metric or timeline. Processes can take longer &mdash; that is okay, as long as the team understands and can account for the delay. A measurement is a tool. The patient is the mission. I have never confused the two, and that distinction is one I carry directly into how I think about anesthesia care.
+              </p>
+            </div>
+
+            {/* Proactivity */}
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ok}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.ok}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.ok }}>PR</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Proactivity</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>Downstream thinking in real time</div>
+                </div>
+              </div>
+              <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                I understand how one decision can impact patient care hours or days later. I always think ahead &mdash; considering how my current actions will shape what comes next. In anesthesia, that mental model is not optional. Every induction decision, every fluid choice, every positioning consideration has a downstream consequence. I have been practicing that kind of thinking at the bedside for years.
+              </p>
+            </div>
+
+          </div>}
+
+          {/* ANALOGIES TAB */}
+          {ipTab === "Analogies" && <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.pk}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.pk}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.pk }}>PA</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>The Painter Analogy</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>Use when asked: &ldquo;Is there a right or wrong way to practice anesthesia?&rdquo;</div>
+                </div>
+              </div>
+
+              <div style={{ padding: "18px 20px", background: t.bgS, borderRadius: "10px", border: `1px solid ${t.bd}`, fontSize: "14px", lineHeight: "1.85", color: t.t2, fontStyle: "italic", marginBottom: "20px" }}>
+                <p style={{ margin: "0 0 14px" }}>
+                  &ldquo;I think of CRNAs the way I think of painters. A master in oils and a master in watercolor can both capture the same landscape beautifully &mdash; same subject, same truth, completely different medium. Neither is wrong. Neither is lesser.
+                </p>
+                <p style={{ margin: "0 0 14px" }}>
+                  But here&apos;s what matters: every medium has its own fundamentals. Oil painting demands an understanding of drying time, layering, and how pigments interact over time. Watercolor demands control of water-to-pigment ratios, transparency, and how the paper holds moisture. Ignore those fundamentals &mdash; in either medium &mdash; and the piece fails, regardless of how talented the artist is.
+                </p>
+                <p style={{ margin: "0 0 14px" }}>
+                  Anesthesia is exactly the same. There are numerous correct paths to the same endpoint. But whichever path you choose &mdash; volatile-based, TIVA, regional-heavy &mdash; the fundamentals of that path have to be executed precisely. Airway management, hemodynamic stability, depth of anesthesia, reversal. Those don&apos;t change based on your medium. They&apos;re the reason the patient arrives safely.
+                </p>
+                <p style={{ margin: 0 }}>
+                  The patient is the landscape. Our job is to honor them, protect them, and bring them through. What CRNA school gives me is not just the techniques &mdash; it&apos;s the clinical judgment to know which medium fits this patient, this case, this moment, and the mastery of fundamentals to execute it without compromise.&rdquo;
+                </p>
+              </div>
+
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.pk, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The Three Beats</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                {[
+                  { n: "1", title: "Many valid paths exist", body: "The medium analogy &mdash; oils vs. watercolor, volatile vs. TIVA. Same destination, different technique. Neither is wrong." },
+                  { n: "2", title: "Every path has non-negotiable fundamentals", body: "The safety anchor. Whichever medium you choose, the core principles of that approach must be executed precisely. This prevents the analogy from implying &ldquo;anything goes.&rdquo;" },
+                  { n: "3", title: "Patient-centered close", body: "The patient is the landscape. Land it back on what matters &mdash; not technique preference, but honoring and protecting the individual in front of you." },
+                ].map((beat, i) => (
+                  <div key={i} style={{ display: "flex", gap: "14px", padding: "12px 16px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}` }}>
+                    <div style={{ width: "26px", height: "26px", borderRadius: "50%", background: `${t.pk}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontSize: "12px", fontWeight: 700, color: t.pk }}>{beat.n}</span>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: "13px", fontWeight: 700, marginBottom: "3px" }}>{beat.title}</div>
+                      <div style={{ fontSize: "12px", color: t.t2, lineHeight: "1.6" }} dangerouslySetInnerHTML={{ __html: beat.body }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop: "16px", padding: "12px 16px", background: `${t.pk}10`, borderRadius: "8px", border: `1px solid ${t.pk}30` }}>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: t.pk, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Key Line to Remember</div>
+                <div style={{ fontSize: "14px", fontWeight: 600, color: t.tx, fontStyle: "italic" }}>&ldquo;The patient is the landscape.&rdquo;</div>
+                <div style={{ fontSize: "12px", color: t.tM, marginTop: "4px" }}>This is the line that lands. Everything else builds to it.</div>
+              </div>
+            </div>
+
+          </div>}
+
+          {/* STORIES TAB */}
+          {ipTab === "Stories" && <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ok}`, borderRadius: "12px", padding: "24px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.ok}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.ok }}>DCD</span>
+                </div>
+                <div>
+                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Gift of Life &mdash; DCD Case</div>
+                  <div style={{ fontSize: "12px", color: t.tM }}>Use for: proactivity, cross-functional collaboration, patient-centered care</div>
+                </div>
+              </div>
+
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The Scenario</div>
+              <p style={{ margin: "0 0 14px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                A young male patient was brought to the TNICU following a fall from a parking garage &mdash; a donation after cardiac death (DCD) case. In coordination with a perfusionist, the team performed bedside autotransfusion. The family was present throughout. In an objectively devastating situation, the process we had prepared for &mdash; the protocols, the cross-functional coordination, the proactive setup &mdash; created the only positive outcome available: a meaningful, dignified donation that gave other families a chance.
+              </p>
+
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>What This Story Demonstrates</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
+                {[
+                  "Proactivity &mdash; the preparation that made the outcome possible happened long before that patient arrived",
+                  "Cross-functional collaboration &mdash; nursing, surgery, organ procurement, perfusionist, family all working in concert",
+                  "Patient and family-centered care under the most difficult possible circumstances",
+                  "Downstream thinking &mdash; understanding that decisions made early in a case shape what is possible at the end",
+                ].map((point, i) => (
+                  <div key={i} style={{ display: "flex", gap: "10px", padding: "9px 14px", background: t.bgS, borderRadius: "8px", fontSize: "13px", color: t.t2 }}>
+                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: t.ok, flexShrink: 0, marginTop: "6px" }} />
+                    <span dangerouslySetInnerHTML={{ __html: point }} />
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ padding: "12px 16px", background: `${t.ok}10`, borderRadius: "8px", border: `1px solid ${t.ok}30` }}>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Interview Framing</div>
+                <div style={{ fontSize: "13px", color: t.t2, lineHeight: "1.7" }}>
+                  When asked about a time you made a meaningful difference, or about proactivity, or about working in high-stakes interdisciplinary teams &mdash; this is your anchor story. The outcome was not saving the patient. The outcome was creating the only good that was possible from that situation. That distinction is powerful.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ padding: "16px 20px", background: t.bgC, border: `1px dashed ${t.bd}`, borderRadius: "10px", textAlign: "center" }}>
+              <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>Additional stories coming &mdash; add your STAR framework entries here as you build them out</p>
+            </div>
+
+          </div>}
+
+          {/* QUESTIONS TAB */}
+          {ipTab === "Questions" && <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            {[
+              {
+                q: "Why do you want to become a CRNA?",
+                a: "Lead with the Clinical Systems Thinker narrative. You are drawn to problems that require deep system understanding before you can change them. Your TNICU projects reflect that discipline. Anesthesia applies that same thinking to human physiology &mdash; every patient is a unique system requiring a custom-built solution.",
+                tags: ["Identity", "Why CRNA"],
+              },
+              {
+                q: "Is there a right or wrong way to practice anesthesia?",
+                a: "The Painter Analogy. Many valid paths exist. Each path has non-negotiable fundamentals. The patient is the landscape. Land on patient-centered care at the close.",
+                tags: ["Philosophy", "Analogy"],
+              },
+              {
+                q: "Tell me about a time you made a meaningful difference.",
+                a: "The DCD / Gift of Life case. Bedside autotransfusion with a perfusionist, family present. The preparation and cross-functional coordination made the only positive outcome possible from that situation.",
+                tags: ["Story", "STAR"],
+              },
+              {
+                q: "How do you handle a situation where you disagree with a process or protocol?",
+                a: "Lead with curiosity &mdash; you ask why things are the way they are to understand fully, not to challenge. If a gap exists, you work through the appropriate channels, build the evidence, and propose solutions that improve workflow and are likely to be adopted.",
+                tags: ["Behavioral", "Philosophy"],
+              },
+              {
+                q: "How do you approach patient safety when speed is being prioritized?",
+                a: "Direct answer: patient safety is never the variable. It is never acceptable to sacrifice outcomes to meet a metric. Processes can take longer &mdash; as long as the team understands and accounts for the delay. The measurement is a tool. The patient is the mission.",
+                tags: ["Safety", "Values"],
+              },
+            ].map((item, i) => (
+              <div key={i} style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderRadius: "10px", padding: "18px 20px" }}>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.4px", marginBottom: "6px" }}>Interview Question</div>
+                <div style={{ fontSize: "15px", fontWeight: 600, color: t.tx, marginBottom: "12px", lineHeight: "1.5" }}>&ldquo;{item.q}&rdquo;</div>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: t.t2, textTransform: "uppercase", letterSpacing: "0.4px", marginBottom: "6px" }}>Answer Framework</div>
+                <div style={{ fontSize: "13px", color: t.t2, lineHeight: "1.7", marginBottom: "12px" }}>{item.a}</div>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                  {item.tags.map(tag => (
+                    <span key={tag} style={{ fontSize: "10px", fontWeight: 600, padding: "2px 8px", borderRadius: "6px", background: t.bgS, color: t.tM, border: `1px solid ${t.bd}` }}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>}
+
         </div>}
+
 
         {/* RECEPTOR PHARMACOLOGY HUB */}
         {pg === "pg-recep" && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
