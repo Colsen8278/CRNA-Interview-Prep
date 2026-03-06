@@ -2759,6 +2759,400 @@ function ProtoDetail({ p, t, theme, conf, setConf, notes, setNotes }) {
 }
 
 
+
+// ── LGIC Interactive Diagram ──────────────────────────────────────────────────
+function LGICDiagram({ t }) {
+  const [channelType, setChannelType] = useState("gabaa");
+  const [channelState, setChannelState] = useState("closed");
+  const [drugBinding, setDrugBinding] = useState(false);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (channelState !== "open") return;
+    const id = setInterval(() => setTick(v => (v + 1) % 60), 60);
+    return () => clearInterval(id);
+  }, [channelState]);
+
+  const configs = {
+    gabaa: {
+      label: "GABA-A Receptor",
+      subtype: "Cl\u207B channel (inhibitory)",
+      subunits: ["\u03B1","\u03B2","\u03B1","\u03B2","\u03B3"],
+      ion: "Cl\u207B",
+      ionColor: "#a855f7",
+      ionDir: "in",
+      color: t.ac,
+      bindSite: "Between \u03B1-\u03B2 subunits (GABA) \u2022 \u03B2-TM2/TM3 (Propofol, Etomidate)",
+      drugs: "Propofol, Etomidate, Benzodiazepines, Barbiturates, Volatile anesthetics",
+      effect: "Cl\u207B influx \u2192 hyperpolarization \u2192 neuronal inhibition",
+      norm: "Resting Vm \u221270 mV \u2192 \u221285 mV (further from threshold)",
+    },
+    nachr: {
+      label: "Nicotinic ACh Receptor",
+      subtype: "Na\u207A/Ca\u00B2\u207A channel (excitatory)",
+      subunits: ["\u03B1","\u03B2","\u03B1","\u03B4","\u03B5"],
+      ion: "Na\u207A",
+      ionColor: "#f59e0b",
+      ionDir: "in",
+      color: "#3b82f6",
+      bindSite: "Two \u03B1 subunit extracellular domains (ACh / succinylcholine binding)",
+      drugs: "Succinylcholine (depolarizing), Rocuronium, Vecuronium, Cisatracurium (competitive)",
+      effect: "Na\u207A/Ca\u00B2\u207A influx \u2192 depolarization \u2192 muscle contraction (or block)",
+      norm: "Motor end plate depolarization \u2192 muscle action potential",
+    },
+  };
+
+  const cfg = configs[channelType];
+  const poreOpen = channelState === "open";
+  const W = 560, H = 400;
+  const cx = 280, memTop = 155, memBot = 245, poreW = poreOpen ? 18 : 4;
+
+  // Subunit positions (pentameric, evenly spaced)
+  const subAngles = [90, 162, 234, 306, 18];
+  const subR = 80;
+  const subs = subAngles.map((a, i) => {
+    const rad = (a * Math.PI) / 180;
+    return { x: cx + subR * Math.cos(rad), y: (memTop + memBot) / 2 + (subR * 0.55) * Math.sin(rad), label: cfg.subunits[i] };
+  });
+
+  // Ion particles
+  const ions = channelState === "open" ? Array.from({ length: 5 }, (_, i) => {
+    const phase = ((tick / 60) + i / 5) % 1;
+    const iy = cfg.ionDir === "in"
+      ? memTop - 10 + phase * (memBot + 30 - (memTop - 10))
+      : memBot + 10 - phase * (memBot + 10 - (memTop - 30));
+    return { x: cx + (Math.sin(phase * Math.PI * 4 + i) * 3), y: iy, alpha: Math.sin(phase * Math.PI) };
+  }) : [];
+
+  const binding = drugBinding;
+  const bindSites = channelType === "gabaa"
+    ? [{ x: subs[0].x + (subs[1].x - subs[0].x) / 2, y: memTop - 28 }, { x: subs[2].x + (subs[3].x - subs[2].x) / 2, y: memTop - 28 }]
+    : [{ x: subs[0].x, y: memTop - 35 }, { x: subs[2].x, y: memTop - 35 }];
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${cfg.color}40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+        <span style={{ fontSize: "12px", color: cfg.color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Ligand-Gated Ion Channel &mdash; Interactive</span>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          {Object.entries(configs).map(([k, v]) => (
+            <button key={k} onClick={() => { setChannelType(k); setChannelState("closed"); setDrugBinding(false); }}
+              style={{ padding: "4px 12px", borderRadius: "6px", border: `1px solid ${channelType === k ? v.color : t.bd}`, background: channelType === k ? `${v.color}18` : t.bgC, color: channelType === k ? v.color : t.tM, fontSize: "11px", fontWeight: channelType === k ? 700 : 400, cursor: "pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "400px" }}>
+          {/* Extracellular label */}
+          <text x="16" y="80" fill={t.tM} fontSize="9" fontWeight="600">EXTRACELLULAR</text>
+          <line x1="16" y1="84" x2="100" y2="84" stroke={t.tM} strokeWidth="0.5"/>
+          {/* Intracellular label */}
+          <text x="16" y="330" fill={t.tM} fontSize="9" fontWeight="600">INTRACELLULAR</text>
+          <line x1="16" y1="324" x2="100" y2="324" stroke={t.tM} strokeWidth="0.5"/>
+
+          {/* Membrane */}
+          <rect x="120" y={memTop} width="320" height={memBot - memTop} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="460" y={memTop + 14} fill={t.tM} fontSize="8">Lipid bilayer</text>
+          {/* Membrane phospholipid dots */}
+          {Array.from({ length: 22 }, (_, i) => (
+            <g key={i}>
+              <circle cx={125 + i * 14} cy={memTop + 8} r="3" fill={`${cfg.color}30`} stroke={`${cfg.color}60`} strokeWidth="0.5"/>
+              <circle cx={125 + i * 14} cy={memBot - 8} r="3" fill={`${cfg.color}30`} stroke={`${cfg.color}60`} strokeWidth="0.5"/>
+            </g>
+          ))}
+
+          {/* Subunits */}
+          {subs.map((s, i) => (
+            <g key={i}>
+              <ellipse cx={s.x} cy={s.y} rx="28" ry="42" fill={t.bgC} stroke={cfg.color} strokeWidth="2" opacity="0.95"/>
+              <text x={s.x} y={s.y - 2} fill={cfg.color} fontSize="14" fontWeight="700" textAnchor="middle">{s.label}</text>
+              <text x={s.x} y={s.y + 12} fill={t.tM} fontSize="7" textAnchor="middle">TM1-4</text>
+            </g>
+          ))}
+
+          {/* Central pore */}
+          <rect x={cx - poreW / 2} y={memTop + 4} width={poreW} height={memBot - memTop - 8} rx={poreW / 2}
+            fill={poreOpen ? `${cfg.ionColor}35` : `${t.bd}`} stroke={poreOpen ? cfg.ionColor : t.bd} strokeWidth="1.5"/>
+          <text x={cx} y={memTop + (memBot - memTop) / 2 + 4} fill={poreOpen ? cfg.ionColor : t.tM} fontSize="8" textAnchor="middle" fontWeight="600">
+            {poreOpen ? "OPEN" : "CLOSED"}
+          </text>
+
+          {/* Ion flow */}
+          {ions.map((ion, i) => (
+            <g key={i} opacity={Math.max(0.2, ion.alpha)}>
+              <circle cx={ion.x} cy={ion.y} r="7" fill={cfg.ionColor} opacity="0.85"/>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">{cfg.ion}</text>
+            </g>
+          ))}
+
+          {/* Arrow showing ion direction */}
+          {poreOpen && (
+            <g>
+              <defs>
+                <marker id="ionArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L6,3 Z" fill={cfg.ionColor}/>
+                </marker>
+              </defs>
+              <line x1={cx + 22} y1={memTop + 10} x2={cx + 22} y2={memBot - 10}
+                stroke={cfg.ionColor} strokeWidth="1.5" markerEnd="url(#ionArrow)" strokeDasharray="4,2"/>
+              <text x={cx + 30} y={memTop + (memBot - memTop) / 2 + 3} fill={cfg.ionColor} fontSize="8" fontWeight="600">influx</text>
+            </g>
+          )}
+
+          {/* Drug/ligand binding sites */}
+          {binding && bindSites.map((bs, i) => (
+            <g key={i}>
+              <circle cx={bs.x} cy={bs.y} r="10" fill={`${t.wn}30`} stroke={t.wn} strokeWidth="1.5"/>
+              <text x={bs.x} y={bs.y + 3} fill={t.wn} fontSize="8" textAnchor="middle" fontWeight="700">&#9679;</text>
+              <text x={bs.x} y={bs.y - 15} fill={t.wn} fontSize="8" textAnchor="middle">Drug</text>
+            </g>
+          ))}
+
+          {/* Vm indicator */}
+          <rect x="440" y="170" width="100" height="52" rx="6" fill={t.bgC} stroke={poreOpen ? cfg.ionColor : t.bd} strokeWidth="1.5"/>
+          <text x="490" y="186" fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
+          <text x="490" y="204" fill={poreOpen ? cfg.ionColor : t.tx} fontSize="16" fontWeight="700" textAnchor="middle">
+            {poreOpen ? (channelType === "gabaa" ? "\u221285" : "+40") : "\u221270"}
+          </text>
+          <text x="490" y="216" fill={t.tM} fontSize="8" textAnchor="middle">mV</text>
+
+          {/* Labels */}
+          <text x={cx} y="28" fill={cfg.color} fontSize="13" fontWeight="700" textAnchor="middle">{cfg.label}</text>
+          <text x={cx} y="44" fill={t.tM} fontSize="10" textAnchor="middle">{cfg.subtype}</text>
+          <text x={cx} y="60" fill={t.t2} fontSize="9" textAnchor="middle">Pentameric (5-subunit) \u2022 {cfg.subunits.join("-")}</text>
+
+          {/* Legend */}
+          <circle cx="140" cy="378" r="6" fill={cfg.ionColor} opacity="0.85"/>
+          <text x="150" y="382" fill={t.t2} fontSize="9">{cfg.ion} ion</text>
+          {binding && <><circle cx="210" cy="378" r="6" fill={`${t.wn}30`} stroke={t.wn} strokeWidth="1.5"/><text x="220" y="382" fill={t.t2} fontSize="9">Drug bound</text></>}
+          {poreOpen && <><rect x="290" y="372" width="14" height="8" rx="2" fill={`${cfg.ionColor}35`} stroke={cfg.ionColor} strokeWidth="1"/><text x="308" y="382" fill={t.t2} fontSize="9">Open pore</text></>}
+        </svg>
+      </div>
+
+      {/* Controls */}
+      <div style={{ padding: "14px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <div style={{ display: "flex", gap: "10px", marginBottom: "14px", flexWrap: "wrap" }}>
+          <button onClick={() => setChannelState(channelState === "closed" ? "open" : "closed")}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${cfg.color}`, background: poreOpen ? cfg.color : "transparent", color: poreOpen ? t.acTx : cfg.color, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
+            {poreOpen ? "&#9632; Close Channel" : "&#9654; Open Channel"}
+          </button>
+          <button onClick={() => setDrugBinding(d => !d)}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${t.wn}`, background: drugBinding ? t.wn : "transparent", color: drugBinding ? "#000" : t.wn, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
+            {drugBinding ? "Remove Drug" : "Bind Drug"}
+          </button>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))", gap: "10px", fontSize: "12px" }}>
+          <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
+            <div style={{ color: cfg.color, fontWeight: 700, marginBottom: "4px" }}>Binding Site</div>
+            <div style={{ color: t.t2, lineHeight: 1.6 }}>{cfg.bindSite}</div>
+          </div>
+          <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
+            <div style={{ color: t.wn, fontWeight: 700, marginBottom: "4px" }}>Key Drugs</div>
+            <div style={{ color: t.t2, lineHeight: 1.6 }}>{cfg.drugs}</div>
+          </div>
+          <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
+            <div style={{ color: poreOpen ? cfg.ionColor : t.tM, fontWeight: 700, marginBottom: "4px" }}>Net Effect</div>
+            <div style={{ color: t.t2, lineHeight: 1.6 }}>{poreOpen ? cfg.effect : cfg.norm}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── GPCR Interactive Diagram ─────────────────────────────────────────────────
+function GPCRDiagram({ t }) {
+  const [pathway, setPathway] = useState(null);
+  const [ligandBound, setLigandBound] = useState(false);
+  const [activated, setActivated] = useState(false);
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    if (!activated) return;
+    const id = setInterval(() => setTick(v => (v + 1) % 120), 50);
+    return () => clearInterval(id);
+  }, [activated]);
+
+  const pathways = {
+    gs: { label: "Gs", color: "#22c55e", receptor: "\u03B21, \u03B22, D1, H2, V2", effector: "Adenylyl Cyclase \u2191", messenger: "cAMP \u2191\u2191", kinase: "PKA", effect: "\u2191Inotrope/Chronotrope, \u2191HR, \u2191contractility, smooth muscle relaxation", drugs: "\u03B21: Dobutamine, Isoproterenol\n\u03B22: Albuterol, Terbutaline" },
+    gi: { label: "Gi", color: "#ef4444", receptor: "\u03B12, M2, D2, opioid, \u03BC, \u03BA, \u03B4", effector: "Adenylyl Cyclase \u2193", messenger: "cAMP \u2193\u2193", kinase: "PKA\u2193", effect: "\u2193HR (vagal), \u2193AV conduction, sedation, analgesia, vasoconstriction (\u03B12)", drugs: "\u03B12: Clonidine, Dexmedetomidine\nM2: Muscarine\nOpioid: Morphine, Fentanyl" },
+    gq: { label: "Gq", color: "#f59e0b", receptor: "\u03B11, M1, M3, H1, AT1, V1", effector: "Phospholipase C \u2191", messenger: "IP\u2083 + DAG \u2191", kinase: "PKC + Ca\u00B2\u207A", effect: "Vasoconstriction (\u03B11), bronchoconstriction (M3), secretion (M3), uterine contraction (V1)", drugs: "\u03B11: Phenylephrine, NE\nM3: Pilocarpine\nV1: Vasopressin" },
+  };
+
+  const W = 640, H = 440;
+  const rcx = 220, rTop = 80, rBot = 300;
+  const helixXs = [140, 165, 185, 205, 225, 245, 265, 285];
+  const helixH = rBot - rTop;
+
+  // G-protein position (dissociates when activated)
+  const gprotX = activated ? 340 : 195;
+  const gprotY = activated ? 320 : 305;
+
+  // Cascade bubbles positions
+  const cascadeX = { gs: 420, gi: 420, gq: 420 };
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${t.ac}40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+        <span style={{ fontSize: "12px", color: t.ac, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; G-Protein Coupled Receptor (GPCR) &mdash; 7TM Interactive</span>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          {Object.entries(pathways).map(([k, v]) => (
+            <button key={k} onClick={() => setPathway(pathway === k ? null : k)}
+              style={{ padding: "4px 12px", borderRadius: "6px", border: `1px solid ${pathway === k ? v.color : t.bd}`, background: pathway === k ? `${v.color}18` : t.bgC, color: pathway === k ? v.color : t.tM, fontSize: "11px", fontWeight: pathway === k ? 700 : 400, cursor: "pointer" }}>
+              {v.label} pathway
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "460px" }}>
+          {/* Zone labels */}
+          <text x="18" y="65" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
+          <text x="18" y="345" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
+          <line x1="18" y1="68" x2="110" y2="68" stroke={t.tM} strokeWidth="0.5"/>
+          <line x1="18" y1="340" x2="110" y2="340" stroke={t.tM} strokeWidth="0.5"/>
+
+          {/* Membrane */}
+          <rect x="110" y={rTop + 60} width="310" height="100" rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 20 }, (_, i) => (
+            <g key={i}>
+              <circle cx={118 + i * 15} cy={rTop + 72} r="3" fill={`${t.ac}25`} stroke={`${t.ac}50`} strokeWidth="0.5"/>
+              <circle cx={118 + i * 15} cy={rTop + 146} r="3" fill={`${t.ac}25`} stroke={`${t.ac}50`} strokeWidth="0.5"/>
+            </g>
+          ))}
+          <text x="430" y={rTop + 118} fill={t.tM} fontSize="8">Lipid bilayer</text>
+
+          {/* 7 TM helices */}
+          {[0,1,2,3,4,5,6].map(i => {
+            const hx = 145 + i * 22;
+            const htop = rTop + 58 + (i % 2 === 0 ? 0 : 8);
+            const hbot = rTop + 152 + (i % 2 === 0 ? 8 : 0);
+            return (
+              <g key={i}>
+                <rect x={hx - 8} y={htop} width="16" height={hbot - htop} rx="5"
+                  fill={ligandBound ? `${t.ac}25` : `${t.bd}`} stroke={t.ac} strokeWidth={ligandBound ? "2" : "1.5"}/>
+                <text x={hx} y={htop + (hbot - htop) / 2 + 3} fill={t.ac} fontSize="8" textAnchor="middle" fontWeight="700">{i + 1}</text>
+              </g>
+            );
+          })}
+          <text x={rcx + 10} y={rTop + 20} fill={t.ac} fontSize="11" fontWeight="700" textAnchor="middle">7TM Receptor</text>
+          <text x={rcx + 10} y={rTop + 34} fill={t.tM} fontSize="8" textAnchor="middle">Orthosteric binding pocket</text>
+
+          {/* Extracellular loops connecting helices */}
+          {[0,2,4].map(i => {
+            const x1 = 145 + i * 22, x2 = 145 + (i + 1) * 22;
+            const y = rTop + 50 - (i === 2 ? 10 : 0);
+            return <path key={i} d={`M${x1},${rTop + 58} Q${(x1+x2)/2},${y} ${x2},${rTop + 66}`} fill="none" stroke={t.ac} strokeWidth="1.5" opacity="0.6"/>;
+          })}
+          {/* Intracellular loops */}
+          {[1,3].map(i => {
+            const x1 = 145 + i * 22, x2 = 145 + (i + 1) * 22;
+            return <path key={i} d={`M${x1},${rTop + 160} Q${(x1+x2)/2},${rTop + 178} ${x2},${rTop + 160}`} fill="none" stroke={t.ac} strokeWidth="1.5" opacity="0.6"/>;
+          })}
+
+          {/* Ligand */}
+          {ligandBound && (
+            <g>
+              <ellipse cx={rcx + 10} cy={rTop + 48} rx="20" ry="10" fill={`${t.wn}30`} stroke={t.wn} strokeWidth="2"/>
+              <text x={rcx + 10} y={rTop + 52} fill={t.wn} fontSize="9" textAnchor="middle" fontWeight="700">Drug</text>
+              <line x1={rcx + 10} y1={rTop + 58} x2={rcx + 10} y2={rTop + 70} stroke={t.wn} strokeWidth="1.5" strokeDasharray="3,2"/>
+            </g>
+          )}
+
+          {/* G-protein heterotrimer */}
+          <g style={{ transition: "all 0.6s" }}>
+            <ellipse cx={gprotX} cy={gprotY} rx="28" ry="18" fill={`${activated && pathway ? pathways[pathway].color : t.bl}20`}
+              stroke={activated && pathway ? pathways[pathway].color : t.bl} strokeWidth="2"/>
+            <text x={gprotX} y={gprotY + 3} fill={activated && pathway ? pathways[pathway].color : t.bl} fontSize="10" textAnchor="middle" fontWeight="700">G\u03B1</text>
+            <ellipse cx={gprotX + 30} cy={gprotY + 8} rx="18" ry="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+            <text x={gprotX + 30} y={gprotY + 12} fill={t.tM} fontSize="9" textAnchor="middle">G\u03B2\u03B3</text>
+            {!activated && <line x1={gprotX + 20} y1={gprotY - 8} x2={rcx + 10} y2={rTop + 172} stroke={t.bl} strokeWidth="1.5" strokeDasharray="4,2" opacity="0.5"/>}
+            {activated && <text x={gprotX} y={gprotY - 22} fill={activated && pathway ? pathways[pathway].color : t.bl} fontSize="8" textAnchor="middle">GDP\u2192GTP</text>}
+          </g>
+
+          {/* Signaling cascade when pathway selected and activated */}
+          {activated && pathway && (() => {
+            const pw = pathways[pathway];
+            const nodes = [
+              { label: pw.effector, y: 120 },
+              { label: pw.messenger, y: 200 },
+              { label: pw.kinase, y: 278 },
+            ];
+            const phase = tick / 120;
+            return (
+              <g>
+                <line x1={gprotX + 28} y1={gprotY - 5} x2={490} y2={130} stroke={pw.color} strokeWidth="1.5" strokeDasharray="5,3" opacity="0.7"/>
+                {nodes.map((n, i) => {
+                  const blink = Math.sin((phase * Math.PI * 2) - i * 0.8) * 0.3 + 0.7;
+                  return (
+                    <g key={i}>
+                      {i > 0 && <line x1="490" y1={nodes[i-1].y + 16} x2="490" y2={n.y - 16} stroke={pw.color} strokeWidth="1.5" markerEnd="url(#cascArrow)" opacity="0.7"/>}
+                      <rect x="440" y={n.y - 16} width="100" height="32" rx="8" fill={`${pw.color}20`} stroke={pw.color} strokeWidth={1.5} opacity={blink}/>
+                      <text x="490" y={n.y + 4} fill={pw.color} fontSize="10" textAnchor="middle" fontWeight="700">{n.label}</text>
+                    </g>
+                  );
+                })}
+                <defs>
+                  <marker id="cascArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L6,3 Z" fill={pw.color}/>
+                  </marker>
+                </defs>
+                <rect x="440" y="336" width="100" height="52" rx="8" fill={`${pw.color}15`} stroke={pw.color} strokeWidth="1.5"/>
+                <text x="490" y="358" fill={pw.color} fontSize="8" textAnchor="middle" fontWeight="700">Net Effect:</text>
+                <foreignObject x="444" y="360" width="92" height="30">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style={{ fontSize: "7px", color: pw.color, lineHeight: "1.3", textAlign: "center" }}>
+                    {pw.effect.split(",")[0]}
+                  </div>
+                </foreignObject>
+                <text x="430" y="110" fill={pw.color} fontSize="9" textAnchor="end" fontWeight="700">Cascade:</text>
+              </g>
+            );
+          })()}
+
+          {/* Step indicator */}
+          <rect x="120" y="395" width="380" height="32" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <text x="310" y="408" fill={t.tM} fontSize="8" textAnchor="middle">
+            {!ligandBound ? "Step 1: Bind a ligand (drug)" : !activated ? "Step 2: Activate G-protein" : !pathway ? "Step 3: Select a pathway above" : `G\u03B1 dissociates \u2192 ${pathways[pathway].effector} \u2192 ${pathways[pathway].messenger}`}
+          </text>
+          <text x="310" y="420" fill={ligandBound ? (activated ? (pathway ? pathways[pathway].color : t.ac) : t.ac) : t.tM} fontSize="9" textAnchor="middle" fontWeight="600">
+            {!ligandBound ? "\u25CB Ligand unbound \u2014 receptor inactive" : !activated ? "\u25CE Ligand bound \u2014 press Activate below" : !pathway ? "\u25CF G-protein activated \u2014 select pathway" : `\u2713 ${pathways[pathway].label} cascade active`}
+          </text>
+        </svg>
+      </div>
+
+      {/* Controls */}
+      <div style={{ padding: "14px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <div style={{ display: "flex", gap: "10px", marginBottom: "14px", flexWrap: "wrap" }}>
+          <button onClick={() => { setLigandBound(l => !l); if (ligandBound) { setActivated(false); } }}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${t.wn}`, background: ligandBound ? t.wn : "transparent", color: ligandBound ? "#000" : t.wn, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
+            {ligandBound ? "Remove Ligand" : "1. Bind Ligand"}
+          </button>
+          <button onClick={() => ligandBound && setActivated(a => !a)} disabled={!ligandBound}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${t.ac}`, background: activated ? t.ac : "transparent", color: activated ? t.acTx : (ligandBound ? t.ac : t.tM), fontSize: "13px", fontWeight: 700, cursor: ligandBound ? "pointer" : "not-allowed", opacity: ligandBound ? 1 : 0.4 }}>
+            {activated ? "Deactivate" : "2. Activate G-Protein"}
+          </button>
+        </div>
+        {pathway && (
+          <div style={{ padding: "12px 14px", background: t.bgH, borderRadius: "8px", borderLeft: `4px solid ${pathways[pathway].color}` }}>
+            <div style={{ fontSize: "12px", fontWeight: 700, color: pathways[pathway].color, marginBottom: "6px" }}>G{pathway === "gs" ? "s" : pathway === "gi" ? "i" : "q"} Pathway Details</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))", gap: "8px", fontSize: "12px" }}>
+              <div><span style={{ color: t.t2 }}>Receptors: </span><span style={{ color: pathways[pathway].color, fontWeight: 600 }}>{pathways[pathway].receptor}</span></div>
+              <div><span style={{ color: t.t2 }}>Effector: </span><span style={{ color: pathways[pathway].color, fontWeight: 600 }}>{pathways[pathway].effector}</span></div>
+              <div><span style={{ color: t.t2 }}>Messenger: </span><span style={{ color: pathways[pathway].color, fontWeight: 600 }}>{pathways[pathway].messenger}</span></div>
+              <div><span style={{ color: t.t2 }}>Kinase: </span><span style={{ color: pathways[pathway].color, fontWeight: 600 }}>{pathways[pathway].kinase}</span></div>
+            </div>
+            <div style={{ marginTop: "8px", fontSize: "12px" }}><span style={{ color: t.t2 }}>Net Effect: </span><span style={{ color: pathways[pathway].color }}>{pathways[pathway].effect}</span></div>
+            <div style={{ marginTop: "6px", fontSize: "11px", color: t.tM, whiteSpace: "pre-line" }}>{pathways[pathway].drugs}</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // RECEPTOR DETAIL
 function ReceptorDetail({ r, t, theme, onMedClick, tab, setTab }) {
   const tabs = ["overview", "cascade", "clinical", "diagram"];
@@ -2944,9 +3338,13 @@ function ReceptorDetail({ r, t, theme, onMedClick, tab, setTab }) {
       </div>}
 
       {/* DIAGRAM TAB */}
-      {tab === "diagram" && <div style={{ padding: "24px", background: t.bgC, borderRadius: "10px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
-        <p style={{ color: t.tM, fontSize: "13px", fontStyle: "italic" }}>Interactive diagram for {r.name} -- coming in next build iteration.</p>
-        <p style={{ color: t.tM, fontSize: "12px" }}>Will show: {r.id === "lgic" ? "pentameric channel cross-section with ion flow" : r.id === "gpcr" ? "7TM receptor with Gq/Gs/Gi branching pathways" : r.id === "rtk" ? "RTK dimerization and PI3K-Akt cascade" : "cytoplasmic receptor with nuclear translocation"}</p>
+      {tab === "diagram" && <div>
+        {r.id === "lgic" && <LGICDiagram t={t} />}
+        {r.id === "gpcr" && <GPCRDiagram t={t} />}
+        {r.id !== "lgic" && r.id !== "gpcr" && <div style={{ padding: "24px", background: t.bgC, borderRadius: "10px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+          <p style={{ color: t.tM, fontSize: "13px", fontStyle: "italic" }}>Interactive diagram for {r.name} -- coming in next build iteration.</p>
+          <p style={{ color: t.tM, fontSize: "12px" }}>Will show: {r.id === "rtk" ? "RTK dimerization and PI3K-Akt cascade" : "cytoplasmic receptor with nuclear translocation"}</p>
+        </div>}
       </div>}
     </div>
   );
