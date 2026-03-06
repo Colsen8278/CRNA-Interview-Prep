@@ -444,7 +444,7 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   systems: ["cardio", "pharm"], type: "medication",
   ov: { "Drug Class": "Mixed-acting sympathomimetic (direct + indirect)", "Primary Targets": "\u03b11, \u03b21, \u03b22 (direct agonist) + presynaptic NE release (indirect)", "Action": "Direct receptor agonist AND indirect NE-releasing agent", "G-Proteins": "\u03b11=Gq, \u03b21/\u03b22=Gs", "Structure": "Non-catecholamine (no COMT metabolism, oral bioavailability)", "Key Feature": "Dual mechanism: 25% direct + 75% indirect (NE release via VMAT2 reversal)" },
   moa: "Ephedrine has a unique dual mechanism of action:\n\n1. INDIRECT (75% of effect): Enters presynaptic nerve terminal via uptake-1 (NET) → displaces norepinephrine from storage vesicles by reversing VMAT2 (vesicular monoamine transporter 2) → NE floods into synaptic cleft → activates postsynaptic \u03b1 and \u03b2 receptors.\n\n2. DIRECT (25% of effect): Directly binds and activates \u03b11, \u03b21, and \u03b22 adrenergic receptors (weak partial agonist activity).\n\nHemodynamic profile: ↑HR (\u03b21 + NE-mediated), ↑contractility (\u03b21), ↑SVR (\u03b11), ↑MAP. Preserves cardiac output better than pure \u03b11 agonists.\n\nTACHYPHYLAXIS: Repeated doses cause diminished response because:\n(1) Presynaptic NE stores become depleted (primary mechanism) — if you've released all stored NE, there's nothing left to displace.\n(2) Receptor desensitization (minor contributor).\nThis is why ephedrine becomes ineffective after 3–4 boluses and you should switch to phenylephrine or epinephrine.",
-  recPhys: "The indirect NE-releasing mechanism makes ephedrine fundamentally different from direct-acting agents:\n\nStep 1 — Neuronal uptake: Ephedrine enters the presynaptic adrenergic nerve terminal via NET (norepinephrine transporter / uptake-1). This is the same transporter that recycles released NE back into the terminal.\n\nStep 2 — VMAT2 reversal: Inside the terminal, ephedrine interacts with VMAT2 (vesicular monoamine transporter 2), which normally packages NE into vesicles. Ephedrine reverses this transporter, causing NE to flood out of vesicles into the cytoplasm.\n\nStep 3 — NE efflux: Elevated cytoplasmic NE reverses NET itself → NE flows OUT of the terminal into the synaptic cleft (non-exocytic release, NOT calcium-dependent vesicle fusion).\n\nStep 4 — Receptor activation: Released NE + direct ephedrine binding activates post-synaptic receptors: \u03b11-Gq (↑SVR), \u03b21-Gs (↑HR, ↑contractility), \u03b22-Gs (↑bronchodilation).\n\nCritical implications:\n\u2022 TCAs/cocaine block NET → ephedrine cannot enter the terminal → indirect mechanism abolished → markedly reduced effect\n\u2022 Reserpine depletes vesicular NE stores → nothing to release → ephedrine ineffective\n\u2022 MAOIs increase cytoplasmic NE → more available for release → exaggerated hypertensive response\n\u2022 Repeated dosing depletes NE stores → tachyphylaxis (classic interview question)",
+  recPhys: "The indirect NE-releasing mechanism makes ephedrine fundamentally different from direct-acting agents:\n\nStep 1 — Neuronal uptake: Ephedrine enters the presynaptic adrenergic nerve terminal via NET (norepinephrine transporter / uptake-1). This is the same transporter that recycles released NE back into the terminal.\n\nStep 2 — VMAT2 reversal: Inside the terminal, ephedrine interacts with VMAT2 (vesicular monoamine transporter 2), which normally packages NE into vesicles. Ephedrine reverses this transporter, causing NE to flood out of vesicles into the cytoplasm.\n\nStep 3 — NE efflux: Elevated cytoplasmic NE reverses NET itself → NE flows OUT of the terminal into the synaptic cleft (non-exocytic release, NOT calcium-dependent vesicle fusion).\n\nStep 4 — Receptor activation: Released NE + direct ephedrine binding activates post-synaptic receptors: \u03b11-Gq (↑SVR), \u03b21-Gs (↑HR, ↑contractility), \u03b22-Gs (↑bronchodilation).\n\nCritical implications:\n• TCAs/cocaine block NET → ephedrine cannot enter the terminal → indirect mechanism abolished → markedly reduced effect\n• Reserpine depletes vesicular NE stores → nothing to release → ephedrine ineffective\n• MAOIs increase cytoplasmic NE → more available for release → exaggerated hypertensive response\n• Repeated dosing depletes NE stores → tachyphylaxis (classic interview question)",
   dosing: [
     { ind: "Acute Hypotension", dose: "5–10 mg IV bolus", notes: "Onset 1–2 min. Repeat q3–5 min PRN. Max ~50 mg before switching agents (tachyphylaxis).", clr: "ac" },
     { ind: "Spinal Hypotension", dose: "5–10 mg IV", notes: "Second-line to phenylephrine in OB. Preserves HR/CO but crosses placenta → fetal tachycardia/acidosis.", clr: "wn" },
@@ -602,8 +602,8 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   tags: ["Dissociative Anesthetic", "NMDA Antagonist", "Phencyclidine Derivative", "Analgesic"],
   systems: ["neuro", "pharm"], type: "medication",
   ov: { "Drug Class": "Phencyclidine derivative — dissociative anesthetic", "Primary Target": "NMDA receptor (non-competitive antagonist)", "Action": "Open-channel block of NMDA Ca\u00b2\u207a/Na\u207a channel + opioid receptor modulation + monoamine reuptake inhibition", "Ion Channel": "Blocks NMDA Ca\u00b2\u207a/Na\u207a influx → dissociation", "Formulation": "10, 50, 100 mg/mL solutions", "Schedule": "DEA Schedule III" },
-  moa: "Ketamine is a phencyclidine (PCP) derivative that produces dissociative anesthesia — a unique cataleptic state of profound analgesia and amnesia with preserved airway reflexes and spontaneous ventilation (at appropriate doses).\n\nPRIMARY MECHANISM — NMDA Receptor Antagonism:\nKetamine is a non-competitive, use-dependent antagonist of the NMDA (N-methyl-D-aspartate) glutamate receptor. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a. Under normal conditions, glutamate + glycine binding opens the channel, but Mg\u00b2\u207a blocks the pore at resting membrane potential (voltage-dependent block). When the neuron depolarizes (by AMPA receptor activation), Mg\u00b2\u207a is expelled, and Ca\u00b2\u207a/Na\u207a flow in — driving excitatory neurotransmission.\n\nKetamine enters the OPEN channel and binds the PCP site inside the pore (between Mg\u00b2\u207a site and selectivity filter). This is USE-DEPENDENT: the channel must open before ketamine can block it. Once bound, ketamine physically occludes ion flow, preventing Ca\u00b2\u207a/Na\u207a influx even when glutamate is present.\n\nNMDA blockade in the thalamus and limbic system produces the dissociative state: functional disconnection between thalamocortical and limbic systems. The patient appears conscious (eyes open, nystagmus, purposeful movements) but is dissociated from sensory input.\n\nSECONDARY MECHANISMS:\n\u2022 Opioid receptor modulation: weak agonist at mu (\u03bc) and kappa (\u03ba) opioid receptors → contributes to analgesia\n\u2022 Monoamine reuptake inhibition: blocks reuptake of norepinephrine, dopamine, and serotonin → sympathomimetic effects (indirect)\n\u2022 Sodium channel blockade: weak local anesthetic effect at high concentrations\n\u2022 HCN1 channel interaction: may contribute to hypnotic effect\n\u2022 Anti-inflammatory: suppresses NF-\u03baB, reduces TNF-\u03b1 and IL-6 production",
-  recPhys: "NMDA Receptor Physiology — The Coincidence Detector:\n\nThe NMDA receptor requires TWO simultaneous conditions to open (hence 'coincidence detector'):\n1. Ligand binding: Glutamate (agonist site) + Glycine/D-serine (co-agonist site required)\n2. Membrane depolarization: Expels Mg\u00b2\u207a from the channel pore (voltage-dependent block)\n\nWhen both conditions are met: the channel opens and conducts Ca\u00b2\u207a and Na\u207a inward. The Ca\u00b2\u207a influx is critical — it activates CaMKII (calcium-calmodulin kinase II), which triggers:\n\u2022 Long-term potentiation (LTP) — synaptic strengthening, learning, memory formation\n\u2022 Central sensitization — wind-up phenomenon in dorsal horn (pain amplification)\n\u2022 Excitotoxicity — excessive Ca\u00b2\u207a → mitochondrial damage → neuronal death (stroke, TBI)\n\nKetamine's Clinical Relevance at Each Level:\n\nAnalgesia: NMDA blockade in the dorsal horn prevents central sensitization and wind-up. This is why sub-anesthetic ketamine (0.1–0.3 mg/kg/hr) is effective for opioid-resistant pain and reduces opioid requirements by 30–50% (opioid-sparing effect).\n\nNeuroprotection: By blocking excessive Ca\u00b2\u207a influx through NMDA channels, ketamine may limit excitotoxic injury. Theoretical benefit in TBI, status epilepticus (late/refractory stages).\n\nAntidepressant effect: NMDA blockade triggers a cascade: ↑BDNF (brain-derived neurotrophic factor) → ↑mTOR signaling → rapid synaptogenesis in prefrontal cortex. This produces antidepressant effects within 2–4 hours (vs. weeks for SSRIs). Esketamine (Spravato) is FDA-approved for treatment-resistant depression.\n\nSympathomimetic profile: Ketamine's monoamine reuptake inhibition centrally stimulates the sympathetic nervous system → ↑HR, ↑BP, ↑SVR. This is why ketamine is the induction agent of choice in hemodynamically unstable patients (trauma, hemorrhagic shock, tamponade). However, in catecholamine-depleted patients (end-stage septic shock, prolonged critical illness), the indirect mechanism fails and ketamine's direct myocardial depressant effect is unmasked → cardiovascular collapse.",
+  moa: "Ketamine is a phencyclidine (PCP) derivative that produces dissociative anesthesia — a unique cataleptic state of profound analgesia and amnesia with preserved airway reflexes and spontaneous ventilation (at appropriate doses).\n\nPRIMARY MECHANISM — NMDA Receptor Antagonism:\nKetamine is a non-competitive, use-dependent antagonist of the NMDA (N-methyl-D-aspartate) glutamate receptor. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a. Under normal conditions, glutamate + glycine binding opens the channel, but Mg\u00b2\u207a blocks the pore at resting membrane potential (voltage-dependent block). When the neuron depolarizes (by AMPA receptor activation), Mg\u00b2\u207a is expelled, and Ca\u00b2\u207a/Na\u207a flow in — driving excitatory neurotransmission.\n\nKetamine enters the OPEN channel and binds the PCP site inside the pore (between Mg\u00b2\u207a site and selectivity filter). This is USE-DEPENDENT: the channel must open before ketamine can block it. Once bound, ketamine physically occludes ion flow, preventing Ca\u00b2\u207a/Na\u207a influx even when glutamate is present.\n\nNMDA blockade in the thalamus and limbic system produces the dissociative state: functional disconnection between thalamocortical and limbic systems. The patient appears conscious (eyes open, nystagmus, purposeful movements) but is dissociated from sensory input.\n\nSECONDARY MECHANISMS:\n• Opioid receptor modulation: weak agonist at mu (\u03bc) and kappa (\u03ba) opioid receptors → contributes to analgesia\n• Monoamine reuptake inhibition: blocks reuptake of norepinephrine, dopamine, and serotonin → sympathomimetic effects (indirect)\n• Sodium channel blockade: weak local anesthetic effect at high concentrations\n• HCN1 channel interaction: may contribute to hypnotic effect\n• Anti-inflammatory: suppresses NF-\u03baB, reduces TNF-\u03b1 and IL-6 production",
+  recPhys: "NMDA Receptor Physiology — The Coincidence Detector:\n\nThe NMDA receptor requires TWO simultaneous conditions to open (hence 'coincidence detector'):\n1. Ligand binding: Glutamate (agonist site) + Glycine/D-serine (co-agonist site required)\n2. Membrane depolarization: Expels Mg\u00b2\u207a from the channel pore (voltage-dependent block)\n\nWhen both conditions are met: the channel opens and conducts Ca\u00b2\u207a and Na\u207a inward. The Ca\u00b2\u207a influx is critical — it activates CaMKII (calcium-calmodulin kinase II), which triggers:\n• Long-term potentiation (LTP) — synaptic strengthening, learning, memory formation\n• Central sensitization — wind-up phenomenon in dorsal horn (pain amplification)\n• Excitotoxicity — excessive Ca\u00b2\u207a → mitochondrial damage → neuronal death (stroke, TBI)\n\nKetamine's Clinical Relevance at Each Level:\n\nAnalgesia: NMDA blockade in the dorsal horn prevents central sensitization and wind-up. This is why sub-anesthetic ketamine (0.1–0.3 mg/kg/hr) is effective for opioid-resistant pain and reduces opioid requirements by 30–50% (opioid-sparing effect).\n\nNeuroprotection: By blocking excessive Ca\u00b2\u207a influx through NMDA channels, ketamine may limit excitotoxic injury. Theoretical benefit in TBI, status epilepticus (late/refractory stages).\n\nAntidepressant effect: NMDA blockade triggers a cascade: ↑BDNF (brain-derived neurotrophic factor) → ↑mTOR signaling → rapid synaptogenesis in prefrontal cortex. This produces antidepressant effects within 2–4 hours (vs. weeks for SSRIs). Esketamine (Spravato) is FDA-approved for treatment-resistant depression.\n\nSympathomimetic profile: Ketamine's monoamine reuptake inhibition centrally stimulates the sympathetic nervous system → ↑HR, ↑BP, ↑SVR. This is why ketamine is the induction agent of choice in hemodynamically unstable patients (trauma, hemorrhagic shock, tamponade). However, in catecholamine-depleted patients (end-stage septic shock, prolonged critical illness), the indirect mechanism fails and ketamine's direct myocardial depressant effect is unmasked → cardiovascular collapse.",
   dosing: [
     { ind: "IV Induction", dose: "1–2 mg/kg IV", notes: "Onset 30–60 sec. Duration 10–20 min. Dissociative dose. Preserves airway reflexes and ventilation (usually).", clr: "ac" },
     { ind: "IM Induction / Sedation", dose: "4–10 mg/kg IM", notes: "Onset 3–5 min. Duration 20–30 min. Useful when no IV access (pediatric, combative patient, field).", clr: "wn" },
@@ -658,7 +658,7 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
     { ind: "Continuous Infusion (rare)", dose: "2.5 mg/min (diluted to 1–2 mg/mL)", notes: "Rarely used. Phase II block risk with prolonged use. Requires TOF monitoring. Largely replaced by short-acting NDMBAs.", clr: "pr" },
   ],
   kin: { onset: "30–60 sec IV", onsetD: "Fastest onset of any NMBA — basis for RSI use", peak: "1 min", peakD: "Complete paralysis within 60 sec at intubating dose", dur: "8–15 min", durD: "Ultrashort — spontaneous recovery without reversal", vd: "Low (does not extensively distribute — hydrophilic)", pb: "Minimal", hl: "2–4 min (plasma cholinesterase hydrolysis)", csht: "N/A", cl: "Plasma cholinesterase (butyrylcholinesterase)", model: "Rapid hydrolysis — effect terminated by enzymatic degradation, not redistribution" },
-  metab: "SCh is rapidly hydrolyzed by PLASMA CHOLINESTERASE (pseudocholinesterase / butyrylcholinesterase / BChE), which is synthesized in the liver and circulates in plasma. Importantly, plasma cholinesterase is NOT present at the neuromuscular junction — AChE at the NMJ does not degrade SCh. This means the drug effect ends only when SCh diffuses away from the NMJ back into plasma where it encounters BChE.\n\nHydrolysis pathway: Succinylcholine → succinylmonocholine (weak NMBA, 1/20th activity) + choline → succinic acid + choline. Rapid: 90–95% hydrolyzed before reaching the NMJ (only 5–10% of administered dose actually reaches receptors).\n\nATYPICAL PSEUDOCHOLINESTERASE: Genetic variants of BChE (BCHE gene) with reduced activity cause prolonged paralysis:\n\u2022 Dibucaine Number (DN): normal DN = 80 (80% inhibition of BChE by dibucaine). Heterozygous atypical: DN ~50 (moderate prolongation, 20–30 min). Homozygous atypical: DN ~20 (severe prolongation, 4–8 hours).\n\u2022 Prevalence: Homozygous atypical ~1:2,500. Heterozygous ~1:25–50.\n\u2022 Also: acquired pseudocholinesterase deficiency from liver disease, pregnancy, burns, organophosphate exposure, malnutrition, plasmapheresis.\n\nManagement of prolonged block: SUPPORTIVE — maintain sedation, mechanical ventilation, and monitor TOF until recovery. Neostigmine will NOT work (depolarizing block). Fresh frozen plasma (provides normal BChE) can accelerate recovery but is rarely needed.",
+  metab: "SCh is rapidly hydrolyzed by PLASMA CHOLINESTERASE (pseudocholinesterase / butyrylcholinesterase / BChE), which is synthesized in the liver and circulates in plasma. Importantly, plasma cholinesterase is NOT present at the neuromuscular junction — AChE at the NMJ does not degrade SCh. This means the drug effect ends only when SCh diffuses away from the NMJ back into plasma where it encounters BChE.\n\nHydrolysis pathway: Succinylcholine → succinylmonocholine (weak NMBA, 1/20th activity) + choline → succinic acid + choline. Rapid: 90–95% hydrolyzed before reaching the NMJ (only 5–10% of administered dose actually reaches receptors).\n\nATYPICAL PSEUDOCHOLINESTERASE: Genetic variants of BChE (BCHE gene) with reduced activity cause prolonged paralysis:\n• Dibucaine Number (DN): normal DN = 80 (80% inhibition of BChE by dibucaine). Heterozygous atypical: DN ~50 (moderate prolongation, 20–30 min). Homozygous atypical: DN ~20 (severe prolongation, 4–8 hours).\n• Prevalence: Homozygous atypical ~1:2,500. Heterozygous ~1:25–50.\n• Also: acquired pseudocholinesterase deficiency from liver disease, pregnancy, burns, organophosphate exposure, malnutrition, plasmapheresis.\n\nManagement of prolonged block: SUPPORTIVE — maintain sedation, mechanical ventilation, and monitor TOF until recovery. Neostigmine will NOT work (depolarizing block). Fresh frozen plasma (provides normal BChE) can accelerate recovery but is rarely needed.",
   warn: [
     { tp: "bb", ti: "Hyperkalemia → Cardiac Arrest", tx: "Absolute contraindication in: burns (>24h post-injury), denervation injuries, prolonged immobility (>72h), spinal cord injury, crush injuries, muscular dystrophies, stroke (>72h), severe sepsis with muscle wasting. Extrajunctional nAChR upregulation → massive K\u207a efflux → VFib arrest. Safe window for burns/denervation: first 24–72 hours only." },
     { tp: "bb", ti: "Malignant Hyperthermia", tx: "Known trigger agent. SCh + volatile anesthetics = highest risk combination. MH: genetic defect in ryanodine receptor (RyR1) → uncontrolled Ca\u00b2\u207a release from SR → sustained muscle contraction, hypermetabolism, ↑CO₂, hyperthermia, rhabdomyolysis, DIC. Treatment: dantrolene 2.5 mg/kg IV (inhibits RyR1), repeat up to 10 mg/kg." },
@@ -771,7 +771,7 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   systems: ["neuro", "pharm"], type: "medication",
   ov: { "Drug Class": "Intermediate-acting benzylisoquinoline non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) — competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening → prevents Na\u207a influx", "Structure": "1R-cis, 1'R-cis isomer of atracurium (benzylisoquinoline)", "Key Feature": "Organ-independent Hofmann elimination; NO histamine release (unlike atracurium)" },
   moa: "Cisatracurium is the 1R-cis, 1'R-cis stereoisomer of atracurium, representing approximately 15% of the commercial atracurium mixture but ~4\u00d7 more potent. It competitively antagonizes the nicotinic ACh receptor at the NMJ, producing non-depolarizing neuromuscular blockade identical in mechanism to all competitive NMBAs.\n\nThe critical distinction is the elimination pathway: Hofmann elimination — a spontaneous, non-enzymatic, temperature- and pH-dependent chemical degradation that occurs in plasma and tissues regardless of hepatic or renal function. This makes cisatracurium the ideal NMBA for patients with organ dysfunction.\n\nUnlike its parent compound atracurium, cisatracurium does NOT release histamine at clinical doses. Atracurium's histamine release was attributed to the other stereoisomers in the mixture. By isolating the 1R-cis, 1'R-cis isomer, the histaminoid response is eliminated.\n\nCisatracurium forms laudanosine (a tertiary amine) as a metabolite. Laudanosine CROSSES the blood-brain barrier and has CNS excitatory (seizurogenic) potential at high concentrations. However, cisatracurium produces significantly LESS laudanosine than atracurium (~5\u00d7 less at equipotent doses due to the 4\u00d7 higher potency requiring lower total drug load).",
-  recPhys: "Same competitive antagonism at the NMJ as all non-depolarizing NMBAs (see rocuronium recPhys).\n\nHOFMANN ELIMINATION explained:\n\nStep 1: Cisatracurium undergoes spontaneous chemical degradation in plasma via Hofmann elimination — a base-catalyzed, temperature-dependent E2 elimination reaction. The ester bonds in the molecule undergo non-enzymatic cleavage.\n\nStep 2: Products are laudanosine (tertiary amine) and a monoquaternary acrylate. Neither has neuromuscular blocking activity.\n\nStep 3: The monoquaternary acrylate undergoes further Hofmann elimination and ester hydrolysis (by non-specific plasma esterases) to additional inactive metabolites.\n\nKey properties of Hofmann elimination:\n\u2022 No enzymes required — purely chemical. No hepatic metabolism needed.\n\u2022 Temperature-dependent: SLOWER in hypothermia (important in TTM — effect prolonged at 34\u00b0C)\n\u2022 pH-dependent: SLOWER in acidosis (protonation stabilizes the molecule against elimination)\n\u2022 Organ-INDEPENDENT: identical degradation rate regardless of hepatic or renal function\n\u2022 Predictable pharmacokinetics even in multiorgan failure\n\nLaudanosine: Crosses BBB. In animal studies, high concentrations cause CNS excitation and seizures. Clinical significance at cisatracurium doses is minimal because plasma laudanosine levels remain well below the seizure threshold (unlike atracurium, where laudanosine accumulation was a genuine concern in ICU patients with renal failure).",
+  recPhys: "Same competitive antagonism at the NMJ as all non-depolarizing NMBAs (see rocuronium recPhys).\n\nHOFMANN ELIMINATION explained:\n\nStep 1: Cisatracurium undergoes spontaneous chemical degradation in plasma via Hofmann elimination — a base-catalyzed, temperature-dependent E2 elimination reaction. The ester bonds in the molecule undergo non-enzymatic cleavage.\n\nStep 2: Products are laudanosine (tertiary amine) and a monoquaternary acrylate. Neither has neuromuscular blocking activity.\n\nStep 3: The monoquaternary acrylate undergoes further Hofmann elimination and ester hydrolysis (by non-specific plasma esterases) to additional inactive metabolites.\n\nKey properties of Hofmann elimination:\n• No enzymes required — purely chemical. No hepatic metabolism needed.\n• Temperature-dependent: SLOWER in hypothermia (important in TTM — effect prolonged at 34\u00b0C)\n• pH-dependent: SLOWER in acidosis (protonation stabilizes the molecule against elimination)\n• Organ-INDEPENDENT: identical degradation rate regardless of hepatic or renal function\n• Predictable pharmacokinetics even in multiorgan failure\n\nLaudanosine: Crosses BBB. In animal studies, high concentrations cause CNS excitation and seizures. Clinical significance at cisatracurium doses is minimal because plasma laudanosine levels remain well below the seizure threshold (unlike atracurium, where laudanosine accumulation was a genuine concern in ICU patients with renal failure).",
   dosing: [
     { ind: "Intubation", dose: "0.1–0.2 mg/kg IV", notes: "2–4\u00d7 ED95. Onset 3–5 min. Higher end provides faster onset but longer duration. Good conditions by 3 min at 0.15 mg/kg.", clr: "ac" },
     { ind: "Maintenance Bolus", dose: "0.02 mg/kg IV", notes: "When first twitch recovery begins on TOF. Provides additional 15–20 min of block.", clr: "wn" },
@@ -810,7 +810,7 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   systems: ["neuro", "pharm"], type: "medication",
   ov: { "Drug Class": "Reversible acetylcholinesterase inhibitor (quaternary ammonium carbamate)", "Primary Target": "Acetylcholinesterase (AChE) at the NMJ", "Action": "Competitive inhibitor of AChE → ↑ACh at NMJ", "Structure": "Quaternary ammonium → DOES NOT cross BBB", "Key Feature": "Standard reversal agent for non-depolarizing NMBAs; requires anticholinergic co-administration", "Pairing": "ALWAYS give with glycopyrrolate or atropine to block muscarinic side effects" },
   moa: "Neostigmine is a quaternary ammonium carbamate that reversibly inhibits acetylcholinesterase (AChE) at the neuromuscular junction. AChE normally hydrolyzes ACh within ~1 ms of release, terminating the signal. By inhibiting AChE, neostigmine allows ACh to accumulate in the synaptic cleft, increasing both the concentration and the duration of ACh at the nicotinic receptor.\n\nThe increased ACh concentration competitively displaces non-depolarizing NMBAs from the nicotinic receptor (competitive antagonism is overcome by mass action — flooding the receptor with more agonist). This is the basis for NDMBA reversal.\n\nMechanism of AChE inhibition: Neostigmine's carbamate group binds the esteratic site of AChE (serine hydroxyl at the active site), forming a carbamylated enzyme. Unlike the acetylated enzyme intermediate (formed by ACh, hydrolyzed in microseconds), the carbamylated enzyme is hydrolyzed slowly (~15–30 min). This means AChE is functionally inactivated for the duration of neostigmine's presence.\n\nCRITICAL LIMITATION — CEILING EFFECT: Neostigmine can only increase ACh concentration to a maximum level. Once all AChE at the NMJ is inhibited (100% enzyme occupancy), no further ACh accumulation occurs. If NDMBA receptor occupancy exceeds what this maximum ACh concentration can overcome (≥ deep block), neostigmine will be insufficient. This is why neostigmine requires a minimum TOF count of 2 (ideally 4) before administration — indicating the block has spontaneously recovered to a shallow enough level for competitive reversal.\n\nNon-selective AChE inhibition: Neostigmine inhibits AChE EVERYWHERE — not just the NMJ. This means ACh also accumulates at muscarinic receptors throughout the body (heart, GI, respiratory, salivary, sweat glands), producing unwanted muscarinic effects: bradycardia (M2), bronchospasm/↑secretions (M3), nausea/vomiting, salivation, miosis, increased GI motility. These MUST be blocked with concurrent anticholinergic administration.",
-  recPhys: "AChE at the NMJ: A serine hydrolase anchored in the basal lamina of the synaptic cleft. Structure includes an anionic site (binds quaternary ammonium head of ACh) and an esteratic site (serine –OH that hydrolyzes the ester bond). AChE is one of the fastest enzymes in biology — turnover rate ~25,000 ACh molecules/second/enzyme.\n\nNeostigmine inhibition mechanism:\n\nStep 1: The quaternary ammonium group of neostigmine binds the anionic site of AChE (electrostatic attraction, same site ACh uses).\n\nStep 2: The carbamate group transfers to the esteratic site serine, forming a CARBAMYLATED enzyme intermediate.\n\nStep 3: The carbamylated enzyme hydrolyzes slowly (t\u00bd ~15–30 min vs microseconds for acetylated intermediate). AChE is functionally inhibited.\n\nResult: ACh accumulates in the synaptic cleft. At the NMJ nicotinic receptor, increased ACh competes with the non-depolarizing NMBA for the \u03b1-subunit binding sites. If enough ACh accumulates relative to the NMBA concentration, ACh wins the competition → channel opening → endplate depolarization → muscle contraction restored.\n\nMusacrinic effects (unwanted):\n\u2022 Heart (M2): ACh at cardiac muscarinic receptors → ↑vagal tone → ↓HR, ↓conduction velocity (AV block risk), ↓contractility. Can cause severe bradycardia or asystole.\n\u2022 Airways (M3): Bronchial smooth muscle contraction + ↑secretions → bronchospasm, wheezing, copious secretions.\n\u2022 GI (M3): ↑motility, ↑secretions → nausea, vomiting, diarrhea.\n\u2022 Eyes (M3): Miosis, ↑lacrimation.\n\u2022 Glands: Salivation, diaphoresis (SLUDGE/DUMBELS mnemonic).\n\nAnticholinergic pairing rationale: Glycopyrrolate (0.2 mg per 1 mg neostigmine) or atropine (0.015–0.02 mg/kg) blocks muscarinic receptors, preventing bradycardia and secretions WITHOUT affecting nicotinic reversal at the NMJ. Glycopyrrolate preferred: onset matches neostigmine (2–3 min), does not cross BBB, longer duration. Atropine onset is faster — may cause initial tachycardia before neostigmine's bradycardia effect.",
+  recPhys: "AChE at the NMJ: A serine hydrolase anchored in the basal lamina of the synaptic cleft. Structure includes an anionic site (binds quaternary ammonium head of ACh) and an esteratic site (serine –OH that hydrolyzes the ester bond). AChE is one of the fastest enzymes in biology — turnover rate ~25,000 ACh molecules/second/enzyme.\n\nNeostigmine inhibition mechanism:\n\nStep 1: The quaternary ammonium group of neostigmine binds the anionic site of AChE (electrostatic attraction, same site ACh uses).\n\nStep 2: The carbamate group transfers to the esteratic site serine, forming a CARBAMYLATED enzyme intermediate.\n\nStep 3: The carbamylated enzyme hydrolyzes slowly (t\u00bd ~15–30 min vs microseconds for acetylated intermediate). AChE is functionally inhibited.\n\nResult: ACh accumulates in the synaptic cleft. At the NMJ nicotinic receptor, increased ACh competes with the non-depolarizing NMBA for the \u03b1-subunit binding sites. If enough ACh accumulates relative to the NMBA concentration, ACh wins the competition → channel opening → endplate depolarization → muscle contraction restored.\n\nMusacrinic effects (unwanted):\n• Heart (M2): ACh at cardiac muscarinic receptors → ↑vagal tone → ↓HR, ↓conduction velocity (AV block risk), ↓contractility. Can cause severe bradycardia or asystole.\n• Airways (M3): Bronchial smooth muscle contraction + ↑secretions → bronchospasm, wheezing, copious secretions.\n• GI (M3): ↑motility, ↑secretions → nausea, vomiting, diarrhea.\n• Eyes (M3): Miosis, ↑lacrimation.\n• Glands: Salivation, diaphoresis (SLUDGE/DUMBELS mnemonic).\n\nAnticholinergic pairing rationale: Glycopyrrolate (0.2 mg per 1 mg neostigmine) or atropine (0.015–0.02 mg/kg) blocks muscarinic receptors, preventing bradycardia and secretions WITHOUT affecting nicotinic reversal at the NMJ. Glycopyrrolate preferred: onset matches neostigmine (2–3 min), does not cross BBB, longer duration. Atropine onset is faster — may cause initial tachycardia before neostigmine's bradycardia effect.",
   dosing: [
     { ind: "NMB Reversal (Standard)", dose: "0.04–0.07 mg/kg IV (max 5 mg)", notes: "Give when TOF count ≥2 (ideally 4). Typical: 0.05 mg/kg. MUST pair with glycopyrrolate 0.2 mg per 1 mg neostigmine or atropine 0.015–0.02 mg/kg.", clr: "ac" },
     { ind: "NMB Reversal (Lower Dose)", dose: "0.03 mg/kg IV", notes: "When TOF ratio >0.4 (near full spontaneous recovery). Lower dose reduces muscarinic side effects.", clr: "dg" },
@@ -891,7 +891,7 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   systems: ["neuro", "pharm"], type: "medication",
   ov: { "Drug Class": "Carboxylated imidazole sedative-hypnotic (GABA\u2090 receptor positive allosteric modulator)", "Primary Target": "GABA\u2090 receptor — \u03b1-\u03b2 subunit interface", "Action": "Positive allosteric modulator → enhances GABA-mediated Cl\u207b conductance", "Ion Channel": "GABA\u2090 Cl\u207b channel → ↑Cl\u207b influx → neuronal hyperpolarization", "Structure": "Carboxylated imidazole with chiral center (R(+) enantiomer is active)", "Key Feature": "Minimal hemodynamic depression; adrenal suppression limits use" },
   moa: "Etomidate is a carboxylated imidazole that produces hypnosis by enhancing GABA\u2090 receptor function in the central nervous system. It acts as a positive allosteric modulator at the GABA\u2090 receptor, binding at the \u03b1-\u03b2 subunit interface (a distinct site from the benzodiazepine binding site at the \u03b1-\u03b3 interface). At clinical concentrations, etomidate potentiates GABA-mediated chloride conductance. At higher concentrations, it can directly activate the GABA\u2090 receptor even in the absence of GABA.\n\nHEMODYNAMIC STABILITY: Etomidate's defining clinical feature is its minimal effect on cardiovascular function. Unlike propofol and thiopental, etomidate does not significantly reduce myocardial contractility, systemic vascular resistance, or baroreceptor reflex sensitivity. Blood pressure and cardiac output are maintained. This makes it the induction agent of choice for hemodynamically unstable patients.\n\nADRENAL SUPPRESSION: Etomidate's major limitation. It reversibly inhibits 11\u03b2-hydroxylase (CYP11B1), the enzyme that converts 11-deoxycortisol to cortisol in the adrenal cortex. Even a SINGLE INDUCTION DOSE (0.3 mg/kg) suppresses cortisol synthesis for 12–24 hours.",
-  recPhys: "GABA\u2090 Receptor Physiology:\n\nThe GABA\u2090 receptor is a pentameric ligand-gated Cl\u207b channel, most commonly composed of 2\u03b1 + 2\u03b2 + 1\u03b3 subunits. The receptor has multiple allosteric binding sites for different drug classes:\n\n\u2022 GABA binding site: \u03b1-\u03b2 interface (orthosteric site)\n\u2022 Benzodiazepine site: \u03b1-\u03b3 interface\n\u2022 Etomidate/propofol site: \u03b1-\u03b2 interface (transmembrane domain, distinct from GABA site)\n\u2022 Barbiturate site: \u03b2-subunit transmembrane domain\n\u2022 Neurosteroid site: \u03b1-subunit transmembrane domain\n\nEtomidate binding at the \u03b1-\u03b2 interface:\n\nStep 1: Etomidate binds in the transmembrane domain at the interface between \u03b1 and \u03b2 subunits. Key residue: \u03b2N265 (asparagine at position 265 on the \u03b2 subunit) is critical for etomidate binding.\n\nStep 2: Allosteric modulation → conformational change increases the receptor's affinity for GABA and prolongs the open time of the Cl\u207b channel.\n\nStep 3: Enhanced Cl\u207b influx → membrane hyperpolarization from resting ~-65 mV toward ~-90 mV → decreased neuronal excitability → CNS depression → loss of consciousness.\n\nAdrenal cortisol synthesis pathway (where etomidate interferes):\nCholesterol → pregnenolone → 17-OH-pregnenolone → 11-deoxycortisol → [11\u03b2-HYDROXYLASE / CYP11B1] → CORTISOL\n\nEtomidate's imidazole ring binds the heme iron of CYP11B1, reversibly inhibiting the enzyme. This blocks the final step of cortisol synthesis. Duration: 12–24h after a single bolus, indefinite with infusion.",
+  recPhys: "GABA\u2090 Receptor Physiology:\n\nThe GABA\u2090 receptor is a pentameric ligand-gated Cl\u207b channel, most commonly composed of 2\u03b1 + 2\u03b2 + 1\u03b3 subunits. The receptor has multiple allosteric binding sites for different drug classes:\n\n• GABA binding site: \u03b1-\u03b2 interface (orthosteric site)\n• Benzodiazepine site: \u03b1-\u03b3 interface\n• Etomidate/propofol site: \u03b1-\u03b2 interface (transmembrane domain, distinct from GABA site)\n• Barbiturate site: \u03b2-subunit transmembrane domain\n• Neurosteroid site: \u03b1-subunit transmembrane domain\n\nEtomidate binding at the \u03b1-\u03b2 interface:\n\nStep 1: Etomidate binds in the transmembrane domain at the interface between \u03b1 and \u03b2 subunits. Key residue: \u03b2N265 (asparagine at position 265 on the \u03b2 subunit) is critical for etomidate binding.\n\nStep 2: Allosteric modulation → conformational change increases the receptor's affinity for GABA and prolongs the open time of the Cl\u207b channel.\n\nStep 3: Enhanced Cl\u207b influx → membrane hyperpolarization from resting ~-65 mV toward ~-90 mV → decreased neuronal excitability → CNS depression → loss of consciousness.\n\nAdrenal cortisol synthesis pathway (where etomidate interferes):\nCholesterol → pregnenolone → 17-OH-pregnenolone → 11-deoxycortisol → [11\u03b2-HYDROXYLASE / CYP11B1] → CORTISOL\n\nEtomidate's imidazole ring binds the heme iron of CYP11B1, reversibly inhibiting the enzyme. This blocks the final step of cortisol synthesis. Duration: 12–24h after a single bolus, indefinite with infusion.",
   dosing: [
     { ind: "Induction of Anesthesia", dose: "0.2–0.3 mg/kg IV", notes: "Standard: 0.3 mg/kg. Loss of consciousness in 15–45 sec. Duration of hypnosis: 3–5 min.", clr: "ac" },
     { ind: "RSI (Hemodynamically Unstable)", dose: "0.3 mg/kg IV", notes: "Paired with rocuronium 1.2 mg/kg or SCh 1–1.5 mg/kg. Preferred induction agent in shock, cardiac tamponade, severe cardiac disease.", clr: "wn" },
@@ -2273,552 +2273,946 @@ function SCHInteractiveDiagram({ t }) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 // ── Norepinephrine: Adrenergic Receptor Cascade ───────────────────────────────
-function NEDiagram({ t }) {
-  const [receptor, setReceptor] = useState("a1");
-  const [activated, setActivated] = useState(false);
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    if (!activated) { setTick(0); return; }
-    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
-    return () => clearInterval(id);
-  }, [activated]);
 
-  const recs = {
-    a1: { label: "α1 Receptor", loc: "Vascular smooth muscle", gp: "Gq", gpColor: "#f59e0b", effector: "Phospholipase C ↑", messenger: "IP₃ + DAG ↑", kinase: "PKC + Ca²⁺ release", effect: "Vasoconstriction ↑SVR ↑MAP", color: "#ef4444", ionLabel: "Ca²⁺", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\nVasoconstriction" },
-    a2: { label: "α2 Receptor", loc: "Presynaptic nerve terminal", gp: "Gi", gpColor: "#ef4444", effector: "Adenylyl Cyclase ↓", messenger: "cAMP ↓↓", kinase: "PKA ↓", effect: "NE release ↓ (autoreceptor) \u2022 Sedation", color: "#8b5cf6", ionLabel: "K⁺", ionColor: "#22c55e", ionDir: "out", vmLabel: "Hyperpolarization\nNE release ↓" },
-    b1: { label: "β1 Receptor", loc: "Heart (SA node / myocardium)", gp: "Gs", gpColor: "#22c55e", effector: "Adenylyl Cyclase ↑", messenger: "cAMP ↑↑", kinase: "PKA ↑", effect: "↑HR \u2022 ↑Contractility \u2022 ↑CO", color: "#3b82f6", ionLabel: "Ca²⁺", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\n↑Inotropy / Chronotropy" },
-  };
-  const r = recs[receptor];
-  const W = 580, H = 360;
-  const memY = 130, memH = 28;
-  const gx = 290, gy = 240;
-  const cascX = 430;
-  const nodes = [{ label: r.effector, y: 130 }, { label: r.messenger, y: 198 }, { label: r.kinase, y: 266 }];
-  const phase = tick / 100;
+// ── Shared: membrane SVG + cascade divs pattern ──────────────────────────────
+// GpcrSVG: 600×210 membrane visualization only — NO cascade text inside SVG
+function GpcrSVG({ t, drugAbbr, drugColor, gpType, gpColor, recLabel, activated }) {
+  const W = 600, H = 210;
+  const memY = 88, memH = 28;
+  const rcx = 300;
+  const gaX = activated ? 150 : 262;
 
   return (
-    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${r.color}40` }}>
-      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
-        <span style={{ fontSize: "12px", color: r.color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Norepinephrine &mdash; Adrenergic Receptors</span>
-        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display:"block", minWidth:"340px" }}>
+      {/* Zone backgrounds */}
+      <rect x="0" y="0" width={W} height={memY} fill={`${drugColor}09`}/>
+      <rect x="0" y={memY + memH} width={W} height={H - memY - memH} fill={`${gpColor}06`}/>
+
+      {/* Zone labels */}
+      <text x="14" y="15" fill={t.tM} fontSize="8" fontWeight="700" opacity="0.55">EXTRACELLULAR</text>
+      <text x="14" y={memY + memH + 17} fill={t.tM} fontSize="8" fontWeight="700" opacity="0.55">INTRACELLULAR</text>
+
+      {/* Membrane bilayer */}
+      <rect x="65" y={memY} width={W - 130} height={memH} rx="3" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+      {Array.from({ length: 25 }, (_, i) => (
+        <g key={i}>
+          <circle cx={73 + i * 18} cy={memY + 7}  r="4" fill={`${drugColor}18`} stroke={`${drugColor}35`} strokeWidth="0.8"/>
+          <circle cx={73 + i * 18} cy={memY + 21} r="4" fill={`${drugColor}18`} stroke={`${drugColor}35`} strokeWidth="0.8"/>
+        </g>
+      ))}
+
+      {/* 3 TM helices spanning membrane */}
+      {[rcx - 26, rcx, rcx + 26].map((hx, i) => (
+        <rect key={i} x={hx - 9} y={memY - 22 + (i === 1 ? 7 : 0)} width="18" height={memH + 22}
+          rx="6" fill={`${drugColor}22`} stroke={drugColor} strokeWidth="1.8" opacity="0.9"/>
+      ))}
+
+      {/* Receptor name */}
+      <text x={rcx} y={memY - 32} fill={drugColor} fontSize="11" textAnchor="middle" fontWeight="700">{recLabel}</text>
+
+      {/* Drug molecule */}
+      <circle cx={rcx} cy="32" r="22"
+        fill={activated ? `${drugColor}35` : `${drugColor}18`}
+        stroke={drugColor} strokeWidth={activated ? "2.5" : "1.8"}/>
+      <text x={rcx} y="29" fill={drugColor} fontSize="9"  textAnchor="middle" fontWeight="700">{drugAbbr}</text>
+      <text x={rcx} y="41" fill={drugColor} fontSize="7"  textAnchor="middle">{activated ? "Bound ✓" : "→ binds"}</text>
+
+      {/* Drug → receptor binding line */}
+      <line x1={rcx} y1="54" x2={rcx} y2={memY - 24}
+        stroke={drugColor} strokeWidth={activated ? "2" : "1.2"} strokeDasharray="3,2"/>
+
+      {/* G-protein Gα (slides left when active) */}
+      <ellipse cx={gaX} cy="158" rx="32" ry="22"
+        fill={activated ? `${gpColor}28` : `${gpColor}15`}
+        stroke={gpColor} strokeWidth={activated ? "2.2" : "1.5"}/>
+      <text x={gaX} y="155" fill={gpColor} fontSize="10" textAnchor="middle" fontWeight="700">G&#945;</text>
+      <text x={gaX} y="168" fill={gpColor} fontSize="8"  textAnchor="middle">{gpType}</text>
+
+      {/* Gβγ */}
+      <ellipse cx={activated ? rcx + 15 : rcx + 35} cy="165" rx="24" ry="14"
+        fill={`${t.tM}18`} stroke={t.bd} strokeWidth="1.5"/>
+      <text x={activated ? rcx + 15 : rcx + 35} y="169" fill={t.tM} fontSize="9" textAnchor="middle">G&#946;&#947;</text>
+
+      {/* Coupling line when inactive */}
+      {!activated && (
+        <line x1={gaX + 20} y1="137" x2={rcx - 20} y2={memY + memH + 4}
+          stroke={gpColor} strokeWidth="1" strokeDasharray="4,3" opacity="0.35"/>
+      )}
+
+      {/* Status label at bottom */}
+      <text x={rcx} y="200" fill={activated ? gpColor : t.tM} fontSize="10" textAnchor="middle">
+        {activated ? "Gα dissociates — cascade initiated" : "Click Activate below to show signaling cascade"}
+      </text>
+    </svg>
+  );
+}
+
+// CascadeFlow: renders pathway steps as React divs — no SVG text, no encoding issues
+function CascadeFlow({ steps, t }) {
+  return (
+    <div style={{ display:"flex", alignItems:"flex-start", flexWrap:"wrap", gap:"6px", padding:"14px 14px 0" }}>
+      <div style={{ width:"100%", fontSize:"10px", fontWeight:700, color:t.tM, textTransform:"uppercase", letterSpacing:"0.5px", marginBottom:"8px" }}>
+        Signaling Cascade
+      </div>
+      {steps.map((s, i) => (
+        <div key={i} style={{ display:"flex", alignItems:"center", gap:"6px" }}>
+          <div style={{
+            padding:"8px 12px",
+            background:`${s.color}18`,
+            border:`1.5px solid ${s.color}60`,
+            borderRadius:"8px",
+            fontSize:"11px", fontWeight:700, color:s.color,
+            lineHeight:1.5, textAlign:"center", minWidth:"78px", maxWidth:"120px"
+          }}>
+            {s.label}
+          </div>
+          {i < steps.length - 1 && (
+            <div style={{ color:t.tM, fontSize:"18px", flexShrink:0, lineHeight:1 }}>&#8594;</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── Norepinephrine: α1 / α2 / β1 receptors ───────────────────────────────────
+function NEDiagram({ t }) {
+  const [rec, setRec] = useState("a1");
+  const [activated, setActivated] = useState(false);
+
+  const recs = {
+    a1: {
+      label: "α1 Receptor",
+      recLabel: "α1-Adrenoceptor",
+      abbr: "NE",
+      loc: "Vascular smooth muscle",
+      drugColor: "#ef4444",
+      gpType: "Gq",
+      gpColor: "#f59e0b",
+      steps: [
+        { label: "NE binds α1",    color: "#ef4444" },
+        { label: "Gq activates",   color: "#f59e0b" },
+        { label: "PLC ↑",          color: "#f59e0b" },
+        { label: "IP3 + DAG",      color: "#f59e0b" },
+        { label: "Ca²⁺ ↑ / PKC ↑", color: "#f59e0b" },
+        { label: "Vasoconstriction↑SVR↑MAP", color: "#ef4444" },
+      ],
+      desc: "α1 receptors on vascular smooth muscle couple to Gq. PLC cleaves PIP2 → IP3 (triggers SR Ca²⁺ release) + DAG (activates PKC). Ca²⁺-calmodulin activates MLCK → myosin phosphorylation → vasoconstriction. Net: SVR↑, MAP↑. Reflex bradycardia possible at high doses.",
+    },
+    a2: {
+      label: "α2 Receptor",
+      recLabel: "α2-Adrenoceptor",
+      abbr: "NE",
+      loc: "Presynaptic terminal / CNS",
+      drugColor: "#8b5cf6",
+      gpType: "Gi",
+      gpColor: "#ef4444",
+      steps: [
+        { label: "NE binds α2",      color: "#8b5cf6" },
+        { label: "Gi activates",     color: "#ef4444" },
+        { label: "AC inhibited ↓",   color: "#ef4444" },
+        { label: "cAMP ↓↓",          color: "#ef4444" },
+        { label: "PKA ↓",            color: "#ef4444" },
+        { label: "NE release ↓ / Sedation", color: "#8b5cf6" },
+      ],
+      desc: "α2 is primarily a presynaptic autoreceptor — NE feeds back to inhibit its own release. Gi couples to adenylyl cyclase inhibition → cAMP↓ → PKA↓ → vesicle release↓. Also mediates sedation/analgesia centrally (locus coeruleus). Basis for dexmedetomidine mechanism.",
+    },
+    b1: {
+      label: "β1 Receptor",
+      recLabel: "β1-Adrenoceptor",
+      abbr: "NE",
+      loc: "SA node / Myocardium",
+      drugColor: "#3b82f6",
+      gpType: "Gs",
+      gpColor: "#22c55e",
+      steps: [
+        { label: "NE binds β1",        color: "#3b82f6" },
+        { label: "Gs activates",       color: "#22c55e" },
+        { label: "AC ↑",               color: "#22c55e" },
+        { label: "cAMP ↑↑",            color: "#22c55e" },
+        { label: "PKA ↑",              color: "#22c55e" },
+        { label: "HR ↑ / Contractility ↑", color: "#3b82f6" },
+      ],
+      desc: "β1 in the SA node increases If (funny current) → faster depolarization → ↑HR (chronotropy). In ventricular myocytes, PKA phosphorylates L-type Ca²⁺ channels (↑Ca²⁺ influx), RyR2, and phospholamban (↑SERCA activity) → ↑contractility (inotropy) and faster relaxation (lusitropy).",
+    },
+  };
+
+  const r = recs[rec];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:`1px solid ${r.drugColor}40` }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:r.drugColor, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Norepinephrine &mdash; Adrenergic Receptors
+        </span>
+        <div style={{ display:"flex", gap:"6px", flexWrap:"wrap" }}>
           {Object.entries(recs).map(([k, v]) => (
-            <button key={k} onClick={() => { setReceptor(k); setActivated(false); }}
-              style={{ padding: "4px 12px", borderRadius: "6px", border: `2px solid ${receptor === k ? v.color : t.bd}`, background: receptor === k ? `${v.color}18` : t.bgC, color: receptor === k ? v.color : t.tM, fontSize: "11px", fontWeight: receptor === k ? 700 : 400, cursor: "pointer" }}>
+            <button key={k} onClick={() => { setRec(k); setActivated(false); }}
+              style={{ padding:"4px 12px", borderRadius:"6px", border:`2px solid ${rec===k ? v.drugColor : t.bd}`,
+                background: rec===k ? `${v.drugColor}18` : t.bgC, color: rec===k ? v.drugColor : t.tM,
+                fontSize:"11px", fontWeight: rec===k ? 700 : 400, cursor:"pointer" }}>
               {v.label}
             </button>
           ))}
         </div>
       </div>
-      <div style={{ background: t.bgH }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
-          <defs>
-            <marker id="neArrow" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
-              <path d="M0,0 L0,7 L7,3.5 Z" fill={r.gpColor} />
-            </marker>
-          </defs>
-          {/* Zone labels */}
-          <text x="14" y="76" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
-          <text x="14" y="182" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
-          {/* Membrane */}
-          <rect x="80" y={memY} width="320" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          {Array.from({ length: 20 }, (_, i) => (
-            <g key={i}>
-              <circle cx={88 + i * 15} cy={memY + 7} r="3" fill={`${r.color}20`} stroke={`${r.color}40`} strokeWidth="0.5"/>
-              <circle cx={88 + i * 15} cy={memY + 20} r="3" fill={`${r.color}20`} stroke={`${r.color}40`} strokeWidth="0.5"/>
-            </g>
-          ))}
-          {/* Receptor protein (7TM represented as 3 vertical bars for simplicity) */}
-          {[0,1,2].map(i => (
-            <rect key={i} x={190 + i * 28 - 10} y={memY - 24 + (i%2)*6} width="18" height={memH + 24 + (i%2)*6} rx="5"
-              fill={`${r.color}20`} stroke={r.color} strokeWidth="1.5" opacity="0.9"/>
-          ))}
-          <text x="232" y={memY - 30} fill={r.color} fontSize="10" textAnchor="middle" fontWeight="700">{r.label}</text>
-          <text x="232" y={memY - 17} fill={t.tM} fontSize="8" textAnchor="middle">{r.loc}</text>
-          {/* NE molecule */}
-          <circle cx="232" cy={memY - 48} r="18" fill={`${r.color}25`} stroke={r.color} strokeWidth="2.5"/>
-          <text x="232" y={memY - 51} fill={r.color} fontSize="9" textAnchor="middle" fontWeight="700">NE</text>
-          <text x="232" y={memY - 39} fill={r.color} fontSize="7" textAnchor="middle">Binds</text>
-          <line x1="232" y1={memY - 30} x2="232" y2={memY - 24} stroke={r.color} strokeWidth="1.5" strokeDasharray="3,2"/>
-          {/* G-protein */}
-          <ellipse cx={gx - 10} cy={gy} rx="30" ry="20" fill={`${r.gpColor}20`} stroke={r.gpColor} strokeWidth="2"/>
-          <text x={gx - 10} y={gy - 2} fill={r.gpColor} fontSize="10" textAnchor="middle" fontWeight="700">G&#945;</text>
-          <text x={gx - 10} y={gy + 10} fill={r.gpColor} fontSize="7" textAnchor="middle">{r.gp}</text>
-          <ellipse cx={gx + 30} cy={gy + 10} rx="22" ry="13" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          <text x={gx + 30} y={gy + 14} fill={t.tM} fontSize="9" textAnchor="middle">G&#946;&#947;</text>
-          {/* Docking line if not activated */}
-          {!activated && <line x1={gx - 20} y1={gy - 12} x2="232" y2={memY + memH} stroke={r.gpColor} strokeWidth="1" strokeDasharray="4,2" opacity="0.4"/>}
-          {/* Cascade when activated */}
-          {activated && (
-            <g>
-              <line x1={gx + 18} y1={gy - 10} x2={cascX} y2={nodes[0].y + 16} stroke={r.gpColor} strokeWidth="1.5" strokeDasharray="5,3" opacity="0.7"/>
-              {nodes.map((n, i) => {
-                const pulse = 0.55 + Math.abs(Math.sin((phase * Math.PI * 2) - i)) * 0.45;
-                return (
-                  <g key={i}>
-                    {i > 0 && <line x1={cascX} y1={nodes[i-1].y + 16} x2={cascX} y2={n.y - 16} stroke={r.gpColor} strokeWidth="2" markerEnd="url(#neArrow)" opacity="0.8"/>}
-                    <rect x={cascX - 60} y={n.y - 16} width="120" height="32" rx="8" fill={`${r.gpColor}20`} stroke={r.gpColor} strokeWidth="1.5" opacity={pulse}/>
-                    <text x={cascX} y={n.y + 4} fill={r.gpColor} fontSize="10" textAnchor="middle" fontWeight="700">{n.label}</text>
-                  </g>
-                );
-              })}
-              {/* Net effect */}
-              <line x1={cascX} y1={nodes[2].y + 16} x2={cascX} y2="310" stroke={r.gpColor} strokeWidth="2" markerEnd="url(#neArrow)" opacity="0.8"/>
-              <rect x={cascX - 70} y="310" width="140" height="36" rx="8" fill={`${r.color}18`} stroke={r.color} strokeWidth="2"/>
-              <text x={cascX} y="326" fill={r.color} fontSize="10" textAnchor="middle" fontWeight="700">&#8594; {r.effect.split(" \u2022 ")[0]}</text>
-              <text x={cascX} y="339" fill={r.color} fontSize="8" textAnchor="middle">{r.effect.split(" \u2022 ")[1] || ""}</text>
-            </g>
-          )}
-          {/* Step hint */}
-          <rect x="80" y="336" width="220" height="18" rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
-          <text x="190" y="349" fill={t.tM} fontSize="8" textAnchor="middle">
-            {activated ? `Gα(${r.gp}) → ${r.effector}` : "Click Activate to show cascade"}
-          </text>
-        </svg>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr={r.abbr} drugColor={r.drugColor}
+          gpType={r.gpType} gpColor={r.gpColor} recLabel={r.recLabel} activated={activated}/>
       </div>
-      <div style={{ padding: "12px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
-        <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+      {activated && <CascadeFlow steps={r.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px", flexWrap:"wrap" }}>
           <button onClick={() => setActivated(a => !a)}
-            style={{ padding: "7px 16px", borderRadius: "8px", border: `2px solid ${r.gpColor}`, background: activated ? r.gpColor : "transparent", color: activated ? "#fff" : r.gpColor, fontSize: "12px", fontWeight: 700, cursor: "pointer" }}>
-            {activated ? "\u2713 Cascade Active" : "Activate G-Protein"}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:`2px solid ${r.gpColor}`,
+              background: activated ? r.gpColor : "transparent", color: activated ? "#fff" : r.gpColor,
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Cascade Active" : "Activate G-Protein"}
           </button>
-          <button onClick={() => setActivated(false)} style={{ padding: "7px 12px", borderRadius: "8px", border: `1px solid ${t.bd}`, background: t.bgH, color: t.tM, fontSize: "12px", cursor: "pointer" }}>Reset</button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(160px,1fr))", gap: "8px", fontSize: "12px" }}>
-          {[["G-protein", r.gp, r.gpColor], ["Effector", r.effector, r.gpColor], ["Messenger", r.messenger, r.gpColor], ["Net Effect", r.effect, r.color]].map(([lbl, val, col]) => (
-            <div key={lbl} style={{ padding: "8px 10px", background: t.bgH, borderRadius: "6px" }}>
-              <div style={{ color: t.tM, fontSize: "10px", marginBottom: "2px" }}>{lbl}</div>
-              <div style={{ color: col, fontWeight: 600, fontSize: "11px", lineHeight: 1.4 }}>{val}</div>
-            </div>
-          ))}
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:`4px solid ${r.drugColor}` }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:r.drugColor, marginBottom:"4px" }}>{r.label} — {r.loc}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{r.desc}</p>
         </div>
       </div>
     </div>
   );
 }
 
-// ── Propofol: GABA-A Interactive ───────────────────────────────────────────────
-function PropofolDiagram({ t }) {
-  const [mode, setMode] = useState("resting");
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    if (mode === "resting") { setTick(0); return; }
-    const id = setInterval(() => setTick(v => (v + 1) % 80), 55);
-    return () => clearInterval(id);
-  }, [mode]);
+// ── Fentanyl: μ-Opioid Receptor (Gi) ─────────────────────────────────────────
+function FentanylDiagram({ t }) {
+  const [focus, setFocus] = useState("analgesia");
+  const [activated, setActivated] = useState(false);
 
-  const modes = [
-    { id: "resting", label: "Resting (No Drug)", color: "#64748b", poreOpen: false, propBound: false, gabaOpen: false },
-    { id: "gaba", label: "GABA Alone", color: "#22c55e", poreOpen: true, propBound: false, gabaOpen: true },
-    { id: "prop", label: "Propofol Potentiation", color: "#10b981", poreOpen: true, propBound: true, gabaOpen: true },
-    { id: "proponly", label: "Propofol Direct", color: "#10b981", poreOpen: true, propBound: true, gabaOpen: false },
-  ];
-  const m = modes.find(x => x.id === mode);
-  const W = 560, H = 370;
-  const memY = 145, memH = 60;
-  const poreX = 240, poreW = m.poreOpen ? 20 : 5;
-  // Subunits: 5 around pore
-  const subDefs = [
-    { x: 170, y: 175, label: "α", color: "#3b82f6" },
-    { x: 205, y: 148, label: "β", color: "#a855f7" },
-    { x: 245, y: 142, label: "γ", color: "#22c55e" },
-    { x: 278, y: 152, label: "β", color: "#a855f7" },
-    { x: 305, y: 175, label: "α", color: "#3b82f6" },
-  ];
-  // Cl- ions when open
-  const ions = m.poreOpen ? Array.from({ length: 5 }, (_, i) => {
-    const ph = ((tick / 80) + i / 5) % 1;
-    return { x: poreX + 1 + Math.sin(ph * 3) * 2, y: memY + memH * (1 - ph) + ph * (memY + memH + 30) };
-  }) : [];
-  const vmVal = m.poreOpen ? (mode === "prop" ? "-90 mV" : "-82 mV") : "-70 mV";
+  const foci = {
+    analgesia: {
+      label: "Analgesia (Dorsal Horn)",
+      color: "#22c55e",
+      steps: [
+        { label: "Fentanyl binds μ-OR", color: "#a855f7" },
+        { label: "Gi activates",         color: "#ef4444" },
+        { label: "AC ↓ / cAMP ↓",        color: "#ef4444" },
+        { label: "VGCC Ca²⁺ ↓",          color: "#3b82f6" },
+        { label: "SP / Glu release ↓",   color: "#ef4444" },
+        { label: "GIRK K⁺ ↑",            color: "#22c55e" },
+        { label: "Hyperpolarization → Analgesia", color: "#22c55e" },
+      ],
+      desc: "Fentanyl binds μ-OR on presynaptic Aδ/C fibers AND postsynaptic dorsal horn neurons. Gi → AC↓ → cAMP↓ → VGCC inactivation (↓Ca²⁺ influx presynaptically → ↓substance P/glutamate release). Gi also activates GIRK K⁺ channels (postsynaptic hyperpolarization) → decreased nociceptive transmission.",
+    },
+    resp: {
+      label: "Resp Depression (Brainstem)",
+      color: "#ef4444",
+      steps: [
+        { label: "Fentanyl binds μ-OR", color: "#a855f7" },
+        { label: "Gi activates",         color: "#ef4444" },
+        { label: "cAMP ↓",               color: "#ef4444" },
+        { label: "preBötzinger pacemaker ↓", color: "#ef4444" },
+        { label: "Respiratory rate ↓",   color: "#ef4444" },
+        { label: "Apnea risk ↑",          color: "#ef4444" },
+      ],
+      desc: "μ-OR in the preBötzinger complex (medullary respiratory rhythm generator). Gi → ↓cAMP → reduced pacemaker neuron firing → dose-dependent respiratory depression: analgesia → sedation → apnea. Reversible with naloxone (μ-OR competitive antagonist, Kd ~1 nM).",
+    },
+    gi: {
+      label: "GI (Enteric μ-OR)",
+      color: "#f59e0b",
+      steps: [
+        { label: "Fentanyl binds μ-OR",  color: "#a855f7" },
+        { label: "Gi activates",          color: "#ef4444" },
+        { label: "Enteric neuron cAMP ↓", color: "#f59e0b" },
+        { label: "Propulsive motility ↓", color: "#f59e0b" },
+        { label: "Sphincter tone ↑",      color: "#f59e0b" },
+        { label: "Constipation",          color: "#f59e0b" },
+      ],
+      desc: "Enteric μ-OR activation hyperpolarizes enteric neurons → ↓propulsive peristalsis, ↑sphincter tone, ↓secretion. Constipation is a peripheral effect that does NOT develop tolerance (unlike analgesia and euphoria). Basis for methylnaltrexone (peripherally restricted μ antagonist) to treat opioid-induced constipation.",
+    },
+  };
+
+  const fc = foci[focus];
 
   return (
-    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #10b98140` }}>
-      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
-        <span style={{ fontSize: "12px", color: "#10b981", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Propofol &mdash; GABA-A Receptor Modulation</span>
-      </div>
-      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
-        {modes.map(md => (
-          <button key={md.id} onClick={() => setMode(md.id)}
-            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${mode === md.id ? md.color : t.bd}`, background: mode === md.id ? `${md.color}20` : t.bgC, color: mode === md.id ? md.color : t.tM, fontSize: "11px", fontWeight: mode === md.id ? 700 : 400, cursor: "pointer" }}>
-            {md.label}
-          </button>
-        ))}
-      </div>
-      <div style={{ background: t.bgH }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
-          <defs>
-            <marker id="clArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L6,3 Z" fill="#a855f7"/>
-            </marker>
-          </defs>
-          {/* Labels */}
-          <text x="14" y="90" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
-          <text x="14" y="250" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
-          {/* Membrane */}
-          <rect x="100" y={memY} width="260" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          {Array.from({ length: 16 }, (_, i) => (
-            <g key={i}>
-              <circle cx={108 + i*15} cy={memY + 10} r="3" fill="#10b98120" stroke="#10b98140" strokeWidth="0.5"/>
-              <circle cx={108 + i*15} cy={memY + memH - 10} r="3" fill="#10b98120" stroke="#10b98140" strokeWidth="0.5"/>
-            </g>
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #a855f740" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#a855f7", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Fentanyl &mdash; &#956;-Opioid Receptor (Gi-coupled GPCR)
+        </span>
+        <div style={{ display:"flex", gap:"6px", flexWrap:"wrap" }}>
+          {Object.entries(foci).map(([k, v]) => (
+            <button key={k} onClick={() => { setFocus(k); setActivated(false); }}
+              style={{ padding:"4px 10px", borderRadius:"6px", border:`2px solid ${focus===k ? v.color : t.bd}`,
+                background: focus===k ? `${v.color}18` : t.bgC, color: focus===k ? v.color : t.tM,
+                fontSize:"11px", fontWeight: focus===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
           ))}
-          <text x="374" y={memY + memH / 2 + 4} fill={t.tM} fontSize="8">Lipid</text>
-          {/* Subunits */}
-          {subDefs.map((s, i) => (
-            <g key={i}>
-              <ellipse cx={s.x} cy={s.y} rx="24" ry="36" fill={`${s.color}18`} stroke={s.color} strokeWidth={m.propBound && s.label === "β" ? "2.5" : "1.5"}/>
-              <text x={s.x} y={s.y + 4} fill={s.color} fontSize="13" textAnchor="middle" fontWeight="700">{s.label}</text>
-            </g>
-          ))}
-          {/* Pore */}
-          <rect x={poreX - poreW / 2} y={memY + 6} width={poreW} height={memH - 12} rx={poreW / 2}
-            fill={m.poreOpen ? "#a855f720" : "#64748b20"} stroke={m.poreOpen ? "#a855f7" : "#64748b"} strokeWidth="1.5"/>
-          <text x={poreX} y={memY + memH / 2 + 4} fill={m.poreOpen ? "#a855f7" : t.tM} fontSize="8" textAnchor="middle" fontWeight="700">
-            {m.poreOpen ? "OPEN" : "CLOSED"}
-          </text>
-          {/* Cl- flow */}
-          {ions.map((ion, i) => (
-            <g key={i} opacity={Math.min(1, Math.max(0.1, Math.abs(Math.sin(i * 1.2 + tick * 0.1))))}>
-              <circle cx={ion.x} cy={ion.y} r="7" fill="#a855f7" opacity="0.85"/>
-              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">Cl⁻</text>
-            </g>
-          ))}
-          {m.poreOpen && <line x1={poreX + 14} y1={memY + 8} x2={poreX + 14} y2={memY + memH - 8} stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#clArrow)" strokeDasharray="4,2"/>}
-          {/* Drug labels */}
-          {m.gabaOpen && (
-            <g>
-              <circle cx="175" cy="95" r="14" fill="#22c55e30" stroke="#22c55e" strokeWidth="2"/>
-              <text x="175" y="99" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">GABA</text>
-              <line x1="185" y1="104" x2="194" y2="118" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="3,2"/>
-              <circle cx="305" cy="95" r="14" fill="#22c55e30" stroke="#22c55e" strokeWidth="2"/>
-              <text x="305" y="99" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">GABA</text>
-              <line x1="295" y1="104" x2="286" y2="118" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="3,2"/>
-            </g>
-          )}
-          {m.propBound && (
-            <g>
-              <ellipse cx="230" cy="108" rx="18" ry="11" fill="#10b98130" stroke="#10b981" strokeWidth="2.5"/>
-              <text x="230" y="112" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="700">PROP</text>
-              <text x="230" y="95" fill="#10b981" fontSize="8" textAnchor="middle">β-TM2/3 site</text>
-              <line x1="238" y1="119" x2="246" y2="133" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3,2"/>
-            </g>
-          )}
-          {/* Vm indicator */}
-          <rect x="420" y="155" width="110" height="52" rx="8" fill={t.bgC} stroke={m.poreOpen ? "#a855f7" : t.bd} strokeWidth="1.5"/>
-          <text x="475" y="171" fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
-          <text x="475" y="195" fill={m.poreOpen ? "#a855f7" : t.tx} fontSize="20" fontWeight="700" textAnchor="middle">{vmVal}</text>
-          {/* Downstream effects */}
-          <rect x="390" y="240" width="150" height="80" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
-          <text x="465" y="257" fill={t.tM} fontSize="8" textAnchor="middle" fontWeight="600">Clinical Effect</text>
-          {mode === "resting" && <text x="465" y="278" fill={t.tM} fontSize="9" textAnchor="middle">Basal inhibitory tone</text>}
-          {mode === "gaba" && <text x="465" y="278" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="600">Inhibition (mild)</text>}
-          {mode === "prop" && (
-            <g>
-              <text x="465" y="275" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="600">Potentiated inhibition</text>
-              <text x="465" y="290" fill="#10b981" fontSize="8" textAnchor="middle">↑ Channel open duration</text>
-              <text x="465" y="303" fill="#10b981" fontSize="8" textAnchor="middle">Sedation → Anesthesia</text>
-            </g>
-          )}
-          {mode === "proponly" && (
-            <g>
-              <text x="465" y="272" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="600">Direct gating</text>
-              <text x="465" y="286" fill="#10b981" fontSize="8" textAnchor="middle">No GABA needed</text>
-              <text x="465" y="300" fill="#10b981" fontSize="8" textAnchor="middle">High-dose LOC</text>
-              <text x="465" y="313" fill={t.dg} fontSize="8" textAnchor="middle">Apnea risk!</text>
-            </g>
-          )}
-          {/* Comparator legend */}
-          <rect x="100" y="285" width="260" height="60" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
-          <text x="230" y="301" fill={t.tx} fontSize="9" textAnchor="middle" fontWeight="700">Drug Comparison at GABA-A</text>
-          <circle cx="118" cy="318" r="5" fill="#10b981"/><text x="128" y="321" fill={t.t2} fontSize="8">Propofol: ↑duration + direct gate</text>
-          <circle cx="118" cy="332" r="5" fill="#6366f1"/><text x="128" y="335" fill={t.t2} fontSize="8">BZD: ↑frequency only (no direct gate)</text>
-        </svg>
+        </div>
       </div>
-      <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
-        {mode === "resting" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Channel is <strong style={{ color: t.tx }}>closed</strong>. GABA-A requires ligand binding to open. Resting Vm = &minus;70 mV.</p>}
-        {mode === "gaba" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>GABA binds at the <strong style={{ color: "#22c55e" }}>α-β interface</strong> (2 sites). Channel opens, Cl⁻ flows in, Vm shifts to &minus;82 mV. Physiologic inhibition.</p>}
-        {mode === "prop" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Propofol binds at the <strong style={{ color: "#10b981" }}>β-TM2/3 site</strong> (allosteric). Potentiates GABA: increases channel <em>open duration</em>. Vm &minus;90 mV. Deeper inhibition than GABA alone.</p>}
-        {mode === "proponly" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>At high concentrations, propofol <strong style={{ color: "#10b981" }}>directly gates</strong> the channel without GABA. This is the mechanism of LOC at induction doses. Also explains apnea risk.</p>}
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="FENT" drugColor="#a855f7"
+          gpType="Gi" gpColor="#ef4444" recLabel="μ-Opioid Receptor (7TM GPCR)" activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={fc.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <button onClick={() => setActivated(a => !a)}
+          style={{ padding:"7px 16px", borderRadius:"8px", border:"2px solid #a855f7",
+            background: activated ? "#a855f7" : "transparent", color: activated ? "#fff" : "#a855f7",
+            fontSize:"12px", fontWeight:700, cursor:"pointer", marginBottom:"12px" }}>
+          {activated ? "✓ Fentanyl Bound & Active" : "Bind Fentanyl to μ-OR"}
+        </button>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:`4px solid ${fc.color}` }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:fc.color, marginBottom:"4px" }}>{fc.label}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{fc.desc}</p>
+        </div>
       </div>
     </div>
   );
 }
 
-// ── NMJ Diagram (shared base for Cis & Sux) ──────────────────────────────────
-function NMJDiagram({ t, drugId }) {
-  const isSux = drugId === "succinylcholine";
-  const [phase, setPhase] = useState("normal");
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
-    return () => clearInterval(id);
-  }, []);
+// ── Vasopressin: V1a (Gq) + V2 (Gs) ─────────────────────────────────────────
+function VasopressinDiagram({ t }) {
+  const [rec, setRec] = useState("v1a");
+  const [activated, setActivated] = useState(false);
 
-  const phases = isSux ? [
-    { id: "normal", label: "Normal NMJ", color: "#22c55e" },
-    { id: "sux_bind", label: "SCh Binds & Depolarizes", color: "#f59e0b" },
-    { id: "fascic", label: "Phase I Block (Fasciculations)", color: "#ef4444" },
-    { id: "phase2", label: "Phase II Block", color: "#8b5cf6" },
-  ] : [
-    { id: "normal", label: "Normal NMJ", color: "#22c55e" },
-    { id: "cis_partial", label: "Partial Block", color: "#f59e0b" },
-    { id: "cis_full", label: "Full Block", color: "#ef4444" },
-    { id: "reversal", label: "Neostigmine Reversal", color: "#3b82f6" },
-  ];
-  const ph = phases.find(p => p.id === phase);
-  const drugColor = isSux ? "#f59e0b" : "#3b82f6";
-  const drugName = isSux ? "SCh" : "Cis";
+  const recs = {
+    v1a: {
+      label: "V1a Receptor",
+      recLabel: "V1a-R (Vascular)",
+      loc: "Vascular smooth muscle, liver",
+      drugColor: "#06b6d4",
+      gpType: "Gq",
+      gpColor: "#f59e0b",
+      steps: [
+        { label: "AVP binds V1a",    color: "#06b6d4" },
+        { label: "Gq activates",     color: "#f59e0b" },
+        { label: "PLC ↑",            color: "#f59e0b" },
+        { label: "IP3 + DAG",        color: "#f59e0b" },
+        { label: "Ca²⁺ ↑ / PKC ↑",  color: "#f59e0b" },
+        { label: "Vasoconstriction → SVR ↑", color: "#06b6d4" },
+      ],
+      desc: "V1a receptors on vascular smooth muscle couple to Gq → PLC → IP3-mediated SR Ca²⁺ release + DAG → PKC → MLCK activation → vasoconstriction. At pharmacologic doses, vasopressin produces profound vasoconstriction via V1a, making it effective in vasodilatory shock (sepsis, post-cardiac surgery). Also present in liver: V1a → glycogenolysis.",
+    },
+    v2: {
+      label: "V2 Receptor",
+      recLabel: "V2-R (Renal Collecting Duct)",
+      loc: "Renal collecting duct principal cells",
+      drugColor: "#06b6d4",
+      gpType: "Gs",
+      gpColor: "#22c55e",
+      steps: [
+        { label: "AVP binds V2",     color: "#06b6d4" },
+        { label: "Gs activates",     color: "#22c55e" },
+        { label: "AC ↑",             color: "#22c55e" },
+        { label: "cAMP ↑↑",          color: "#22c55e" },
+        { label: "PKA ↑",            color: "#22c55e" },
+        { label: "AQP2 insertion",   color: "#06b6d4" },
+        { label: "H₂O reabsorption ↑ (Antidiuresis)", color: "#06b6d4" },
+      ],
+      desc: "V2 receptors in the renal collecting duct couple to Gs → AC → cAMP↑ → PKA → phosphorylation of aquaporin-2 (AQP2) → AQP2 traffics from intracellular vesicles to the apical membrane → free water reabsorption. Basis for vasopressin as antidiuretic hormone (ADH) in DI treatment. Desmopressin (DDAVP) is a selective V2 agonist.",
+    },
+  };
 
-  // Which nAChRs are blocked?
-  const receptorBlocked = [
-    phase === "cis_full" || phase === "cis_partial" || phase === "sux_bind" || phase === "fascic" || phase === "phase2",
-    phase === "cis_full" || phase === "fascic" || phase === "phase2",
-  ];
-  const nAChROpen = phase === "normal" || phase === "reversal";
-  const ionFlow = nAChROpen;
-
-  const W = 560, H = 360;
-  const nerveY = 60, cleftY = 155, muscleY = 250;
-
-  // ACh vesicles animation
-  const vesiclePh = (tick / 100);
+  const r = recs[rec];
 
   return (
-    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${drugColor}40` }}>
-      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
-        <span style={{ fontSize: "12px", color: drugColor, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-          &#9654; {isSux ? "Succinylcholine" : "Cisatracurium"} &mdash; Neuromuscular Junction
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #06b6d440" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#06b6d4", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Vasopressin (AVP) &mdash; V1a / V2 Receptors
+        </span>
+        <div style={{ display:"flex", gap:"6px" }}>
+          {Object.entries(recs).map(([k, v]) => (
+            <button key={k} onClick={() => { setRec(k); setActivated(false); }}
+              style={{ padding:"4px 12px", borderRadius:"6px", border:`2px solid ${rec===k ? v.drugColor : t.bd}`,
+                background: rec===k ? `${v.drugColor}18` : t.bgC, color: rec===k ? v.drugColor : t.tM,
+                fontSize:"11px", fontWeight: rec===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="AVP" drugColor={r.drugColor}
+          gpType={r.gpType} gpColor={r.gpColor} recLabel={r.recLabel} activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={r.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:`2px solid ${r.gpColor}`,
+              background: activated ? r.gpColor : "transparent", color: activated ? "#fff" : r.gpColor,
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Cascade Active" : "Activate G-Protein"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:`4px solid ${r.drugColor}` }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:r.drugColor, marginBottom:"4px" }}>{r.label} — {r.loc}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{r.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Epinephrine: α1 / α2 / β1 / β2 ──────────────────────────────────────────
+function EpinephrineDiagram({ t }) {
+  const [rec, setRec] = useState("a1");
+  const [activated, setActivated] = useState(false);
+
+  const recs = {
+    a1: {
+      label: "α1 (Gq)",
+      recLabel: "α1-Adrenoceptor",
+      drugColor: "#f97316",
+      gpType: "Gq", gpColor: "#f59e0b",
+      steps: [
+        { label: "Epi binds α1", color: "#f97316" },
+        { label: "Gq activates",  color: "#f59e0b" },
+        { label: "PLC ↑",         color: "#f59e0b" },
+        { label: "IP3 + DAG",     color: "#f59e0b" },
+        { label: "Ca²⁺ ↑ / PKC ↑", color: "#f59e0b" },
+        { label: "Vasoconstriction ↑SVR", color: "#f97316" },
+      ],
+      desc: "At HIGH doses, epinephrine dominates at α1 → Gq → PLC → IP3/DAG → Ca²⁺ → vasoconstriction. SVR↑, MAP↑. This is the mechanism behind post-anaphylaxis epinephrine: reverses distributive vasodilation. Important: unlike phenylephrine, epinephrine also drives β1 simultaneously at all doses.",
+    },
+    a2: {
+      label: "α2 (Gi)",
+      recLabel: "α2-Adrenoceptor",
+      drugColor: "#f97316",
+      gpType: "Gi", gpColor: "#ef4444",
+      steps: [
+        { label: "Epi binds α2",     color: "#f97316" },
+        { label: "Gi activates",     color: "#ef4444" },
+        { label: "AC ↓",             color: "#ef4444" },
+        { label: "cAMP ↓",           color: "#ef4444" },
+        { label: "NE release ↓",     color: "#ef4444" },
+        { label: "Sympatholysis / Presynaptic inhibition", color: "#f97316" },
+      ],
+      desc: "α2 presynaptic autoreceptors reduce norepinephrine release. Gi → AC↓ → cAMP↓. Epinephrine has lower α2 affinity than norepinephrine, so α2 effects are less prominent. The α2 effect helps modulate excessive sympathetic tone at high catecholamine levels.",
+    },
+    b1: {
+      label: "β1 (Gs)",
+      recLabel: "β1-Adrenoceptor",
+      drugColor: "#f97316",
+      gpType: "Gs", gpColor: "#22c55e",
+      steps: [
+        { label: "Epi binds β1",       color: "#f97316" },
+        { label: "Gs activates",       color: "#22c55e" },
+        { label: "AC ↑",               color: "#22c55e" },
+        { label: "cAMP ↑",             color: "#22c55e" },
+        { label: "PKA ↑",              color: "#22c55e" },
+        { label: "HR ↑ / Contractility ↑ / CO ↑", color: "#f97316" },
+      ],
+      desc: "β1 present at ALL epinephrine doses. Gs → AC → cAMP↑ → PKA → phosphorylation of L-type Ca²⁺ channels, RyR2, phospholamban → ↑inotropy + ↑chronotropy. Epinephrine is stronger at β1 than norepinephrine, making it more tachycardic at equivalent pressor doses.",
+    },
+    b2: {
+      label: "β2 (Gs)",
+      recLabel: "β2-Adrenoceptor",
+      drugColor: "#f97316",
+      gpType: "Gs", gpColor: "#22c55e",
+      steps: [
+        { label: "Epi binds β2",        color: "#f97316" },
+        { label: "Gs activates",        color: "#22c55e" },
+        { label: "AC ↑",                color: "#22c55e" },
+        { label: "cAMP ↑",              color: "#22c55e" },
+        { label: "PKA ↑",               color: "#22c55e" },
+        { label: "Bronchodilation + Vasodilation (skeletal muscle)", color: "#f97316" },
+      ],
+      desc: "β2 receptors on bronchial smooth muscle and peripheral vasculature. Gs → cAMP↑ → PKA → MLCK inhibition → smooth muscle relaxation → bronchodilation + vasodilation. At LOW doses epinephrine, β2 vasodilation in skeletal muscle can DROP diastolic BP despite β1-driven HR increase — explaining the widened pulse pressure at low doses.",
+    },
+  };
+
+  const r = recs[rec];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #f9731640" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#f97316", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Epinephrine &mdash; &#945;1 / &#945;2 / &#946;1 / &#946;2 Receptors
+        </span>
+        <div style={{ display:"flex", gap:"6px", flexWrap:"wrap" }}>
+          {Object.entries(recs).map(([k, v]) => (
+            <button key={k} onClick={() => { setRec(k); setActivated(false); }}
+              style={{ padding:"4px 10px", borderRadius:"6px", border:`2px solid ${rec===k ? "#f97316" : t.bd}`,
+                background: rec===k ? "#f9731618" : t.bgC, color: rec===k ? "#f97316" : t.tM,
+                fontSize:"11px", fontWeight: rec===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="EPI" drugColor={r.drugColor}
+          gpType={r.gpType} gpColor={r.gpColor} recLabel={r.recLabel} activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={r.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:"2px solid #f97316",
+              background: activated ? "#f97316" : "transparent", color: activated ? "#fff" : "#f97316",
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Cascade Active" : "Activate G-Protein"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:"4px solid #f97316" }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:"#f97316", marginBottom:"4px" }}>{r.label} — {r.recLabel}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{r.desc}</p>
+        </div>
+        <div style={{ marginTop:"10px", padding:"8px 12px", background:"#f9731610", borderRadius:"8px", fontSize:"11px", color:t.t2 }}>
+          <strong style={{ color:"#f97316" }}>Dose-response tip:</strong> Low dose epi → β1+β2 dominant (HR↑, vasodilation). High dose → α1 dominant (vasoconstriction). Unlike NE, epinephrine always hits β2 — key in anaphylaxis (bronchodilation + vasoconstriction simultaneously).
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Phenylephrine: Pure α1 (Gq) ──────────────────────────────────────────────
+function PhenylephrineDiagram({ t }) {
+  const [activated, setActivated] = useState(false);
+
+  const steps = [
+    { label: "Phenyl binds α1",     color: "#ef4444" },
+    { label: "Gq activates",        color: "#f59e0b" },
+    { label: "PLC ↑",               color: "#f59e0b" },
+    { label: "IP3 + DAG",           color: "#f59e0b" },
+    { label: "Ca²⁺ ↑ / PKC ↑",     color: "#f59e0b" },
+    { label: "Vasoconstriction ↑SVR ↑MAP", color: "#ef4444" },
+    { label: "Reflex bradycardia",  color: "#64748b" },
+  ];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #ef444440" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}` }}>
+        <span style={{ fontSize:"12px", color:"#ef4444", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Phenylephrine &mdash; Pure &#945;1-Agonist (Gq)
         </span>
       </div>
-      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
-        {phases.map(p => (
-          <button key={p.id} onClick={() => setPhase(p.id)}
-            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${phase === p.id ? p.color : t.bd}`, background: phase === p.id ? `${p.color}18` : t.bgC, color: phase === p.id ? p.color : t.tM, fontSize: "11px", fontWeight: phase === p.id ? 700 : 400, cursor: "pointer" }}>
-            {p.label}
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="PE" drugColor="#ef4444"
+          gpType="Gq" gpColor="#f59e0b" recLabel="α1-Adrenoceptor (pure)" activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:"2px solid #f59e0b",
+              background: activated ? "#f59e0b" : "transparent", color: activated ? "#fff" : "#f59e0b",
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Cascade Active" : "Activate Gq Cascade"}
           </button>
-        ))}
-      </div>
-      <div style={{ background: t.bgH }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
-          <defs>
-            <marker id="njArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
-            </marker>
-            <marker id="naArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
-            </marker>
-          </defs>
-          {/* Nerve terminal */}
-          <rect x="150" y={nerveY} width="260" height="60" rx="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          <text x="280" y={nerveY + 22} fill={t.tx} fontSize="11" textAnchor="middle" fontWeight="700">Motor Nerve Terminal</text>
-          <text x="280" y={nerveY + 37} fill={t.tM} fontSize="8" textAnchor="middle">Action potential → Ca²⁺ influx → ACh exocytosis</text>
-          {/* Vesicles */}
-          {Array.from({ length: 5 }, (_, i) => {
-            const vy = nerveY + 48 + Math.sin(vesiclePh * Math.PI * 2 + i) * 3;
-            const vx = 180 + i * 38;
-            const released = phase !== "normal" && i <= 2;
-            return (
-              <g key={i}>
-                <circle cx={vx} cy={released ? cleftY - 20 + (vesiclePh * 30) : vy} r="9"
-                  fill="#22c55e30" stroke="#22c55e" strokeWidth="1.5" opacity={released ? 0.7 : 1}/>
-                <text x={vx} y={(released ? cleftY - 20 + (vesiclePh * 30) : vy) + 3} fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="700">ACh</text>
-              </g>
-            );
-          })}
-          {/* Synaptic cleft */}
-          <text x="14" y={cleftY + 10} fill={t.tM} fontSize="8" fontWeight="600">CLEFT</text>
-          <rect x="100" y={cleftY} width="360" height={muscleY - cleftY} fill={t.bgH} stroke="none"/>
-          {/* Drug molecules in cleft */}
-          {(phase !== "normal") && Array.from({ length: 4 }, (_, i) => (
-            <g key={i}>
-              <circle cx={155 + i * 65} cy={cleftY + 30} r="10"
-                fill={`${drugColor}30`} stroke={drugColor} strokeWidth="1.5" opacity={phase === "reversal" ? 0.2 : 0.9}/>
-              <text x={155 + i * 65} y={cleftY + 34} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">{drugName}</text>
-            </g>
-          ))}
-          {/* If reversal, show neostigmine and more ACh */}
-          {phase === "reversal" && Array.from({ length: 4 }, (_, i) => (
-            <g key={i}>
-              <circle cx={175 + i * 55} cy={cleftY + 55} r="9" fill="#3b82f630" stroke="#3b82f6" strokeWidth="1.5"/>
-              <text x={175 + i * 55} y={cleftY + 59} fill="#3b82f6" fontSize="6" textAnchor="middle" fontWeight="700">ACh</text>
-            </g>
-          ))}
-          {/* Motor end plate / nAChRs */}
-          <rect x="100" y={muscleY} width="360" height="60" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          <text x="280" y={muscleY + 18} fill={t.tx} fontSize="10" textAnchor="middle" fontWeight="700">Motor End Plate</text>
-          {[160, 240, 320, 400].map((rx, i) => {
-            const blocked = (isSux ? (phase === "cis_full" || (phase === "cis_partial" && i < 2)) : (phase === "cis_full" || (phase === "cis_partial" && i < 2))) ||
-              (isSux && (phase === "sux_bind" || phase === "fascic" || phase === "phase2"));
-            const open = nAChROpen && !blocked;
-            return (
-              <g key={i}>
-                <rect x={rx - 14} y={muscleY + 24} width="28" height="26" rx="6"
-                  fill={blocked ? `${drugColor}20` : (open ? "#22c55e20" : t.bgH)} stroke={blocked ? drugColor : (open ? "#22c55e" : t.bd)} strokeWidth={blocked ? "2" : "1.5"}/>
-                <text x={rx} y={muscleY + 41} fill={blocked ? drugColor : (open ? "#22c55e" : t.tM)} fontSize="8" textAnchor="middle" fontWeight="700">nAChR</text>
-                {blocked && <text x={rx} y={muscleY + 56} fill={drugColor} fontSize="7" textAnchor="middle">BLOCKED</text>}
-              </g>
-            );
-          })}
-          {/* Ion flow (Na+ in) when normal */}
-          {ionFlow && <g>
-            <line x1="280" y1={muscleY + 50} x2="280" y2={muscleY + 85} stroke="#f59e0b" strokeWidth="2" markerEnd="url(#naArrow)"/>
-            <text x="296" y={muscleY + 72} fill="#f59e0b" fontSize="9">Na⁺ in</text>
-          </g>}
-          {/* Muscle status */}
-          <rect x="100" y="315" width="360" height="30" rx="6" fill={t.bgC} stroke={ph.color} strokeWidth="1.5"/>
-          <text x="280" y="335" fill={ph.color} fontSize="10" textAnchor="middle" fontWeight="700">
-            {phase === "normal" ? "\u2713 Depolarization → Muscle Contraction" :
-             phase === "cis_partial" ? "\u26a0 Partial block — reduced strength" :
-             phase === "cis_full" ? "\u2717 Complete NMJ block — paralysis" :
-             phase === "reversal" ? "\u21BA Neostigmine ↑ACh → Reversal" :
-             phase === "sux_bind" ? "\u26a0 Depolarization → Fasciculations" :
-             phase === "fascic" ? "\u2717 Sustained depol — Phase I block" :
-             "\u2717 Phase II block (desensitization)"}
-          </text>
-        </svg>
-      </div>
-      <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}`, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
-        {isSux ? (
-          <>
-            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh released → binds nAChR → Na⁺/K⁺ flux → end plate depolarization → muscle action potential.</p>}
-            {phase === "sux_bind" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>SCh mimics ACh</strong> at both α-subunits. Causes initial depolarization. Unlike ACh, SCh resists acetylcholinesterase — it cannot be hydrolyzed at the NMJ.</p>}
-            {phase === "fascic" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Phase I (Depolarizing) Block:</strong> Sustained end plate depolarization keeps voltage-gated Na⁺ channels inactivated. Muscle cannot repolarize. Fasciculations occur as the depolarization wave spreads before block sets in.</p>}
-            {phase === "phase2" && <p style={{ margin: 0 }}><strong style={{ color: "#8b5cf6" }}>Phase II Block (Desensitization):</strong> With prolonged or high-dose SCh, the receptor enters a desensitized state resembling a non-depolarizing block. Train-of-four fade becomes apparent. Mechanism not fully understood.</p>}
-          </>
-        ) : (
-          <>
-            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh competes freely for all four nAChR sites on the motor end plate. Full depolarization and muscle contraction occur.</p>}
-            {phase === "cis_partial" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>Partial Block:</strong> Cisatracurium competitively occupies some α-subunit sites. Reduced ACh binding = reduced end plate potential = muscle weakness. Train-of-four ratio decreases.</p>}
-            {phase === "cis_full" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Full Competitive Block:</strong> All or most nAChRs occupied. No ACh binding → no depolarization → complete paralysis. Reversible with neostigmine (increased ACh outcompetes Cis) or sugammadex (not for Cis — use neostigmine).</p>}
-            {phase === "reversal" && <p style={{ margin: 0 }}><strong style={{ color: "#3b82f6" }}>Neostigmine Reversal:</strong> Inhibits acetylcholinesterase → ACh accumulates in cleft → mass-action effect outcompetes Cisatracurium at α-subunits → NMJ function restored. Requires TOF ratio &gt;0.2 to be effective.</p>}
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ── Fentanyl: Mu-Opioid Receptor (Gi cascade + ion channels) ─────────────────
-function FentanylDiagram({ t }) {
-  const [activated, setActivated] = useState(false);
-  const [focus, setFocus] = useState("analgesia");
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    if (!activated) { setTick(0); return; }
-    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
-    return () => clearInterval(id);
-  }, [activated]);
-
-  const focusList = [
-    { id: "analgesia", label: "Analgesia (Dorsal Horn)", color: "#22c55e", desc: "Fentanyl binds μ-OR on presynaptic pain fibers AND postsynaptic dorsal horn neurons. ↓ cAMP → ↓ Ca²⁺ influx (presynaptic) = less substance P / glutamate release. ↑ K⁺ conductance (postsynaptic) = hyperpolarization = ↓ nociceptive transmission." },
-    { id: "resp", label: "Resp. Depression (Brainstem)", color: "#ef4444", desc: "μ-OR in pre-B\u00F6tzinger complex (respiratory rhythm generator). Gi activation → ↓ cAMP → ↓ pacemaker neuron firing → decreased respiratory drive. Dose-dependent: analgesia → sedation → apnea. Reversed by naloxone (μ-OR antagonist)." },
-    { id: "gi", label: "GI (Enteric μ-OR)", color: "#f59e0b", desc: "Enteric nervous system μ-OR activation → ↓ propulsive motility, ↑ sphincter tone, ↓ secretion. Gi → ↓ cAMP → hyperpolarization of enteric neurons. Constipation is peripheral and does NOT develop tolerance (unlike analgesia)." },
-  ];
-  const fc = focusList.find(f => f.id === focus);
-  const W = 560, H = 350;
-  const memY = 130, memH = 30;
-  const phase = tick / 100;
-
-  return (
-    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #a855f740` }}>
-      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
-        <span style={{ fontSize: "12px", color: "#a855f7", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Fentanyl &mdash; μ-Opioid Receptor (Gi-coupled GPCR)</span>
-      </div>
-      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
-        {focusList.map(f => (
-          <button key={f.id} onClick={() => setFocus(f.id)}
-            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${focus === f.id ? f.color : t.bd}`, background: focus === f.id ? `${f.color}18` : t.bgC, color: focus === f.id ? f.color : t.tM, fontSize: "11px", fontWeight: focus === f.id ? 700 : 400, cursor: "pointer" }}>
-            {f.label}
-          </button>
-        ))}
-      </div>
-      <div style={{ background: t.bgH }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
-          <defs>
-            <marker id="ftArrow" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
-              <path d="M0,0 L0,7 L7,3.5 Z" fill="#ef4444"/>
-            </marker>
-            <marker id="ftArrowG" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
-              <path d="M0,0 L0,7 L7,3.5 Z" fill="#22c55e"/>
-            </marker>
-          </defs>
-          {/* Zone labels */}
-          <text x="14" y="80" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
-          <text x="14" y="200" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
-          {/* Membrane */}
-          <rect x="80" y={memY} width="290" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          {Array.from({ length: 18 }, (_, i) => (
-            <g key={i}>
-              <circle cx={88 + i*15} cy={memY + 8} r="3" fill="#a855f720" stroke="#a855f740" strokeWidth="0.5"/>
-              <circle cx={88 + i*15} cy={memY + 22} r="3" fill="#a855f720" stroke="#a855f740" strokeWidth="0.5"/>
-            </g>
-          ))}
-          {/* 7TM receptor (3 bars) */}
-          {[0,1,2].map(i => (
-            <rect key={i} x={190 + i*26 - 9} y={memY - 22 + (i%2)*5} width="16" height={memH + 22 + (i%2)*5} rx="5"
-              fill={activated ? "#a855f720" : `${t.bd}60`} stroke="#a855f7" strokeWidth="1.5" opacity={activated ? 1 : 0.6}/>
-          ))}
-          <text x="228" y={memY - 30} fill="#a855f7" fontSize="11" textAnchor="middle" fontWeight="700">μ-Opioid Receptor</text>
-          <text x="228" y={memY - 16} fill={t.tM} fontSize="8" textAnchor="middle">7TM GPCR, Gi-coupled</text>
-          {/* Fentanyl molecule */}
-          <circle cx="228" cy={memY - 50} r="19" fill={activated ? "#a855f730" : "#a855f715"} stroke="#a855f7" strokeWidth={activated ? "2.5" : "1.5"}/>
-          <text x="228" y={memY - 53} fill="#a855f7" fontSize="9" textAnchor="middle" fontWeight="700">FENT</text>
-          <text x="228" y={memY - 40} fill="#a855f7" fontSize="7" textAnchor="middle">{activated ? "Bound" : "Unbound"}</text>
-          <line x1="228" y1={memY - 31} x2="228" y2={memY - 22} stroke="#a855f7" strokeWidth={activated ? "2" : "1"} strokeDasharray="3,2"/>
-          {/* G-protein Gi */}
-          <ellipse cx="230" cy={memY + 68} rx="28" ry="18" fill={activated ? "#ef444420" : "#ef444410"} stroke="#ef4444" strokeWidth={activated ? "2" : "1.5"}/>
-          <text x="230" y={memY + 65} fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Gαi</text>
-          <text x="230" y={memY + 77} fill="#ef4444" fontSize="7" textAnchor="middle">{activated ? "Active" : "Inactive"}</text>
-          {!activated && <line x1="230" y1={memY + 50} x2="228" y2={memY + 30} stroke="#ef4444" strokeWidth="1" strokeDasharray="3,2" opacity="0.4"/>}
-          {/* Cascade nodes when activated */}
-          {activated && (
-            <g>
-              {/* AC inhibition */}
-              <line x1="256" y1={memY + 60} x2="350" y2="190" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
-              {/* AC box */}
-              <rect x="330" y="190" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2)) * 0.4}/>
-              <text x="395" y="210" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Adenylyl Cyclase ↓</text>
-              <line x1="395" y1="220" x2="395" y2="248" stroke="#ef4444" strokeWidth="2" markerEnd="url(#ftArrow)"/>
-              <rect x="330" y="248" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1)) * 0.4}/>
-              <text x="395" y="268" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">cAMP ↓↓</text>
-              {/* K+ channel effect */}
-              <line x1="202" y1={memY + 68} x2="130" y2="220" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
-              <rect x="60" y="220" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 0.5)) * 0.4}/>
-              <text x="120" y="240" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">GIRK (K⁺) ↑</text>
-              <line x1="120" y1="250" x2="120" y2="276" stroke="#22c55e" strokeWidth="2" markerEnd="url(#ftArrowG)"/>
-              <rect x="60" y="276" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5"/>
-              <text x="120" y="296" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">Hyperpolarization</text>
-              {/* Ca2+ channel block */}
-              <line x1="230" y1={memY + 86} x2="230" y2="225" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
-              <rect x="165" y="225" width="130" height="30" rx="6" fill="#3b82f618" stroke="#3b82f6" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1.5)) * 0.4}/>
-              <text x="230" y="245" fill="#3b82f6" fontSize="10" textAnchor="middle" fontWeight="700">VGCC Ca²⁺ ↓</text>
-              {/* Effect label */}
-              <rect x="145" y="310" width="270" height="30" rx="6" fill={`${fc.color}18`} stroke={fc.color} strokeWidth="1.5"/>
-              <text x="280" y="330" fill={fc.color} fontSize="10" textAnchor="middle" fontWeight="700">&#8594; {fc.label.split(" (")[0]}</text>
-            </g>
-          )}
-          {/* Legend */}
-          <rect x="400" y="60" width="140" height="55" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
-          <text x="470" y="76" fill={t.tM} fontSize="8" textAnchor="middle" fontWeight="600">Key Channels</text>
-          <circle cx="415" cy="91" r="4" fill="#22c55e"/><text x="424" y="94" fill={t.t2} fontSize="8">GIRK K⁺ channel</text>
-          <circle cx="415" cy="105" r="4" fill="#3b82f6"/><text x="424" y="108" fill={t.t2} fontSize="8">VGCC Ca²⁺ channel</text>
-          {!activated && <text x="228" y="300" fill={t.tM} fontSize="10" textAnchor="middle">Click Bind Fentanyl below to activate</text>}
-        </svg>
-      </div>
-      <div style={{ padding: "12px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
-        <button onClick={() => setActivated(a => !a)}
-          style={{ padding: "7px 16px", borderRadius: "8px", border: `2px solid #a855f7`, background: activated ? "#a855f7" : "transparent", color: activated ? "#fff" : "#a855f7", fontSize: "12px", fontWeight: 700, cursor: "pointer", marginBottom: "12px" }}>
-          {activated ? "\u2713 Fentanyl Bound & Active" : "Bind Fentanyl to μ-OR"}
-        </button>
-        <div style={{ padding: "10px 14px", background: t.bgH, borderRadius: "8px", borderLeft: `4px solid ${fc.color}` }}>
-          <div style={{ fontSize: "12px", fontWeight: 700, color: fc.color, marginBottom: "4px" }}>{fc.label}</div>
-          <p style={{ margin: 0, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>{fc.desc}</p>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:"4px solid #ef4444" }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:"#ef4444", marginBottom:"4px" }}>Pure α1 Agonist — No β Activity</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+            Phenylephrine is a selective α1 agonist with essentially no β-receptor activity. Gq → PLC → IP3/DAG → Ca²⁺ → MLCK → vasoconstriction. SVR↑, MAP↑. Because there is no direct cardiac stimulation, the BP rise triggers baroreceptor-mediated reflex bradycardia via vagal activation. This makes phenylephrine the vasopressor of choice when tachycardia must be avoided (e.g., post-CABG, neuraxial anesthesia hypotension, obstructive cardiomyopathy).
+          </p>
+        </div>
+        <div style={{ marginTop:"10px", padding:"8px 12px", background:"#ef444410", borderRadius:"8px", fontSize:"11px", color:t.t2 }}>
+          <strong style={{ color:"#ef4444" }}>vs Epinephrine:</strong> Epi adds β1 (tachycardia) + β2 (bronchodilation). Phenylephrine produces clean vasoconstriction without tachycardia. In neuraxial hypotension, phenylephrine is first-line; ephedrine reserved for bradycardia + hypotension.
         </div>
       </div>
     </div>
   );
 }
 
+// ── Atropine: M2 Muscarinic Antagonist (Gi blockade) ────────────────────────
+function AtropineDiagram({ t }) {
+  const [mode, setMode] = useState("normal");
+  const [activated, setActivated] = useState(false);
+
+  const modes = {
+    normal: {
+      label: "Normal M2 (ACh)",
+      drugAbbr: "ACh",
+      drugColor: "#22c55e",
+      gpType: "Gi", gpColor: "#ef4444",
+      recLabel: "M2 Muscarinic Receptor",
+      steps: [
+        { label: "ACh binds M2",      color: "#22c55e" },
+        { label: "Gi activates",      color: "#ef4444" },
+        { label: "AC ↓",              color: "#ef4444" },
+        { label: "cAMP ↓",            color: "#ef4444" },
+        { label: "IKACh K⁺ ↑",        color: "#22c55e" },
+        { label: "SA/AV node hyperpolarized → HR ↓", color: "#ef4444" },
+      ],
+      desc: "Normally, vagal ACh activates M2 (Gi-coupled) on SA and AV nodes. Gi inhibits adenylyl cyclase (cAMP↓) AND directly opens IKACh (inward-rectifier K⁺ channels via βγ subunits) → hyperpolarization → HR↓, AV conduction↓. This is the physiologic basis of vagal bradycardia.",
+    },
+    blocked: {
+      label: "Atropine Blocks M2",
+      drugAbbr: "ATR",
+      drugColor: "#f59e0b",
+      gpType: "Gi", gpColor: "#64748b",
+      recLabel: "M2 Receptor (BLOCKED)",
+      steps: [
+        { label: "Atropine binds M2", color: "#f59e0b" },
+        { label: "Competitive antagonist", color: "#f59e0b" },
+        { label: "Gi NOT activated",  color: "#64748b" },
+        { label: "AC uninhibited",    color: "#22c55e" },
+        { label: "cAMP maintained ↑", color: "#22c55e" },
+        { label: "IKACh K⁺ blocked", color: "#22c55e" },
+        { label: "HR ↑ / AV conduction ↑", color: "#f59e0b" },
+      ],
+      desc: "Atropine competitively antagonizes ACh at M2 receptors. By blocking Gi coupling, it relieves vagal tone: cAMP rises (uninhibited AC), IKACh channels close → SA node firing rate increases (chronotropy), AV nodal conduction speeds. Clinical doses 0.4–1 mg IV. At low doses (< 0.4 mg), paradoxical bradycardia can occur from central vagal stimulation.",
+    },
+  };
+
+  const m = modes[mode];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #f59e0b40" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#f59e0b", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Atropine &mdash; M2 Muscarinic Antagonist
+        </span>
+        <div style={{ display:"flex", gap:"6px" }}>
+          {Object.entries(modes).map(([k, v]) => (
+            <button key={k} onClick={() => { setMode(k); setActivated(false); }}
+              style={{ padding:"4px 10px", borderRadius:"6px", border:`2px solid ${mode===k ? v.drugColor : t.bd}`,
+                background: mode===k ? `${v.drugColor}18` : t.bgC, color: mode===k ? v.drugColor : t.tM,
+                fontSize:"11px", fontWeight: mode===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr={m.drugAbbr} drugColor={m.drugColor}
+          gpType={m.gpType} gpColor={m.gpColor} recLabel={m.recLabel} activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={m.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:`2px solid ${m.drugColor}`,
+              background: activated ? m.drugColor : "transparent", color: activated ? "#fff" : m.drugColor,
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Pathway Active" : "Show Pathway"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:`4px solid ${m.drugColor}` }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:m.drugColor, marginBottom:"4px" }}>{m.label}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{m.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Glycopyrrolate: M1 / M2 / M3 Antagonist (quaternary) ────────────────────
+function GlycopyrrolateDiagram({ t }) {
+  const [rec, setRec] = useState("m2");
+  const [activated, setActivated] = useState(false);
+
+  const recs = {
+    m1: {
+      label: "M1 (Gq)",
+      recLabel: "M1 Muscarinic Receptor",
+      drugColor: "#8b5cf6",
+      gpType: "Gq", gpColor: "#f59e0b",
+      steps: [
+        { label: "Glyco blocks M1",    color: "#8b5cf6" },
+        { label: "Gq NOT activated",   color: "#64748b" },
+        { label: "PLC NOT activated",  color: "#64748b" },
+        { label: "IP3/DAG blocked",    color: "#64748b" },
+        { label: "Gastric acid ↓", color: "#8b5cf6" },
+      ],
+      desc: "M1 receptors are Gq-coupled and mediate gastric acid secretion and CNS cholinergic transmission. Glycopyrrolate blocks M1, reducing gastric acid production. Because glycopyrrolate is a QUATERNARY ammonium compound, it does NOT cross the blood-brain barrier — no CNS antimuscarinic effects (no confusion, no delirium, unlike atropine).",
+    },
+    m2: {
+      label: "M2 (Gi)",
+      recLabel: "M2 Muscarinic Receptor",
+      drugColor: "#8b5cf6",
+      gpType: "Gi", gpColor: "#ef4444",
+      steps: [
+        { label: "Glyco blocks M2",    color: "#8b5cf6" },
+        { label: "Gi NOT activated",   color: "#64748b" },
+        { label: "AC maintained",      color: "#22c55e" },
+        { label: "cAMP ↑",             color: "#22c55e" },
+        { label: "IKACh K⁺ blocked",   color: "#22c55e" },
+        { label: "HR ↑ / Prevents neostigmine bradycardia", color: "#8b5cf6" },
+      ],
+      desc: "M2 on SA/AV nodes — primary cardiac target. Glycopyrrolate blocks vagal bradycardia. In NMB reversal, neostigmine causes muscarinic side effects (bradycardia, bronchospasm, hypersalivation). Glycopyrrolate is given 0.2 mg per 1 mg neostigmine to counteract these. Its slower onset (2–3 min) better matches neostigmine's onset than atropine's faster onset.",
+    },
+    m3: {
+      label: "M3 (Gq)",
+      recLabel: "M3 Muscarinic Receptor",
+      drugColor: "#8b5cf6",
+      gpType: "Gq", gpColor: "#f59e0b",
+      steps: [
+        { label: "Glyco blocks M3",    color: "#8b5cf6" },
+        { label: "Gq NOT activated",   color: "#64748b" },
+        { label: "PLC NOT activated",  color: "#64748b" },
+        { label: "Secretions ↓",       color: "#8b5cf6" },
+        { label: "Bronchospasm ↓",     color: "#8b5cf6" },
+        { label: "GI motility ↓",      color: "#8b5cf6" },
+      ],
+      desc: "M3 receptors are Gq-coupled on exocrine glands (salivary, bronchial, GI) and smooth muscle. Activation → PLC → IP3/DAG → Ca²⁺ → secretion and smooth muscle contraction. Glycopyrrolate blocks M3 → dry mouth, reduced airway secretions (useful pre-op), ↓GI motility. M3 block reduces neostigmine-induced bronchospasm and hypersalivation.",
+    },
+  };
+
+  const r = recs[rec];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #8b5cf640" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#8b5cf6", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Glycopyrrolate &mdash; M1 / M2 / M3 Antagonist (Quaternary)
+        </span>
+        <div style={{ display:"flex", gap:"6px" }}>
+          {Object.entries(recs).map(([k, v]) => (
+            <button key={k} onClick={() => { setRec(k); setActivated(false); }}
+              style={{ padding:"4px 10px", borderRadius:"6px", border:`2px solid ${rec===k ? "#8b5cf6" : t.bd}`,
+                background: rec===k ? "#8b5cf618" : t.bgC, color: rec===k ? "#8b5cf6" : t.tM,
+                fontSize:"11px", fontWeight: rec===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="GLYCO" drugColor={r.drugColor}
+          gpType={r.gpType} gpColor={r.gpColor} recLabel={r.recLabel} activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={r.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:"2px solid #8b5cf6",
+              background: activated ? "#8b5cf6" : "transparent", color: activated ? "#fff" : "#8b5cf6",
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Pathway Active" : "Show Block Pathway"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:"4px solid #8b5cf6" }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:"#8b5cf6", marginBottom:"4px" }}>{r.label} — {r.recLabel}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{r.desc}</p>
+        </div>
+        <div style={{ marginTop:"10px", padding:"8px 12px", background:"#8b5cf610", borderRadius:"8px", fontSize:"11px", color:t.t2 }}>
+          <strong style={{ color:"#8b5cf6" }}>Key distinction from atropine:</strong> Glycopyrrolate is quaternary → cannot cross blood-brain barrier → no CNS side effects. Preferred when avoiding confusion/delirium is important. Also longer duration (4–8 hr vs atropine 1–2 hr).
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Labetalol: α1 + β1/β2 Antagonist ────────────────────────────────────────
+function LabetalolDiagram({ t }) {
+  const [rec, setRec] = useState("a1");
+  const [activated, setActivated] = useState(false);
+
+  const recs = {
+    a1: {
+      label: "α1 Block (Gq blocked)",
+      recLabel: "α1-Adrenoceptor (BLOCKED)",
+      drugColor: "#3b82f6",
+      gpType: "Gq", gpColor: "#64748b",
+      steps: [
+        { label: "Labetalol blocks α1", color: "#3b82f6" },
+        { label: "Gq NOT activated",    color: "#64748b" },
+        { label: "PLC NOT activated",   color: "#64748b" },
+        { label: "No IP3/DAG/Ca²⁺",    color: "#64748b" },
+        { label: "Vasodilation ↑",      color: "#3b82f6" },
+        { label: "SVR ↓ → BP ↓",        color: "#3b82f6" },
+      ],
+      desc: "α1 block prevents catecholamine-mediated vasoconstriction → vasodilation → SVR↓. IV labetalol has an α:β ratio of approximately 1:7 (IV) — meaning β-blockade is the dominant mechanism IV, with α1 block providing additional vasodilation. This prevents the reflex tachycardia that would otherwise occur with pure vasodilators (like hydralazine).",
+    },
+    b1: {
+      label: "β1 Block (Gs blocked)",
+      recLabel: "β1-Adrenoceptor (BLOCKED)",
+      drugColor: "#3b82f6",
+      gpType: "Gs", gpColor: "#64748b",
+      steps: [
+        { label: "Labetalol blocks β1",  color: "#3b82f6" },
+        { label: "Gs NOT activated",     color: "#64748b" },
+        { label: "AC NOT activated",     color: "#64748b" },
+        { label: "cAMP maintained low",  color: "#64748b" },
+        { label: "PKA ↓",               color: "#64748b" },
+        { label: "HR ↓ / Contractility ↓ → CO ↓", color: "#3b82f6" },
+      ],
+      desc: "β1 blockade reduces SA node automaticity (HR↓) and myocardial contractility. Combined with α1 block, this prevents reflex tachycardia from the vasodilation — the net effect is BP↓ with minimal or no change in HR. This is the hemodynamic profile that makes labetalol ideal for hypertensive emergencies, pheochromocytoma, and aortic dissection.",
+    },
+    b2: {
+      label: "β2 Block (risk)",
+      recLabel: "β2-Adrenoceptor (BLOCKED)",
+      drugColor: "#ef4444",
+      gpType: "Gs", gpColor: "#64748b",
+      steps: [
+        { label: "Labetalol blocks β2",  color: "#ef4444" },
+        { label: "Gs NOT activated",     color: "#64748b" },
+        { label: "No cAMP in smooth muscle", color: "#64748b" },
+        { label: "Bronchospasm risk ↑",  color: "#ef4444" },
+        { label: "Peripheral vasoconstriction ↑", color: "#ef4444" },
+      ],
+      desc: "β2 block is the primary adverse effect of labetalol. β2 on bronchial smooth muscle normally maintains bronchodilation — block can precipitate bronchospasm in reactive airway disease. β2 also promotes vasodilation in skeletal muscle; blocking it can worsen peripheral vascular disease. CONTRAINDICATED in bronchospastic disease. Use with caution in COPD, asthma.",
+    },
+  };
+
+  const r = recs[rec];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #3b82f640" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}`,
+        display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:"8px", alignItems:"center" }}>
+        <span style={{ fontSize:"12px", color:"#3b82f6", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Labetalol &mdash; &#945;1 + &#946;1/&#946;2 Antagonist (IV &#945;:&#946; = 1:7)
+        </span>
+        <div style={{ display:"flex", gap:"6px", flexWrap:"wrap" }}>
+          {Object.entries(recs).map(([k, v]) => (
+            <button key={k} onClick={() => { setRec(k); setActivated(false); }}
+              style={{ padding:"4px 10px", borderRadius:"6px", border:`2px solid ${rec===k ? v.drugColor : t.bd}`,
+                background: rec===k ? `${v.drugColor}18` : t.bgC, color: rec===k ? v.drugColor : t.tM,
+                fontSize:"11px", fontWeight: rec===k ? 700 : 400, cursor:"pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background:t.bgH }}>
+        <GpcrSVG t={t} drugAbbr="LAB" drugColor={r.drugColor}
+          gpType={r.gpType} gpColor={r.gpColor} recLabel={r.recLabel} activated={activated}/>
+      </div>
+      {activated && <CascadeFlow steps={r.steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:`2px solid ${r.drugColor}`,
+              background: activated ? r.drugColor : "transparent", color: activated ? "#fff" : r.drugColor,
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Block Active" : "Show Receptor Block"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:`4px solid ${r.drugColor}` }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:r.drugColor, marginBottom:"4px" }}>{r.label}</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>{r.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Hydralazine: Direct Arteriolar Vasodilation ───────────────────────────────
+function HydralazineDiagram({ t }) {
+  const [activated, setActivated] = useState(false);
+
+  const steps = [
+    { label: "Hydralazine enters VSMC", color: "#10b981" },
+    { label: "K⁺ channel opening (KATP)", color: "#10b981" },
+    { label: "Membrane hyperpolarization", color: "#10b981" },
+    { label: "VGCC Ca²⁺ ↓",              color: "#3b82f6" },
+    { label: "MLCK activity ↓",           color: "#10b981" },
+    { label: "Myosin dephosphorylation",  color: "#10b981" },
+    { label: "Arteriolar relaxation → SVR ↓ → BP ↓", color: "#10b981" },
+  ];
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #10b98140" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}` }}>
+        <span style={{ fontSize:"12px", color:"#10b981", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Hydralazine &mdash; Direct Arteriolar Vasodilation
+        </span>
+      </div>
+      {/* Non-GPCR note */}
+      <div style={{ margin:"0", padding:"8px 14px", background:"#10b98110", borderBottom:`1px solid #10b98130`,
+        fontSize:"11px", color:"#10b981" }}>
+        Note: Hydralazine acts DIRECTLY on vascular smooth muscle cells (VSMC) — not via a classical GPCR cascade. Exact molecular target not fully established.
+      </div>
+      <div style={{ background:t.bgH }}>
+        {/* Custom SVG for direct smooth muscle action */}
+        <svg viewBox="0 0 600 210" width="100%" style={{ display:"block", minWidth:"340px" }}>
+          {/* Smooth muscle cell */}
+          <rect x="80" y="50" width="440" height="120" rx="16"
+            fill={`#10b98108`} stroke="#10b981" strokeWidth="1.8"/>
+          <text x="300" y="72" fill="#10b981" fontSize="11" textAnchor="middle" fontWeight="700">Vascular Smooth Muscle Cell (VSMC)</text>
+
+          {/* Drug molecule entering */}
+          <circle cx="140" cy="110" r="24" fill={activated ? "#10b98130" : "#10b98118"} stroke="#10b981" strokeWidth={activated ? "2.5" : "1.8"}/>
+          <text x="140" y="107" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="700">HYD</text>
+          <text x="140" y="119" fill="#10b981" fontSize="7" textAnchor="middle">{activated ? "Inside" : "enters"}</text>
+
+          {/* KATP channel */}
+          <rect x="220" y="88" width="64" height="44" rx="8" fill={activated ? "#10b98120" : `${t.bgC}`} stroke="#10b981" strokeWidth="1.5"/>
+          <text x="252" y="109" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="700">K&#7504;</text>
+          <text x="252" y="122" fill="#10b981" fontSize="8" textAnchor="middle">channel</text>
+          {activated && <text x="252" y="145" fill="#10b981" fontSize="8" textAnchor="middle">K&#8314; out &#8595;</text>}
+
+          {/* VGCC */}
+          <rect x="326" y="88" width="64" height="44" rx="8" fill={activated ? "#3b82f620" : t.bgC} stroke="#3b82f6" strokeWidth="1.5"/>
+          <text x="358" y="109" fill="#3b82f6" fontSize="9" textAnchor="middle" fontWeight="700">VGCC</text>
+          <text x="358" y="122" fill="#3b82f6" fontSize="8" textAnchor="middle">Ca&#178;&#8314; channel</text>
+          {activated && <text x="358" y="145" fill="#3b82f6" fontSize="8" textAnchor="middle">Ca&#178;&#8314; &#8595;</text>}
+
+          {/* MLCK */}
+          <rect x="432" y="88" width="64" height="44" rx="8" fill={activated ? "#64748b20" : t.bgC} stroke="#64748b" strokeWidth="1.5"/>
+          <text x="464" y="109" fill="#64748b" fontSize="9" textAnchor="middle" fontWeight="700">MLCK</text>
+          <text x="464" y="122" fill="#64748b" fontSize="8" textAnchor="middle">↓ activity</text>
+
+          {/* Arrows between elements */}
+          {activated && (
+            <>
+              <line x1="164" y1="110" x2="218" y2="110" stroke="#10b981" strokeWidth="1.8" strokeDasharray="4,2"/>
+              <line x1="284" y1="110" x2="324" y2="110" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="4,2"/>
+              <line x1="390" y1="110" x2="430" y2="110" stroke="#64748b" strokeWidth="1.8" strokeDasharray="4,2"/>
+            </>
+          )}
+
+          {/* Net effect label */}
+          <text x="300" y="190" fill={activated ? "#10b981" : t.tM} fontSize="10" textAnchor="middle" fontWeight={activated ? "700" : "400"}>
+            {activated ? "Net: Arteriolar relaxation → SVR ↓ → MAP ↓ (venous side spared)" : "Click Activate to show mechanism"}
+          </text>
+        </svg>
+      </div>
+      {activated && <CascadeFlow steps={steps} t={t}/>}
+      <div style={{ padding:"12px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}` }}>
+        <div style={{ display:"flex", gap:"8px", marginBottom:"12px" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding:"7px 16px", borderRadius:"8px", border:"2px solid #10b981",
+              background: activated ? "#10b981" : "transparent", color: activated ? "#fff" : "#10b981",
+              fontSize:"12px", fontWeight:700, cursor:"pointer" }}>
+            {activated ? "✓ Mechanism Active" : "Show Mechanism"}
+          </button>
+          <button onClick={() => setActivated(false)}
+            style={{ padding:"7px 12px", borderRadius:"8px", border:`1px solid ${t.bd}`,
+              background:t.bgH, color:t.tM, fontSize:"12px", cursor:"pointer" }}>Reset</button>
+        </div>
+        <div style={{ padding:"10px 14px", background:t.bgH, borderRadius:"8px", borderLeft:"4px solid #10b981" }}>
+          <div style={{ fontSize:"11px", fontWeight:700, color:"#10b981", marginBottom:"4px" }}>Mechanism — Direct Arteriolar Action</div>
+          <p style={{ margin:0, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+            Hydralazine acts directly on arteriolar smooth muscle cells. The precise molecular target remains incompletely understood but the dominant mechanism appears to be opening of ATP-sensitive K⁺ channels (KATP) → K⁺ efflux → membrane hyperpolarization → voltage-gated Ca²⁺ channel (VGCC) closure → intracellular Ca²⁺↓ → MLCK activity↓ → myosin dephosphorylation → smooth muscle relaxation → arteriolar vasodilation. Hydralazine is SELECTIVE for arterioles (spares veins) → no significant preload reduction. This raises CO via afterload reduction and triggers reflex tachycardia (baroreceptor) — typically co-administered with a β-blocker or given in heart failure where the reflex is blunted.
+          </p>
+        </div>
+        <div style={{ marginTop:"10px", padding:"8px 12px", background:"#ef444410", borderRadius:"8px", fontSize:"11px", color:t.t2 }}>
+          <strong style={{ color:"#ef4444" }}>Reflex tachycardia warning:</strong> SVR↓ → baroreceptor activation → sympathetic surge → HR↑. In hypertensive emergencies, this can worsen myocardial oxygen demand. Pair with labetalol or metoprolol to blunt reflex. Avoid in aortic dissection (reflex tachycardia increases shear stress).
+        </div>
+      </div>
+    </div>
+  );
+}
 
 
 // ── Etomidate: GABA-A at β-subunit TM1/3 ─────────────────────────────────────
@@ -4395,13 +4789,13 @@ function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
   const gpcrMeds = [
     { id: "norepinephrine", name: "Norepinephrine",   note: "α₁(Gq) / α₂(Gi) / β₁(Gs) — full adrenergic agonist", component: "ne" },
     { id: "fentanyl",       name: "Fentanyl",         note: "μ-opioid receptor — Gi cascade, GIRK & VGCC", component: "fentanyl" },
-    { id: "vasopressin",    name: "Vasopressin",       note: "V1a(Gq) vasoconstriction / V2(Gs) antidiuresis", component: null },
-    { id: "epinephrine",    name: "Epinephrine",      note: "Non-selective α+β agonist — Gq/Gs/Gi", component: null },
-    { id: "phenylephrine",  name: "Phenylephrine",    note: "Pure α₁(Gq) agonist — SVR↑, reflex brady", component: null },
-    { id: "atropine",       name: "Atropine",         note: "M2 muscarinic (Gi) antagonist — chronotropy↑", component: null },
-    { id: "glycopyrrolate", name: "Glycopyrrolate",   note: "M1/M2/M3 antagonist — quaternary, no CNS penetration", component: null },
-    { id: "labetalol",      name: "Labetalol",        note: "α₁ + β₁/β₂ antagonist — balanced BP reduction", component: null },
-    { id: "hydralazine",    name: "Hydralazine",      note: "Direct arteriolar vasodilation via NO/cGMP", component: null },
+    { id: "vasopressin",    name: "Vasopressin",       note: "V1a(Gq) vasoconstriction / V2(Gs) antidiuresis", component: "vasopressin" },
+    { id: "epinephrine",    name: "Epinephrine",      note: "Non-selective α+β agonist — Gq/Gs/Gi", component: "epinephrine" },
+    { id: "phenylephrine",  name: "Phenylephrine",    note: "Pure α₁(Gq) agonist — SVR↑, reflex brady", component: "phenylephrine" },
+    { id: "atropine",       name: "Atropine",         note: "M2 muscarinic (Gi) antagonist — chronotropy↑", component: "atropine" },
+    { id: "glycopyrrolate", name: "Glycopyrrolate",   note: "M1/M2/M3 antagonist — quaternary, no CNS penetration", component: "glycopyrrolate" },
+    { id: "labetalol",      name: "Labetalol",        note: "α₁ + β₁/β₂ antagonist — balanced BP reduction", component: "labetalol" },
+    { id: "hydralazine",    name: "Hydralazine",      note: "Direct arteriolar vasodilation via NO/cGMP", component: "hydralazine" },
   ];
 
   const meds = recId === "lgic" ? lgicMeds : gpcrMeds;
@@ -4420,6 +4814,13 @@ function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
     if (med.component === "rocuronium")      return <RocuroniumDiagram t={t} />;
     if (med.component === "vecuronium")      return <VecuroniumDiagram t={t} />;
     if (med.component === "ne")              return <NEDiagram t={t} />;
+    if (med.component === "vasopressin")     return <VasopressinDiagram t={t} />;
+    if (med.component === "epinephrine")     return <EpinephrineDiagram t={t} />;
+    if (med.component === "phenylephrine")   return <PhenylephrineDiagram t={t} />;
+    if (med.component === "atropine")        return <AtropineDiagram t={t} />;
+    if (med.component === "glycopyrrolate")  return <GlycopyrrolateDiagram t={t} />;
+    if (med.component === "labetalol")       return <LabetalolDiagram t={t} />;
+    if (med.component === "hydralazine")     return <HydralazineDiagram t={t} />;
     if (med.component === "fentanyl")        return <FentanylDiagram t={t} />;
     return (
       <div style={{ padding: "24px", textAlign: "center", background: t.bgH, borderRadius: "8px", border: `1px solid ${color}30` }}>
