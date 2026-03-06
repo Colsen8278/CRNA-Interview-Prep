@@ -16,6 +16,7 @@ import { MedDetail } from "./components/MedDetail.jsx";
 import { ProtoDetail } from "./components/ProtoDetail.jsx";
 import { ReceptorDetail } from "./components/ReceptorDetail.jsx";
 import { NotesBox } from "./components/NotesBox.jsx";
+import { AcidBase } from "./components/AcidBase.jsx";
 import { CRRTDevice } from "./components/CRRTDevice.jsx";
 import { VentDevice } from "./components/VentDevice.jsx";
 
@@ -399,7 +400,9 @@ export default function App() {
           </div>
         </div>}
 
-                {(pg === "pg-phys" || pg === "pg-anes" || pg === "pg-icu" || pg === "pg-ref" || pg === "pg-exp") && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
+                {pg === "pg-phys" && <AcidBase theme={theme} t={t} />}
+
+                {(pg === "pg-anes" || pg === "pg-icu" || pg === "pg-ref" || pg === "pg-exp") && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
           <h2 style={{ margin: "0 0 8px", fontSize: "22px", fontWeight: 700 }}>{sidebarLinks.find(l => l.id === pg)?.label}</h2>
           <p style={{ color: t.tM, fontSize: "13px", marginBottom: "20px" }}>Content coming soon</p>
           <PH t={t} text={`${sidebarLinks.find(l => l.id === pg)?.label} content will appear here...`} />
