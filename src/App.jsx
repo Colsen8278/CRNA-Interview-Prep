@@ -3930,6 +3930,137 @@ function GPCRDiagram({ t }) {
 }
 
 
+
+// ── Linked Medication Diagrams (shown below receptor superfamily diagram) ─────
+function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
+  const [openId, setOpenId] = React.useState(null);
+
+  const lgicMeds = [
+    { id: "propofol",       name: "Propofol",        note: "GABA-A positive allosteric modulator + direct agonist", component: "propofol" },
+    { id: "etomidate",      name: "Etomidate",        note: "GABA-A modulator at α-β interface", component: null },
+    { id: "succinylcholine",name: "Succinylcholine",  note: "nAChR depolarizing agonist — Phase I & II block", component: "succinylcholine" },
+    { id: "cisatracurium",  name: "Cisatracurium",    note: "nAChR competitive (non-depolarizing) antagonist", component: "cisatracurium" },
+    { id: "rocuronium",     name: "Rocuronium",       note: "nAChR competitive antagonist — rapid onset", component: null },
+    { id: "vecuronium",     name: "Vecuronium",       note: "nAChR competitive antagonist — intermediate", component: null },
+  ];
+
+  const gpcrMeds = [
+    { id: "norepinephrine", name: "Norepinephrine",   note: "α₁(Gq) / α₂(Gi) / β₁(Gs) — full adrenergic agonist", component: "ne" },
+    { id: "fentanyl",       name: "Fentanyl",         note: "μ-opioid receptor — Gi cascade, GIRK & VGCC", component: "fentanyl" },
+    { id: "vasopressin",    name: "Vasopressin",       note: "V1a(Gq) vasoconstriction / V2(Gs) antidiuresis", component: null },
+    { id: "epinephrine",    name: "Epinephrine",      note: "Non-selective α+β agonist — Gq/Gs/Gi", component: null },
+    { id: "phenylephrine",  name: "Phenylephrine",    note: "Pure α₁(Gq) agonist — SVR↑, reflex brady", component: null },
+    { id: "atropine",       name: "Atropine",         note: "M2 muscarinic (Gi) antagonist — chronotropy↑", component: null },
+    { id: "glycopyrrolate", name: "Glycopyrrolate",   note: "M1/M2/M3 antagonist — quaternary, no CNS penetration", component: null },
+    { id: "labetalol",      name: "Labetalol",        note: "α₁ + β₁/β₂ antagonist — balanced BP reduction", component: null },
+    { id: "hydralazine",    name: "Hydralazine",      note: "Direct arteriolar vasodilation via NO/cGMP", component: null },
+  ];
+
+  const meds = recId === "lgic" ? lgicMeds : gpcrMeds;
+  const sectionLabel = recId === "lgic"
+    ? "Linked Medication Diagrams — LGIC Drug Library"
+    : "Linked Medication Diagrams — GPCR Drug Library";
+  const subtitle = recId === "lgic"
+    ? "Each drug below acts at a ligand-gated ion channel. Expand any card to see its mechanism at the receptor level."
+    : "Each drug below acts via a G-protein coupled receptor. Expand any card to see its specific cascade and clinical effect.";
+
+  const renderDiagram = (med) => {
+    if (med.component === "propofol") return <PropofolDiagram t={t} />;
+    if (med.component === "succinylcholine") return <NMJDiagram t={t} drugId="succinylcholine" />;
+    if (med.component === "cisatracurium") return <NMJDiagram t={t} drugId="cisatracurium" />;
+    if (med.component === "ne") return <NEDiagram t={t} />;
+    if (med.component === "fentanyl") return <FentanylDiagram t={t} />;
+    return (
+      <div style={{ padding: "24px", textAlign: "center", background: t.bgH, borderRadius: "8px", border: `1px solid ${color}30` }}>
+        <div style={{ fontSize: "13px", color: t.tM, fontStyle: "italic", marginBottom: "8px" }}>
+          Interactive diagram for {med.name} — coming in next build
+        </div>
+        <button onClick={() => onMedClick && onMedClick(med.id)}
+          style={{ padding: "7px 16px", borderRadius: "7px", border: `1px solid ${color}`, background: "transparent",
+            color: color, fontSize: "12px", fontWeight: 600, cursor: "pointer" }}>
+          Go to {med.name} medication page →
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div style={{ marginTop: "24px" }}>
+      {/* Section header */}
+      <div style={{ marginBottom: "14px", padding: "14px 16px", background: `${color}10`,
+        borderRadius: "10px", border: `1px solid ${color}30` }}>
+        <div style={{ fontSize: "12px", fontWeight: 700, color: color, textTransform: "uppercase",
+          letterSpacing: "0.5px", marginBottom: "4px" }}>
+          {sectionLabel}
+        </div>
+        <div style={{ fontSize: "12px", color: t.tM, lineHeight: 1.6 }}>{subtitle}</div>
+      </div>
+
+      {/* Med cards */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        {meds.map(med => {
+          const isOpen = openId === med.id;
+          const hasInteractive = !!med.component;
+          return (
+            <div key={med.id} style={{ borderRadius: "10px", overflow: "hidden",
+              border: `1px solid ${isOpen ? color : t.bd}`,
+              transition: "border-color 0.2s" }}>
+              {/* Card header — always visible */}
+              <button onClick={() => setOpenId(isOpen ? null : med.id)}
+                style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+                  padding: "12px 16px", background: isOpen ? `${color}10` : t.bgC,
+                  border: "none", cursor: "pointer", textAlign: "left", transition: "background 0.2s" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1, minWidth: 0 }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: `${color}18`,
+                    border: `2px solid ${isOpen ? color : color + "60"}`, display: "flex", alignItems: "center",
+                    justifyContent: "center", flexShrink: 0, transition: "border-color 0.2s" }}>
+                    <span style={{ fontSize: "11px", fontWeight: 800, color: color }}>
+                      {med.name.slice(0, 2).toUpperCase()}
+                    </span>
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontSize: "14px", fontWeight: 700, color: isOpen ? color : t.tx,
+                      display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                      {med.name}
+                      {hasInteractive && (
+                        <span style={{ fontSize: "10px", padding: "2px 7px", borderRadius: "4px",
+                          background: `${color}18`, color: color, fontWeight: 600 }}>
+                          Interactive
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: "11px", color: t.tM, marginTop: "2px", lineHeight: 1.5 }}>
+                      {med.note}
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0, marginLeft: "12px" }}>
+                  <button onClick={e => { e.stopPropagation(); onMedClick && onMedClick(med.id); }}
+                    style={{ padding: "4px 10px", borderRadius: "6px", border: `1px solid ${color}50`,
+                      background: "transparent", color: color, fontSize: "11px", fontWeight: 600,
+                      cursor: "pointer", whiteSpace: "nowrap" }}>
+                    Full card →
+                  </button>
+                  <span style={{ color: isOpen ? color : t.tM, fontSize: "16px", transition: "transform 0.2s",
+                    display: "inline-block", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+                    &#9660;
+                  </span>
+                </div>
+              </button>
+              {/* Expanded diagram */}
+              {isOpen && (
+                <div style={{ padding: "16px", background: t.bgH, borderTop: `1px solid ${color}30` }}>
+                  {renderDiagram(med)}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // RECEPTOR DETAIL
 function ReceptorDetail({ r, t, theme, onMedClick, tab, setTab }) {
   const tabs = ["overview", "cascade", "clinical", "diagram"];
@@ -4122,6 +4253,7 @@ function ReceptorDetail({ r, t, theme, onMedClick, tab, setTab }) {
           <p style={{ color: t.tM, fontSize: "13px", fontStyle: "italic" }}>Interactive diagram for {r.name} -- coming in next build iteration.</p>
           <p style={{ color: t.tM, fontSize: "12px" }}>Will show: {r.id === "rtk" ? "RTK dimerization and PI3K-Akt cascade" : "cytoplasmic receptor with nuclear translocation"}</p>
         </div>}
+        {(r.id === "lgic" || r.id === "gpcr") && <LinkedMedDiagrams recId={r.id} color={r.color} t={t} onMedClick={onMedClick} />}
       </div>}
     </div>
   );
