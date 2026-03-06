@@ -1862,6 +1862,963 @@ function SearchRow({ icon, title, sub, stars, onClick, t }) {
   );
 }
 
+
+// ── Medication Interactive Diagrams ──────────────────────────────────────────
+
+function NEInteractiveDiagram({ t }) {
+  const [activePath, setActivePath] = useState(null);
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    if (!activePath) return;
+    const id = setInterval(() => setTick(v => (v + 1) % 90), 55);
+    return () => clearInterval(id);
+  }, [activePath]);
+
+  const paths = {
+    a1: {
+      label: "\u03B11 Receptor", subtitle: "Vascular Smooth Muscle",
+      color: "#ef4444", gp: "Gq\u03B1",
+      steps: ["PLC activation", "IP\u2083 + DAG \u2191", "Ca\u00B2\u207A release", "Vasoconstriction"],
+      effect: "\u2191SVR \u2192 \u2191MAP",
+      note: "Dominant vasopressor effect. Primary mechanism of action. Every IV vasopressor works here.",
+    },
+    b1: {
+      label: "\u03B21 Receptor", subtitle: "Cardiac Myocyte",
+      color: "#3b82f6", gp: "Gs\u03B1",
+      steps: ["Adenylyl cyclase \u2191", "cAMP \u2191\u2191", "PKA activation", "+Inotrope / +Chronotrope"],
+      effect: "\u2191CO, \u2191contractility",
+      note: "NE \u03B21 effect is weaker than \u03B1. HR often unchanged or \u2193 due to reflex bradycardia from \u2191MAP.",
+    },
+    a2: {
+      label: "\u03B12 Receptor", subtitle: "Presynaptic Terminal",
+      color: "#a855f7", gp: "Gi\u03B1",
+      steps: ["Adenylyl cyclase \u2193", "cAMP \u2193\u2193", "GIRK K\u207A opening", "\u2193NE release (feedback)"],
+      effect: "Negative feedback",
+      note: "Autoreceptor: limits own release. Dexmedetomidine/clonidine exploit \u03B12 for sedation and sympatholysis.",
+    },
+  };
+
+  const W = 560, H = 310;
+  const cols = { a1: 100, b1: 285, a2: 470 };
+  const memY = 82;
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #10b98140` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: "#10b981", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Norepinephrine — Adrenergic Receptor Cascades</span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {Object.entries(paths).map(([k, v]) => (
+          <button key={k} onClick={() => setActivePath(activePath === k ? null : k)}
+            style={{ padding: "6px 14px", borderRadius: "6px", border: `2px solid ${activePath === k ? v.color : t.bd}`, background: activePath === k ? `${v.color}18` : t.bgC, color: activePath === k ? v.color : t.tM, fontSize: "12px", fontWeight: activePath === k ? 700 : 400, cursor: "pointer" }}>
+            {v.label}
+          </button>
+        ))}
+        {activePath && <button onClick={() => setActivePath(null)} style={{ padding: "6px 12px", borderRadius: "6px", border: `1px solid ${t.bd}`, background: t.bgH, color: t.tM, fontSize: "11px", cursor: "pointer" }}>Reset</button>}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
+          <defs>
+            {Object.entries(paths).map(([k, v]) => (
+              <marker key={k} id={`neArr${k}`} markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+                <path d="M0,0 L0,7 L7,3.5 Z" fill={v.color}/>
+              </marker>
+            ))}
+          </defs>
+          {/* NE molecule */}
+          <circle cx={W / 2} cy="28" r="18" fill="#10b981" stroke="#34d399" strokeWidth="2"/>
+          <text x={W / 2} y="24" fill="#fff" fontSize="9" textAnchor="middle" fontWeight="700">NE</text>
+          <text x={W / 2} y="34" fill="#fff" fontSize="7" textAnchor="middle">\u03B1\u2081\u003E\u03B11\u003E\u03B21</text>
+          {/* Lines from NE to each receptor */}
+          {Object.entries(cols).map(([k, cx]) => (
+            <line key={k} x1={W / 2} y1="46" x2={cx} y2={memY - 8}
+              stroke={paths[k].color} strokeWidth={activePath === k ? "2.5" : "1"} strokeDasharray={activePath === k ? "none" : "4,3"} opacity={activePath && activePath !== k ? 0.25 : 0.8}/>
+          ))}
+          {/* Membrane */}
+          <rect x="40" y={memY} width={W - 80} height="20" rx="3" fill={`${t.ac}12`} stroke={t.bd} strokeWidth="1"/>
+          <text x="46" y={memY + 13} fill={t.tM} fontSize="7">MEMBRANE</text>
+          {/* Receptors and cascades */}
+          {Object.entries(paths).map(([k, v]) => {
+            const cx = cols[k];
+            const active = activePath === k;
+            const phase = tick / 90;
+            const nodeYs = [memY + 30, memY + 72, memY + 116, memY + 160, memY + 204];
+            return (
+              <g key={k} opacity={activePath && !active ? 0.25 : 1}>
+                {/* Receptor box */}
+                <rect x={cx - 42} y={memY - 12} width="84" height="28" rx="6"
+                  fill={active ? `${v.color}25` : t.bgC} stroke={v.color} strokeWidth={active ? "2.5" : "1.5"}/>
+                <text x={cx} y={memY + 4} fill={v.color} fontSize="11" textAnchor="middle" fontWeight="700">{v.label}</text>
+                {/* Subtitle */}
+                <text x={cx} y={nodeYs[0] - 4} fill={t.tM} fontSize="7" textAnchor="middle">{v.subtitle}</text>
+                {/* Cascade boxes */}
+                {[v.gp, ...v.steps].map((step, i) => {
+                  const ny = nodeYs[i];
+                  const pulse = active ? (0.5 + Math.abs(Math.sin((phase * Math.PI * 2) - i * 0.7)) * 0.5) : 0.5;
+                  return (
+                    <g key={i}>
+                      {i > 0 && <line x1={cx} y1={nodeYs[i - 1] + 14} x2={cx} y2={ny - 14}
+                        stroke={v.color} strokeWidth="1.5" markerEnd={`url(#neArr${k})`} opacity={active ? 0.9 : 0.3}/>}
+                      <rect x={cx - 38} y={ny - 13} width="76" height="26" rx="6"
+                        fill={`${v.color}${active ? "22" : "10"}`} stroke={v.color} strokeWidth={active ? "1.5" : "0.8"} opacity={active ? pulse : 0.5}/>
+                      <text x={cx} y={ny + 3} fill={v.color} fontSize="8.5" textAnchor="middle" fontWeight={active ? "700" : "400"}>{step}</text>
+                    </g>
+                  );
+                })}
+                {/* Effect box */}
+                <rect x={cx - 44} y={nodeYs[5] - 2} width="88" height="24" rx="8"
+                  fill={active ? v.color : `${v.color}10`} stroke={v.color} strokeWidth="2" opacity={active ? 1 : 0.4}/>
+                <text x={cx} y={nodeYs[5] + 13} fill={active ? "#fff" : v.color} fontSize="9" textAnchor="middle" fontWeight="700">{v.effect}</text>
+              </g>
+            );
+          })}
+          {/* Note on reflex bradycardia */}
+          {activePath === "a1" && (
+            <g>
+              <rect x="6" y={H - 36} width="548" height="28" rx="5" fill={`${"#ef4444"}12`} stroke={"#ef4444"} strokeWidth="1"/>
+              <text x="10" y={H - 22} fill={"#ef4444"} fontSize="8.5" fontWeight="600">\u2191MAP \u2192 baroreceptors \u2192 \u2191vagal tone \u2192 reflex bradycardia — offsets \u03B21 chronotropy. Net HR \u2248 unchanged or \u2193.</text>
+            </g>
+          )}
+        </svg>
+      </div>
+      {activePath && (
+        <div style={{ padding: "10px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+          <p style={{ margin: 0, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+            <span style={{ color: paths[activePath].color, fontWeight: 700 }}>{paths[activePath].label}: </span>{paths[activePath].note}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PropofolInteractiveDiagram({ t }) {
+  const [mode, setMode] = useState("baseline");
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 50);
+    return () => clearInterval(id);
+  }, []);
+
+  const modes = {
+    baseline: { label: "Baseline", color: "#64748b", desc: "No drug. Infrequent GABA-A opening. Resting Vm \u221270 mV.", clRate: 0.05, vm: "\u221270 mV", openFreq: "Low", gaba: false, propofol: false },
+    gaba:     { label: "GABA only", color: "#22c55e", desc: "Endogenous GABA binds \u03B1-\u03B2 interface \u2192 pore opens. Cl\u207B influx, hyperpolarization.", clRate: 0.4, vm: "\u221278 mV", openFreq: "Moderate", gaba: true, propofol: false },
+    propofol: { label: "Propofol alone", color: t.ac, desc: "Propofol binds \u03B2 TM2/TM3 — direct allosteric gating even without GABA (at clinical doses).", clRate: 0.5, vm: "\u221282 mV", openFreq: "Moderate-High", gaba: false, propofol: true },
+    potent:   { label: "GABA + Propofol", color: "#f59e0b", desc: "Propofol potentiates GABA: prolongs channel open time, increases Cl\u207B conductance. Synergistic \u2192 anesthesia.", clRate: 0.95, vm: "\u221285+ mV", openFreq: "Very High", gaba: true, propofol: true },
+  };
+  const m = modes[mode];
+
+  const W = 500, H = 330;
+  const memY1 = 115, memY2 = 185;
+  const subunits = [{ label: "\u03B1", x: 118, color: "#3b82f6" }, { label: "\u03B2", x: 166, color: "#a855f7" }, { label: "\u03B1", x: 214, color: "#3b82f6" }, { label: "\u03B2", x: 262, color: "#a855f7" }, { label: "\u03B3", x: 310, color: "#22c55e" }];
+  const poreX = 238, poreW = 14;
+  const clOpen = Math.random() < m.clRate;
+  const phase = tick / 100;
+  const ions = m.clRate > 0.1 ? Array.from({ length: Math.round(m.clRate * 5), }, (_, i) => {
+    const p2 = ((phase) + i / 5) % 1;
+    return { x: poreX + poreW / 2 + Math.sin(p2 * 6 + i) * 2, y: memY1 - 15 + p2 * (memY2 + 40 - memY1 + 15), a: Math.sin(p2 * Math.PI) };
+  }) : [];
+
+  const vmNum = parseInt(m.vm) || -70;
+  const vmBar = Math.min(100, Math.max(0, (Math.abs(vmNum) - 60) / 30 * 100));
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${t.ac}40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: t.ac, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Propofol — GABA-A Receptor Mechanism</span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {Object.entries(modes).map(([k, v]) => (
+          <button key={k} onClick={() => setMode(k)}
+            style={{ padding: "6px 14px", borderRadius: "6px", border: `2px solid ${mode === k ? v.color : t.bd}`, background: mode === k ? `${v.color}18` : t.bgC, color: mode === k ? v.color : t.tM, fontSize: "11px", fontWeight: mode === k ? 700 : 400, cursor: "pointer" }}>
+            {v.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "360px" }}>
+          <defs>
+            <marker id="pClArr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#a855f7"/>
+            </marker>
+          </defs>
+          {/* Zones */}
+          <text x="10" y={memY1 - 8} fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
+          <text x="10" y={memY2 + 18} fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
+
+          {/* Membrane */}
+          <rect x="90" y={memY1} width="280" height={memY2 - memY1} rx="3" fill={`${t.ac}08`} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 19 }, (_, i) => (
+            <g key={i}>
+              <circle cx={95 + i * 14} cy={memY1 + 8} r="3" fill={`${t.ac}22`} stroke={`${t.ac}44`} strokeWidth="0.5"/>
+              <circle cx={95 + i * 14} cy={memY2 - 8} r="3" fill={`${t.ac}22`} stroke={`${t.ac}44`} strokeWidth="0.5"/>
+            </g>
+          ))}
+
+          {/* Subunits */}
+          {subunits.map((s, i) => (
+            <g key={i}>
+              <rect x={s.x - 18} y={memY1 - 52} width="36" height="118" rx="5"
+                fill={`${s.color}18`} stroke={s.color} strokeWidth="1.5"/>
+              <text x={s.x} y={(memY1 + memY2) / 2 + 4} fill={s.color} fontSize="13" textAnchor="middle" fontWeight="700">{s.label}</text>
+            </g>
+          ))}
+
+          {/* Pore */}
+          <rect x={poreX} y={memY1 + 4} width={poreW} height={memY2 - memY1 - 8} rx={m.clRate > 0.1 ? poreW / 2 : 1}
+            fill={m.clRate > 0.3 ? "#a855f730" : "#64748b20"} stroke={m.clRate > 0.3 ? "#a855f7" : "#64748b"} strokeWidth="1.5"/>
+          <text x={poreX + poreW / 2} y={(memY1 + memY2) / 2 + 4} fill={m.clRate > 0.3 ? "#a855f7" : t.tM} fontSize="7" textAnchor="middle" fontWeight="700">
+            {m.clRate > 0.3 ? "OPEN" : "CLOSED"}
+          </text>
+
+          {/* GABA binding indicators */}
+          {m.gaba && [subunits[0], subunits[2]].map((s, i) => (
+            <g key={i}>
+              <ellipse cx={s.x} cy={memY1 - 52 + 8} rx="14" ry="7" fill="#22c55e30" stroke="#22c55e" strokeWidth="1.5"/>
+              <text x={s.x} y={memY1 - 52 + 11} fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="600">GABA</text>
+            </g>
+          ))}
+
+          {/* Propofol binding indicator */}
+          {m.propofol && [subunits[1], subunits[3]].map((s, i) => (
+            <g key={i}>
+              <ellipse cx={s.x} cy={memY1 + 30} rx="16" ry="7" fill={`${t.ac}25`} stroke={t.ac} strokeWidth="2"/>
+              <text x={s.x} y={memY1 + 33} fill={t.ac} fontSize="7" textAnchor="middle" fontWeight="700">Prop</text>
+              <text x={s.x} y={memY1 - 54 - 8} fill={t.ac} fontSize="7" textAnchor="middle">TM2/TM3</text>
+            </g>
+          ))}
+
+          {/* Ions */}
+          {ions.map((ion, i) => (
+            <g key={i} opacity={Math.max(0.1, ion.a)}>
+              <circle cx={ion.x} cy={ion.y} r="7" fill="#a855f7"/>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Cl\u207B</text>
+            </g>
+          ))}
+          {m.clRate > 0.1 && (
+            <line x1={poreX + poreW / 2} y1={memY1 - 12} x2={poreX + poreW / 2} y2={memY2 + 18}
+              stroke="#a855f7" strokeWidth="1.5" strokeDasharray="4,3" markerEnd="url(#pClArr)" opacity="0.5"/>
+          )}
+
+          {/* Vm gauge */}
+          <rect x={W - 92} y="50" width="76" height="130" rx="8" fill={t.bgC} stroke={m.color} strokeWidth="1.5"/>
+          <text x={W - 54} y="66" fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
+          <rect x={W - 80} y="74" width="52" height="10" rx="3" fill={t.bgH}/>
+          <rect x={W - 80} y="74" width={52 * vmBar / 100} height="10" rx="3" fill={m.color}/>
+          <text x={W - 54} y="106" fill={m.color} fontSize="22" fontWeight="700" textAnchor="middle">{m.vm}</text>
+          <text x={W - 54} y="120" fill={t.tM} fontSize="8" textAnchor="middle">Open freq:</text>
+          <text x={W - 54} y="134" fill={m.color} fontSize="9" fontWeight="600" textAnchor="middle">{m.openFreq}</text>
+          <text x={W - 54} y="152" fill={t.tM} fontSize="7" textAnchor="middle">Cl\u207B flow:</text>
+          <text x={W - 54} y="166" fill={m.color} fontSize="9" fontWeight="600" textAnchor="middle">{Math.round(m.clRate * 100)}%</text>
+        </svg>
+      </div>
+      <div style={{ padding: "10px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <p style={{ margin: 0, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+          <span style={{ color: m.color, fontWeight: 700 }}>{m.label}: </span>{m.desc}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SCHInteractiveDiagram({ t }) {
+  const [phase, setPhase] = useState("normal");
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 120), 55);
+    return () => clearInterval(id);
+  }, []);
+
+  const phases = {
+    normal: { label: "Normal ACh", color: "#22c55e", desc: "Two ACh molecules bind both \u03B1 subunits \u2192 brief channel opening \u2192 Na\u207A/Ca\u00B2\u207A influx \u2192 end-plate potential \u2192 muscle contraction. AChE rapidly hydrolyzes ACh (milliseconds) \u2192 channel closes.", vm: "+40 mV", nachr: "open", ache: true },
+    phase1: { label: "SCh Phase I", color: "#f59e0b", desc: "SCh binds \u03B1 subunits like ACh but resists AChE hydrolysis. Prolonged depolarization \u2192 Na\u207A channels inactivate (cannot fire again). Fasciculations then flaccid paralysis. Duration ~5–10 min until plasma cholinesterase hydrolyzes SCh.", vm: "+40 mV \u2192 stuck", nachr: "prolonged", ache: false },
+    phase2: { label: "SCh Phase II", color: "#ef4444", desc: "With repeated/large doses: receptor desensitization. nAChR shifts to desensitized state (channel closed despite agonist present). Mimics competitive block. Unpredictable duration. Treated like non-depolarizing block (neostigmine may help).", vm: "\u221270 mV (closed)", nachr: "desensitized", ache: false },
+    rocuronium: { label: "Rocuronium (compare)", color: "#3b82f6", desc: "Competitive antagonist: blocks \u03B1 subunits without activating channel. NO depolarization, NO fasciculations. Membrane stays at resting \u221270 mV. Reversed by sugammadex encapsulation. Duration 30–60 min.", vm: "\u221270 mV (resting)", nachr: "blocked", ache: false },
+  };
+  const p = phases[phase];
+  const W = 500, H = 350;
+  const memY1 = 140, memY2 = 215;
+
+  const subunits = [{ label: "\u03B1", x: 140, color: "#f59e0b" }, { label: "\u03B4", x: 185, color: "#94a3b8" }, { label: "\u03B1", x: 230, color: "#f59e0b" }, { label: "\u03B5", x: 275, color: "#94a3b8" }, { label: "\u03B2", x: 320, color: "#94a3b8" }];
+  const poreX = 207, poreW = 14;
+  const tickN = tick / 120;
+  const naIons = (p.nachr === "open" || p.nachr === "prolonged") ? Array.from({ length: p.nachr === "prolonged" ? 5 : 3 }, (_, i) => {
+    const ph = (tickN + i / (p.nachr === "prolonged" ? 5 : 3)) % 1;
+    return { x: poreX + poreW / 2 + Math.sin(ph * 5 + i) * 2, y: memY1 - 12 + ph * (memY2 + 35 - memY1 + 12), a: Math.sin(ph * Math.PI) };
+  }) : [];
+
+  const drugColor = phase === "rocuronium" ? "#3b82f6" : "#ef4444";
+  const drugLabel = phase === "rocuronium" ? "Roc" : phase === "normal" ? "ACh" : "SCh";
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #f59e0b40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: "#f59e0b", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Succinylcholine — NMJ & Depolarizing Block</span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {Object.entries(phases).map(([k, v]) => (
+          <button key={k} onClick={() => setPhase(k)}
+            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${phase === k ? v.color : t.bd}`, background: phase === k ? `${v.color}18` : t.bgC, color: phase === k ? v.color : t.tM, fontSize: "11px", fontWeight: phase === k ? 700 : 400, cursor: "pointer" }}>
+            {v.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "360px" }}>
+          <defs>
+            <marker id="schNa" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
+            </marker>
+          </defs>
+          {/* Zone labels */}
+          <text x="10" y={memY1 - 8} fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR (presynaptic terminal releases ACh / SCh applied IV)</text>
+          <text x="10" y={memY2 + 18} fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR (muscle fiber)</text>
+
+          {/* Membrane */}
+          <rect x="100" y={memY1} width="290" height={memY2 - memY1} rx="3" fill={`${t.ac}08`} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 19 }, (_, i) => (
+            <g key={i}>
+              <circle cx={105 + i * 14} cy={memY1 + 8} r="3" fill="#f59e0b22" stroke="#f59e0b44" strokeWidth="0.5"/>
+              <circle cx={105 + i * 14} cy={memY2 - 8} r="3" fill="#f59e0b22" stroke="#f59e0b44" strokeWidth="0.5"/>
+            </g>
+          ))}
+
+          {/* Subunits */}
+          {subunits.map((s, i) => {
+            const desens = p.nachr === "desensitized";
+            return (
+              <g key={i}>
+                <rect x={s.x - 17} y={memY1 - 55} width="34" height="126" rx="5"
+                  fill={desens ? `${s.color}08` : `${s.color}18`} stroke={s.color} strokeWidth={desens ? "1" : "1.5"} strokeDasharray={desens ? "4,2" : "none"}/>
+                <text x={s.x} y={(memY1 + memY2) / 2 + 4} fill={desens ? `${s.color}88` : s.color} fontSize="12" textAnchor="middle" fontWeight="700">{s.label}</text>
+              </g>
+            );
+          })}
+
+          {/* Binding sites with drug/ACh molecules */}
+          {[subunits[0], subunits[2]].map((s, i) => (
+            <g key={i}>
+              <ellipse cx={s.x} cy={memY1 - 55 + 8} rx="15" ry="7"
+                fill={`${drugColor}30`} stroke={drugColor} strokeWidth="1.5"/>
+              <text x={s.x} y={memY1 - 55 + 11} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">{drugLabel}</text>
+            </g>
+          ))}
+
+          {/* Pore */}
+          <rect x={poreX} y={memY1 + 4} width={poreW} height={memY2 - memY1 - 8} rx={p.nachr === "open" || p.nachr === "prolonged" ? poreW / 2 : 1}
+            fill={p.nachr === "open" || p.nachr === "prolonged" ? "#f59e0b30" : "#64748b20"}
+            stroke={p.nachr === "open" || p.nachr === "prolonged" ? "#f59e0b" : "#64748b"} strokeWidth="1.5"/>
+          <text x={poreX + poreW / 2} y={(memY1 + memY2) / 2 + 4} fill={p.nachr === "open" || p.nachr === "prolonged" ? "#f59e0b" : t.tM} fontSize="6.5" textAnchor="middle" fontWeight="700">
+            {p.nachr === "open" ? "OPEN" : p.nachr === "prolonged" ? "STUCK" : p.nachr === "desensitized" ? "DESENS" : "BLOCKED"}
+          </text>
+
+          {/* AChE label */}
+          {p.ache && (
+            <g>
+              <rect x="370" y={memY1 - 30} width="90" height="24" rx="5" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5"/>
+              <text x="415" y={memY1 - 14} fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">AChE \u2713 active</text>
+              <text x="415" y={memY1 - 4} fill="#22c55e" fontSize="7" textAnchor="middle">hydrolyzes ACh rapidly</text>
+            </g>
+          )}
+          {!p.ache && phase !== "normal" && (
+            <g>
+              <rect x="370" y={memY1 - 30} width="90" height="24" rx="5" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5"/>
+              <text x="415" y={memY1 - 14} fill="#ef4444" fontSize="9" textAnchor="middle" fontWeight="700">AChE \u2717 resists</text>
+              <text x="415" y={memY1 - 4} fill="#ef4444" fontSize="7" textAnchor="middle">plasma ChE cleaves SCh</text>
+            </g>
+          )}
+
+          {/* Na ions */}
+          {naIons.map((ion, i) => (
+            <g key={i} opacity={Math.max(0.1, ion.a)}>
+              <circle cx={ion.x} cy={ion.y} r="7" fill="#f59e0b"/>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Na\u207A</text>
+            </g>
+          ))}
+          {(p.nachr === "open" || p.nachr === "prolonged") && (
+            <line x1={poreX + poreW / 2} y1={memY1 - 12} x2={poreX + poreW / 2} y2={memY2 + 18}
+              stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,3" markerEnd="url(#schNa)" opacity="0.5"/>
+          )}
+
+          {/* Vm indicator */}
+          <rect x={W - 92} y={memY1 - 10} width="84" height="56" rx="6" fill={t.bgC} stroke={p.color} strokeWidth="1.5"/>
+          <text x={W - 50} y={memY1 + 6} fill={t.tM} fontSize="8" textAnchor="middle">End-plate Vm</text>
+          <text x={W - 50} y={memY1 + 36} fill={p.color} fontSize="15" fontWeight="700" textAnchor="middle">{p.vm}</text>
+
+          {/* Phase I vs II comparison note */}
+          {(phase === "phase1" || phase === "phase2") && (
+            <g>
+              <rect x="10" y={H - 42} width="480" height="30" rx="5"
+                fill={phase === "phase1" ? "#f59e0b12" : "#ef444412"}
+                stroke={phase === "phase1" ? "#f59e0b" : "#ef4444"} strokeWidth="1"/>
+              <text x="16" y={H - 28} fill={phase === "phase1" ? "#f59e0b" : "#ef4444"} fontSize="8.5" fontWeight="700">
+                {phase === "phase1" ? "Phase I: Depolarizing block. Na\u207A channels inactivate. Fasciculations first, then paralysis. Reversal: wait for plasma ChE." : "Phase II: Desensitization block. Channel unresponsive to agonist. Unpredictable. May respond to neostigmine."}
+              </text>
+            </g>
+          )}
+        </svg>
+      </div>
+      <div style={{ padding: "10px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <p style={{ margin: 0, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+          <span style={{ color: p.color, fontWeight: 700 }}>{p.label}: </span>{p.desc}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// INTERACTIVE MEDICATION DIAGRAMS
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── Norepinephrine: Adrenergic Receptor Cascade ───────────────────────────────
+function NEDiagram({ t }) {
+  const [receptor, setReceptor] = React.useState("a1");
+  const [activated, setActivated] = React.useState(false);
+  const [tick, setTick] = React.useState(0);
+  useEffect(() => {
+    if (!activated) { setTick(0); return; }
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
+    return () => clearInterval(id);
+  }, [activated]);
+
+  const recs = {
+    a1: { label: "\u03B11 Receptor", loc: "Vascular smooth muscle", gp: "Gq", gpColor: "#f59e0b", effector: "Phospholipase C \u2191", messenger: "IP\u2083 + DAG \u2191", kinase: "PKC + Ca\u00B2\u207A release", effect: "Vasoconstriction \u2191SVR \u2191MAP", color: "#ef4444", ionLabel: "Ca\u00B2\u207A", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\nVasoconstriction" },
+    a2: { label: "\u03B12 Receptor", loc: "Presynaptic nerve terminal", gp: "Gi", gpColor: "#ef4444", effector: "Adenylyl Cyclase \u2193", messenger: "cAMP \u2193\u2193", kinase: "PKA \u2193", effect: "NE release \u2193 (autoreceptor) \u2022 Sedation", color: "#8b5cf6", ionLabel: "K\u207A", ionColor: "#22c55e", ionDir: "out", vmLabel: "Hyperpolarization\nNE release \u2193" },
+    b1: { label: "\u03B21 Receptor", loc: "Heart (SA node / myocardium)", gp: "Gs", gpColor: "#22c55e", effector: "Adenylyl Cyclase \u2191", messenger: "cAMP \u2191\u2191", kinase: "PKA \u2191", effect: "\u2191HR \u2022 \u2191Contractility \u2022 \u2191CO", color: "#3b82f6", ionLabel: "Ca\u00B2\u207A", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\n\u2191Inotropy / Chronotropy" },
+  };
+  const r = recs[receptor];
+  const W = 580, H = 360;
+  const memY = 130, memH = 28;
+  const gx = 290, gy = 240;
+  const cascX = 430;
+  const nodes = [{ label: r.effector, y: 130 }, { label: r.messenger, y: 198 }, { label: r.kinase, y: 266 }];
+  const phase = tick / 100;
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${r.color}40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+        <span style={{ fontSize: "12px", color: r.color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Norepinephrine &mdash; Adrenergic Receptors</span>
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+          {Object.entries(recs).map(([k, v]) => (
+            <button key={k} onClick={() => { setReceptor(k); setActivated(false); }}
+              style={{ padding: "4px 12px", borderRadius: "6px", border: `2px solid ${receptor === k ? v.color : t.bd}`, background: receptor === k ? `${v.color}18` : t.bgC, color: receptor === k ? v.color : t.tM, fontSize: "11px", fontWeight: receptor === k ? 700 : 400, cursor: "pointer" }}>
+              {v.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
+          <defs>
+            <marker id="neArrow" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 Z" fill={r.gpColor} />
+            </marker>
+          </defs>
+          {/* Zone labels */}
+          <text x="14" y="76" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
+          <text x="14" y="182" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
+          {/* Membrane */}
+          <rect x="80" y={memY} width="320" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 20 }, (_, i) => (
+            <g key={i}>
+              <circle cx={88 + i * 15} cy={memY + 7} r="3" fill={`${r.color}20`} stroke={`${r.color}40`} strokeWidth="0.5"/>
+              <circle cx={88 + i * 15} cy={memY + 20} r="3" fill={`${r.color}20`} stroke={`${r.color}40`} strokeWidth="0.5"/>
+            </g>
+          ))}
+          {/* Receptor protein (7TM represented as 3 vertical bars for simplicity) */}
+          {[0,1,2].map(i => (
+            <rect key={i} x={190 + i * 28 - 10} y={memY - 24 + (i%2)*6} width="18" height={memH + 24 + (i%2)*6} rx="5"
+              fill={`${r.color}20`} stroke={r.color} strokeWidth="1.5" opacity="0.9"/>
+          ))}
+          <text x="232" y={memY - 30} fill={r.color} fontSize="10" textAnchor="middle" fontWeight="700">{r.label}</text>
+          <text x="232" y={memY - 17} fill={t.tM} fontSize="8" textAnchor="middle">{r.loc}</text>
+          {/* NE molecule */}
+          <circle cx="232" cy={memY - 48} r="18" fill={`${r.color}25`} stroke={r.color} strokeWidth="2.5"/>
+          <text x="232" y={memY - 51} fill={r.color} fontSize="9" textAnchor="middle" fontWeight="700">NE</text>
+          <text x="232" y={memY - 39} fill={r.color} fontSize="7" textAnchor="middle">Binds</text>
+          <line x1="232" y1={memY - 30} x2="232" y2={memY - 24} stroke={r.color} strokeWidth="1.5" strokeDasharray="3,2"/>
+          {/* G-protein */}
+          <ellipse cx={gx - 10} cy={gy} rx="30" ry="20" fill={`${r.gpColor}20`} stroke={r.gpColor} strokeWidth="2"/>
+          <text x={gx - 10} y={gy - 2} fill={r.gpColor} fontSize="10" textAnchor="middle" fontWeight="700">G&#945;</text>
+          <text x={gx - 10} y={gy + 10} fill={r.gpColor} fontSize="7" textAnchor="middle">{r.gp}</text>
+          <ellipse cx={gx + 30} cy={gy + 10} rx="22" ry="13" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x={gx + 30} y={gy + 14} fill={t.tM} fontSize="9" textAnchor="middle">G&#946;&#947;</text>
+          {/* Docking line if not activated */}
+          {!activated && <line x1={gx - 20} y1={gy - 12} x2="232" y2={memY + memH} stroke={r.gpColor} strokeWidth="1" strokeDasharray="4,2" opacity="0.4"/>}
+          {/* Cascade when activated */}
+          {activated && (
+            <g>
+              <line x1={gx + 18} y1={gy - 10} x2={cascX} y2={nodes[0].y + 16} stroke={r.gpColor} strokeWidth="1.5" strokeDasharray="5,3" opacity="0.7"/>
+              {nodes.map((n, i) => {
+                const pulse = 0.55 + Math.abs(Math.sin((phase * Math.PI * 2) - i)) * 0.45;
+                return (
+                  <g key={i}>
+                    {i > 0 && <line x1={cascX} y1={nodes[i-1].y + 16} x2={cascX} y2={n.y - 16} stroke={r.gpColor} strokeWidth="2" markerEnd="url(#neArrow)" opacity="0.8"/>}
+                    <rect x={cascX - 60} y={n.y - 16} width="120" height="32" rx="8" fill={`${r.gpColor}20`} stroke={r.gpColor} strokeWidth="1.5" opacity={pulse}/>
+                    <text x={cascX} y={n.y + 4} fill={r.gpColor} fontSize="10" textAnchor="middle" fontWeight="700">{n.label}</text>
+                  </g>
+                );
+              })}
+              {/* Net effect */}
+              <line x1={cascX} y1={nodes[2].y + 16} x2={cascX} y2="310" stroke={r.gpColor} strokeWidth="2" markerEnd="url(#neArrow)" opacity="0.8"/>
+              <rect x={cascX - 70} y="310" width="140" height="36" rx="8" fill={`${r.color}18`} stroke={r.color} strokeWidth="2"/>
+              <text x={cascX} y="326" fill={r.color} fontSize="10" textAnchor="middle" fontWeight="700">&#8594; {r.effect.split(" \u2022 ")[0]}</text>
+              <text x={cascX} y="339" fill={r.color} fontSize="8" textAnchor="middle">{r.effect.split(" \u2022 ")[1] || ""}</text>
+            </g>
+          )}
+          {/* Step hint */}
+          <rect x="80" y="336" width="220" height="18" rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <text x="190" y="349" fill={t.tM} fontSize="8" textAnchor="middle">
+            {activated ? `G\u03B1(${r.gp}) \u2192 ${r.effector}` : "Click Activate to show cascade"}
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding: "12px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+          <button onClick={() => setActivated(a => !a)}
+            style={{ padding: "7px 16px", borderRadius: "8px", border: `2px solid ${r.gpColor}`, background: activated ? r.gpColor : "transparent", color: activated ? "#fff" : r.gpColor, fontSize: "12px", fontWeight: 700, cursor: "pointer" }}>
+            {activated ? "\u2713 Cascade Active" : "Activate G-Protein"}
+          </button>
+          <button onClick={() => setActivated(false)} style={{ padding: "7px 12px", borderRadius: "8px", border: `1px solid ${t.bd}`, background: t.bgH, color: t.tM, fontSize: "12px", cursor: "pointer" }}>Reset</button>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(160px,1fr))", gap: "8px", fontSize: "12px" }}>
+          {[["G-protein", r.gp, r.gpColor], ["Effector", r.effector, r.gpColor], ["Messenger", r.messenger, r.gpColor], ["Net Effect", r.effect, r.color]].map(([lbl, val, col]) => (
+            <div key={lbl} style={{ padding: "8px 10px", background: t.bgH, borderRadius: "6px" }}>
+              <div style={{ color: t.tM, fontSize: "10px", marginBottom: "2px" }}>{lbl}</div>
+              <div style={{ color: col, fontWeight: 600, fontSize: "11px", lineHeight: 1.4 }}>{val}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Propofol: GABA-A Interactive ───────────────────────────────────────────────
+function PropofolDiagram({ t }) {
+  const [mode, setMode] = React.useState("resting");
+  const [tick, setTick] = React.useState(0);
+  useEffect(() => {
+    if (mode === "resting") { setTick(0); return; }
+    const id = setInterval(() => setTick(v => (v + 1) % 80), 55);
+    return () => clearInterval(id);
+  }, [mode]);
+
+  const modes = [
+    { id: "resting", label: "Resting (No Drug)", color: "#64748b", poreOpen: false, propBound: false, gabaOpen: false },
+    { id: "gaba", label: "GABA Alone", color: "#22c55e", poreOpen: true, propBound: false, gabaOpen: true },
+    { id: "prop", label: "Propofol Potentiation", color: "#10b981", poreOpen: true, propBound: true, gabaOpen: true },
+    { id: "proponly", label: "Propofol Direct", color: "#10b981", poreOpen: true, propBound: true, gabaOpen: false },
+  ];
+  const m = modes.find(x => x.id === mode);
+  const W = 560, H = 370;
+  const memY = 145, memH = 60;
+  const poreX = 240, poreW = m.poreOpen ? 20 : 5;
+  // Subunits: 5 around pore
+  const subDefs = [
+    { x: 170, y: 175, label: "\u03B1", color: "#3b82f6" },
+    { x: 205, y: 148, label: "\u03B2", color: "#a855f7" },
+    { x: 245, y: 142, label: "\u03B3", color: "#22c55e" },
+    { x: 278, y: 152, label: "\u03B2", color: "#a855f7" },
+    { x: 305, y: 175, label: "\u03B1", color: "#3b82f6" },
+  ];
+  // Cl- ions when open
+  const ions = m.poreOpen ? Array.from({ length: 5 }, (_, i) => {
+    const ph = ((tick / 80) + i / 5) % 1;
+    return { x: poreX + 1 + Math.sin(ph * 3) * 2, y: memY + memH * (1 - ph) + ph * (memY + memH + 30) };
+  }) : [];
+  const vmVal = m.poreOpen ? (mode === "prop" ? "-90 mV" : "-82 mV") : "-70 mV";
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #10b98140` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: "#10b981", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Propofol &mdash; GABA-A Receptor Modulation</span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {modes.map(md => (
+          <button key={md.id} onClick={() => setMode(md.id)}
+            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${mode === md.id ? md.color : t.bd}`, background: mode === md.id ? `${md.color}20` : t.bgC, color: mode === md.id ? md.color : t.tM, fontSize: "11px", fontWeight: mode === md.id ? 700 : 400, cursor: "pointer" }}>
+            {md.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
+          <defs>
+            <marker id="clArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#a855f7"/>
+            </marker>
+          </defs>
+          {/* Labels */}
+          <text x="14" y="90" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
+          <text x="14" y="250" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
+          {/* Membrane */}
+          <rect x="100" y={memY} width="260" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 16 }, (_, i) => (
+            <g key={i}>
+              <circle cx={108 + i*15} cy={memY + 10} r="3" fill="#10b98120" stroke="#10b98140" strokeWidth="0.5"/>
+              <circle cx={108 + i*15} cy={memY + memH - 10} r="3" fill="#10b98120" stroke="#10b98140" strokeWidth="0.5"/>
+            </g>
+          ))}
+          <text x="374" y={memY + memH / 2 + 4} fill={t.tM} fontSize="8">Lipid</text>
+          {/* Subunits */}
+          {subDefs.map((s, i) => (
+            <g key={i}>
+              <ellipse cx={s.x} cy={s.y} rx="24" ry="36" fill={`${s.color}18`} stroke={s.color} strokeWidth={m.propBound && s.label === "\u03B2" ? "2.5" : "1.5"}/>
+              <text x={s.x} y={s.y + 4} fill={s.color} fontSize="13" textAnchor="middle" fontWeight="700">{s.label}</text>
+            </g>
+          ))}
+          {/* Pore */}
+          <rect x={poreX - poreW / 2} y={memY + 6} width={poreW} height={memH - 12} rx={poreW / 2}
+            fill={m.poreOpen ? "#a855f720" : "#64748b20"} stroke={m.poreOpen ? "#a855f7" : "#64748b"} strokeWidth="1.5"/>
+          <text x={poreX} y={memY + memH / 2 + 4} fill={m.poreOpen ? "#a855f7" : t.tM} fontSize="8" textAnchor="middle" fontWeight="700">
+            {m.poreOpen ? "OPEN" : "CLOSED"}
+          </text>
+          {/* Cl- flow */}
+          {ions.map((ion, i) => (
+            <g key={i} opacity={Math.min(1, Math.max(0.1, Math.abs(Math.sin(i * 1.2 + tick * 0.1))))}>
+              <circle cx={ion.x} cy={ion.y} r="7" fill="#a855f7" opacity="0.85"/>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">Cl\u207B</text>
+            </g>
+          ))}
+          {m.poreOpen && <line x1={poreX + 14} y1={memY + 8} x2={poreX + 14} y2={memY + memH - 8} stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#clArrow)" strokeDasharray="4,2"/>}
+          {/* Drug labels */}
+          {m.gabaOpen && (
+            <g>
+              <circle cx="175" cy="95" r="14" fill="#22c55e30" stroke="#22c55e" strokeWidth="2"/>
+              <text x="175" y="99" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">GABA</text>
+              <line x1="185" y1="104" x2="194" y2="118" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="3,2"/>
+              <circle cx="305" cy="95" r="14" fill="#22c55e30" stroke="#22c55e" strokeWidth="2"/>
+              <text x="305" y="99" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">GABA</text>
+              <line x1="295" y1="104" x2="286" y2="118" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="3,2"/>
+            </g>
+          )}
+          {m.propBound && (
+            <g>
+              <ellipse cx="230" cy="108" rx="18" ry="11" fill="#10b98130" stroke="#10b981" strokeWidth="2.5"/>
+              <text x="230" y="112" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="700">PROP</text>
+              <text x="230" y="95" fill="#10b981" fontSize="8" textAnchor="middle">\u03B2-TM2/3 site</text>
+              <line x1="238" y1="119" x2="246" y2="133" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3,2"/>
+            </g>
+          )}
+          {/* Vm indicator */}
+          <rect x="420" y="155" width="110" height="52" rx="8" fill={t.bgC} stroke={m.poreOpen ? "#a855f7" : t.bd} strokeWidth="1.5"/>
+          <text x="475" y="171" fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
+          <text x="475" y="195" fill={m.poreOpen ? "#a855f7" : t.tx} fontSize="20" fontWeight="700" textAnchor="middle">{vmVal}</text>
+          {/* Downstream effects */}
+          <rect x="390" y="240" width="150" height="80" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <text x="465" y="257" fill={t.tM} fontSize="8" textAnchor="middle" fontWeight="600">Clinical Effect</text>
+          {mode === "resting" && <text x="465" y="278" fill={t.tM} fontSize="9" textAnchor="middle">Basal inhibitory tone</text>}
+          {mode === "gaba" && <text x="465" y="278" fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="600">Inhibition (mild)</text>}
+          {mode === "prop" && (
+            <g>
+              <text x="465" y="275" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="600">Potentiated inhibition</text>
+              <text x="465" y="290" fill="#10b981" fontSize="8" textAnchor="middle">\u2191 Channel open duration</text>
+              <text x="465" y="303" fill="#10b981" fontSize="8" textAnchor="middle">Sedation \u2192 Anesthesia</text>
+            </g>
+          )}
+          {mode === "proponly" && (
+            <g>
+              <text x="465" y="272" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="600">Direct gating</text>
+              <text x="465" y="286" fill="#10b981" fontSize="8" textAnchor="middle">No GABA needed</text>
+              <text x="465" y="300" fill="#10b981" fontSize="8" textAnchor="middle">High-dose LOC</text>
+              <text x="465" y="313" fill={t.dg} fontSize="8" textAnchor="middle">Apnea risk!</text>
+            </g>
+          )}
+          {/* Comparator legend */}
+          <rect x="100" y="285" width="260" height="60" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <text x="230" y="301" fill={t.tx} fontSize="9" textAnchor="middle" fontWeight="700">Drug Comparison at GABA-A</text>
+          <circle cx="118" cy="318" r="5" fill="#10b981"/><text x="128" y="321" fill={t.t2} fontSize="8">Propofol: \u2191duration + direct gate</text>
+          <circle cx="118" cy="332" r="5" fill="#6366f1"/><text x="128" y="335" fill={t.t2} fontSize="8">BZD: \u2191frequency only (no direct gate)</text>
+        </svg>
+      </div>
+      <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        {mode === "resting" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Channel is <strong style={{ color: t.tx }}>closed</strong>. GABA-A requires ligand binding to open. Resting Vm = &minus;70 mV.</p>}
+        {mode === "gaba" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>GABA binds at the <strong style={{ color: "#22c55e" }}>\u03B1-\u03B2 interface</strong> (2 sites). Channel opens, Cl\u207B flows in, Vm shifts to &minus;82 mV. Physiologic inhibition.</p>}
+        {mode === "prop" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Propofol binds at the <strong style={{ color: "#10b981" }}>\u03B2-TM2/3 site</strong> (allosteric). Potentiates GABA: increases channel <em>open duration</em>. Vm &minus;90 mV. Deeper inhibition than GABA alone.</p>}
+        {mode === "proponly" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>At high concentrations, propofol <strong style={{ color: "#10b981" }}>directly gates</strong> the channel without GABA. This is the mechanism of LOC at induction doses. Also explains apnea risk.</p>}
+      </div>
+    </div>
+  );
+}
+
+// ── NMJ Diagram (shared base for Cis & Sux) ──────────────────────────────────
+function NMJDiagram({ t, drugId }) {
+  const isSux = drugId === "succinylcholine";
+  const [phase, setPhase] = React.useState("normal");
+  const [tick, setTick] = React.useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
+    return () => clearInterval(id);
+  }, []);
+
+  const phases = isSux ? [
+    { id: "normal", label: "Normal NMJ", color: "#22c55e" },
+    { id: "sux_bind", label: "SCh Binds & Depolarizes", color: "#f59e0b" },
+    { id: "fascic", label: "Phase I Block (Fasciculations)", color: "#ef4444" },
+    { id: "phase2", label: "Phase II Block", color: "#8b5cf6" },
+  ] : [
+    { id: "normal", label: "Normal NMJ", color: "#22c55e" },
+    { id: "cis_partial", label: "Partial Block", color: "#f59e0b" },
+    { id: "cis_full", label: "Full Block", color: "#ef4444" },
+    { id: "reversal", label: "Neostigmine Reversal", color: "#3b82f6" },
+  ];
+  const ph = phases.find(p => p.id === phase);
+  const drugColor = isSux ? "#f59e0b" : "#3b82f6";
+  const drugName = isSux ? "SCh" : "Cis";
+
+  // Which nAChRs are blocked?
+  const receptorBlocked = [
+    phase === "cis_full" || phase === "cis_partial" || phase === "sux_bind" || phase === "fascic" || phase === "phase2",
+    phase === "cis_full" || phase === "fascic" || phase === "phase2",
+  ];
+  const nAChROpen = phase === "normal" || phase === "reversal";
+  const ionFlow = nAChROpen;
+
+  const W = 560, H = 360;
+  const nerveY = 60, cleftY = 155, muscleY = 250;
+
+  // ACh vesicles animation
+  const vesiclePh = (tick / 100);
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${drugColor}40` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: drugColor, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+          &#9654; {isSux ? "Succinylcholine" : "Cisatracurium"} &mdash; Neuromuscular Junction
+        </span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {phases.map(p => (
+          <button key={p.id} onClick={() => setPhase(p.id)}
+            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${phase === p.id ? p.color : t.bd}`, background: phase === p.id ? `${p.color}18` : t.bgC, color: phase === p.id ? p.color : t.tM, fontSize: "11px", fontWeight: phase === p.id ? 700 : 400, cursor: "pointer" }}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
+          <defs>
+            <marker id="njArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
+            </marker>
+            <marker id="naArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
+            </marker>
+          </defs>
+          {/* Nerve terminal */}
+          <rect x="150" y={nerveY} width="260" height="60" rx="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="280" y={nerveY + 22} fill={t.tx} fontSize="11" textAnchor="middle" fontWeight="700">Motor Nerve Terminal</text>
+          <text x="280" y={nerveY + 37} fill={t.tM} fontSize="8" textAnchor="middle">Action potential \u2192 Ca\u00B2\u207A influx \u2192 ACh exocytosis</text>
+          {/* Vesicles */}
+          {Array.from({ length: 5 }, (_, i) => {
+            const vy = nerveY + 48 + Math.sin(vesiclePh * Math.PI * 2 + i) * 3;
+            const vx = 180 + i * 38;
+            const released = phase !== "normal" && i <= 2;
+            return (
+              <g key={i}>
+                <circle cx={vx} cy={released ? cleftY - 20 + (vesiclePh * 30) : vy} r="9"
+                  fill="#22c55e30" stroke="#22c55e" strokeWidth="1.5" opacity={released ? 0.7 : 1}/>
+                <text x={vx} y={(released ? cleftY - 20 + (vesiclePh * 30) : vy) + 3} fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="700">ACh</text>
+              </g>
+            );
+          })}
+          {/* Synaptic cleft */}
+          <text x="14" y={cleftY + 10} fill={t.tM} fontSize="8" fontWeight="600">CLEFT</text>
+          <rect x="100" y={cleftY} width="360" height={muscleY - cleftY} fill={t.bgH} stroke="none"/>
+          {/* Drug molecules in cleft */}
+          {(phase !== "normal") && Array.from({ length: 4 }, (_, i) => (
+            <g key={i}>
+              <circle cx={155 + i * 65} cy={cleftY + 30} r="10"
+                fill={`${drugColor}30`} stroke={drugColor} strokeWidth="1.5" opacity={phase === "reversal" ? 0.2 : 0.9}/>
+              <text x={155 + i * 65} y={cleftY + 34} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">{drugName}</text>
+            </g>
+          ))}
+          {/* If reversal, show neostigmine and more ACh */}
+          {phase === "reversal" && Array.from({ length: 4 }, (_, i) => (
+            <g key={i}>
+              <circle cx={175 + i * 55} cy={cleftY + 55} r="9" fill="#3b82f630" stroke="#3b82f6" strokeWidth="1.5"/>
+              <text x={175 + i * 55} y={cleftY + 59} fill="#3b82f6" fontSize="6" textAnchor="middle" fontWeight="700">ACh</text>
+            </g>
+          ))}
+          {/* Motor end plate / nAChRs */}
+          <rect x="100" y={muscleY} width="360" height="60" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="280" y={muscleY + 18} fill={t.tx} fontSize="10" textAnchor="middle" fontWeight="700">Motor End Plate</text>
+          {[160, 240, 320, 400].map((rx, i) => {
+            const blocked = (isSux ? (phase === "cis_full" || (phase === "cis_partial" && i < 2)) : (phase === "cis_full" || (phase === "cis_partial" && i < 2))) ||
+              (isSux && (phase === "sux_bind" || phase === "fascic" || phase === "phase2"));
+            const open = nAChROpen && !blocked;
+            return (
+              <g key={i}>
+                <rect x={rx - 14} y={muscleY + 24} width="28" height="26" rx="6"
+                  fill={blocked ? `${drugColor}20` : (open ? "#22c55e20" : t.bgH)} stroke={blocked ? drugColor : (open ? "#22c55e" : t.bd)} strokeWidth={blocked ? "2" : "1.5"}/>
+                <text x={rx} y={muscleY + 41} fill={blocked ? drugColor : (open ? "#22c55e" : t.tM)} fontSize="8" textAnchor="middle" fontWeight="700">nAChR</text>
+                {blocked && <text x={rx} y={muscleY + 56} fill={drugColor} fontSize="7" textAnchor="middle">BLOCKED</text>}
+              </g>
+            );
+          })}
+          {/* Ion flow (Na+ in) when normal */}
+          {ionFlow && <g>
+            <line x1="280" y1={muscleY + 50} x2="280" y2={muscleY + 85} stroke="#f59e0b" strokeWidth="2" markerEnd="url(#naArrow)"/>
+            <text x="296" y={muscleY + 72} fill="#f59e0b" fontSize="9">Na\u207A in</text>
+          </g>}
+          {/* Muscle status */}
+          <rect x="100" y="315" width="360" height="30" rx="6" fill={t.bgC} stroke={ph.color} strokeWidth="1.5"/>
+          <text x="280" y="335" fill={ph.color} fontSize="10" textAnchor="middle" fontWeight="700">
+            {phase === "normal" ? "\u2713 Depolarization \u2192 Muscle Contraction" :
+             phase === "cis_partial" ? "\u26a0 Partial block \u2014 reduced strength" :
+             phase === "cis_full" ? "\u2717 Complete NMJ block \u2014 paralysis" :
+             phase === "reversal" ? "\u21BA Neostigmine \u2191ACh \u2192 Reversal" :
+             phase === "sux_bind" ? "\u26a0 Depolarization \u2192 Fasciculations" :
+             phase === "fascic" ? "\u2717 Sustained depol \u2014 Phase I block" :
+             "\u2717 Phase II block (desensitization)"}
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}`, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+        {isSux ? (
+          <>
+            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh released \u2192 binds nAChR \u2192 Na\u207A/K\u207A flux \u2192 end plate depolarization \u2192 muscle action potential.</p>}
+            {phase === "sux_bind" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>SCh mimics ACh</strong> at both \u03B1-subunits. Causes initial depolarization. Unlike ACh, SCh resists acetylcholinesterase \u2014 it cannot be hydrolyzed at the NMJ.</p>}
+            {phase === "fascic" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Phase I (Depolarizing) Block:</strong> Sustained end plate depolarization keeps voltage-gated Na\u207A channels inactivated. Muscle cannot repolarize. Fasciculations occur as the depolarization wave spreads before block sets in.</p>}
+            {phase === "phase2" && <p style={{ margin: 0 }}><strong style={{ color: "#8b5cf6" }}>Phase II Block (Desensitization):</strong> With prolonged or high-dose SCh, the receptor enters a desensitized state resembling a non-depolarizing block. Train-of-four fade becomes apparent. Mechanism not fully understood.</p>}
+          </>
+        ) : (
+          <>
+            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh competes freely for all four nAChR sites on the motor end plate. Full depolarization and muscle contraction occur.</p>}
+            {phase === "cis_partial" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>Partial Block:</strong> Cisatracurium competitively occupies some \u03B1-subunit sites. Reduced ACh binding = reduced end plate potential = muscle weakness. Train-of-four ratio decreases.</p>}
+            {phase === "cis_full" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Full Competitive Block:</strong> All or most nAChRs occupied. No ACh binding \u2192 no depolarization \u2192 complete paralysis. Reversible with neostigmine (increased ACh outcompetes Cis) or sugammadex (not for Cis \u2014 use neostigmine).</p>}
+            {phase === "reversal" && <p style={{ margin: 0 }}><strong style={{ color: "#3b82f6" }}>Neostigmine Reversal:</strong> Inhibits acetylcholinesterase \u2192 ACh accumulates in cleft \u2192 mass-action effect outcompetes Cisatracurium at \u03B1-subunits \u2192 NMJ function restored. Requires TOF ratio &gt;0.2 to be effective.</p>}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Fentanyl: Mu-Opioid Receptor (Gi cascade + ion channels) ─────────────────
+function FentanylDiagram({ t }) {
+  const [activated, setActivated] = React.useState(false);
+  const [focus, setFocus] = React.useState("analgesia");
+  const [tick, setTick] = React.useState(0);
+  useEffect(() => {
+    if (!activated) { setTick(0); return; }
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
+    return () => clearInterval(id);
+  }, [activated]);
+
+  const focusList = [
+    { id: "analgesia", label: "Analgesia (Dorsal Horn)", color: "#22c55e", desc: "Fentanyl binds \u03BC-OR on presynaptic pain fibers AND postsynaptic dorsal horn neurons. \u2193 cAMP \u2192 \u2193 Ca\u00B2\u207A influx (presynaptic) = less substance P / glutamate release. \u2191 K\u207A conductance (postsynaptic) = hyperpolarization = \u2193 nociceptive transmission." },
+    { id: "resp", label: "Resp. Depression (Brainstem)", color: "#ef4444", desc: "\u03BC-OR in pre-B\u00F6tzinger complex (respiratory rhythm generator). Gi activation \u2192 \u2193 cAMP \u2192 \u2193 pacemaker neuron firing \u2192 decreased respiratory drive. Dose-dependent: analgesia \u2192 sedation \u2192 apnea. Reversed by naloxone (\u03BC-OR antagonist)." },
+    { id: "gi", label: "GI (Enteric \u03BC-OR)", color: "#f59e0b", desc: "Enteric nervous system \u03BC-OR activation \u2192 \u2193 propulsive motility, \u2191 sphincter tone, \u2193 secretion. Gi \u2192 \u2193 cAMP \u2192 hyperpolarization of enteric neurons. Constipation is peripheral and does NOT develop tolerance (unlike analgesia)." },
+  ];
+  const fc = focusList.find(f => f.id === focus);
+  const W = 560, H = 350;
+  const memY = 130, memH = 30;
+  const phase = tick / 100;
+
+  return (
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #a855f740` }}>
+      <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
+        <span style={{ fontSize: "12px", color: "#a855f7", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Fentanyl &mdash; \u03BC-Opioid Receptor (Gi-coupled GPCR)</span>
+      </div>
+      <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
+        {focusList.map(f => (
+          <button key={f.id} onClick={() => setFocus(f.id)}
+            style={{ padding: "5px 12px", borderRadius: "6px", border: `2px solid ${focus === f.id ? f.color : t.bd}`, background: focus === f.id ? `${f.color}18` : t.bgC, color: focus === f.id ? f.color : t.tM, fontSize: "11px", fontWeight: focus === f.id ? 700 : 400, cursor: "pointer" }}>
+            {f.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background: t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "380px" }}>
+          <defs>
+            <marker id="ftArrow" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 Z" fill="#ef4444"/>
+            </marker>
+            <marker id="ftArrowG" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 Z" fill="#22c55e"/>
+            </marker>
+          </defs>
+          {/* Zone labels */}
+          <text x="14" y="80" fill={t.tM} fontSize="8" fontWeight="600">EXTRACELLULAR</text>
+          <text x="14" y="200" fill={t.tM} fontSize="8" fontWeight="600">INTRACELLULAR</text>
+          {/* Membrane */}
+          <rect x="80" y={memY} width="290" height={memH} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: 18 }, (_, i) => (
+            <g key={i}>
+              <circle cx={88 + i*15} cy={memY + 8} r="3" fill="#a855f720" stroke="#a855f740" strokeWidth="0.5"/>
+              <circle cx={88 + i*15} cy={memY + 22} r="3" fill="#a855f720" stroke="#a855f740" strokeWidth="0.5"/>
+            </g>
+          ))}
+          {/* 7TM receptor (3 bars) */}
+          {[0,1,2].map(i => (
+            <rect key={i} x={190 + i*26 - 9} y={memY - 22 + (i%2)*5} width="16" height={memH + 22 + (i%2)*5} rx="5"
+              fill={activated ? "#a855f720" : `${t.bd}60`} stroke="#a855f7" strokeWidth="1.5" opacity={activated ? 1 : 0.6}/>
+          ))}
+          <text x="228" y={memY - 30} fill="#a855f7" fontSize="11" textAnchor="middle" fontWeight="700">\u03BC-Opioid Receptor</text>
+          <text x="228" y={memY - 16} fill={t.tM} fontSize="8" textAnchor="middle">7TM GPCR, Gi-coupled</text>
+          {/* Fentanyl molecule */}
+          <circle cx="228" cy={memY - 50} r="19" fill={activated ? "#a855f730" : "#a855f715"} stroke="#a855f7" strokeWidth={activated ? "2.5" : "1.5"}/>
+          <text x="228" y={memY - 53} fill="#a855f7" fontSize="9" textAnchor="middle" fontWeight="700">FENT</text>
+          <text x="228" y={memY - 40} fill="#a855f7" fontSize="7" textAnchor="middle">{activated ? "Bound" : "Unbound"}</text>
+          <line x1="228" y1={memY - 31} x2="228" y2={memY - 22} stroke="#a855f7" strokeWidth={activated ? "2" : "1"} strokeDasharray="3,2"/>
+          {/* G-protein Gi */}
+          <ellipse cx="230" cy={memY + 68} rx="28" ry="18" fill={activated ? "#ef444420" : "#ef444410"} stroke="#ef4444" strokeWidth={activated ? "2" : "1.5"}/>
+          <text x="230" y={memY + 65} fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">G\u03B1i</text>
+          <text x="230" y={memY + 77} fill="#ef4444" fontSize="7" textAnchor="middle">{activated ? "Active" : "Inactive"}</text>
+          {!activated && <line x1="230" y1={memY + 50} x2="228" y2={memY + 30} stroke="#ef4444" strokeWidth="1" strokeDasharray="3,2" opacity="0.4"/>}
+          {/* Cascade nodes when activated */}
+          {activated && (
+            <g>
+              {/* AC inhibition */}
+              <line x1="256" y1={memY + 60} x2="350" y2="190" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
+              {/* AC box */}
+              <rect x="330" y="190" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2)) * 0.4}/>
+              <text x="395" y="210" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Adenylyl Cyclase \u2193</text>
+              <line x1="395" y1="220" x2="395" y2="248" stroke="#ef4444" strokeWidth="2" markerEnd="url(#ftArrow)"/>
+              <rect x="330" y="248" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1)) * 0.4}/>
+              <text x="395" y="268" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">cAMP \u2193\u2193</text>
+              {/* K+ channel effect */}
+              <line x1="202" y1={memY + 68} x2="130" y2="220" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
+              <rect x="60" y="220" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 0.5)) * 0.4}/>
+              <text x="120" y="240" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">GIRK (K\u207A) \u2191</text>
+              <line x1="120" y1="250" x2="120" y2="276" stroke="#22c55e" strokeWidth="2" markerEnd="url(#ftArrowG)"/>
+              <rect x="60" y="276" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5"/>
+              <text x="120" y="296" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">Hyperpolarization</text>
+              {/* Ca2+ channel block */}
+              <line x1="230" y1={memY + 86} x2="230" y2="225" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
+              <rect x="165" y="225" width="130" height="30" rx="6" fill="#3b82f618" stroke="#3b82f6" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1.5)) * 0.4}/>
+              <text x="230" y="245" fill="#3b82f6" fontSize="10" textAnchor="middle" fontWeight="700">VGCC Ca\u00B2\u207A \u2193</text>
+              {/* Effect label */}
+              <rect x="145" y="310" width="270" height="30" rx="6" fill={`${fc.color}18`} stroke={fc.color} strokeWidth="1.5"/>
+              <text x="280" y="330" fill={fc.color} fontSize="10" textAnchor="middle" fontWeight="700">&#8594; {fc.label.split(" (")[0]}</text>
+            </g>
+          )}
+          {/* Legend */}
+          <rect x="400" y="60" width="140" height="55" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
+          <text x="470" y="76" fill={t.tM} fontSize="8" textAnchor="middle" fontWeight="600">Key Channels</text>
+          <circle cx="415" cy="91" r="4" fill="#22c55e"/><text x="424" y="94" fill={t.t2} fontSize="8">GIRK K\u207A channel</text>
+          <circle cx="415" cy="105" r="4" fill="#3b82f6"/><text x="424" y="108" fill={t.t2} fontSize="8">VGCC Ca\u00B2\u207A channel</text>
+          {!activated && <text x="228" y="300" fill={t.tM} fontSize="10" textAnchor="middle">Click Bind Fentanyl below to activate</text>}
+        </svg>
+      </div>
+      <div style={{ padding: "12px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
+        <button onClick={() => setActivated(a => !a)}
+          style={{ padding: "7px 16px", borderRadius: "8px", border: `2px solid #a855f7`, background: activated ? "#a855f7" : "transparent", color: activated ? "#fff" : "#a855f7", fontSize: "12px", fontWeight: 700, cursor: "pointer", marginBottom: "12px" }}>
+          {activated ? "\u2713 Fentanyl Bound & Active" : "Bind Fentanyl to \u03BC-OR"}
+        </button>
+        <div style={{ padding: "10px 14px", background: t.bgH, borderRadius: "8px", borderLeft: `4px solid ${fc.color}` }}>
+          <div style={{ fontSize: "12px", fontWeight: 700, color: fc.color, marginBottom: "4px" }}>{fc.label}</div>
+          <p style={{ margin: 0, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>{fc.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // MED DETAIL
 function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes }) {
   const svgRef = useRef(null);
@@ -1995,283 +2952,17 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           </div>
         </div>
         {item.id === "norepinephrine" ? (
-        <svg ref={svgRef} viewBox="0 0 800 760" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
-          <defs>
-            <marker id="arG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#10b981" /></marker>
-            <marker id="arB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" /></marker>
-            <marker id="arO" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b" /></marker>
-            <marker id="arR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" /></marker>
-            <marker id="arT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#06b6d4" /></marker>
-            <marker id="arP" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a855f7" /></marker>
-            <marker id="arGr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={t.tM} /></marker>
-          </defs>
-
-          {/* Title */}
-          <text x="400" y="26" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="700">Norepinephrine â€” Adrenergic Receptor Signal Transduction</text>
-          <text x="400" y="44" textAnchor="middle" fill={t.tM} fontSize="10">Receptor affinity: Î±â‚‚ {">"} Î± {">"} Î² {">>>"} Î²â‚‚ â€” Three parallel G-protein cascades</text>
-
-          {/*  COLUMN 1: Î± / Gq PATHWAY (x center ~155)  */}
-          <text x="155" y="72" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">Î± Receptor</text>
-          <text x="155" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Vascular Smooth Muscle</text>
-
-          {/* Cell membrane band */}
-          <rect x="55" y="92" width="200" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-          <text x="60" y="108" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="7" fontWeight="500">MEMBRANE</text>
-
-          {/* Î± 7-TM receptor */}
-          <rect x="120" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
-          <text x="155" y="108" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">Î± (7-TM)</text>
-
-          {/* NE molecule binding */}
-          <circle cx="110" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="110" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
-          <line x1="118" y1="83" x2="125" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
-
-          {/* Gq protein */}
-          <line x1="155" y1="120" x2="155" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
-          <rect x="120" y="136" width="70" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="155" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gq / G11</text>
-
-          {/* PLC */}
-          <line x1="155" y1="158" x2="155" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <rect x="125" y="173" width="60" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="155" y="187" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">PLC</text>
-
-          {/* PIPâ‚‚ cleavage label */}
-          <text x="200" y="185" fill={t.tM} fontSize="7" fontStyle="italic">PIPâ‚‚ â†’</text>
-
-          {/* IPâ‚ƒ and DAG split */}
-          <line x1="140" y1="193" x2="115" y2="215" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <line x1="170" y1="193" x2="195" y2="215" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-
-          <rect x="85" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
-          <text x="112" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">IPâ‚ƒ</text>
-
-          <rect x="170" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
-          <text x="197" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">DAG</text>
-
-          {/* IPâ‚ƒ â†’ SR CaÂ²âº release */}
-          <line x1="112" y1="236" x2="112" y2="255" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arB)" />
-          <rect x="72" y="256" width="80" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="112" y="270" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">SR â†’ CaÂ²âº</text>
-          <text x="112" y="280" textAnchor="middle" fill="#3b82f6" fontSize="7">release to cytoplasm</text>
-
-          {/* DAG â†’ PKC */}
-          <line x1="197" y1="236" x2="197" y2="255" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <rect x="172" y="256" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
-          <text x="197" y="270" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">PKC</text>
-
-          {/* Converge to CaÂ²âº-Calmodulin */}
-          <line x1="112" y1="284" x2="145" y2="306" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
-          <line x1="197" y1="276" x2="170" y2="306" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#arO)" />
-          <rect x="110" y="307" width="90" height="22" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="155" y="322" textAnchor="middle" fill="#3b82f6" fontSize="9" fontWeight="600">CaÂ²âº-Calmodulin</text>
-
-          {/* MLCK */}
-          <line x1="155" y1="329" x2="155" y2="348" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
-          <rect x="120" y="349" width="70" height="20" rx="4" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="155" y="363" textAnchor="middle" fill="#06b6d4" fontSize="9" fontWeight="700">MLCK</text>
-
-          {/* Final effect: Vasoconstriction */}
-          <line x1="155" y1="369" x2="155" y2="390" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
-          <rect x="85" y="391" width="140" height="32" rx="8" fill={theme === "dark" ? "#7f1d1d" : "#fecaca"} stroke="#ef4444" strokeWidth="2" />
-          <text x="155" y="407" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="10" fontWeight="700">VASOCONSTRICTION</text>
-          <text x="155" y="419" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="7">â†‘SVR â†’ â†‘MAP</text>
-
-
-          {/*  COLUMN 2: Î² / Gs PATHWAY (x center ~430)  */}
-          <text x="430" y="72" textAnchor="middle" fill="#3b82f6" fontSize="13" fontWeight="700">Î² Receptor</text>
-          <text x="430" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Cardiac Myocyte</text>
-
-          {/* Cell membrane band */}
-          <rect x="330" y="92" width="200" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-
-          {/* Î² 7-TM receptor */}
-          <rect x="395" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="430" y="108" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="700">Î² (7-TM)</text>
-
-          {/* NE molecule */}
-          <circle cx="385" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="385" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
-          <line x1="393" y1="83" x2="400" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
-
-          {/* Gs protein */}
-          <line x1="430" y1="120" x2="430" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
-          <rect x="400" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="430" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">GsÎ±</text>
-
-          {/* Adenylyl cyclase */}
-          <line x1="430" y1="158" x2="430" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <rect x="395" y="173" width="70" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="430" y="187" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="700">Adenylyl Cyclase</text>
-
-          {/* ATP â†’ cAMP */}
-          <text x="380" y="200" fill={t.tM} fontSize="7" fontStyle="italic">ATP â†’</text>
-          <line x1="430" y1="193" x2="430" y2="210" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <rect x="402" y="211" width="56" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="430" y="225" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">â†‘cAMP</text>
-
-          {/* PKA */}
-          <line x1="430" y1="231" x2="430" y2="248" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arO)" />
-          <rect x="405" y="249" width="50" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="430" y="263" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">PKA</text>
-
-          {/* PKA targets fan out */}
-          <line x1="415" y1="269" x2="365" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
-          <line x1="430" y1="269" x2="430" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
-          <line x1="445" y1="269" x2="495" y2="295" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#arB)" />
-
-          {/* L-type CaÂ²âº */}
-          <rect x="325" y="296" width="80" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
-          <text x="365" y="310" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="600">L-type CaÂ²âº</text>
-          <text x="365" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">â†‘CaÂ²âº influx</text>
-
-          {/* RyR2 */}
-          <rect x="398" y="296" width="64" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
-          <text x="430" y="310" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="600">RyR2</text>
-          <text x="430" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">â†‘CICR</text>
-
-          {/* Phospholamban */}
-          <rect x="470" y="296" width="75" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.2" />
-          <text x="507" y="310" textAnchor="middle" fill="#3b82f6" fontSize="7" fontWeight="600">Phospholamban</text>
-          <text x="507" y="320" textAnchor="middle" fill="#3b82f6" fontSize="7">â†‘SERCA2a</text>
-
-          {/* Converge to effects */}
-          <line x1="365" y1="324" x2="400" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
-          <line x1="430" y1="324" x2="430" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
-          <line x1="507" y1="324" x2="470" y2="350" stroke="#06b6d4" strokeWidth="1.2" markerEnd="url(#arT)" />
-
-          {/* Inotropy + Lusitropy + Chronotropy */}
-          <rect x="355" y="351" width="150" height="22" rx="5" fill={theme === "dark" ? "#083344" : "#cffafe"} stroke="#06b6d4" strokeWidth="1.5" />
-          <text x="430" y="366" textAnchor="middle" fill="#06b6d4" fontSize="9" fontWeight="600">â†‘CaÂ²âº Transient Amplitude</text>
-
-          {/* Final cardiac effects */}
-          <line x1="430" y1="373" x2="430" y2="390" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#arT)" />
-          <rect x="345" y="391" width="170" height="32" rx="8" fill={theme === "dark" ? "#0c2d48" : "#bfdbfe"} stroke="#3b82f6" strokeWidth="2" />
-          <text x="430" y="406" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="9" fontWeight="700">INOTROPY + LUSITROPY</text>
-          <text x="430" y="418" textAnchor="middle" fill={theme === "dark" ? "#93c5fd" : "#1d4ed8"} fontSize="7">â†‘Contractility + â†‘Relaxation Rate</text>
-
-          {/* If/HCN chronotropy note */}
-          <line x1="455" y1="262" x2="530" y2="262" stroke={t.tM} strokeWidth="1" strokeDasharray="3,2" />
-          <text x="535" y="258" fill={t.tM} fontSize="7" fontStyle="italic">Also: If/HCN channels</text>
-          <text x="535" y="268" fill={t.tM} fontSize="7" fontStyle="italic">â†’ â†‘Phase 4 slope â†’ Chronotropy</text>
-
-
-          {/*  COLUMN 3: Î±â‚‚ / Gi PATHWAY (x center ~680)  */}
-          <text x="680" y="72" textAnchor="middle" fill="#ef4444" fontSize="13" fontWeight="700">Î±â‚‚ Receptor</text>
-          <text x="680" y="86" textAnchor="middle" fill={t.tM} fontSize="9">Presynaptic Terminal</text>
-
-          {/* Membrane band */}
-          <rect x="590" y="92" width="180" height="24" rx="4" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.4" />
-
-          {/* Î±â‚‚ receptor */}
-          <rect x="645" y="88" width="70" height="32" rx="6" fill={theme === "dark" ? "#3b1111" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.5" />
-          <text x="680" y="108" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">Î±â‚‚ (7-TM)</text>
-
-          {/* NE molecule */}
-          <circle cx="635" cy="76" r="11" fill="#10b981" stroke="#34d399" strokeWidth="2" />
-          <text x="635" y="80" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="700">NE</text>
-          <line x1="643" y1="83" x2="650" y2="90" stroke="#34d399" strokeWidth="2" strokeDasharray="3,2" />
-
-          {/* Gi protein */}
-          <line x1="680" y1="120" x2="680" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#arP)" />
-          <rect x="650" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="680" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">GiÎ±</text>
-
-          {/* Inhibit AC */}
-          <line x1="680" y1="158" x2="680" y2="175" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
-          <rect x="640" y="176" width="80" height="20" rx="4" fill={theme === "dark" ? "#1c0505" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.2" />
-          <text x="680" y="190" textAnchor="middle" fill="#ef4444" fontSize="8" fontWeight="700">âŠ˜ Adenylyl Cyclase</text>
-
-          {/* â†“cAMP */}
-          <line x1="680" y1="196" x2="680" y2="213" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
-          <rect x="652" y="214" width="56" height="20" rx="4" fill={theme === "dark" ? "#1c0505" : "#fee2e2"} stroke="#ef4444" strokeWidth="1.2" />
-          <text x="680" y="228" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="700">â†“cAMP</text>
-
-          {/* GÎ²Î³ â†’ GIRK */}
-          <line x1="710" y1="148" x2="740" y2="148" stroke={t.tM} strokeWidth="1" strokeDasharray="3,2" />
-          <text x="745" y="144" fill={t.tM} fontSize="7" fontStyle="italic">GÎ²Î³ â†’ GIRK Kâº</text>
-          <text x="745" y="154" fill={t.tM} fontSize="7" fontStyle="italic">â†’ hyperpolarization</text>
-
-          {/* Negative feedback */}
-          <line x1="680" y1="234" x2="680" y2="260" stroke="#ef4444" strokeWidth="1.5" markerEnd="url(#arR)" />
-          <rect x="610" y="261" width="140" height="32" rx="8" fill={theme === "dark" ? "#450a0a" : "#fecaca"} stroke="#ef4444" strokeWidth="2" />
-          <text x="680" y="277" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="9" fontWeight="700">NEGATIVE FEEDBACK</text>
-          <text x="680" y="289" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="7">â†“NE release from terminal</text>
-
-          {/* Same target note */}
-          <rect x="618" y="302" width="125" height="18" rx="4" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="680" y="314" textAnchor="middle" fill={t.tM} fontSize="7" fontStyle="italic">Same target as clonidine/dexmed</text>
-
-
-          {/*  BARORECEPTOR REFLEX ARC (bottom)  */}
-          <rect x="55" y="450" width="690" height="100" rx="10" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1.5" />
-          <text x="400" y="468" textAnchor="middle" fill={t.tx} fontSize="12" fontWeight="700">BARORECEPTOR REFLEX â€” The Clinical Paradox</text>
-
-          {/* Flow: â†‘MAP â†’ Baroreceptors â†’ â†‘CN IX/X â†’ NTS â†’ â†‘Vagal â†’ â†“HR */}
-          <rect x="72" y="482" width="65" height="28" rx="5" fill={theme === "dark" ? "#7f1d1d" : "#fecaca"} stroke="#ef4444" strokeWidth="1.2" />
-          <text x="104" y="497" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="8" fontWeight="600">â†‘MAP</text>
-          <text x="104" y="507" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="6">(from alpha-1)</text>
-
-          <line x1="137" y1="496" x2="162" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="163" y="482" width="90" height="28" rx="5" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
-          <text x="208" y="497" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">Carotid / Aortic</text>
-          <text x="208" y="506" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">Baroreceptors</text>
-
-          <line x1="253" y1="496" x2="278" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="279" y="482" width="72" height="28" rx="5" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
-          <text x="315" y="497" textAnchor="middle" fill="#f59e0b" fontSize="7" fontWeight="600">â†‘CN IX / X</text>
-          <text x="315" y="506" textAnchor="middle" fill="#f59e0b" fontSize="7">afferents</text>
-
-          <line x1="351" y1="496" x2="376" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="377" y="482" width="55" height="28" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.2" />
-          <text x="404" y="500" textAnchor="middle" fill="#a855f7" fontSize="8" fontWeight="600">NTS</text>
-
-          <line x1="432" y1="496" x2="457" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="458" y="482" width="75" height="28" rx="5" fill={theme === "dark" ? "#0c2d48" : "#bfdbfe"} stroke="#3b82f6" strokeWidth="1.2" />
-          <text x="495" y="497" textAnchor="middle" fill="#3b82f6" fontSize="7" fontWeight="600">â†‘Vagal Tone</text>
-          <text x="495" y="506" textAnchor="middle" fill="#3b82f6" fontSize="7">(parasympathetic)</text>
-
-          <line x1="533" y1="496" x2="558" y2="496" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#arGr)" />
-
-          <rect x="559" y="478" width="170" height="36" rx="8" fill={theme === "dark" ? "#14532d" : "#dcfce7"} stroke="#10b981" strokeWidth="2" />
-          <text x="644" y="496" textAnchor="middle" fill="#10b981" fontSize="10" fontWeight="700">REFLEX BRADYCARDIA</text>
-          <text x="644" y="508" textAnchor="middle" fill="#10b981" fontSize="7" fontWeight="500">Offsets Î² chronotropy â†’ NET HR â‰ˆ unchanged</text>
-
-          {/* Key distinction callout */}
-          <text x="400" y="540" textAnchor="middle" fill={t.tM} fontSize="8" fontWeight="500" fontStyle="italic">This reflex is WHY NE â‰  epinephrine. Epi's Î²â‚‚ vasodilation prevents the MAP spike â†’ no baroreceptor trigger â†’ tachycardia dominates.</text>
-
-
-          {/*  NET HEMODYNAMIC EFFECT  */}
-          <rect x="170" y="564" width="460" height="50" rx="10" fill={theme === "dark" ? "#052e16" : "#d1fae5"} stroke="#10b981" strokeWidth="2" />
-          <text x="400" y="584" textAnchor="middle" fill="#10b981" fontSize="13" fontWeight="700">NET EFFECT: â†‘MAP + â†‘CO + â†‘/â†“HR</text>
-          <text x="400" y="600" textAnchor="middle" fill={theme === "dark" ? "#6ee7b7" : "#047857"} fontSize="9">Ideal vasopressor profile â€” vasoconstriction WITH cardiac output preservation</text>
-
-          {/* Metabolism note */}
-          <rect x="100" y="626" width="600" height="32" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="400" y="641" textAnchor="middle" fill={t.tx} fontSize="9" fontWeight="600">Termination: Uptake-1 (neuronal reuptake) â†’ COMT/MAO â†’ normetanephrine â†’ VMA | tÂ½ = 2.4 min | Zero CYP450</text>
-          <text x="400" y="653" textAnchor="middle" fill={t.tM} fontSize="8">Context-INSENSITIVE offset â€” no accumulation regardless of infusion duration</text>
-
-          {/*  LEGEND  */}
-          <rect x="55" y="672" width="690" height="76" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="80" y="690" fill={t.tx} fontSize="9" fontWeight="600">LEGEND</text>
-          <line x1="80" y1="694" x2="730" y2="694" stroke={t.bd} strokeWidth="0.5" />
-
-          <circle cx="80" cy="710" r="5" fill="#10b981" /><text x="90" y="714" fill={t.tM} fontSize="8">Norepinephrine</text>
-          <rect x="175" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#fee2e2" : "#fee2e2"} stroke="#ef4444" strokeWidth="1" /><text x="190" y="714" fill={t.tM} fontSize="8">Î± receptors / inhibition</text>
-          <rect x="310" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#dbeafe" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1" /><text x="325" y="714" fill={t.tM} fontSize="8">Î² / ions (CaÂ²âº)</text>
-          <rect x="420" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="435" y="714" fill={t.tM} fontSize="8">G-proteins</text>
-          <rect x="520" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="535" y="714" fill={t.tM} fontSize="8">Second messengers</text>
-          <rect x="650" y="705" width="10" height="10" rx="2" fill={theme === "dark" ? "#cffafe" : "#cffafe"} stroke="#06b6d4" strokeWidth="1" /><text x="665" y="714" fill={t.tM} fontSize="8">Effectors</text>
-
-          <text x="80" y="736" fill={t.tM} fontSize="8">7-TM = seven-transmembrane (GPCR) | PLC = phospholipase C | IPâ‚ƒ = inositol trisphosphate | DAG = diacylglycerol | PKC/PKA = protein kinase C/A</text>
-          <text x="80" y="746" fill={t.tM} fontSize="8">MLCK = myosin light chain kinase | SR = sarcoplasmic reticulum | CICR = CaÂ²âº-induced CaÂ²âº release | GIRK = G-protein inwardly rectifying Kâº channel</text>
-        </svg>
+          <NEDiagram t={t} />
+        ) : item.id === "propofol" ? (
+          <PropofolDiagram t={t} />
+        ) : item.id === "cisatracurium" ? (
+          <NMJDiagram t={t} drugId="cisatracurium" />
+        ) : item.id === "succinylcholine" ? (
+          <NMJDiagram t={t} drugId="succinylcholine" />
+        ) : item.id === "fentanyl" ? (
+          <FentanylDiagram t={t} />
         ) : item.id === "vasopressin" ? (
+
         <svg ref={svgRef} viewBox="0 0 800 700" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
           <defs>
             <marker id="avB" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" /></marker>
@@ -2486,6 +3177,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <text x="80" y="678" fill={t.tM} fontSize="8">7-TM = GPCR | PLC = phospholipase C | IPâ‚ƒ/DAG = 2nd messengers | PKC/PKA = protein kinases | AQP2 = aquaporin-2 | KATP = ATP-sensitive Kâº channel | vWF = von Willebrand factor</text>
         </svg>
         ) : item.id === "ketamine" ? (
+
         <svg ref={svgRef} viewBox="0 0 800 620" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
           <defs>
             <marker id="kG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#10b981" /></marker>
@@ -2625,56 +3317,9 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <rect x="500" y="594" width="10" height="10" rx="2" fill="none" stroke="#10b981" strokeWidth="1.5" /><text x="515" y="603" fill={t.tM} fontSize="9">NMDA subunits</text>
         </svg>
         ) : (
-        <svg ref={svgRef} viewBox="0 0 800 580" style={{ width: "100%", maxWidth: "800px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
-          <text x="400" y="30" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="600">Propofol at GABA-A Receptor</text>
-          <rect x="50" y="200" width="700" height="70" rx="6" fill={theme === "dark" ? "#2a2318" : "#e8ddd0"} opacity="0.5" />
-          <text x="65" y="238" fill={theme === "dark" ? "#b8956a" : "#8b6914"} fontSize="10">CELL MEMBRANE</text>
-          <text x="680" y="192" fill={t.tM} fontSize="10" fontStyle="italic">Extracellular</text>
-          <text x="680" y="288" fill={t.tM} fontSize="10" fontStyle="italic">Intracellular</text>
-          <rect x="340" y="188" width="60" height="96" rx="4" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke={t.bl} strokeWidth="1.5" />
-          <text x="370" y="242" textAnchor="middle" fill={t.bl} fontSize="9" fontWeight="500">Clâ» PORE</text>
-          <rect x="268" y="198" width="76" height="76" rx="38" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="1.5" />
-          <text x="306" y="240" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="700">Î±</text>
-          <rect x="295" y="152" width="66" height="52" rx="26" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="328" y="182" textAnchor="middle" fill="#a855f7" fontSize="14" fontWeight="700">Î²</text>
-          <rect x="365" y="146" width="50" height="46" rx="23" fill={theme === "dark" ? "#0f2918" : "#dcfce7"} stroke="#4ade80" strokeWidth="1.5" />
-          <text x="390" y="174" textAnchor="middle" fill="#4ade80" fontSize="14" fontWeight="700">Î³</text>
-          <rect x="405" y="152" width="66" height="52" rx="26" fill={theme === "dark" ? "#231530" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="438" y="182" textAnchor="middle" fill="#a855f7" fontSize="14" fontWeight="700">Î²</text>
-          <rect x="404" y="198" width="76" height="76" rx="38" fill={theme === "dark" ? "#122040" : "#dbeafe"} stroke="#60a5fa" strokeWidth="1.5" />
-          <text x="442" y="240" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="700">Î±</text>
-          <circle cx="280" cy="155" r="14" fill="#10b981" stroke="#34d399" strokeWidth="2" /><text x="280" y="159" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="700">PROP</text>
-          <line x1="288" y1="165" x2="302" y2="170" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-          <circle cx="480" cy="155" r="14" fill="#10b981" stroke="#34d399" strokeWidth="2" /><text x="480" y="159" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="700">PROP</text>
-          <line x1="472" y1="165" x2="458" y2="170" stroke="#34d399" strokeWidth="2" strokeDasharray="4,3" />
-          <line x1="260" y1="218" x2="210" y2="120" stroke={t.wn} strokeWidth="1" strokeDasharray="3,3" />
-          <rect x="130" y="107" width="82" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke={t.wn} strokeWidth="1" /><text x="171" y="121" textAnchor="middle" fill={t.wn} fontSize="9" fontWeight="500">GABA site (Î±-Î²)</text>
-          <line x1="280" y1="141" x2="190" y2="80" stroke="#10b981" strokeWidth="1" strokeDasharray="3,3" />
-          <rect x="95" y="67" width="100" height="20" rx="4" fill={theme === "dark" ? "#052e16" : "#dcfce7"} stroke="#10b981" strokeWidth="1" /><text x="145" y="81" textAnchor="middle" fill="#10b981" fontSize="9" fontWeight="500">Propofol (Î² TM2/3)</text>
-          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={t.bl} /></marker></defs>
-          <circle cx="362" cy="118" r="7" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="362" y="122" textAnchor="middle" fill={t.bl} fontSize="7" fontWeight="600">Clâ»</text>
-          <line x1="370" y1="130" x2="370" y2="305" stroke={t.bl} strokeWidth="2" markerEnd="url(#ar)" />
-          <circle cx="358" cy="320" r="7" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="358" y="324" textAnchor="middle" fill={t.bl} fontSize="7" fontWeight="600">Clâ»</text>
-          <rect x="260" y="360" width="220" height="65" rx="8" fill={theme === "dark" ? "#0c1a30" : "#eff6ff"} stroke={t.bl} strokeWidth="1.5" />
-          <text x="370" y="382" textAnchor="middle" fill={t.bl} fontSize="12" fontWeight="600">HYPERPOLARIZATION</text>
-          <text x="370" y="398" textAnchor="middle" fill={t.t2} fontSize="10">âˆ’70 mV â†’ âˆ’85 mV</text>
-          <text x="370" y="414" textAnchor="middle" fill={t.dg} fontSize="10" fontWeight="500">Action potential blocked</text>
-          <line x1="370" y1="425" x2="370" y2="450" stroke={t.tM} strokeWidth="1" strokeDasharray="4,3" />
-          <rect x="250" y="450" width="240" height="35" rx="8" fill={theme === "dark" ? "#14532d" : "#dcfce7"} stroke={t.ok} strokeWidth="1.5" />
-          <text x="370" y="472" textAnchor="middle" fill={t.ok} fontSize="10" fontWeight="600">Sedation â†’ Amnesia â†’ LOC</text>
-          <rect x="555" y="340" width="185" height="90" rx="8" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <text x="647" y="358" textAnchor="middle" fill={t.tx} fontSize="10" fontWeight="600">Clâ» Channel Modulation</text>
-          <line x1="570" y1="365" x2="725" y2="365" stroke={t.bd} strokeWidth="1" />
-          <text x="570" y="382" fill="#10b981" fontSize="9">Propofol: â†‘ duration + direct gate</text>
-          <text x="570" y="398" fill="#10b981" fontSize="9">Barbs: â†‘ duration + direct gate</text>
-          <text x="570" y="414" fill={t.wn} fontSize="9">BZDs: â†‘ frequency, NO direct gate</text>
-          <rect x="50" y="520" width="700" height="38" rx="6" fill={theme === "dark" ? "#111827" : "#f1f5f9"} stroke={t.bd} strokeWidth="1" />
-          <circle cx="80" cy="539" r="5" fill="#10b981" /><text x="90" y="543" fill={t.tM} fontSize="9">Propofol</text>
-          <circle cx="165" cy="539" r="5" fill="none" stroke={t.bl} strokeWidth="1.5" /><text x="175" y="543" fill={t.tM} fontSize="9">Clâ»</text>
-          <rect x="225" y="534" width="10" height="10" rx="5" fill="none" stroke="#60a5fa" strokeWidth="1" /><text x="240" y="543" fill={t.tM} fontSize="9">Î± subunit</text>
-          <rect x="305" y="534" width="10" height="10" rx="5" fill="none" stroke="#a855f7" strokeWidth="1" /><text x="320" y="543" fill={t.tM} fontSize="9">Î² subunit</text>
-          <rect x="395" y="534" width="10" height="10" rx="5" fill="none" stroke="#4ade80" strokeWidth="1" /><text x="410" y="543" fill={t.tM} fontSize="9">Î³ subunit</text>
-        </svg>
+          <div style={{ padding: "32px", textAlign: "center", background: t.bgH, borderRadius: "10px", border: `1px solid ${t.bd}` }}>
+            <div style={{ fontSize: "14px", color: t.tM, fontStyle: "italic" }}>Interactive diagram coming soon for {item.name}</div>
+          </div>
         )}
       </div>}
     </div>
@@ -2763,79 +3408,82 @@ function ProtoDetail({ p, t, theme, conf, setConf, notes, setNotes }) {
 // ── LGIC Interactive Diagram ──────────────────────────────────────────────────
 function LGICDiagram({ t }) {
   const [channelType, setChannelType] = useState("gabaa");
-  const [channelState, setChannelState] = useState("closed");
-  const [drugBinding, setDrugBinding] = useState(false);
+  const [poreOpen, setPoreOpen] = useState(false);
+  const [drugBound, setDrugBound] = useState(false);
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    if (channelState !== "open") return;
-    const id = setInterval(() => setTick(v => (v + 1) % 60), 60);
+    if (!poreOpen) { setTick(0); return; }
+    const id = setInterval(() => setTick(v => (v + 1) % 80), 55);
     return () => clearInterval(id);
-  }, [channelState]);
+  }, [poreOpen]);
 
-  const configs = {
+  const cfg = {
     gabaa: {
-      label: "GABA-A Receptor",
-      subtype: "Cl\u207B channel (inhibitory)",
-      subunits: ["\u03B1","\u03B2","\u03B1","\u03B2","\u03B3"],
-      ion: "Cl\u207B",
-      ionColor: "#a855f7",
-      ionDir: "in",
-      color: t.ac,
-      bindSite: "Between \u03B1-\u03B2 subunits (GABA) \u2022 \u03B2-TM2/TM3 (Propofol, Etomidate)",
-      drugs: "Propofol, Etomidate, Benzodiazepines, Barbiturates, Volatile anesthetics",
+      label: "GABA-A Receptor", subtype: "Cl\u207B channel \u2014 Inhibitory",
+      subunits: ["\u03B11","\u03B22","\u03B11","\u03B23","\u03B32"],
+      subColors: ["#3b82f6","#a855f7","#3b82f6","#a855f7","#22c55e"],
+      poreColor: "#a855f7",
+      ion: "Cl\u207B", ionColor: "#a855f7",
+      color: "#3b82f6",
       effect: "Cl\u207B influx \u2192 hyperpolarization \u2192 neuronal inhibition",
-      norm: "Resting Vm \u221270 mV \u2192 \u221285 mV (further from threshold)",
+      vmClosed: "\u221270 mV", vmOpen: "\u221285 mV",
+      note: "Propofol & Etomidate: \u03B2-TM2/TM3 interface \u2192 \u2191channel open duration. Benzodiazepines: \u03B1-\u03B3 interface \u2192 \u2191open frequency (no direct gate). Barbiturates: \u03B2 subunit \u2192 \u2191duration + direct activation.",
+      bindLabels: [
+        { sub: 0, label: "GABA", color: "#22c55e" },
+        { sub: 2, label: "GABA", color: "#22c55e" },
+        { sub: 1, label: "Propofol/\nEtomidate", color: "#f59e0b" },
+        { sub: 4, label: "BZD site", color: "#ec4899" },
+      ],
     },
     nachr: {
-      label: "Nicotinic ACh Receptor",
-      subtype: "Na\u207A/Ca\u00B2\u207A channel (excitatory)",
-      subunits: ["\u03B1","\u03B2","\u03B1","\u03B4","\u03B5"],
-      ion: "Na\u207A",
-      ionColor: "#f59e0b",
-      ionDir: "in",
-      color: "#3b82f6",
-      bindSite: "Two \u03B1 subunit extracellular domains (ACh / succinylcholine binding)",
-      drugs: "Succinylcholine (depolarizing), Rocuronium, Vecuronium, Cisatracurium (competitive)",
-      effect: "Na\u207A/Ca\u00B2\u207A influx \u2192 depolarization \u2192 muscle contraction (or block)",
-      norm: "Motor end plate depolarization \u2192 muscle action potential",
+      label: "Nicotinic ACh Receptor (NMJ)", subtype: "Na\u207A / Ca\u00B2\u207A channel \u2014 Excitatory",
+      subunits: ["\u03B11","\u03B51","\u03B11","\u03B41","\u03B21"],
+      subColors: ["#f59e0b","#64748b","#f59e0b","#64748b","#64748b"],
+      poreColor: "#f59e0b",
+      ion: "Na\u207A", ionColor: "#f59e0b",
+      color: "#f59e0b",
+      effect: "Na\u207A / Ca\u00B2\u207A influx \u2192 end-plate depolarization \u2192 muscle contraction",
+      vmClosed: "\u221280 mV", vmOpen: "+10 mV",
+      note: "Two ACh molecules must bind (both \u03B1 subunits). Succinylcholine mimics ACh but is not hydrolyzed \u2192 Phase I block. Rocuronium/Vecuronium/Cisatracurium competitively block \u03B1 sites without depolarization.",
+      bindLabels: [
+        { sub: 0, label: "ACh / SCh", color: "#22c55e" },
+        { sub: 2, label: "ACh / SCh", color: "#22c55e" },
+      ],
     },
   };
 
-  const cfg = configs[channelType];
-  const poreOpen = channelState === "open";
+  const c = cfg[channelType];
+
+  // Layout
   const W = 560, H = 400;
-  const cx = 280, memTop = 155, memBot = 245, poreW = poreOpen ? 18 : 4;
+  const memY1 = 155, memY2 = 230;
+  const subW = 46, subH = 145, subGap = 10;
+  const totalW = 5 * subW + 4 * subGap;
+  const startX = (W - totalW) / 2;
+  const subCY = (memY1 + memY2) / 2;
+  const subXs = Array.from({ length: 5 }, (_, i) => startX + i * (subW + subGap));
+  
+  // Pore is visually between subunits 2 and 3 (index 2 right edge to index 3 left edge)
+  const poreX = subXs[2] + subW + 1;
+  const poreW2 = subXs[3] - (subXs[2] + subW) - 2; // = subGap - 2 = 8
 
-  // Subunit positions (pentameric, evenly spaced)
-  const subAngles = [90, 162, 234, 306, 18];
-  const subR = 80;
-  const subs = subAngles.map((a, i) => {
-    const rad = (a * Math.PI) / 180;
-    return { x: cx + subR * Math.cos(rad), y: (memTop + memBot) / 2 + (subR * 0.55) * Math.sin(rad), label: cfg.subunits[i] };
-  });
-
-  // Ion particles
-  const ions = channelState === "open" ? Array.from({ length: 5 }, (_, i) => {
-    const phase = ((tick / 60) + i / 5) % 1;
-    const iy = cfg.ionDir === "in"
-      ? memTop - 10 + phase * (memBot + 30 - (memTop - 10))
-      : memBot + 10 - phase * (memBot + 10 - (memTop - 30));
-    return { x: cx + (Math.sin(phase * Math.PI * 4 + i) * 3), y: iy, alpha: Math.sin(phase * Math.PI) };
+  // Animated ions travel down through pore center
+  const poreCX = poreX + poreW2 / 2;
+  const ions = poreOpen ? Array.from({ length: 5 }, (_, i) => {
+    const phase = ((tick / 80) + i / 5) % 1;
+    const y = (memY1 - 24) + phase * (memY2 + 50 - (memY1 - 24));
+    return { x: poreCX + Math.sin(phase * 10 + i) * 1.5, y, a: Math.min(1, Math.sin(phase * Math.PI) * 1.8) };
   }) : [];
 
-  const binding = drugBinding;
-  const bindSites = channelType === "gabaa"
-    ? [{ x: subs[0].x + (subs[1].x - subs[0].x) / 2, y: memTop - 28 }, { x: subs[2].x + (subs[3].x - subs[2].x) / 2, y: memTop - 28 }]
-    : [{ x: subs[0].x, y: memTop - 35 }, { x: subs[2].x, y: memTop - 35 }];
-
   return (
-    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${cfg.color}40` }}>
+    <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid ${c.color}40` }}>
+      {/* Header */}
       <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
-        <span style={{ fontSize: "12px", color: cfg.color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Ligand-Gated Ion Channel &mdash; Interactive</span>
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {Object.entries(configs).map(([k, v]) => (
-            <button key={k} onClick={() => { setChannelType(k); setChannelState("closed"); setDrugBinding(false); }}
+        <span style={{ fontSize: "12px", color: c.color, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Ligand-Gated Ion Channel &#8212; Interactive</span>
+        <div style={{ display: "flex", gap: "8px" }}>
+          {Object.entries(cfg).map(([k, v]) => (
+            <button key={k} onClick={() => { setChannelType(k); setPoreOpen(false); setDrugBound(false); }}
               style={{ padding: "4px 12px", borderRadius: "6px", border: `1px solid ${channelType === k ? v.color : t.bd}`, background: channelType === k ? `${v.color}18` : t.bgC, color: channelType === k ? v.color : t.tM, fontSize: "11px", fontWeight: channelType === k ? 700 : 400, cursor: "pointer" }}>
               {v.label}
             </button>
@@ -2843,118 +3491,134 @@ function LGICDiagram({ t }) {
         </div>
       </div>
 
+      {/* SVG */}
       <div style={{ background: t.bgH }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "400px" }}>
-          {/* Extracellular label */}
-          <text x="16" y="80" fill={t.tM} fontSize="9" fontWeight="600">EXTRACELLULAR</text>
-          <line x1="16" y1="84" x2="100" y2="84" stroke={t.tM} strokeWidth="0.5"/>
-          {/* Intracellular label */}
-          <text x="16" y="330" fill={t.tM} fontSize="9" fontWeight="600">INTRACELLULAR</text>
-          <line x1="16" y1="324" x2="100" y2="324" stroke={t.tM} strokeWidth="0.5"/>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", minWidth: "360px" }}>
+          <defs>
+            <marker id="lgicIon2" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 Z" fill={c.ionColor}/>
+            </marker>
+          </defs>
+
+          {/* Title */}
+          <text x={W/2} y="20" fill={c.color} fontSize="13" fontWeight="700" textAnchor="middle">{c.label}</text>
+          <text x={W/2} y="35" fill={t.tM} fontSize="9" textAnchor="middle">{c.subtype} &#8212; Pentameric ({c.subunits.join("-")})</text>
+
+          {/* Zone labels */}
+          <text x="10" y={memY1 - 14} fill={t.tM} fontSize="7" fontWeight="600">EXTRACELLULAR</text>
+          <text x="10" y={memY2 + 22} fill={t.tM} fontSize="7" fontWeight="600">INTRACELLULAR</text>
 
           {/* Membrane */}
-          <rect x="120" y={memTop} width="320" height={memBot - memTop} rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
-          <text x="460" y={memTop + 14} fill={t.tM} fontSize="8">Lipid bilayer</text>
-          {/* Membrane phospholipid dots */}
-          {Array.from({ length: 22 }, (_, i) => (
+          <rect x={startX - 14} y={memY1} width={totalW + 28} height={memY2 - memY1}
+            rx="3" fill={`${t.ac}06`} stroke={t.bd} strokeWidth="1.5"/>
+          {Array.from({ length: Math.floor((totalW + 28) / 11) }, (_, i) => (
             <g key={i}>
-              <circle cx={125 + i * 14} cy={memTop + 8} r="3" fill={`${cfg.color}30`} stroke={`${cfg.color}60`} strokeWidth="0.5"/>
-              <circle cx={125 + i * 14} cy={memBot - 8} r="3" fill={`${cfg.color}30`} stroke={`${cfg.color}60`} strokeWidth="0.5"/>
+              <circle cx={startX - 10 + i * 11} cy={memY1 + 7} r="2.5" fill={`${t.ac}20`} stroke={`${t.ac}40`} strokeWidth="0.4"/>
+              <circle cx={startX - 10 + i * 11} cy={memY2 - 7} r="2.5" fill={`${t.ac}20`} stroke={`${t.ac}40`} strokeWidth="0.4"/>
             </g>
           ))}
+          <text x={startX + totalW + 16} y={subCY - 4} fill={t.tM} fontSize="7">Lipid</text>
+          <text x={startX + totalW + 16} y={subCY + 6} fill={t.tM} fontSize="7">bilayer</text>
 
           {/* Subunits */}
-          {subs.map((s, i) => (
-            <g key={i}>
-              <ellipse cx={s.x} cy={s.y} rx="28" ry="42" fill={t.bgC} stroke={cfg.color} strokeWidth="2" opacity="0.95"/>
-              <text x={s.x} y={s.y - 2} fill={cfg.color} fontSize="14" fontWeight="700" textAnchor="middle">{s.label}</text>
-              <text x={s.x} y={s.y + 12} fill={t.tM} fontSize="7" textAnchor="middle">TM1-4</text>
-            </g>
-          ))}
+          {subXs.map((sx, i) => {
+            const active = drugBound && c.bindLabels.some(b => b.sub === i);
+            return (
+              <g key={i}>
+                <rect x={sx} y={memY1 - 60} width={subW} height={subH} rx="5"
+                  fill={active ? `${c.subColors[i]}40` : `${c.subColors[i]}14`}
+                  stroke={c.subColors[i]} strokeWidth={active ? "2.5" : "1.5"}/>
+                <text x={sx + subW/2} y={subCY + 4} fill={c.subColors[i]} fontSize="12" textAnchor="middle" fontWeight="700">{c.subunits[i]}</text>
+                <text x={sx + subW/2} y={memY1 - 66} fill={t.tM} fontSize="6.5" textAnchor="middle">EC</text>
+                <text x={sx + subW/2} y={memY1 - 60 + subH + 13} fill={t.tM} fontSize="6.5" textAnchor="middle">IC</text>
+              </g>
+            );
+          })}
 
-          {/* Central pore */}
-          <rect x={cx - poreW / 2} y={memTop + 4} width={poreW} height={memBot - memTop - 8} rx={poreW / 2}
-            fill={poreOpen ? `${cfg.ionColor}35` : `${t.bd}`} stroke={poreOpen ? cfg.ionColor : t.bd} strokeWidth="1.5"/>
-          <text x={cx} y={memTop + (memBot - memTop) / 2 + 4} fill={poreOpen ? cfg.ionColor : t.tM} fontSize="8" textAnchor="middle" fontWeight="600">
+          {/* Central pore — widened for clarity */}
+          <rect x={poreX} y={memY1 + 5} width={poreW2} height={memY2 - memY1 - 10} rx={3}
+            fill={poreOpen ? `${c.poreColor}35` : `${t.bd}50`}
+            stroke={poreOpen ? c.poreColor : t.tM} strokeWidth={poreOpen ? "2" : "1"}/>
+          <text x={poreX + poreW2/2} y={subCY + 4} fill={poreOpen ? c.poreColor : t.tM}
+            fontSize="6" textAnchor="middle" fontWeight="700" style={{ textTransform: "uppercase" }}>
             {poreOpen ? "OPEN" : "CLOSED"}
           </text>
 
-          {/* Ion flow */}
+          {/* Drug binding sites */}
+          {drugBound && c.bindLabels.map((bs, i) => {
+            const sx = subXs[bs.sub];
+            return (
+              <g key={i}>
+                <ellipse cx={sx + subW/2} cy={memY1 - 52} rx="17" ry="9"
+                  fill={`${bs.color}30`} stroke={bs.color} strokeWidth="1.8"/>
+                <text x={sx + subW/2} y={memY1 - 49} fill={bs.color} fontSize="7" textAnchor="middle" fontWeight="700">{bs.label.split("\n")[0]}</text>
+              </g>
+            );
+          })}
+
+          {/* Ion animation */}
           {ions.map((ion, i) => (
-            <g key={i} opacity={Math.max(0.2, ion.alpha)}>
-              <circle cx={ion.x} cy={ion.y} r="7" fill={cfg.ionColor} opacity="0.85"/>
-              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">{cfg.ion}</text>
+            <g key={i} opacity={Math.max(0.1, ion.a)}>
+              <circle cx={ion.x} cy={ion.y} r="7" fill={c.ionColor}/>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">{c.ion}</text>
             </g>
           ))}
-
-          {/* Arrow showing ion direction */}
           {poreOpen && (
-            <g>
-              <defs>
-                <marker id="ionArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-                  <path d="M0,0 L0,6 L6,3 Z" fill={cfg.ionColor}/>
-                </marker>
-              </defs>
-              <line x1={cx + 22} y1={memTop + 10} x2={cx + 22} y2={memBot - 10}
-                stroke={cfg.ionColor} strokeWidth="1.5" markerEnd="url(#ionArrow)" strokeDasharray="4,2"/>
-              <text x={cx + 30} y={memTop + (memBot - memTop) / 2 + 3} fill={cfg.ionColor} fontSize="8" fontWeight="600">influx</text>
-            </g>
+            <line x1={poreCX} y1={memY1 - 20} x2={poreCX} y2={memY2 + 22}
+              stroke={c.ionColor} strokeWidth="1.5" strokeDasharray="4,3"
+              markerEnd="url(#lgicIon2)" opacity="0.45"/>
           )}
 
-          {/* Drug/ligand binding sites */}
-          {binding && bindSites.map((bs, i) => (
+          {/* Vm display */}
+          <rect x={W - 90} y={memY1 + 6} width="82" height="56" rx="7"
+            fill={t.bgC} stroke={poreOpen ? c.poreColor : t.bd} strokeWidth="1.5"/>
+          <text x={W - 49} y={memY1 + 21} fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
+          <text x={W - 49} y={memY1 + 46} fill={poreOpen ? c.poreColor : t.tx} fontSize="19" fontWeight="700" textAnchor="middle">
+            {poreOpen ? c.vmOpen : c.vmClosed}
+          </text>
+          <text x={W - 49} y={memY1 + 58} fill={t.tM} fontSize="7" textAnchor="middle">mV</text>
+
+          {/* Ion direction callout */}
+          {poreOpen && (
+            <text x={poreCX + 14} y={memY1 + 35} fill={c.ionColor} fontSize="8" fontWeight="600">{c.ion} influx</text>
+          )}
+
+          {/* Legend row */}
+          {c.subColors.filter((v, i, a) => a.indexOf(v) === i).map((col, i) => (
             <g key={i}>
-              <circle cx={bs.x} cy={bs.y} r="10" fill={`${t.wn}30`} stroke={t.wn} strokeWidth="1.5"/>
-              <text x={bs.x} y={bs.y + 3} fill={t.wn} fontSize="8" textAnchor="middle" fontWeight="700">&#9679;</text>
-              <text x={bs.x} y={bs.y - 15} fill={t.wn} fontSize="8" textAnchor="middle">Drug</text>
+              <rect x={startX + i * 130} y={H - 22} width="9" height="9" rx="2" fill={`${col}25`} stroke={col} strokeWidth="1.2"/>
+              <text x={startX + i * 130 + 13} y={H - 14} fill={t.t2} fontSize="8">
+                {col === "#3b82f6" ? "\u03B1 subunit (GABA-A)" : col === "#a855f7" ? "\u03B2 subunit (GABA-A)" : col === "#22c55e" ? "\u03B3 subunit (BZD site)" : col === "#f59e0b" ? "\u03B1 subunit (nAChR)" : "structural"}
+              </text>
             </g>
           ))}
-
-          {/* Vm indicator */}
-          <rect x="440" y="170" width="100" height="52" rx="6" fill={t.bgC} stroke={poreOpen ? cfg.ionColor : t.bd} strokeWidth="1.5"/>
-          <text x="490" y="186" fill={t.tM} fontSize="8" textAnchor="middle">Membrane Vm</text>
-          <text x="490" y="204" fill={poreOpen ? cfg.ionColor : t.tx} fontSize="16" fontWeight="700" textAnchor="middle">
-            {poreOpen ? (channelType === "gabaa" ? "\u221285" : "+40") : "\u221270"}
-          </text>
-          <text x="490" y="216" fill={t.tM} fontSize="8" textAnchor="middle">mV</text>
-
-          {/* Labels */}
-          <text x={cx} y="28" fill={cfg.color} fontSize="13" fontWeight="700" textAnchor="middle">{cfg.label}</text>
-          <text x={cx} y="44" fill={t.tM} fontSize="10" textAnchor="middle">{cfg.subtype}</text>
-          <text x={cx} y="60" fill={t.t2} fontSize="9" textAnchor="middle">Pentameric (5-subunit) \u2022 {cfg.subunits.join("-")}</text>
-
-          {/* Legend */}
-          <circle cx="140" cy="378" r="6" fill={cfg.ionColor} opacity="0.85"/>
-          <text x="150" y="382" fill={t.t2} fontSize="9">{cfg.ion} ion</text>
-          {binding && <><circle cx="210" cy="378" r="6" fill={`${t.wn}30`} stroke={t.wn} strokeWidth="1.5"/><text x="220" y="382" fill={t.t2} fontSize="9">Drug bound</text></>}
-          {poreOpen && <><rect x="290" y="372" width="14" height="8" rx="2" fill={`${cfg.ionColor}35`} stroke={cfg.ionColor} strokeWidth="1"/><text x="308" y="382" fill={t.t2} fontSize="9">Open pore</text></>}
         </svg>
       </div>
 
       {/* Controls */}
       <div style={{ padding: "14px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
         <div style={{ display: "flex", gap: "10px", marginBottom: "14px", flexWrap: "wrap" }}>
-          <button onClick={() => setChannelState(channelState === "closed" ? "open" : "closed")}
-            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${cfg.color}`, background: poreOpen ? cfg.color : "transparent", color: poreOpen ? t.acTx : cfg.color, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
-            {poreOpen ? "■ Close Channel" : "► Open Channel"}
+          <button onClick={() => setPoreOpen(p => !p)}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${c.color}`, background: poreOpen ? c.color : "transparent", color: poreOpen ? "#fff" : c.color, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
+            {poreOpen ? "\u25a0 Close Pore" : "\u25ba Open Pore"}
           </button>
-          <button onClick={() => setDrugBinding(d => !d)}
-            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${t.wn}`, background: drugBinding ? t.wn : "transparent", color: drugBinding ? "#000" : t.wn, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
-            {drugBinding ? "Remove Drug" : "Bind Drug"}
+          <button onClick={() => setDrugBound(d => !d)}
+            style={{ padding: "8px 18px", borderRadius: "8px", border: `2px solid ${t.wn}`, background: drugBound ? t.wn : "transparent", color: drugBound ? "#000" : t.wn, fontSize: "13px", fontWeight: 700, cursor: "pointer" }}>
+            {drugBound ? "Remove Drug" : "Bind Drug"}
           </button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))", gap: "10px", fontSize: "12px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "10px", fontSize: "12px" }}>
           <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
-            <div style={{ color: cfg.color, fontWeight: 700, marginBottom: "4px" }}>Binding Site</div>
-            <div style={{ color: t.t2, lineHeight: 1.6 }}>{cfg.bindSite}</div>
+            <div style={{ color: c.color, fontWeight: 700, marginBottom: "4px" }}>Net Effect</div>
+            <div style={{ color: t.t2, lineHeight: 1.6 }}>{c.effect}</div>
+            <div style={{ marginTop: "6px", display: "flex", gap: "12px" }}>
+              <div><span style={{ color: t.tM }}>Closed: </span><span style={{ color: t.tx, fontWeight: 600 }}>{c.vmClosed}</span></div>
+              <div><span style={{ color: t.tM }}>Open: </span><span style={{ color: c.poreColor, fontWeight: 600 }}>{c.vmOpen}</span></div>
+            </div>
           </div>
           <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
-            <div style={{ color: t.wn, fontWeight: 700, marginBottom: "4px" }}>Key Drugs</div>
-            <div style={{ color: t.t2, lineHeight: 1.6 }}>{cfg.drugs}</div>
-          </div>
-          <div style={{ padding: "10px", background: t.bgH, borderRadius: "8px" }}>
-            <div style={{ color: poreOpen ? cfg.ionColor : t.tM, fontWeight: 700, marginBottom: "4px" }}>Net Effect</div>
-            <div style={{ color: t.t2, lineHeight: 1.6 }}>{poreOpen ? cfg.effect : cfg.norm}</div>
+            <div style={{ color: t.wn, fontWeight: 700, marginBottom: "4px" }}>Drug Binding Sites</div>
+            <div style={{ color: t.t2, lineHeight: 1.65 }}>{c.note}</div>
           </div>
         </div>
       </div>
