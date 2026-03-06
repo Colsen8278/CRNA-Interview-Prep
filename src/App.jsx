@@ -2274,9 +2274,9 @@ function SCHInteractiveDiagram({ t }) {
 
 // ── Norepinephrine: Adrenergic Receptor Cascade ───────────────────────────────
 function NEDiagram({ t }) {
-  const [receptor, setReceptor] = React.useState("a1");
-  const [activated, setActivated] = React.useState(false);
-  const [tick, setTick] = React.useState(0);
+  const [receptor, setReceptor] = useState("a1");
+  const [activated, setActivated] = useState(false);
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     if (!activated) { setTick(0); return; }
     const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
@@ -2398,8 +2398,8 @@ function NEDiagram({ t }) {
 
 // ── Propofol: GABA-A Interactive ───────────────────────────────────────────────
 function PropofolDiagram({ t }) {
-  const [mode, setMode] = React.useState("resting");
-  const [tick, setTick] = React.useState(0);
+  const [mode, setMode] = useState("resting");
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     if (mode === "resting") { setTick(0); return; }
     const id = setInterval(() => setTick(v => (v + 1) % 80), 55);
@@ -2547,8 +2547,8 @@ function PropofolDiagram({ t }) {
 // ── NMJ Diagram (shared base for Cis & Sux) ──────────────────────────────────
 function NMJDiagram({ t, drugId }) {
   const isSux = drugId === "succinylcholine";
-  const [phase, setPhase] = React.useState("normal");
-  const [tick, setTick] = React.useState(0);
+  const [phase, setPhase] = useState("normal");
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
     return () => clearInterval(id);
@@ -2700,9 +2700,9 @@ function NMJDiagram({ t, drugId }) {
 
 // ── Fentanyl: Mu-Opioid Receptor (Gi cascade + ion channels) ─────────────────
 function FentanylDiagram({ t }) {
-  const [activated, setActivated] = React.useState(false);
-  const [focus, setFocus] = React.useState("analgesia");
-  const [tick, setTick] = React.useState(0);
+  const [activated, setActivated] = useState(false);
+  const [focus, setFocus] = useState("analgesia");
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     if (!activated) { setTick(0); return; }
     const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
@@ -2822,7 +2822,7 @@ function FentanylDiagram({ t }) {
 
 // ── Receptor Superfamily Reference (shown below med-specific diagram) ─────────
 function ReceptorFamilyRef({ medId, t }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   // Map each medication to its receptor superfamily
   const gpcr = ["norepinephrine","epinephrine","phenylephrine","ephedrine","vasopressin",
@@ -3933,7 +3933,7 @@ function GPCRDiagram({ t }) {
 
 // ── Linked Medication Diagrams (shown below receptor superfamily diagram) ─────
 function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
-  const [openId, setOpenId] = React.useState(null);
+  const [openId, setOpenId] = useState(null);
 
   const lgicMeds = [
     { id: "propofol",       name: "Propofol",        note: "GABA-A positive allosteric modulator + direct agonist", component: "propofol" },
