@@ -321,437 +321,437 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   id: "atropine", name: "Atropine", brand: "AtroPen",
   tags: ["Anticholinergic", "Muscarinic Antagonist", "Parasympatholytic", "Tertiary Amine"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Naturally-occurring belladonna alkaloid / non-selective muscarinic antagonist", "Primary Target": "M1, M2, M3, M4, M5 muscarinic receptors (competitive antagonist)", "Action": "Blocks ACh at all muscarinic subtypes \u2014 no nicotinic activity", "G-Proteins": "Blocks M2 (Gi) and M1/M3 (Gq) signaling", "Structure": "Tertiary amine \u2192 crosses BBB (CNS effects)", "Key Feature": "Vagolytic: removes parasympathetic brake on heart" },
-  moa: "Atropine is a competitive antagonist at all five muscarinic receptor subtypes (M1\u2013M5). Its primary clinical effect is vagolysis \u2014 blocking M2 receptors on the SA node.\n\nM2 blockade (Gi pathway): Normally, vagal ACh activates M2 \u2192 Gi \u2192 \u2193cAMP + G\u03b2\u03b3 opens GIRK channels \u2192 K\u207a efflux \u2192 hyperpolarization \u2192 slowed HR. Atropine blocks this entire cascade, removing the parasympathetic brake and allowing intrinsic sympathetic tone to predominate \u2192 \u2191HR.\n\nM3 blockade (Gq pathway): Normally M3 \u2192 Gq \u2192 PLC \u2192 IP\u2083/DAG \u2192 Ca\u00b2\u207a \u2192 smooth muscle contraction + glandular secretion. Atropine blocks this \u2192 bronchodilation, \u2193secretions, mydriasis, cycloplegia, \u2193GI motility, urinary retention.\n\nM1 blockade: Blocks CNS cholinergic transmission (crosses BBB as tertiary amine) \u2192 central anticholinergic effects at high doses (confusion, agitation, hallucinations).\n\nCritical dose-response paradox: At doses <0.5 mg, atropine can cause PARADOXICAL BRADYCARDIA. This occurs because low doses preferentially block presynaptic M1 autoreceptors on vagal nerve terminals (which normally inhibit ACh release), resulting in increased ACh release that overwhelms the partial postsynaptic M2 blockade. This is why the minimum effective dose is 0.5 mg IV.",
-  recPhys: "The M2 muscarinic receptor is a GPCR coupled to Gi proteins. The vagolytic mechanism at the SA node proceeds as follows:\n\nNormal vagal tone: Vagus nerve releases ACh \u2192 binds M2 on SA node \u2192 activates Gi \u2192 two effects: (1) G\u03b1i inhibits adenylyl cyclase \u2192 \u2193cAMP \u2192 \u2193If (funny current) \u2192 slower Phase 4 depolarization. (2) G\u03b2\u03b3 directly opens GIRK channels (Kir3.1/3.4) \u2192 K\u207a efflux \u2192 hyperpolarization \u2192 more negative maximum diastolic potential. Combined: slower firing rate = bradycardia.\n\nAtropine effect: Competitively blocks ACh at M2 \u2192 removes BOTH mechanisms \u2192 cAMP rises (If increases), GIRK channels close (less hyperpolarization) \u2192 SA node firing rate increases \u2192 tachycardia.\n\nThe M3 receptor couples to Gq \u2192 PLC \u2192 IP\u2083/DAG \u2192 Ca\u00b2\u207a release from SR \u2192 smooth muscle contraction + secretion. Atropine blocks this in bronchial smooth muscle (bronchodilation), GI smooth muscle (\u2193motility), salivary/sweat glands (\u2193secretions), and pupillary sphincter (mydriasis).\n\nKey structural point: Atropine is a TERTIARY amine (lipophilic, crosses BBB) vs glycopyrrolate which is QUATERNARY (charged, cannot cross BBB). This is the single most important distinction for interview purposes.",
+  ov: { "Drug Class": "Naturally-occurring belladonna alkaloid / non-selective muscarinic antagonist", "Primary Target": "M1, M2, M3, M4, M5 muscarinic receptors (competitive antagonist)", "Action": "Blocks ACh at all muscarinic subtypes — no nicotinic activity", "G-Proteins": "Blocks M2 (Gi) and M1/M3 (Gq) signaling", "Structure": "Tertiary amine → crosses BBB (CNS effects)", "Key Feature": "Vagolytic: removes parasympathetic brake on heart" },
+  moa: "Atropine is a competitive antagonist at all five muscarinic receptor subtypes (M1–M5). Its primary clinical effect is vagolysis — blocking M2 receptors on the SA node.\n\nM2 blockade (Gi pathway): Normally, vagal ACh activates M2 → Gi → ↓cAMP + G\u03b2\u03b3 opens GIRK channels → K\u207a efflux → hyperpolarization → slowed HR. Atropine blocks this entire cascade, removing the parasympathetic brake and allowing intrinsic sympathetic tone to predominate → ↑HR.\n\nM3 blockade (Gq pathway): Normally M3 → Gq → PLC → IP₃/DAG → Ca\u00b2\u207a → smooth muscle contraction + glandular secretion. Atropine blocks this → bronchodilation, ↓secretions, mydriasis, cycloplegia, ↓GI motility, urinary retention.\n\nM1 blockade: Blocks CNS cholinergic transmission (crosses BBB as tertiary amine) → central anticholinergic effects at high doses (confusion, agitation, hallucinations).\n\nCritical dose-response paradox: At doses <0.5 mg, atropine can cause PARADOXICAL BRADYCARDIA. This occurs because low doses preferentially block presynaptic M1 autoreceptors on vagal nerve terminals (which normally inhibit ACh release), resulting in increased ACh release that overwhelms the partial postsynaptic M2 blockade. This is why the minimum effective dose is 0.5 mg IV.",
+  recPhys: "The M2 muscarinic receptor is a GPCR coupled to Gi proteins. The vagolytic mechanism at the SA node proceeds as follows:\n\nNormal vagal tone: Vagus nerve releases ACh → binds M2 on SA node → activates Gi → two effects: (1) G\u03b1i inhibits adenylyl cyclase → ↓cAMP → ↓If (funny current) → slower Phase 4 depolarization. (2) G\u03b2\u03b3 directly opens GIRK channels (Kir3.1/3.4) → K\u207a efflux → hyperpolarization → more negative maximum diastolic potential. Combined: slower firing rate = bradycardia.\n\nAtropine effect: Competitively blocks ACh at M2 → removes BOTH mechanisms → cAMP rises (If increases), GIRK channels close (less hyperpolarization) → SA node firing rate increases → tachycardia.\n\nThe M3 receptor couples to Gq → PLC → IP₃/DAG → Ca\u00b2\u207a release from SR → smooth muscle contraction + secretion. Atropine blocks this in bronchial smooth muscle (bronchodilation), GI smooth muscle (↓motility), salivary/sweat glands (↓secretions), and pupillary sphincter (mydriasis).\n\nKey structural point: Atropine is a TERTIARY amine (lipophilic, crosses BBB) vs glycopyrrolate which is QUATERNARY (charged, cannot cross BBB). This is the single most important distinction for interview purposes.",
   dosing: [
-    { ind: "Symptomatic Bradycardia", dose: "0.5 mg IV q3\u20135 min", notes: "Max 3 mg total. NEVER give <0.5 mg (paradoxical bradycardia). ACLS first-line for bradycardia.", clr: "ac" },
-    { ind: "Cardiac Arrest (PEA/Asystole)", dose: "1 mg IV q3\u20135 min", notes: "Max 3 mg (full vagolysis). No longer in AHA 2020 ACLS for arrest \u2014 removed but not harmful.", clr: "wn" },
-    { ind: "Organophosphate Poisoning", dose: "2\u20136 mg IV, then double q5\u201310 min", notes: "Titrate to dry secretions. May need massive doses (100+ mg). Pralidoxime as adjunct.", clr: "pr" },
-    { ind: "Premedication (antisialagogue)", dose: "0.01\u20130.02 mg/kg IV/IM", notes: "Given before ketamine to reduce hypersalivation. Glycopyrrolate preferred (fewer CNS effects).", clr: "pk" },
-    { ind: "NMB Reversal Adjunct", dose: "0.015\u20130.02 mg/kg IV", notes: "Given with neostigmine to counter muscarinic side effects. Match onset: atropine (fast) with neostigmine.", clr: "dg" },
+    { ind: "Symptomatic Bradycardia", dose: "0.5 mg IV q3–5 min", notes: "Max 3 mg total. NEVER give <0.5 mg (paradoxical bradycardia). ACLS first-line for bradycardia.", clr: "ac" },
+    { ind: "Cardiac Arrest (PEA/Asystole)", dose: "1 mg IV q3–5 min", notes: "Max 3 mg (full vagolysis). No longer in AHA 2020 ACLS for arrest — removed but not harmful.", clr: "wn" },
+    { ind: "Organophosphate Poisoning", dose: "2–6 mg IV, then double q5–10 min", notes: "Titrate to dry secretions. May need massive doses (100+ mg). Pralidoxime as adjunct.", clr: "pr" },
+    { ind: "Premedication (antisialagogue)", dose: "0.01–0.02 mg/kg IV/IM", notes: "Given before ketamine to reduce hypersalivation. Glycopyrrolate preferred (fewer CNS effects).", clr: "pk" },
+    { ind: "NMB Reversal Adjunct", dose: "0.015–0.02 mg/kg IV", notes: "Given with neostigmine to counter muscarinic side effects. Match onset: atropine (fast) with neostigmine.", clr: "dg" },
   ],
-  kin: { onset: "IV: 30\u201360 sec", onsetD: "Rapid absorption, high lipophilicity", peak: "2\u20134 min", peakD: "Peak vagolytic effect", dur: "60\u2013120 min", durD: "Varies by dose and target organ", vd: "1\u20136 L/kg", pb: "14\u201322%", hl: "2\u20133 hours", csht: "N/A (bolus dosing)", cl: "Hepatic", model: "Two-compartment" },
-  metab: "Primary: hepatic hydrolysis by esterases and CYP-mediated oxidation. Approximately 50% hepatic metabolism, 50% renal excretion unchanged.\n\nActive metabolites: noratropine (minor activity), tropine, tropic acid \u2014 all significantly less active than parent compound.\n\nRenal excretion: 30\u201350% unchanged drug in urine. Half-life 2\u20133 hours in adults, prolonged in elderly and renal impairment.\n\nNo significant CYP450 interactions. Not removed by dialysis effectively.\n\nPediatric: faster metabolism, may need higher weight-based doses. Elderly: increased sensitivity to CNS effects (delirium), prolonged duration.",
+  kin: { onset: "IV: 30–60 sec", onsetD: "Rapid absorption, high lipophilicity", peak: "2–4 min", peakD: "Peak vagolytic effect", dur: "60–120 min", durD: "Varies by dose and target organ", vd: "1–6 L/kg", pb: "14–22%", hl: "2–3 hours", csht: "N/A (bolus dosing)", cl: "Hepatic", model: "Two-compartment" },
+  metab: "Primary: hepatic hydrolysis by esterases and CYP-mediated oxidation. Approximately 50% hepatic metabolism, 50% renal excretion unchanged.\n\nActive metabolites: noratropine (minor activity), tropine, tropic acid — all significantly less active than parent compound.\n\nRenal excretion: 30–50% unchanged drug in urine. Half-life 2–3 hours in adults, prolonged in elderly and renal impairment.\n\nNo significant CYP450 interactions. Not removed by dialysis effectively.\n\nPediatric: faster metabolism, may need higher weight-based doses. Elderly: increased sensitivity to CNS effects (delirium), prolonged duration.",
   warn: [
-    { tp: "bb", ti: "Paradoxical Bradycardia", tx: "Doses <0.5 mg can WORSEN bradycardia via preferential presynaptic M1 blockade \u2192 increased ACh release. NEVER give less than 0.5 mg IV." },
-    { tp: "ci", ti: "Narrow-Angle Glaucoma", tx: "Mydriasis blocks aqueous humor drainage \u2192 acute \u2191IOP. Relative contraindication." },
+    { tp: "bb", ti: "Paradoxical Bradycardia", tx: "Doses <0.5 mg can WORSEN bradycardia via preferential presynaptic M1 blockade → increased ACh release. NEVER give less than 0.5 mg IV." },
+    { tp: "ci", ti: "Narrow-Angle Glaucoma", tx: "Mydriasis blocks aqueous humor drainage → acute ↑IOP. Relative contraindication." },
     { tp: "ci", ti: "Obstructive Uropathy", tx: "Urinary retention from detrusor relaxation. Caution in BPH." },
     { tp: "cau", ti: "Tachyarrhythmia Risk", tx: "Full vagolysis can unmask or worsen SVT, AFib with RVR. Use cautiously in ACS (increased myocardial O2 demand)." },
-    { tp: "cau", ti: "Denervated Heart", tx: "Atropine INEFFECTIVE in transplant patients \u2014 no vagal innervation to block. Use direct agonists (isoproterenol, epinephrine) or pacing." },
+    { tp: "cau", ti: "Denervated Heart", tx: "Atropine INEFFECTIVE in transplant patients — no vagal innervation to block. Use direct agonists (isoproterenol, epinephrine) or pacing." },
     { tp: "cau", ti: "CNS Effects (Tertiary Amine)", tx: "Crosses BBB: agitation, confusion, hallucinations, hyperthermia at high doses. Central anticholinergic syndrome treated with physostigmine." },
   ],
   ix: [
     { dr: "Neostigmine/Pyridostigmine", ef: "Atropine counters muscarinic effects of AChE inhibitors. Standard pairing for NMB reversal.", sv: "high" },
-    { dr: "Other Anticholinergics", ef: "Additive: \u2191tachycardia, urinary retention, ileus, hyperthermia. Watch polypharmacy in elderly.", sv: "mod" },
-    { dr: "Potassium (hyperkalemia)", ef: "Atropine ineffective for bradycardia caused by hyperkalemia \u2014 treat K\u207a directly.", sv: "high" },
+    { dr: "Other Anticholinergics", ef: "Additive: ↑tachycardia, urinary retention, ileus, hyperthermia. Watch polypharmacy in elderly.", sv: "mod" },
+    { dr: "Potassium (hyperkalemia)", ef: "Atropine ineffective for bradycardia caused by hyperkalemia — treat K\u207a directly.", sv: "high" },
   ],
   pearls: [
     { ti: "Minimum Dose Rule", tx: "NEVER give <0.5 mg IV. Paradoxical bradycardia from low-dose preferential presynaptic M1 blockade is a classic interview trap." },
     { ti: "Transplant Heart = Atropine Failure", tx: "Denervated hearts lack vagal innervation. Atropine has nothing to block. Use isoproterenol (direct \u03b21), epinephrine, or pacing." },
-    { ti: "Atropine vs Glycopyrrolate", tx: "Atropine: tertiary amine, crosses BBB, faster onset (30\u201360s vs 2\u20133 min), more tachycardia, antisialagogue + bronchodilation. Glycopyrrolate: quaternary, no BBB crossing, no CNS effects, better antisialagogue, less tachycardia." },
-    { ti: "Organophosphate Toxicity", tx: "Competitive antagonism at muscarinic receptors counters SLUDGE/DUMBELS symptoms. Does NOT reverse nicotinic effects (fasciculations, paralysis) \u2014 need pralidoxime for that." },
-    { ti: "Paired with Neostigmine", tx: "Standard NMB reversal: neostigmine 0.04\u20130.07 mg/kg + atropine 0.015\u20130.02 mg/kg. Or glycopyrrolate 0.2 mg per 1 mg neostigmine. Atropine onset matches neostigmine better." },
+    { ti: "Atropine vs Glycopyrrolate", tx: "Atropine: tertiary amine, crosses BBB, faster onset (30–60s vs 2–3 min), more tachycardia, antisialagogue + bronchodilation. Glycopyrrolate: quaternary, no BBB crossing, no CNS effects, better antisialagogue, less tachycardia." },
+    { ti: "Organophosphate Toxicity", tx: "Competitive antagonism at muscarinic receptors counters SLUDGE/DUMBELS symptoms. Does NOT reverse nicotinic effects (fasciculations, paralysis) — need pralidoxime for that." },
+    { ti: "Paired with Neostigmine", tx: "Standard NMB reversal: neostigmine 0.04–0.07 mg/kg + atropine 0.015–0.02 mg/kg. Or glycopyrrolate 0.2 mg per 1 mg neostigmine. Atropine onset matches neostigmine better." },
   ],
   intQs: [
-    { q: "Patient develops HR 35 intraop. You give 0.3 mg atropine IV but HR drops to 28. Why?", a: "Paradoxical bradycardia from inadequate dose. At <0.5 mg, central vagal stimulation and presynaptic M1 blockade overwhelm peripheral M2 blockade. Give 0.5\u20131 mg IV immediately for full SA node blockade." },
-    { q: "Why choose atropine over glycopyrrolate in airway emergency with bradycardia?", a: "Two advantages: (1) Faster onset (30\u201360s vs 2\u20133 min). (2) M3 blockade provides bronchodilation \u2014 glycopyrrolate lacks meaningful bronchodilation in emergency timeframes. Atropine addresses both problems simultaneously." },
-    { q: "Heart transplant patient becomes bradycardic. What do you do?", a: "Atropine will NOT work \u2014 denervated heart has no vagal innervation to block. Use isoproterenol (direct \u03b21 agonist), epinephrine, or transcutaneous/transvenous pacing." },
+    { q: "Patient develops HR 35 intraop. You give 0.3 mg atropine IV but HR drops to 28. Why?", a: "Paradoxical bradycardia from inadequate dose. At <0.5 mg, central vagal stimulation and presynaptic M1 blockade overwhelm peripheral M2 blockade. Give 0.5–1 mg IV immediately for full SA node blockade." },
+    { q: "Why choose atropine over glycopyrrolate in airway emergency with bradycardia?", a: "Two advantages: (1) Faster onset (30–60s vs 2–3 min). (2) M3 blockade provides bronchodilation — glycopyrrolate lacks meaningful bronchodilation in emergency timeframes. Atropine addresses both problems simultaneously." },
+    { q: "Heart transplant patient becomes bradycardic. What do you do?", a: "Atropine will NOT work — denervated heart has no vagal innervation to block. Use isoproterenol (direct \u03b21 agonist), epinephrine, or transcutaneous/transvenous pacing." },
   ],
 },{
   id: "epinephrine", name: "Epinephrine", brand: "Adrenalin",
   tags: ["Endogenous Catecholamine", "Non-Selective Agonist", "\u03b1+\u03b2 Agonist", "Sympathomimetic"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Endogenous catecholamine / non-selective adrenergic agonist", "Primary Targets": "\u03b11, \u03b12, \u03b21, \u03b22, \u03b23 adrenergic receptors (all subtypes)", "Action": "Full agonist at all adrenergic receptors \u2014 dose-dependent selectivity", "G-Proteins": "\u03b11=Gq, \u03b12=Gi, \u03b21/\u03b22=Gs", "Formulation": "1:1,000 (1 mg/mL) and 1:10,000 (0.1 mg/mL)", "Key Feature": "Dose-dependent receptor profile: low=\u03b22, mid=\u03b21, high=\u03b1" },
-  moa: "Epinephrine activates all five adrenergic receptor subtypes through GPCR mechanisms with dose-dependent selectivity:\n\n\u03b11-adrenergic (Gq): PLC \u2192 IP\u2083/DAG \u2192 \u2191Ca\u00b2\u207a \u2192 vasoconstriction, \u2191SVR, \u2191BP. Predominates at HIGH doses (>10 mcg/min).\n\n\u03b12-adrenergic (Gi): \u2193adenylyl cyclase \u2192 presynaptic inhibition \u2192 negative feedback on NE release. Significant only at very high doses.\n\n\u03b21-adrenergic (Gs): adenylyl cyclase \u2192 \u2191cAMP \u2192 PKA \u2192 phosphorylates L-type Ca\u00b2\u207a channels (\u2191inotropy), RyR2 (\u2191CICR), phospholamban (\u2191lusitropy), HCN/If channels (\u2191chronotropy). Predominates at INTERMEDIATE doses (4\u20135 mcg/min).\n\n\u03b22-adrenergic (Gs): \u2191cAMP in smooth muscle \u2192 PKA \u2192 MLCK inhibition \u2192 smooth muscle relaxation \u2192 bronchodilation + peripheral vasodilation. Predominates at LOW doses (1\u20132 mcg/min).\n\nClassic BP pattern: SBP \u2191\u2191, DBP \u2193 or unchanged, widened pulse pressure.",
-  recPhys: "Dose-dependent receptor selectivity is the defining pharmacologic principle of epinephrine:\n\nLow dose (\u22642 mcg/min): \u03b22 effects dominate. \u03b22 has higher affinity for epinephrine than \u03b21 or \u03b11. Gs \u2192 \u2191cAMP \u2192 PKA \u2192 MLCK inactivation \u2192 vascular smooth muscle relaxation + bronchial smooth muscle relaxation. Clinically: \u2193SVR, \u2193DBP, bronchodilation.\n\nModerate dose (2\u201310 mcg/min): \u03b21 effects emerge. Gs \u2192 \u2191cAMP \u2192 PKA phosphorylates: L-type Ca\u00b2\u207a channels (\u2191Ca\u00b2\u207a entry = \u2191inotropy), phospholamban (relieves SERCA inhibition = \u2191lusitropy), HCN channels (\u2191If = \u2191chronotropy), RyR2 (\u2191Ca\u00b2\u207a-induced Ca\u00b2\u207a release). Clinically: \u2191HR, \u2191contractility, \u2191CO.\n\nHigh dose (>10 mcg/min): \u03b11 effects predominate. Gq \u2192 PLC \u2192 IP\u2083/DAG \u2192 \u2191intracellular Ca\u00b2\u207a \u2192 calmodulin-MLCK activation \u2192 vascular smooth muscle contraction. Clinically: \u2191SVR, \u2191MAP, reflex bradycardia possible.\n\nACLS dose (1 mg IV push): Massive \u03b11 effect. The purpose is NOT cardiac stimulation \u2014 it is to increase aortic root diastolic pressure to maximize coronary perfusion pressure (CPP = AoDBP \u2013 LVEDP) during chest compressions.",
+  ov: { "Drug Class": "Endogenous catecholamine / non-selective adrenergic agonist", "Primary Targets": "\u03b11, \u03b12, \u03b21, \u03b22, \u03b23 adrenergic receptors (all subtypes)", "Action": "Full agonist at all adrenergic receptors — dose-dependent selectivity", "G-Proteins": "\u03b11=Gq, \u03b12=Gi, \u03b21/\u03b22=Gs", "Formulation": "1:1,000 (1 mg/mL) and 1:10,000 (0.1 mg/mL)", "Key Feature": "Dose-dependent receptor profile: low=\u03b22, mid=\u03b21, high=\u03b1" },
+  moa: "Epinephrine activates all five adrenergic receptor subtypes through GPCR mechanisms with dose-dependent selectivity:\n\n\u03b11-adrenergic (Gq): PLC → IP₃/DAG → ↑Ca\u00b2\u207a → vasoconstriction, ↑SVR, ↑BP. Predominates at HIGH doses (>10 mcg/min).\n\n\u03b12-adrenergic (Gi): ↓adenylyl cyclase → presynaptic inhibition → negative feedback on NE release. Significant only at very high doses.\n\n\u03b21-adrenergic (Gs): adenylyl cyclase → ↑cAMP → PKA → phosphorylates L-type Ca\u00b2\u207a channels (↑inotropy), RyR2 (↑CICR), phospholamban (↑lusitropy), HCN/If channels (↑chronotropy). Predominates at INTERMEDIATE doses (4–5 mcg/min).\n\n\u03b22-adrenergic (Gs): ↑cAMP in smooth muscle → PKA → MLCK inhibition → smooth muscle relaxation → bronchodilation + peripheral vasodilation. Predominates at LOW doses (1–2 mcg/min).\n\nClassic BP pattern: SBP ↑↑, DBP ↓ or unchanged, widened pulse pressure.",
+  recPhys: "Dose-dependent receptor selectivity is the defining pharmacologic principle of epinephrine:\n\nLow dose (≤2 mcg/min): \u03b22 effects dominate. \u03b22 has higher affinity for epinephrine than \u03b21 or \u03b11. Gs → ↑cAMP → PKA → MLCK inactivation → vascular smooth muscle relaxation + bronchial smooth muscle relaxation. Clinically: ↓SVR, ↓DBP, bronchodilation.\n\nModerate dose (2–10 mcg/min): \u03b21 effects emerge. Gs → ↑cAMP → PKA phosphorylates: L-type Ca\u00b2\u207a channels (↑Ca\u00b2\u207a entry = ↑inotropy), phospholamban (relieves SERCA inhibition = ↑lusitropy), HCN channels (↑If = ↑chronotropy), RyR2 (↑Ca\u00b2\u207a-induced Ca\u00b2\u207a release). Clinically: ↑HR, ↑contractility, ↑CO.\n\nHigh dose (>10 mcg/min): \u03b11 effects predominate. Gq → PLC → IP₃/DAG → ↑intracellular Ca\u00b2\u207a → calmodulin-MLCK activation → vascular smooth muscle contraction. Clinically: ↑SVR, ↑MAP, reflex bradycardia possible.\n\nACLS dose (1 mg IV push): Massive \u03b11 effect. The purpose is NOT cardiac stimulation — it is to increase aortic root diastolic pressure to maximize coronary perfusion pressure (CPP = AoDBP – LVEDP) during chest compressions.",
   dosing: [
-    { ind: "Cardiac Arrest", dose: "1 mg IV/IO q3\u20135 min", notes: "1:10,000 (0.1 mg/mL). Shockable rhythms: after 2nd shock. PEA/Asystole: ASAP.", clr: "ac" },
-    { ind: "Anaphylaxis", dose: "0.3\u20130.5 mg IM (1:1,000)", notes: "Anterolateral thigh. Repeat q5\u201315 min PRN. IV only for refractory/cardiovascular collapse.", clr: "wn" },
-    { ind: "Vasopressor Infusion", dose: "1\u201340 mcg/min", notes: "Titrate to MAP. Low dose (\u22645): \u03b2 predominant. High dose (>10): \u03b1 predominant.", clr: "pr" },
-    { ind: "Bradycardia (refractory)", dose: "2\u201310 mcg/min infusion", notes: "After atropine failure. Alternative to pacing. Direct \u03b21 chronotropy.", clr: "pk" },
-    { ind: "Bronchospasm", dose: "0.1\u20130.3 mg IV (1:10,000) or nebulized 2.25% racemic", notes: "\u03b22-mediated bronchodilation. Racemic epi for croup/post-extubation stridor.", clr: "dg" },
+    { ind: "Cardiac Arrest", dose: "1 mg IV/IO q3–5 min", notes: "1:10,000 (0.1 mg/mL). Shockable rhythms: after 2nd shock. PEA/Asystole: ASAP.", clr: "ac" },
+    { ind: "Anaphylaxis", dose: "0.3–0.5 mg IM (1:1,000)", notes: "Anterolateral thigh. Repeat q5–15 min PRN. IV only for refractory/cardiovascular collapse.", clr: "wn" },
+    { ind: "Vasopressor Infusion", dose: "1–40 mcg/min", notes: "Titrate to MAP. Low dose (≤5): \u03b2 predominant. High dose (>10): \u03b1 predominant.", clr: "pr" },
+    { ind: "Bradycardia (refractory)", dose: "2–10 mcg/min infusion", notes: "After atropine failure. Alternative to pacing. Direct \u03b21 chronotropy.", clr: "pk" },
+    { ind: "Bronchospasm", dose: "0.1–0.3 mg IV (1:10,000) or nebulized 2.25% racemic", notes: "\u03b22-mediated bronchodilation. Racemic epi for croup/post-extubation stridor.", clr: "dg" },
   ],
-  kin: { onset: "IV: immediate (15\u201330 sec). IM: 5\u201310 min", onsetD: "Most rapid of all catecholamines IV", peak: "IV: 1\u20132 min. IM: 20\u201330 min", peakD: "SC absorption is erratic \u2014 avoid in anaphylaxis", dur: "5\u201310 min (bolus)", durD: "Rapid enzymatic degradation", vd: "Large (distributes widely)", pb: "~50%", hl: "2\u20133 min", csht: "N/A", cl: "MAO + COMT (extremely rapid)", model: "Rapid redistribution" },
-  metab: "Metabolism is extremely rapid via two enzyme systems:\n\n1. COMT (catechol-O-methyltransferase): Methylates the catechol hydroxyl groups. Present in liver, kidney, and virtually all tissues. Produces metanephrine (primary metabolite).\n\n2. MAO (monoamine oxidase): Oxidative deamination. MAO-A and MAO-B in gut, liver, nerve terminals. Produces 3,4-dihydroxymandelic acid.\n\nFinal common metabolite: Vanillylmandelic acid (VMA) \u2014 excreted renally. 24-hour urine VMA/metanephrines used to diagnose pheochromocytoma.\n\nHalf-life only 2\u20133 minutes explains need for continuous infusion and q3\u20135 min repeat dosing in ACLS.\n\nDrug interactions: MAOIs block degradation \u2192 dramatically potentiated effect \u2192 hypertensive crisis. TCAs block neuronal reuptake \u2192 potentiated effect. Beta-blockers shift receptor balance toward unopposed \u03b1 \u2192 severe hypertension + reflex bradycardia.",
+  kin: { onset: "IV: immediate (15–30 sec). IM: 5–10 min", onsetD: "Most rapid of all catecholamines IV", peak: "IV: 1–2 min. IM: 20–30 min", peakD: "SC absorption is erratic — avoid in anaphylaxis", dur: "5–10 min (bolus)", durD: "Rapid enzymatic degradation", vd: "Large (distributes widely)", pb: "~50%", hl: "2–3 min", csht: "N/A", cl: "MAO + COMT (extremely rapid)", model: "Rapid redistribution" },
+  metab: "Metabolism is extremely rapid via two enzyme systems:\n\n1. COMT (catechol-O-methyltransferase): Methylates the catechol hydroxyl groups. Present in liver, kidney, and virtually all tissues. Produces metanephrine (primary metabolite).\n\n2. MAO (monoamine oxidase): Oxidative deamination. MAO-A and MAO-B in gut, liver, nerve terminals. Produces 3,4-dihydroxymandelic acid.\n\nFinal common metabolite: Vanillylmandelic acid (VMA) — excreted renally. 24-hour urine VMA/metanephrines used to diagnose pheochromocytoma.\n\nHalf-life only 2–3 minutes explains need for continuous infusion and q3–5 min repeat dosing in ACLS.\n\nDrug interactions: MAOIs block degradation → dramatically potentiated effect → hypertensive crisis. TCAs block neuronal reuptake → potentiated effect. Beta-blockers shift receptor balance toward unopposed \u03b1 → severe hypertension + reflex bradycardia.",
   warn: [
-    { tp: "bb", ti: "Extravasation Injury", tx: "\u03b11 vasoconstriction causes tissue ischemia/necrosis. Treat with phentolamine (\u03b1-blocker) 5\u201310 mg in 10 mL NS injected locally. Central line preferred for infusions." },
-    { tp: "ci", ti: "Halogenated Anesthetics", tx: "Sensitize myocardium to catecholamines \u2192 VFib/VT risk. Halothane worst. Limit epi to 1\u20131.5 mcg/kg in 10 min with sevoflurane." },
+    { tp: "bb", ti: "Extravasation Injury", tx: "\u03b11 vasoconstriction causes tissue ischemia/necrosis. Treat with phentolamine (\u03b1-blocker) 5–10 mg in 10 mL NS injected locally. Central line preferred for infusions." },
+    { tp: "ci", ti: "Halogenated Anesthetics", tx: "Sensitize myocardium to catecholamines → VFib/VT risk. Halothane worst. Limit epi to 1–1.5 mcg/kg in 10 min with sevoflurane." },
     { tp: "cau", ti: "Tachyarrhythmias", tx: "Dose-dependent \u03b21 stimulation: sinus tach, SVT, VT, VFib. Worse with hypokalemia, hypomagnesemia, digitalis toxicity." },
-    { tp: "cau", ti: "Metabolic Effects", tx: "\u03b22 glycogenolysis \u2192 hyperglycemia. \u03b22 cellular K\u207a uptake \u2192 hypokalemia. Lactate elevation (aerobic glycolysis, NOT tissue hypoperfusion)." },
-    { tp: "cau", ti: "MAOI Interaction", tx: "Blocks MAO degradation pathway \u2192 massively potentiated catecholamine effect. Contraindicated or use extreme caution with dose reduction." },
+    { tp: "cau", ti: "Metabolic Effects", tx: "\u03b22 glycogenolysis → hyperglycemia. \u03b22 cellular K\u207a uptake → hypokalemia. Lactate elevation (aerobic glycolysis, NOT tissue hypoperfusion)." },
+    { tp: "cau", ti: "MAOI Interaction", tx: "Blocks MAO degradation pathway → massively potentiated catecholamine effect. Contraindicated or use extreme caution with dose reduction." },
   ],
   ix: [
-    { dr: "MAOIs", ef: "Block MAO degradation \u2192 10\u201320x potentiation. Hypertensive crisis, arrhythmias. Contraindicated or use 1/10th dose.", sv: "high" },
-    { dr: "Beta-Blockers", ef: "Unopposed \u03b1 stimulation \u2192 severe HTN + reflex bradycardia. Especially dangerous with non-selective (propranolol).", sv: "high" },
-    { dr: "TCAs", ef: "Block neuronal NE reuptake \u2192 potentiated adrenergic effect. Exaggerated pressor response.", sv: "mod" },
+    { dr: "MAOIs", ef: "Block MAO degradation → 10–20x potentiation. Hypertensive crisis, arrhythmias. Contraindicated or use 1/10th dose.", sv: "high" },
+    { dr: "Beta-Blockers", ef: "Unopposed \u03b1 stimulation → severe HTN + reflex bradycardia. Especially dangerous with non-selective (propranolol).", sv: "high" },
+    { dr: "TCAs", ef: "Block neuronal NE reuptake → potentiated adrenergic effect. Exaggerated pressor response.", sv: "mod" },
     { dr: "Volatile Anesthetics", ef: "Myocardial sensitization to catecholamines. VT/VFib risk. Halothane > isoflurane > sevoflurane > desflurane.", sv: "high" },
   ],
   pearls: [
-    { ti: "Dose-Dependent Selectivity", tx: "LOW (\u22642 mcg/min): \u03b22 = vasodilation + bronchodilation. MID (3\u201310): \u03b21 = \u2191HR/contractility. HIGH (>10): \u03b11 = vasoconstriction. Memorize this gradient." },
-    { ti: "Epi-Induced Lactate", tx: "\u03b22-mediated aerobic glycogenolysis produces lactate directly. This is PHARMACOLOGIC, not from tissue hypoperfusion. Don't chase this lactate with fluids \u2014 common ICU pitfall." },
+    { ti: "Dose-Dependent Selectivity", tx: "LOW (≤2 mcg/min): \u03b22 = vasodilation + bronchodilation. MID (3–10): \u03b21 = ↑HR/contractility. HIGH (>10): \u03b11 = vasoconstriction. Memorize this gradient." },
+    { ti: "Epi-Induced Lactate", tx: "\u03b22-mediated aerobic glycogenolysis produces lactate directly. This is PHARMACOLOGIC, not from tissue hypoperfusion. Don't chase this lactate with fluids — common ICU pitfall." },
     { ti: "NE Preferred Over Epi in Sepsis", tx: "Epi causes more tachycardia, dysrhythmias, and metabolic derangement vs NE. SSC 2021: NE first-line, epi reserved for inadequate response to NE + VP." },
-    { ti: "ACLS: After 2nd Shock", tx: "In shockable rhythms (VFib/pVT): epi 1 mg after 2nd shock, then q3\u20135 min. In non-shockable (PEA/asystole): epi ASAP \u2014 earlier epi improves outcomes." },
-    { ti: "Anaphylaxis: IM Not IV", tx: "IM 0.3\u20130.5 mg into anterolateral thigh. IV epinephrine reserved for cardiovascular collapse only. SC is unreliable \u2014 vasoconstriction limits its own absorption." },
+    { ti: "ACLS: After 2nd Shock", tx: "In shockable rhythms (VFib/pVT): epi 1 mg after 2nd shock, then q3–5 min. In non-shockable (PEA/asystole): epi ASAP — earlier epi improves outcomes." },
+    { ti: "Anaphylaxis: IM Not IV", tx: "IM 0.3–0.5 mg into anterolateral thigh. IV epinephrine reserved for cardiovascular collapse only. SC is unreliable — vasoconstriction limits its own absorption." },
   ],
   intQs: [
-    { q: "Patient in anaphylaxis, BP 60/40, diffuse urticaria. Walk me through management.", a: "IM epinephrine 0.3\u20130.5 mg anterolateral thigh IMMEDIATELY. Remove trigger. Large-bore IV, aggressive fluid resuscitation. If no response in 5 min, repeat IM epi. If cardiovascular collapse, IV epi 0.1\u20130.2 mg slow push or infusion 1\u201310 mcg/min. Adjuncts: diphenhydramine, famotidine, methylprednisolone, albuterol for bronchospasm." },
-    { q: "Why does epinephrine cause lactic acidosis?", a: "\u03b22-mediated glycogenolysis \u2192 pyruvate overwhelms mitochondrial capacity \u2192 shunted to anaerobic glycolysis \u2192 lactate production. This is a DIRECT pharmacologic effect, not tissue hypoperfusion. Critical distinction \u2014 don't treat epi-induced lactate with more fluids." },
-    { q: "Epi vs NE in septic shock \u2014 which and why?", a: "NE first-line (SSC 2021). NE has favorable \u03b11>\u03b21 profile: vasoconstriction + preserved CO without excessive tachycardia/dysrhythmias. Epi causes more \u03b21/\u03b22 effects: tachycardia, dysrhythmias, lactate elevation, metabolic derangement. Epi reserved for refractory shock after NE + VP." },
+    { q: "Patient in anaphylaxis, BP 60/40, diffuse urticaria. Walk me through management.", a: "IM epinephrine 0.3–0.5 mg anterolateral thigh IMMEDIATELY. Remove trigger. Large-bore IV, aggressive fluid resuscitation. If no response in 5 min, repeat IM epi. If cardiovascular collapse, IV epi 0.1–0.2 mg slow push or infusion 1–10 mcg/min. Adjuncts: diphenhydramine, famotidine, methylprednisolone, albuterol for bronchospasm." },
+    { q: "Why does epinephrine cause lactic acidosis?", a: "\u03b22-mediated glycogenolysis → pyruvate overwhelms mitochondrial capacity → shunted to anaerobic glycolysis → lactate production. This is a DIRECT pharmacologic effect, not tissue hypoperfusion. Critical distinction — don't treat epi-induced lactate with more fluids." },
+    { q: "Epi vs NE in septic shock — which and why?", a: "NE first-line (SSC 2021). NE has favorable \u03b11>\u03b21 profile: vasoconstriction + preserved CO without excessive tachycardia/dysrhythmias. Epi causes more \u03b21/\u03b22 effects: tachycardia, dysrhythmias, lactate elevation, metabolic derangement. Epi reserved for refractory shock after NE + VP." },
   ],
 },{
   id: "phenylephrine", name: "Phenylephrine", brand: "Neo-Synephrine / Vazculep",
   tags: ["Non-Catecholamine", "Pure \u03b11 Agonist", "Direct-Acting", "IV Vasopressor"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Synthetic non-catecholamine vasopressor", "Primary Target": "\u03b11-adrenergic receptor (pure, selective)", "Action": "Direct \u03b11 agonist \u2014 zero \u03b2 activity", "G-Protein": "Gq \u2192 PLC \u2192 IP\u2083/DAG \u2192 Ca\u00b2\u207a \u2192 vasoconstriction", "Structure": "Non-catecholamine (single hydroxyl \u2192 no COMT metabolism)", "Net Effect": "\u2191SVR/MAP + reflex \u2193HR + \u2193CO" },
-  moa: "Phenylephrine is a selective \u03b11-adrenergic receptor agonist with ZERO \u03b2-receptor activity.\n\n\u03b11 activation (Gq): PLC cleaves PIP\u2082 \u2192 IP\u2083 + DAG. IP\u2083 binds IP\u2083 receptors on SR \u2192 Ca\u00b2\u207a release. DAG activates PKC. Ca\u00b2\u207a binds calmodulin \u2192 activates MLCK \u2192 myosin light chain phosphorylation \u2192 actin-myosin cross-bridging \u2192 vascular smooth muscle contraction \u2192 \u2191SVR.\n\nThis is pure afterload increase without ANY direct cardiac stimulation.\n\nThe resulting \u2191MAP triggers the baroreceptor reflex: carotid/aortic arch baroreceptors detect \u2191stretch \u2192 \u2191afferent firing to NTS in medulla \u2192 \u2191vagal (parasympathetic) output + \u2193sympathetic output \u2192 REFLEX BRADYCARDIA.\n\nNet hemodynamic profile: \u2191SVR, \u2191MAP, \u2193HR (reflex), \u2193CO (reduced HR + increased afterload). This is the opposite of ephedrine's profile and a critical interview distinction.",
-  recPhys: "The \u03b11-adrenergic receptor is a GPCR coupled exclusively to Gq. The vasoconstriction pathway:\n\nStep 1 \u2014 Receptor activation: Phenylephrine binds \u03b11 \u2192 conformational change \u2192 Gq activation \u2192 G\u03b1q-GTP dissociates from G\u03b2\u03b3.\n\nStep 2 \u2014 PLC activation: G\u03b1q activates phospholipase C (PLC-\u03b2) on the inner membrane leaflet.\n\nStep 3 \u2014 PIP\u2082 hydrolysis: PLC cleaves membrane phospholipid PIP\u2082 into two second messengers: IP\u2083 (soluble, diffuses into cytoplasm) and DAG (remains membrane-bound).\n\nStep 4 \u2014 Ca\u00b2\u207a release: IP\u2083 binds IP\u2083 receptors on SR \u2192 Ca\u00b2\u207a floods into cytoplasm.\n\nStep 5 \u2014 MLCK activation: Ca\u00b2\u207a binds calmodulin (4 Ca\u00b2\u207a per calmodulin) \u2192 Ca\u00b2\u207a-calmodulin complex activates myosin light chain kinase (MLCK).\n\nStep 6 \u2014 Contraction: MLCK phosphorylates myosin light chains \u2192 myosin ATPase activated \u2192 actin-myosin cross-bridge cycling \u2192 sustained vascular smooth muscle contraction.\n\nSimultaneously, DAG activates PKC, which sustains contraction via Rho kinase-mediated calcium sensitization (inhibits myosin light chain phosphatase, maintaining phosphorylation even as Ca\u00b2\u207a falls). This is why \u03b11 vasoconstriction is sustained.\n\nBaroreceptor reflex: \u2191MAP \u2192 \u2191carotid sinus stretch \u2192 \u2191CN IX (glossopharyngeal) afferent firing \u2192 NTS \u2192 \u2191CN X (vagus) efferent \u2192 M2 activation on SA node \u2192 GIRK channel opening \u2192 K\u207a efflux \u2192 bradycardia. This is physiologic, not toxic.",
+  ov: { "Drug Class": "Synthetic non-catecholamine vasopressor", "Primary Target": "\u03b11-adrenergic receptor (pure, selective)", "Action": "Direct \u03b11 agonist — zero \u03b2 activity", "G-Protein": "Gq → PLC → IP₃/DAG → Ca\u00b2\u207a → vasoconstriction", "Structure": "Non-catecholamine (single hydroxyl → no COMT metabolism)", "Net Effect": "↑SVR/MAP + reflex ↓HR + ↓CO" },
+  moa: "Phenylephrine is a selective \u03b11-adrenergic receptor agonist with ZERO \u03b2-receptor activity.\n\n\u03b11 activation (Gq): PLC cleaves PIP₂ → IP₃ + DAG. IP₃ binds IP₃ receptors on SR → Ca\u00b2\u207a release. DAG activates PKC. Ca\u00b2\u207a binds calmodulin → activates MLCK → myosin light chain phosphorylation → actin-myosin cross-bridging → vascular smooth muscle contraction → ↑SVR.\n\nThis is pure afterload increase without ANY direct cardiac stimulation.\n\nThe resulting ↑MAP triggers the baroreceptor reflex: carotid/aortic arch baroreceptors detect ↑stretch → ↑afferent firing to NTS in medulla → ↑vagal (parasympathetic) output + ↓sympathetic output → REFLEX BRADYCARDIA.\n\nNet hemodynamic profile: ↑SVR, ↑MAP, ↓HR (reflex), ↓CO (reduced HR + increased afterload). This is the opposite of ephedrine's profile and a critical interview distinction.",
+  recPhys: "The \u03b11-adrenergic receptor is a GPCR coupled exclusively to Gq. The vasoconstriction pathway:\n\nStep 1 — Receptor activation: Phenylephrine binds \u03b11 → conformational change → Gq activation → G\u03b1q-GTP dissociates from G\u03b2\u03b3.\n\nStep 2 — PLC activation: G\u03b1q activates phospholipase C (PLC-\u03b2) on the inner membrane leaflet.\n\nStep 3 — PIP₂ hydrolysis: PLC cleaves membrane phospholipid PIP₂ into two second messengers: IP₃ (soluble, diffuses into cytoplasm) and DAG (remains membrane-bound).\n\nStep 4 — Ca\u00b2\u207a release: IP₃ binds IP₃ receptors on SR → Ca\u00b2\u207a floods into cytoplasm.\n\nStep 5 — MLCK activation: Ca\u00b2\u207a binds calmodulin (4 Ca\u00b2\u207a per calmodulin) → Ca\u00b2\u207a-calmodulin complex activates myosin light chain kinase (MLCK).\n\nStep 6 — Contraction: MLCK phosphorylates myosin light chains → myosin ATPase activated → actin-myosin cross-bridge cycling → sustained vascular smooth muscle contraction.\n\nSimultaneously, DAG activates PKC, which sustains contraction via Rho kinase-mediated calcium sensitization (inhibits myosin light chain phosphatase, maintaining phosphorylation even as Ca\u00b2\u207a falls). This is why \u03b11 vasoconstriction is sustained.\n\nBaroreceptor reflex: ↑MAP → ↑carotid sinus stretch → ↑CN IX (glossopharyngeal) afferent firing → NTS → ↑CN X (vagus) efferent → M2 activation on SA node → GIRK channel opening → K\u207a efflux → bradycardia. This is physiologic, not toxic.",
   dosing: [
-    { ind: "Hypotension Bolus", dose: "50\u2013200 mcg IV", notes: "Push dose. Onset 30\u201360 sec. Repeat q1\u20132 min PRN. Common in OR and procedural settings.", clr: "ac" },
-    { ind: "Vasopressor Infusion", dose: "40\u2013360 mcg/min", notes: "Titrate to MAP \u226565. Pure afterload agent. No direct cardiac stimulation.", clr: "wn" },
-    { ind: "Spinal Hypotension (OB)", dose: "100\u2013200 mcg bolus, then 25\u201350 mcg/min", notes: "First-line vasopressor in obstetric spinal anesthesia. Preserves uterine blood flow better than ephedrine.", clr: "pr" },
-    { ind: "Nasal Decongestant", dose: "0.25\u20131% topical", notes: "Mucosal vasoconstriction. Before nasotracheal intubation (combined with lidocaine).", clr: "pk" },
+    { ind: "Hypotension Bolus", dose: "50–200 mcg IV", notes: "Push dose. Onset 30–60 sec. Repeat q1–2 min PRN. Common in OR and procedural settings.", clr: "ac" },
+    { ind: "Vasopressor Infusion", dose: "40–360 mcg/min", notes: "Titrate to MAP ≥65. Pure afterload agent. No direct cardiac stimulation.", clr: "wn" },
+    { ind: "Spinal Hypotension (OB)", dose: "100–200 mcg bolus, then 25–50 mcg/min", notes: "First-line vasopressor in obstetric spinal anesthesia. Preserves uterine blood flow better than ephedrine.", clr: "pr" },
+    { ind: "Nasal Decongestant", dose: "0.25–1% topical", notes: "Mucosal vasoconstriction. Before nasotracheal intubation (combined with lidocaine).", clr: "pk" },
   ],
-  kin: { onset: "IV: 30\u201360 sec", onsetD: "Rapid direct receptor binding", peak: "1\u20132 min", peakD: "Peak vasoconstriction", dur: "15\u201320 min (bolus)", durD: "Longer than catecholamines (no COMT metabolism)", vd: "Moderate", pb: "~95%", hl: "2.5\u20133 hours", csht: "N/A", cl: "Hepatic MAO", model: "Two-compartment" },
-  metab: "Critical structural difference from catecholamines: phenylephrine has only ONE hydroxyl group on its benzene ring (meta position) vs two for catecholamines (catechol ring = 3,4-dihydroxy). This means NO COMT metabolism.\n\nPrimary: MAO (monoamine oxidase) in the liver and GI tract. Intestinal MAO causes extensive first-pass metabolism (oral bioavailability only ~38%).\n\nSecondary: hepatic sulfotransferases (conjugation).\n\nThis single-hydroxyl structure gives phenylephrine a longer duration of action (15\u201320 min) compared to catecholamines like NE (1\u20132 min), which are rapidly degraded by BOTH MAO and COMT.\n\nNo active metabolites. Renal excretion of metabolites.\n\nMAOI interaction: blocks primary degradation pathway \u2192 dramatically prolonged and potentiated pressor effect \u2192 hypertensive crisis. Use vasopressin instead.",
+  kin: { onset: "IV: 30–60 sec", onsetD: "Rapid direct receptor binding", peak: "1–2 min", peakD: "Peak vasoconstriction", dur: "15–20 min (bolus)", durD: "Longer than catecholamines (no COMT metabolism)", vd: "Moderate", pb: "~95%", hl: "2.5–3 hours", csht: "N/A", cl: "Hepatic MAO", model: "Two-compartment" },
+  metab: "Critical structural difference from catecholamines: phenylephrine has only ONE hydroxyl group on its benzene ring (meta position) vs two for catecholamines (catechol ring = 3,4-dihydroxy). This means NO COMT metabolism.\n\nPrimary: MAO (monoamine oxidase) in the liver and GI tract. Intestinal MAO causes extensive first-pass metabolism (oral bioavailability only ~38%).\n\nSecondary: hepatic sulfotransferases (conjugation).\n\nThis single-hydroxyl structure gives phenylephrine a longer duration of action (15–20 min) compared to catecholamines like NE (1–2 min), which are rapidly degraded by BOTH MAO and COMT.\n\nNo active metabolites. Renal excretion of metabolites.\n\nMAOI interaction: blocks primary degradation pathway → dramatically prolonged and potentiated pressor effect → hypertensive crisis. Use vasopressin instead.",
   warn: [
-    { tp: "bb", ti: "Reflex Bradycardia", tx: "Expected baroreceptor response to \u2191SVR. Clinically significant if HR drops below 50. Can worsen cardiac output in patients dependent on rate." },
-    { tp: "ci", ti: "Severe Aortic Stenosis", tx: "These patients are preload-dependent and afterload-sensitive. Acute \u2191SVR may precipitate decompensation, though moderate PE use is sometimes necessary." },
-    { tp: "cau", ti: "MAOI Interaction", tx: "MAO is the PRIMARY metabolic pathway. MAOIs \u2192 severely potentiated and prolonged effect. Contraindicated or use with extreme caution." },
-    { tp: "cau", ti: "Decreased Cardiac Output", tx: "Pure afterload increase + reflex bradycardia \u2192 \u2193CO. Problematic in patients with poor contractile reserve (cardiogenic shock, severe HF)." },
-    { tp: "cau", ti: "Uterine Artery Constriction", tx: "High doses can \u2193uteroplacental blood flow. Use lowest effective dose in OB. Despite this concern, PE is still preferred over ephedrine for OB spinal hypotension." },
+    { tp: "bb", ti: "Reflex Bradycardia", tx: "Expected baroreceptor response to ↑SVR. Clinically significant if HR drops below 50. Can worsen cardiac output in patients dependent on rate." },
+    { tp: "ci", ti: "Severe Aortic Stenosis", tx: "These patients are preload-dependent and afterload-sensitive. Acute ↑SVR may precipitate decompensation, though moderate PE use is sometimes necessary." },
+    { tp: "cau", ti: "MAOI Interaction", tx: "MAO is the PRIMARY metabolic pathway. MAOIs → severely potentiated and prolonged effect. Contraindicated or use with extreme caution." },
+    { tp: "cau", ti: "Decreased Cardiac Output", tx: "Pure afterload increase + reflex bradycardia → ↓CO. Problematic in patients with poor contractile reserve (cardiogenic shock, severe HF)." },
+    { tp: "cau", ti: "Uterine Artery Constriction", tx: "High doses can ↓uteroplacental blood flow. Use lowest effective dose in OB. Despite this concern, PE is still preferred over ephedrine for OB spinal hypotension." },
   ],
   ix: [
-    { dr: "MAOIs", ef: "Block primary metabolic pathway \u2192 dramatically potentiated/prolonged effect. Hypertensive crisis. Avoid or use vasopressin.", sv: "high" },
-    { dr: "Oxytocin", ef: "Additive hypotension when oxytocin given (vasodilation) \u2192 may need increased PE dose. Common OB interaction.", sv: "mod" },
+    { dr: "MAOIs", ef: "Block primary metabolic pathway → dramatically potentiated/prolonged effect. Hypertensive crisis. Avoid or use vasopressin.", sv: "high" },
+    { dr: "Oxytocin", ef: "Additive hypotension when oxytocin given (vasodilation) → may need increased PE dose. Common OB interaction.", sv: "mod" },
     { dr: "Beta-Blockers", ef: "Exaggerated reflex bradycardia + enhanced hypertension (unopposed \u03b11 effect amplified).", sv: "mod" },
   ],
   pearls: [
-    { ti: "Pure \u03b11 = Pure Afterload", tx: "No \u03b2 activity means no inotropy, no chronotropy. \u2191SVR + reflex \u2193HR = can \u2193CO. Use when you want MAP without cardiac stimulation." },
-    { ti: "OB Spinal: PE > Ephedrine", tx: "PE is first-line for spinal hypotension in C-section. Ephedrine crosses placenta more \u2192 fetal tachycardia + acidosis. PE preserves fetal pH better." },
-    { ti: "Structure Determines Metabolism", tx: "One hydroxyl (non-catecholamine) = no COMT = longer duration (15\u201320 min vs 1\u20132 min for NE). Interview: 'Why does phenylephrine last longer than norepinephrine?'" },
-    { ti: "Push-Dose Pressor", tx: "Phenylephrine 100 mcg IV is the classic push-dose pressor for acute hypotension (induction, spinal). Onset 30\u201360s, duration 15 min. Know how to make it from a 10 mg/mL vial." },
+    { ti: "Pure \u03b11 = Pure Afterload", tx: "No \u03b2 activity means no inotropy, no chronotropy. ↑SVR + reflex ↓HR = can ↓CO. Use when you want MAP without cardiac stimulation." },
+    { ti: "OB Spinal: PE > Ephedrine", tx: "PE is first-line for spinal hypotension in C-section. Ephedrine crosses placenta more → fetal tachycardia + acidosis. PE preserves fetal pH better." },
+    { ti: "Structure Determines Metabolism", tx: "One hydroxyl (non-catecholamine) = no COMT = longer duration (15–20 min vs 1–2 min for NE). Interview: 'Why does phenylephrine last longer than norepinephrine?'" },
+    { ti: "Push-Dose Pressor", tx: "Phenylephrine 100 mcg IV is the classic push-dose pressor for acute hypotension (induction, spinal). Onset 30–60s, duration 15 min. Know how to make it from a 10 mg/mL vial." },
     { ti: "Baroreceptor Reflex Demonstration", tx: "The reflex bradycardia from PE is the cleanest demonstration of the baroreceptor reflex in clinical practice. Interviewers love asking about this pathway." },
   ],
   intQs: [
-    { q: "BP drops to 75/40 after spinal for C-section. What's your first vasopressor?", a: "Phenylephrine 100\u2013200 mcg IV bolus. PE is first-line over ephedrine for OB spinal hypotension. Better fetal acid-base status, less placental transfer, and the \u2191SVR directly counters the sympathectomy-induced vasodilation." },
-    { q: "Why does phenylephrine decrease cardiac output?", a: "Two mechanisms: (1) Pure \u03b11 \u2192 \u2191afterload without \u2191contractility = \u2191resistance against which the LV must eject. (2) Baroreceptor-mediated reflex bradycardia \u2192 \u2193HR. CO = HR \u00d7 SV, and both components decrease. This is expected pharmacology, not toxicity." },
-    { q: "Patient on phenelzine (MAOI) needs a vasopressor. Can you use phenylephrine?", a: "NO \u2014 contraindicated. MAOIs block MAO, the primary metabolic pathway for PE. PE accumulates \u2192 severe hypertensive crisis. Use vasopressin instead (non-adrenergic pathway, not metabolized by MAO or COMT)." },
+    { q: "BP drops to 75/40 after spinal for C-section. What's your first vasopressor?", a: "Phenylephrine 100–200 mcg IV bolus. PE is first-line over ephedrine for OB spinal hypotension. Better fetal acid-base status, less placental transfer, and the ↑SVR directly counters the sympathectomy-induced vasodilation." },
+    { q: "Why does phenylephrine decrease cardiac output?", a: "Two mechanisms: (1) Pure \u03b11 → ↑afterload without ↑contractility = ↑resistance against which the LV must eject. (2) Baroreceptor-mediated reflex bradycardia → ↓HR. CO = HR \u00d7 SV, and both components decrease. This is expected pharmacology, not toxicity." },
+    { q: "Patient on phenelzine (MAOI) needs a vasopressor. Can you use phenylephrine?", a: "NO — contraindicated. MAOIs block MAO, the primary metabolic pathway for PE. PE accumulates → severe hypertensive crisis. Use vasopressin instead (non-adrenergic pathway, not metabolized by MAO or COMT)." },
   ],
 },{
   id: "ephedrine", name: "Ephedrine", brand: "Generic",
   tags: ["Mixed-Acting Sympathomimetic", "Non-Catecholamine", "\u03b1+\u03b2 Agonist", "Indirect + Direct"],
   systems: ["cardio", "pharm"], type: "medication",
   ov: { "Drug Class": "Mixed-acting sympathomimetic (direct + indirect)", "Primary Targets": "\u03b11, \u03b21, \u03b22 (direct agonist) + presynaptic NE release (indirect)", "Action": "Direct receptor agonist AND indirect NE-releasing agent", "G-Proteins": "\u03b11=Gq, \u03b21/\u03b22=Gs", "Structure": "Non-catecholamine (no COMT metabolism, oral bioavailability)", "Key Feature": "Dual mechanism: 25% direct + 75% indirect (NE release via VMAT2 reversal)" },
-  moa: "Ephedrine has a unique dual mechanism of action:\n\n1. INDIRECT (75% of effect): Enters presynaptic nerve terminal via uptake-1 (NET) \u2192 displaces norepinephrine from storage vesicles by reversing VMAT2 (vesicular monoamine transporter 2) \u2192 NE floods into synaptic cleft \u2192 activates postsynaptic \u03b1 and \u03b2 receptors.\n\n2. DIRECT (25% of effect): Directly binds and activates \u03b11, \u03b21, and \u03b22 adrenergic receptors (weak partial agonist activity).\n\nHemodynamic profile: \u2191HR (\u03b21 + NE-mediated), \u2191contractility (\u03b21), \u2191SVR (\u03b11), \u2191MAP. Preserves cardiac output better than pure \u03b11 agonists.\n\nTACHYPHYLAXIS: Repeated doses cause diminished response because:\n(1) Presynaptic NE stores become depleted (primary mechanism) \u2014 if you've released all stored NE, there's nothing left to displace.\n(2) Receptor desensitization (minor contributor).\nThis is why ephedrine becomes ineffective after 3\u20134 boluses and you should switch to phenylephrine or epinephrine.",
-  recPhys: "The indirect NE-releasing mechanism makes ephedrine fundamentally different from direct-acting agents:\n\nStep 1 \u2014 Neuronal uptake: Ephedrine enters the presynaptic adrenergic nerve terminal via NET (norepinephrine transporter / uptake-1). This is the same transporter that recycles released NE back into the terminal.\n\nStep 2 \u2014 VMAT2 reversal: Inside the terminal, ephedrine interacts with VMAT2 (vesicular monoamine transporter 2), which normally packages NE into vesicles. Ephedrine reverses this transporter, causing NE to flood out of vesicles into the cytoplasm.\n\nStep 3 \u2014 NE efflux: Elevated cytoplasmic NE reverses NET itself \u2192 NE flows OUT of the terminal into the synaptic cleft (non-exocytic release, NOT calcium-dependent vesicle fusion).\n\nStep 4 \u2014 Receptor activation: Released NE + direct ephedrine binding activates post-synaptic receptors: \u03b11-Gq (\u2191SVR), \u03b21-Gs (\u2191HR, \u2191contractility), \u03b22-Gs (\u2191bronchodilation).\n\nCritical implications:\n\u2022 TCAs/cocaine block NET \u2192 ephedrine cannot enter the terminal \u2192 indirect mechanism abolished \u2192 markedly reduced effect\n\u2022 Reserpine depletes vesicular NE stores \u2192 nothing to release \u2192 ephedrine ineffective\n\u2022 MAOIs increase cytoplasmic NE \u2192 more available for release \u2192 exaggerated hypertensive response\n\u2022 Repeated dosing depletes NE stores \u2192 tachyphylaxis (classic interview question)",
+  moa: "Ephedrine has a unique dual mechanism of action:\n\n1. INDIRECT (75% of effect): Enters presynaptic nerve terminal via uptake-1 (NET) → displaces norepinephrine from storage vesicles by reversing VMAT2 (vesicular monoamine transporter 2) → NE floods into synaptic cleft → activates postsynaptic \u03b1 and \u03b2 receptors.\n\n2. DIRECT (25% of effect): Directly binds and activates \u03b11, \u03b21, and \u03b22 adrenergic receptors (weak partial agonist activity).\n\nHemodynamic profile: ↑HR (\u03b21 + NE-mediated), ↑contractility (\u03b21), ↑SVR (\u03b11), ↑MAP. Preserves cardiac output better than pure \u03b11 agonists.\n\nTACHYPHYLAXIS: Repeated doses cause diminished response because:\n(1) Presynaptic NE stores become depleted (primary mechanism) — if you've released all stored NE, there's nothing left to displace.\n(2) Receptor desensitization (minor contributor).\nThis is why ephedrine becomes ineffective after 3–4 boluses and you should switch to phenylephrine or epinephrine.",
+  recPhys: "The indirect NE-releasing mechanism makes ephedrine fundamentally different from direct-acting agents:\n\nStep 1 — Neuronal uptake: Ephedrine enters the presynaptic adrenergic nerve terminal via NET (norepinephrine transporter / uptake-1). This is the same transporter that recycles released NE back into the terminal.\n\nStep 2 — VMAT2 reversal: Inside the terminal, ephedrine interacts with VMAT2 (vesicular monoamine transporter 2), which normally packages NE into vesicles. Ephedrine reverses this transporter, causing NE to flood out of vesicles into the cytoplasm.\n\nStep 3 — NE efflux: Elevated cytoplasmic NE reverses NET itself → NE flows OUT of the terminal into the synaptic cleft (non-exocytic release, NOT calcium-dependent vesicle fusion).\n\nStep 4 — Receptor activation: Released NE + direct ephedrine binding activates post-synaptic receptors: \u03b11-Gq (↑SVR), \u03b21-Gs (↑HR, ↑contractility), \u03b22-Gs (↑bronchodilation).\n\nCritical implications:\n\u2022 TCAs/cocaine block NET → ephedrine cannot enter the terminal → indirect mechanism abolished → markedly reduced effect\n\u2022 Reserpine depletes vesicular NE stores → nothing to release → ephedrine ineffective\n\u2022 MAOIs increase cytoplasmic NE → more available for release → exaggerated hypertensive response\n\u2022 Repeated dosing depletes NE stores → tachyphylaxis (classic interview question)",
   dosing: [
-    { ind: "Acute Hypotension", dose: "5\u201310 mg IV bolus", notes: "Onset 1\u20132 min. Repeat q3\u20135 min PRN. Max ~50 mg before switching agents (tachyphylaxis).", clr: "ac" },
-    { ind: "Spinal Hypotension", dose: "5\u201310 mg IV", notes: "Second-line to phenylephrine in OB. Preserves HR/CO but crosses placenta \u2192 fetal tachycardia/acidosis.", clr: "wn" },
-    { ind: "Bronchospasm (oral)", dose: "25\u201350 mg PO q4\u20136h", notes: "Non-catecholamine \u2192 oral bioavailability. Largely replaced by selective \u03b22 agonists.", clr: "pr" },
+    { ind: "Acute Hypotension", dose: "5–10 mg IV bolus", notes: "Onset 1–2 min. Repeat q3–5 min PRN. Max ~50 mg before switching agents (tachyphylaxis).", clr: "ac" },
+    { ind: "Spinal Hypotension", dose: "5–10 mg IV", notes: "Second-line to phenylephrine in OB. Preserves HR/CO but crosses placenta → fetal tachycardia/acidosis.", clr: "wn" },
+    { ind: "Bronchospasm (oral)", dose: "25–50 mg PO q4–6h", notes: "Non-catecholamine → oral bioavailability. Largely replaced by selective \u03b22 agonists.", clr: "pr" },
   ],
-  kin: { onset: "IV: 1\u20132 min. IM: 10\u201320 min", onsetD: "Indirect mechanism requires neuronal uptake + NE displacement", peak: "2\u20135 min IV", peakD: "Time to achieve maximal NE release", dur: "10\u201315 min (bolus)", durD: "Longer than catecholamines (non-catecholamine structure)", vd: "3\u20136 L/kg", pb: "Low", hl: "3\u20136 hours", csht: "N/A", cl: "Hepatic MAO + renal unchanged", model: "Two-compartment" },
-  metab: "Non-catecholamine structure (no catechol ring = no COMT metabolism), explaining oral bioavailability and longer duration.\n\nPrimary: hepatic MAO oxidative deamination + N-demethylation.\nSecondary: 40\u201370% excreted unchanged in urine (pH-dependent: acidic urine increases excretion).\n\nNo active metabolites.\n\nHalf-life 3\u20136 hours \u2014 significantly longer than catecholamines (minutes).\n\nKey drug interaction: MAOIs block MAO degradation of both ephedrine AND the released NE \u2192 severe hypertensive crisis from dual potentiation. Wait 2\u20133 weeks after MAOI discontinuation.",
+  kin: { onset: "IV: 1–2 min. IM: 10–20 min", onsetD: "Indirect mechanism requires neuronal uptake + NE displacement", peak: "2–5 min IV", peakD: "Time to achieve maximal NE release", dur: "10–15 min (bolus)", durD: "Longer than catecholamines (non-catecholamine structure)", vd: "3–6 L/kg", pb: "Low", hl: "3–6 hours", csht: "N/A", cl: "Hepatic MAO + renal unchanged", model: "Two-compartment" },
+  metab: "Non-catecholamine structure (no catechol ring = no COMT metabolism), explaining oral bioavailability and longer duration.\n\nPrimary: hepatic MAO oxidative deamination + N-demethylation.\nSecondary: 40–70% excreted unchanged in urine (pH-dependent: acidic urine increases excretion).\n\nNo active metabolites.\n\nHalf-life 3–6 hours — significantly longer than catecholamines (minutes).\n\nKey drug interaction: MAOIs block MAO degradation of both ephedrine AND the released NE → severe hypertensive crisis from dual potentiation. Wait 2–3 weeks after MAOI discontinuation.",
   warn: [
-    { tp: "bb", ti: "Tachyphylaxis", tx: "Repeated doses deplete presynaptic NE stores. Effect diminishes after 3\u20134 boluses. Switch to direct-acting agents (phenylephrine, epinephrine) if this occurs." },
+    { tp: "bb", ti: "Tachyphylaxis", tx: "Repeated doses deplete presynaptic NE stores. Effect diminishes after 3–4 boluses. Switch to direct-acting agents (phenylephrine, epinephrine) if this occurs." },
     { tp: "ci", ti: "MAOI Interaction", tx: "Dangerous potentiation. MAOIs block degradation of displaced NE + block ephedrine metabolism. Can cause severe hypertensive crisis, ICH, death." },
-    { tp: "cau", ti: "Cocaine/TCA Interaction", tx: "Block NET (uptake-1) \u2192 ephedrine cannot enter nerve terminal \u2192 indirect mechanism abolished. Effect markedly reduced. Switch to direct-acting agents." },
-    { tp: "cau", ti: "Fetal Effects (OB)", tx: "Crosses placenta more readily than phenylephrine \u2192 fetal \u03b2 stimulation \u2192 tachycardia + metabolic acidosis. PE preferred in OB spinal hypotension." },
+    { tp: "cau", ti: "Cocaine/TCA Interaction", tx: "Block NET (uptake-1) → ephedrine cannot enter nerve terminal → indirect mechanism abolished. Effect markedly reduced. Switch to direct-acting agents." },
+    { tp: "cau", ti: "Fetal Effects (OB)", tx: "Crosses placenta more readily than phenylephrine → fetal \u03b2 stimulation → tachycardia + metabolic acidosis. PE preferred in OB spinal hypotension." },
   ],
   ix: [
     { dr: "MAOIs", ef: "Dangerous dual potentiation: blocks degradation of both ephedrine and displaced NE. Hypertensive crisis.", sv: "high" },
-    { dr: "TCAs / Cocaine", ef: "Block NET \u2192 indirect mechanism abolished \u2192 markedly reduced effect. Use direct-acting agents instead.", sv: "high" },
-    { dr: "Reserpine", ef: "Depletes vesicular NE stores \u2192 nothing to release \u2192 ephedrine ineffective.", sv: "mod" },
-    { dr: "Volatile Anesthetics", ef: "Catecholamine sensitization (from released NE) \u2192 dysrhythmia risk, though less than with exogenous catecholamines.", sv: "mod" },
+    { dr: "TCAs / Cocaine", ef: "Block NET → indirect mechanism abolished → markedly reduced effect. Use direct-acting agents instead.", sv: "high" },
+    { dr: "Reserpine", ef: "Depletes vesicular NE stores → nothing to release → ephedrine ineffective.", sv: "mod" },
+    { dr: "Volatile Anesthetics", ef: "Catecholamine sensitization (from released NE) → dysrhythmia risk, though less than with exogenous catecholamines.", sv: "mod" },
   ],
   pearls: [
     { ti: "75% Indirect / 25% Direct", tx: "Most of ephedrine's effect comes from releasing stored NE, not direct receptor binding. This explains tachyphylaxis (NE depletion) and drug interactions (NET blockers)." },
-    { ti: "Tachyphylaxis Mechanism", tx: "After 3\u20134 boluses, NE stores are depleted. No NE to release = no indirect effect. Switch to phenylephrine (pure direct) or epinephrine (direct agonist)." },
+    { ti: "Tachyphylaxis Mechanism", tx: "After 3–4 boluses, NE stores are depleted. No NE to release = no indirect effect. Switch to phenylephrine (pure direct) or epinephrine (direct agonist)." },
     { ti: "PE vs Ephedrine in OB", tx: "PE: first-line. Less placental transfer, better fetal pH. Ephedrine: preserves CO/HR (useful if bradycardia present) but fetal tachycardia/acidosis risk." },
     { ti: "Why NET Blockers Matter", tx: "TCAs and cocaine block the uptake-1 transporter that ephedrine needs to enter the nerve terminal. No entry = no NE release = minimal effect. Classic pharmacology concept." },
   ],
   intQs: [
-    { q: "You give ephedrine 10 mg x3 for post-spinal hypotension and the patient stops responding. Why?", a: "Tachyphylaxis from NE store depletion. Ephedrine's primary mechanism (75%) is indirect NE release via VMAT2 reversal. After 3\u20134 doses, presynaptic vesicular NE is exhausted. Switch to phenylephrine (direct \u03b11) or epinephrine (direct \u03b1+\u03b2)." },
+    { q: "You give ephedrine 10 mg x3 for post-spinal hypotension and the patient stops responding. Why?", a: "Tachyphylaxis from NE store depletion. Ephedrine's primary mechanism (75%) is indirect NE release via VMAT2 reversal. After 3–4 doses, presynaptic vesicular NE is exhausted. Switch to phenylephrine (direct \u03b11) or epinephrine (direct \u03b1+\u03b2)." },
     { q: "Patient on amitriptyline (TCA) needs a vasopressor. Can you use ephedrine?", a: "Ephedrine will be markedly less effective. TCAs block NET, preventing ephedrine from entering nerve terminals and displacing NE. Use phenylephrine (direct \u03b11 agonist) or norepinephrine (direct-acting, doesn't require NET for its agonist effect)." },
-    { q: "Ephedrine vs phenylephrine \u2014 when do you choose each?", a: "Ephedrine: when you want \u2191MAP + \u2191HR + preserved CO (first few doses before tachyphylaxis). PE: when you want pure \u2191SVR and can tolerate reflex bradycardia and \u2193CO. In OB: PE first-line (better fetal outcomes). In bradycardic hypotension: ephedrine may be preferred (maintains HR)." },
+    { q: "Ephedrine vs phenylephrine — when do you choose each?", a: "Ephedrine: when you want ↑MAP + ↑HR + preserved CO (first few doses before tachyphylaxis). PE: when you want pure ↑SVR and can tolerate reflex bradycardia and ↓CO. In OB: PE first-line (better fetal outcomes). In bradycardic hypotension: ephedrine may be preferred (maintains HR)." },
   ],
 },{
   id: "glycopyrrolate", name: "Glycopyrrolate", brand: "Robinul",
   tags: ["Anticholinergic", "Muscarinic Antagonist", "Quaternary Amine", "Parasympatholytic"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Synthetic quaternary ammonium antimuscarinic", "Primary Target": "M1, M2, M3 muscarinic receptors (competitive antagonist)", "Action": "Blocks ACh at muscarinic receptors \u2014 preferential M1/M3 selectivity", "G-Proteins": "Blocks M2 (Gi) and M1/M3 (Gq) signaling", "Structure": "Quaternary ammonium \u2192 CANNOT cross BBB (no CNS effects)", "Key Feature": "Peripheral anticholinergic without central side effects" },
-  moa: "Glycopyrrolate is a synthetic quaternary ammonium antimuscarinic agent. It competitively antagonizes acetylcholine at muscarinic receptors with preferential affinity for M1 and M3 subtypes.\n\nM2 blockade (SA node): Same vagolytic mechanism as atropine \u2014 blocks Gi signaling, removes GIRK channel K\u207a efflux, restores cAMP/If \u2192 \u2191HR. However, glycopyrrolate produces LESS tachycardia than atropine because it has relatively lower M2 affinity and slower onset at the SA node.\n\nM3 blockade (glands/smooth muscle): Blocks Gq/PLC/IP\u2083 pathway \u2192 potent antisialagogue (reduces salivary, bronchial, gastric secretions), reduces GI motility, bronchodilation.\n\nThe CRITICAL structural difference: quaternary nitrogen bears a permanent positive charge \u2192 cannot cross lipid bilayer membranes \u2192 CANNOT cross the blood-brain barrier. This eliminates ALL central anticholinergic effects (confusion, agitation, sedation, hallucinations, central fever). This is the single most important distinction from atropine for interview purposes.",
-  recPhys: "The quaternary ammonium structure defines glycopyrrolate's pharmacology:\n\nStructure: The nitrogen atom has four carbon substituents, creating a permanent positive charge (quaternary amine). Atropine, in contrast, has three substituents (tertiary amine) and can exist in uncharged form at physiologic pH \u2192 crosses BBB.\n\nPeripheral M2 (SA node, Gi-coupled): Glycopyrrolate blocks vagal input but with slower onset (2\u20133 min vs 30\u201360 sec for atropine) and produces a more gradual, moderate heart rate increase. The vagolytic effect is present but less dramatic.\n\nPeripheral M3 (glands, Gq-coupled): Glycopyrrolate is actually a MORE POTENT antisialagogue than atropine. It reduces salivary secretion volume by ~80%, making it the preferred agent for reducing secretions before intubation, with fiberoptic procedures, and with ketamine administration.\n\nGastric acid: M3/M1 blockade on parietal cells \u2192 \u2193acid secretion + \u2193volume. M1 blockade on enterochromaffin cells \u2192 \u2193histamine release. This is why glycopyrrolate was originally developed as an anti-ulcer medication.\n\nNo CNS effects: Cannot produce central anticholinergic syndrome (confusion, agitation, hallucinations, hyperthermia). If a patient develops central anticholinergic toxicity, physostigmine is the treatment (tertiary amine AChE inhibitor that crosses BBB).",
+  ov: { "Drug Class": "Synthetic quaternary ammonium antimuscarinic", "Primary Target": "M1, M2, M3 muscarinic receptors (competitive antagonist)", "Action": "Blocks ACh at muscarinic receptors — preferential M1/M3 selectivity", "G-Proteins": "Blocks M2 (Gi) and M1/M3 (Gq) signaling", "Structure": "Quaternary ammonium → CANNOT cross BBB (no CNS effects)", "Key Feature": "Peripheral anticholinergic without central side effects" },
+  moa: "Glycopyrrolate is a synthetic quaternary ammonium antimuscarinic agent. It competitively antagonizes acetylcholine at muscarinic receptors with preferential affinity for M1 and M3 subtypes.\n\nM2 blockade (SA node): Same vagolytic mechanism as atropine — blocks Gi signaling, removes GIRK channel K\u207a efflux, restores cAMP/If → ↑HR. However, glycopyrrolate produces LESS tachycardia than atropine because it has relatively lower M2 affinity and slower onset at the SA node.\n\nM3 blockade (glands/smooth muscle): Blocks Gq/PLC/IP₃ pathway → potent antisialagogue (reduces salivary, bronchial, gastric secretions), reduces GI motility, bronchodilation.\n\nThe CRITICAL structural difference: quaternary nitrogen bears a permanent positive charge → cannot cross lipid bilayer membranes → CANNOT cross the blood-brain barrier. This eliminates ALL central anticholinergic effects (confusion, agitation, sedation, hallucinations, central fever). This is the single most important distinction from atropine for interview purposes.",
+  recPhys: "The quaternary ammonium structure defines glycopyrrolate's pharmacology:\n\nStructure: The nitrogen atom has four carbon substituents, creating a permanent positive charge (quaternary amine). Atropine, in contrast, has three substituents (tertiary amine) and can exist in uncharged form at physiologic pH → crosses BBB.\n\nPeripheral M2 (SA node, Gi-coupled): Glycopyrrolate blocks vagal input but with slower onset (2–3 min vs 30–60 sec for atropine) and produces a more gradual, moderate heart rate increase. The vagolytic effect is present but less dramatic.\n\nPeripheral M3 (glands, Gq-coupled): Glycopyrrolate is actually a MORE POTENT antisialagogue than atropine. It reduces salivary secretion volume by ~80%, making it the preferred agent for reducing secretions before intubation, with fiberoptic procedures, and with ketamine administration.\n\nGastric acid: M3/M1 blockade on parietal cells → ↓acid secretion + ↓volume. M1 blockade on enterochromaffin cells → ↓histamine release. This is why glycopyrrolate was originally developed as an anti-ulcer medication.\n\nNo CNS effects: Cannot produce central anticholinergic syndrome (confusion, agitation, hallucinations, hyperthermia). If a patient develops central anticholinergic toxicity, physostigmine is the treatment (tertiary amine AChE inhibitor that crosses BBB).",
   dosing: [
-    { ind: "Antisialagogue", dose: "0.2 mg IV", notes: "Standard perioperative dose. Give 15\u201330 min before induction for optimal drying effect.", clr: "ac" },
+    { ind: "Antisialagogue", dose: "0.2 mg IV", notes: "Standard perioperative dose. Give 15–30 min before induction for optimal drying effect.", clr: "ac" },
     { ind: "NMB Reversal Adjunct", dose: "0.2 mg per 1 mg neostigmine", notes: "0.2 mg glyco per 1 mg neostigmine. Onset matches neostigmine better than atropine for sustained effect.", clr: "wn" },
-    { ind: "Bradycardia", dose: "0.1\u20130.2 mg IV", notes: "Slower onset than atropine (2\u20133 min vs 30\u201360 sec). Less tachycardia. Use when moderate vagolysis is adequate.", clr: "pr" },
-    { ind: "Chronic Drooling/Secretions", dose: "1\u20132 mg PO TID", notes: "Off-label. Quaternary structure limits GI absorption (~10% bioavailability) but adequate for local GI/salivary effects.", clr: "pk" },
+    { ind: "Bradycardia", dose: "0.1–0.2 mg IV", notes: "Slower onset than atropine (2–3 min vs 30–60 sec). Less tachycardia. Use when moderate vagolysis is adequate.", clr: "pr" },
+    { ind: "Chronic Drooling/Secretions", dose: "1–2 mg PO TID", notes: "Off-label. Quaternary structure limits GI absorption (~10% bioavailability) but adequate for local GI/salivary effects.", clr: "pk" },
   ],
-  kin: { onset: "IV: 2\u20133 min", onsetD: "Slower than atropine (30\u201360 sec)", peak: "5\u201310 min", peakD: "Gradual vagolytic effect", dur: "2\u20134 hours", durD: "Longer than atropine (60\u2013120 min)", vd: "0.42 L/kg", pb: "Low", hl: "0.6\u20131.2 hours", csht: "N/A", cl: "Primarily renal unchanged", model: "Multi-compartment" },
-  metab: "Minimal hepatic metabolism \u2014 this is the key pharmacokinetic distinction.\n\n80% excreted UNCHANGED in urine via glomerular filtration + tubular secretion.\n10\u201320% biliary excretion.\nMinimal CYP450 involvement.\n\nNo active metabolites.\n\nRenal impairment: significant accumulation since primary excretion is renal unchanged. Dose reduction required in CKD/AKI. Atropine may be preferred in severe renal failure (50/50 hepatic/renal).\n\nNot removed by hemodialysis (too large, charged molecule).\n\nDuration is LONGER than atropine (2\u20134h vs 1\u20132h) despite shorter elimination half-life, because glycopyrrolate's effect at the receptor outlasts its plasma concentration (slow receptor dissociation).",
+  kin: { onset: "IV: 2–3 min", onsetD: "Slower than atropine (30–60 sec)", peak: "5–10 min", peakD: "Gradual vagolytic effect", dur: "2–4 hours", durD: "Longer than atropine (60–120 min)", vd: "0.42 L/kg", pb: "Low", hl: "0.6–1.2 hours", csht: "N/A", cl: "Primarily renal unchanged", model: "Multi-compartment" },
+  metab: "Minimal hepatic metabolism — this is the key pharmacokinetic distinction.\n\n80% excreted UNCHANGED in urine via glomerular filtration + tubular secretion.\n10–20% biliary excretion.\nMinimal CYP450 involvement.\n\nNo active metabolites.\n\nRenal impairment: significant accumulation since primary excretion is renal unchanged. Dose reduction required in CKD/AKI. Atropine may be preferred in severe renal failure (50/50 hepatic/renal).\n\nNot removed by hemodialysis (too large, charged molecule).\n\nDuration is LONGER than atropine (2–4h vs 1–2h) despite shorter elimination half-life, because glycopyrrolate's effect at the receptor outlasts its plasma concentration (slow receptor dissociation).",
   warn: [
-    { tp: "cau", ti: "Renal Dosing Required", tx: "80% renal excretion unchanged. Accumulates in CKD/AKI \u2192 prolonged anticholinergic effects. Reduce dose or use atropine (50% hepatic metabolism)." },
-    { tp: "cau", ti: "Urinary Retention", tx: "M3 blockade relaxes detrusor \u2192 retention risk. Caution in BPH, neurogenic bladder." },
-    { tp: "cau", ti: "Narrow-Angle Glaucoma", tx: "Mydriasis from M3 blockade \u2192 \u2191IOP risk. Relative contraindication (same as atropine)." },
-    { tp: "cau", ti: "GI Ileus", tx: "\u2193GI motility from M3 blockade. Caution in patients with existing ileus or bowel obstruction." },
+    { tp: "cau", ti: "Renal Dosing Required", tx: "80% renal excretion unchanged. Accumulates in CKD/AKI → prolonged anticholinergic effects. Reduce dose or use atropine (50% hepatic metabolism)." },
+    { tp: "cau", ti: "Urinary Retention", tx: "M3 blockade relaxes detrusor → retention risk. Caution in BPH, neurogenic bladder." },
+    { tp: "cau", ti: "Narrow-Angle Glaucoma", tx: "Mydriasis from M3 blockade → ↑IOP risk. Relative contraindication (same as atropine)." },
+    { tp: "cau", ti: "GI Ileus", tx: "↓GI motility from M3 blockade. Caution in patients with existing ileus or bowel obstruction." },
   ],
   ix: [
     { dr: "Neostigmine", ef: "Standard pairing: glyco 0.2 mg per neostigmine 1 mg. Counters muscarinic side effects of AChE inhibition.", sv: "high" },
-    { dr: "Other Anticholinergics", ef: "Additive peripheral effects: tachycardia, urinary retention, ileus, \u2193secretions. Watch total anticholinergic burden.", sv: "mod" },
-    { dr: "Potassium Chloride (oral)", ef: "Slowed GI transit from glycopyrrolate \u2192 prolonged KCl contact with mucosa \u2192 ulceration risk.", sv: "mod" },
+    { dr: "Other Anticholinergics", ef: "Additive peripheral effects: tachycardia, urinary retention, ileus, ↓secretions. Watch total anticholinergic burden.", sv: "mod" },
+    { dr: "Potassium Chloride (oral)", ef: "Slowed GI transit from glycopyrrolate → prolonged KCl contact with mucosa → ulceration risk.", sv: "mod" },
   ],
   pearls: [
     { ti: "Quaternary = No BBB Crossing", tx: "Permanent positive charge cannot cross lipid bilayer. Zero CNS effects (no confusion, agitation, hallucinations). This is the #1 reason to choose glycopyrrolate over atropine when CNS effects are undesirable." },
     { ti: "Better Antisialagogue Than Atropine", tx: "Glycopyrrolate is a more potent drying agent despite being less potent as a vagolytic. Preferred for: fiberoptic intubation prep, ketamine premedication, excessive secretions." },
-    { ti: "Glyco vs Atropine: The Interview Table", tx: "Onset: Glyco 2\u20133 min vs Atropine 30\u201360 sec. BBB: Glyco NO vs Atropine YES. Tachycardia: Glyco less vs Atropine more. Duration: Glyco longer. Antisialagogue: Glyco better. Renal: Glyco 80% unchanged vs Atropine 50%." },
-    { ti: "Neostigmine Pairing", tx: "0.2 mg glyco per 1 mg neostigmine. Glycopyrrolate's onset (2\u20133 min) better matches neostigmine's onset than atropine's faster onset, providing more sustained protection against muscarinic effects." },
-    { ti: "Renal Failure Consideration", tx: "80% excreted unchanged in urine. In CKD/ESRD: accumulates \u2192 prolonged effect. Switch to atropine (50% hepatic) or reduce dose significantly." },
+    { ti: "Glyco vs Atropine: The Interview Table", tx: "Onset: Glyco 2–3 min vs Atropine 30–60 sec. BBB: Glyco NO vs Atropine YES. Tachycardia: Glyco less vs Atropine more. Duration: Glyco longer. Antisialagogue: Glyco better. Renal: Glyco 80% unchanged vs Atropine 50%." },
+    { ti: "Neostigmine Pairing", tx: "0.2 mg glyco per 1 mg neostigmine. Glycopyrrolate's onset (2–3 min) better matches neostigmine's onset than atropine's faster onset, providing more sustained protection against muscarinic effects." },
+    { ti: "Renal Failure Consideration", tx: "80% excreted unchanged in urine. In CKD/ESRD: accumulates → prolonged effect. Switch to atropine (50% hepatic) or reduce dose significantly." },
   ],
   intQs: [
-    { q: "Patient needs antisialagogue before fiberoptic intubation. Atropine or glycopyrrolate?", a: "Glycopyrrolate. Superior antisialagogue effect (more potent M3 blockade at glands). No CNS effects (quaternary amine, no BBB crossing). Less tachycardia. Longer duration. Give 0.2 mg IV 15\u201330 min before procedure." },
+    { q: "Patient needs antisialagogue before fiberoptic intubation. Atropine or glycopyrrolate?", a: "Glycopyrrolate. Superior antisialagogue effect (more potent M3 blockade at glands). No CNS effects (quaternary amine, no BBB crossing). Less tachycardia. Longer duration. Give 0.2 mg IV 15–30 min before procedure." },
     { q: "Why can't glycopyrrolate cross the blood-brain barrier?", a: "Quaternary ammonium structure: the nitrogen has 4 carbon substituents creating a permanent positive charge at any pH. Charged molecules cannot cross lipid bilayer membranes. Atropine is tertiary (3 substituents), can be uncharged at physiologic pH, and freely crosses the BBB." },
-    { q: "Patient in renal failure needs an anticholinergic. What's your concern with glycopyrrolate?", a: "80% is excreted unchanged in urine. Renal failure \u2192 drug accumulation \u2192 prolonged anticholinergic effects (tachycardia, urinary retention, ileus). Consider atropine instead (50% hepatic metabolism, 50% renal) or significantly reduce glycopyrrolate dose." },
+    { q: "Patient in renal failure needs an anticholinergic. What's your concern with glycopyrrolate?", a: "80% is excreted unchanged in urine. Renal failure → drug accumulation → prolonged anticholinergic effects (tachycardia, urinary retention, ileus). Consider atropine instead (50% hepatic metabolism, 50% renal) or significantly reduce glycopyrrolate dose." },
   ],
 },{
   id: "hydralazine", name: "Hydralazine", brand: "Apresoline",
   tags: ["Direct Vasodilator", "Arteriolar Selective", "Non-Adrenergic", "Hydrazinophthalazine"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Direct-acting arteriolar vasodilator (hydrazinophthalazine)", "Primary Target": "Vascular smooth muscle \u2014 arteriolar > venous", "Action": "Multiple mechanisms: \u2191NO/cGMP, interference with IP\u2083-mediated Ca\u00b2\u207a release, K\u207a channel opening", "G-Protein": "Non-receptor mechanism (downstream of GPCR signaling)", "Selectivity": "Arteriolar >> venous (minimal preload reduction)", "Key Feature": "Arteriolar selectivity + reflex tachycardia + pregnancy safe" },
-  moa: "Hydralazine produces arteriolar vasodilation through multiple interconnected mechanisms that converge on reducing intracellular calcium in vascular smooth muscle:\n\n1. NO/cGMP pathway: Stimulates endothelial NO release \u2192 NO diffuses into vascular smooth muscle \u2192 activates soluble guanylate cyclase (sGC) \u2192 GTP \u2192 cGMP \u2192 activates protein kinase G (PKG) \u2192 inhibits Ca\u00b2\u207a release from SR + stimulates Ca\u00b2\u207a reuptake \u2192 \u2193intracellular Ca\u00b2\u207a \u2192 smooth muscle relaxation.\n\n2. IP\u2083 interference: Directly interferes with IP\u2083-mediated Ca\u00b2\u207a release from the SR, blocking the Gq/PLC downstream pathway without blocking the receptor itself.\n\n3. K\u207a channel opening: Opens KATP channels \u2192 K\u207a efflux \u2192 hyperpolarization \u2192 voltage-gated Ca\u00b2\u207a channels close \u2192 \u2193Ca\u00b2\u207a entry.\n\n4. PDE inhibition: May inhibit phosphodiesterase (PDE), preventing cGMP degradation and prolonging the vasodilatory signal.\n\nCritical selectivity: Acts on ARTERIOLES >> veins. This means: \u2193SVR and \u2193afterload with minimal \u2193preload. The preserved preload triggers robust REFLEX TACHYCARDIA and increased cardiac output via the baroreceptor reflex.",
-  recPhys: "The arteriolar selectivity creates a distinctive hemodynamic profile:\n\nArteriolar vasodilation: Hydralazine's mechanisms (\u2191cGMP, IP\u2083 blockade, KATP opening) primarily affect arteriolar smooth muscle, which has higher resting tone and more dependence on IP\u2083-mediated Ca\u00b2\u207a cycling than venous smooth muscle.\n\nBaroreceptor reflex activation: \u2193SVR \u2192 \u2193MAP \u2192 \u2193carotid/aortic baroreceptor stretch \u2192 \u2193afferent firing to NTS \u2192 \u2191sympathetic outflow + \u2193vagal tone \u2192 reflex tachycardia + \u2191contractility + \u2191renin release.\n\nThis reflex sympathetic activation is why hydralazine is RARELY used as monotherapy. The compensatory response (tachycardia, \u2191CO, RAAS activation, fluid retention) can offset the antihypertensive effect. In clinical practice, it is paired with a beta-blocker (controls tachycardia) and a diuretic (prevents fluid retention).\n\nPregnancy safety: Hydralazine does NOT affect uterine blood flow at therapeutic doses because uteroplacental circulation is already maximally dilated in pregnancy. The arteriolar vasodilation occurs in the systemic vascular bed while preserving uteroplacental perfusion. Combined with long safety track record, this makes it first-line for acute severe hypertension/preeclampsia (along with labetalol and nifedipine).",
+  ov: { "Drug Class": "Direct-acting arteriolar vasodilator (hydrazinophthalazine)", "Primary Target": "Vascular smooth muscle — arteriolar > venous", "Action": "Multiple mechanisms: ↑NO/cGMP, interference with IP₃-mediated Ca\u00b2\u207a release, K\u207a channel opening", "G-Protein": "Non-receptor mechanism (downstream of GPCR signaling)", "Selectivity": "Arteriolar >> venous (minimal preload reduction)", "Key Feature": "Arteriolar selectivity + reflex tachycardia + pregnancy safe" },
+  moa: "Hydralazine produces arteriolar vasodilation through multiple interconnected mechanisms that converge on reducing intracellular calcium in vascular smooth muscle:\n\n1. NO/cGMP pathway: Stimulates endothelial NO release → NO diffuses into vascular smooth muscle → activates soluble guanylate cyclase (sGC) → GTP → cGMP → activates protein kinase G (PKG) → inhibits Ca\u00b2\u207a release from SR + stimulates Ca\u00b2\u207a reuptake → ↓intracellular Ca\u00b2\u207a → smooth muscle relaxation.\n\n2. IP₃ interference: Directly interferes with IP₃-mediated Ca\u00b2\u207a release from the SR, blocking the Gq/PLC downstream pathway without blocking the receptor itself.\n\n3. K\u207a channel opening: Opens KATP channels → K\u207a efflux → hyperpolarization → voltage-gated Ca\u00b2\u207a channels close → ↓Ca\u00b2\u207a entry.\n\n4. PDE inhibition: May inhibit phosphodiesterase (PDE), preventing cGMP degradation and prolonging the vasodilatory signal.\n\nCritical selectivity: Acts on ARTERIOLES >> veins. This means: ↓SVR and ↓afterload with minimal ↓preload. The preserved preload triggers robust REFLEX TACHYCARDIA and increased cardiac output via the baroreceptor reflex.",
+  recPhys: "The arteriolar selectivity creates a distinctive hemodynamic profile:\n\nArteriolar vasodilation: Hydralazine's mechanisms (↑cGMP, IP₃ blockade, KATP opening) primarily affect arteriolar smooth muscle, which has higher resting tone and more dependence on IP₃-mediated Ca\u00b2\u207a cycling than venous smooth muscle.\n\nBaroreceptor reflex activation: ↓SVR → ↓MAP → ↓carotid/aortic baroreceptor stretch → ↓afferent firing to NTS → ↑sympathetic outflow + ↓vagal tone → reflex tachycardia + ↑contractility + ↑renin release.\n\nThis reflex sympathetic activation is why hydralazine is RARELY used as monotherapy. The compensatory response (tachycardia, ↑CO, RAAS activation, fluid retention) can offset the antihypertensive effect. In clinical practice, it is paired with a beta-blocker (controls tachycardia) and a diuretic (prevents fluid retention).\n\nPregnancy safety: Hydralazine does NOT affect uterine blood flow at therapeutic doses because uteroplacental circulation is already maximally dilated in pregnancy. The arteriolar vasodilation occurs in the systemic vascular bed while preserving uteroplacental perfusion. Combined with long safety track record, this makes it first-line for acute severe hypertension/preeclampsia (along with labetalol and nifedipine).",
   dosing: [
-    { ind: "Hypertensive Emergency/Urgency", dose: "5\u201320 mg IV q20\u201330 min", notes: "Onset 5\u201320 min, peak 10\u201340 min. Unpredictable response \u2014 start low. Max 40 mg/dose.", clr: "ac" },
-    { ind: "Preeclampsia / Eclampsia", dose: "5 mg IV, then 5\u201310 mg q20\u201330 min", notes: "First-line with labetalol for acute severe HTN in pregnancy. Target SBP <160, DBP <110.", clr: "wn" },
-    { ind: "Chronic HTN (PO)", dose: "25\u201350 mg PO TID-QID", notes: "Max 300 mg/day. Doses >200 mg/day increase SLE-like syndrome risk. Usually with beta-blocker + diuretic.", clr: "pr" },
-    { ind: "Heart Failure (with isosorbide dinitrate)", dose: "25\u201350 mg PO TID", notes: "Fixed-dose combo (BiDil). Reduces afterload + NO supplementation. Shown to benefit African American HF patients (A-HeFT trial).", clr: "pk" },
+    { ind: "Hypertensive Emergency/Urgency", dose: "5–20 mg IV q20–30 min", notes: "Onset 5–20 min, peak 10–40 min. Unpredictable response — start low. Max 40 mg/dose.", clr: "ac" },
+    { ind: "Preeclampsia / Eclampsia", dose: "5 mg IV, then 5–10 mg q20–30 min", notes: "First-line with labetalol for acute severe HTN in pregnancy. Target SBP <160, DBP <110.", clr: "wn" },
+    { ind: "Chronic HTN (PO)", dose: "25–50 mg PO TID-QID", notes: "Max 300 mg/day. Doses >200 mg/day increase SLE-like syndrome risk. Usually with beta-blocker + diuretic.", clr: "pr" },
+    { ind: "Heart Failure (with isosorbide dinitrate)", dose: "25–50 mg PO TID", notes: "Fixed-dose combo (BiDil). Reduces afterload + NO supplementation. Shown to benefit African American HF patients (A-HeFT trial).", clr: "pk" },
   ],
-  kin: { onset: "IV: 5\u201320 min", onsetD: "Slower than most IV antihypertensives (compare nicardipine 1\u20135 min)", peak: "10\u201340 min IV", peakD: "Highly variable \u2014 unpredictable dosing", dur: "2\u20136 hours", durD: "Prolonged duration from active metabolite", vd: "1.5\u20134.5 L/kg", pb: "87%", hl: "2\u20138 hours (variable by acetylator phenotype)", csht: "N/A", cl: "Hepatic NAT2 acetylation", model: "Multi-compartment" },
-  metab: "Hepatic metabolism via N-acetyltransferase 2 (NAT2) \u2014 the acetylation pathway. This is the source of critical pharmacogenomic variability:\n\nFast acetylators (~50% Caucasians, ~90% Japanese): Rapid hepatic metabolism \u2192 lower plasma levels, shorter half-life (2\u20134h), may need higher doses.\n\nSlow acetylators (~50% Caucasians, ~10% Japanese): Reduced NAT2 activity \u2192 higher plasma levels, longer half-life (4\u20138h), greater drug exposure, HIGHER RISK of SLE-like syndrome.\n\nThe SLE-like syndrome (drug-induced lupus): Hydralazine is metabolized to reactive intermediates that bind to nuclear proteins, creating neo-antigens. Anti-histone antibodies develop. Risk increases with: doses >200 mg/day, slow acetylator phenotype, female sex, HLA-DR4. Presents with arthralgias, myalgias, pleuritis, pericarditis. Resolves with drug discontinuation (unlike idiopathic SLE, which does not resolve).\n\nAdditional: CYP3A4 involvement (minor), renal excretion of metabolites.",
+  kin: { onset: "IV: 5–20 min", onsetD: "Slower than most IV antihypertensives (compare nicardipine 1–5 min)", peak: "10–40 min IV", peakD: "Highly variable — unpredictable dosing", dur: "2–6 hours", durD: "Prolonged duration from active metabolite", vd: "1.5–4.5 L/kg", pb: "87%", hl: "2–8 hours (variable by acetylator phenotype)", csht: "N/A", cl: "Hepatic NAT2 acetylation", model: "Multi-compartment" },
+  metab: "Hepatic metabolism via N-acetyltransferase 2 (NAT2) — the acetylation pathway. This is the source of critical pharmacogenomic variability:\n\nFast acetylators (~50% Caucasians, ~90% Japanese): Rapid hepatic metabolism → lower plasma levels, shorter half-life (2–4h), may need higher doses.\n\nSlow acetylators (~50% Caucasians, ~10% Japanese): Reduced NAT2 activity → higher plasma levels, longer half-life (4–8h), greater drug exposure, HIGHER RISK of SLE-like syndrome.\n\nThe SLE-like syndrome (drug-induced lupus): Hydralazine is metabolized to reactive intermediates that bind to nuclear proteins, creating neo-antigens. Anti-histone antibodies develop. Risk increases with: doses >200 mg/day, slow acetylator phenotype, female sex, HLA-DR4. Presents with arthralgias, myalgias, pleuritis, pericarditis. Resolves with drug discontinuation (unlike idiopathic SLE, which does not resolve).\n\nAdditional: CYP3A4 involvement (minor), renal excretion of metabolites.",
   warn: [
     { tp: "bb", ti: "SLE-Like Syndrome", tx: "Drug-induced lupus with anti-histone antibodies. Risk: >200 mg/day, slow acetylators, female, HLA-DR4. Arthralgias, serositis, rash. Reversible on discontinuation." },
-    { tp: "ci", ti: "Aortic Dissection", tx: "CONTRAINDICATED. Reflex tachycardia \u2191dP/dt (rate of pressure rise) \u2192 worsens aortic shear stress and propagation. Use esmolol or labetalol instead." },
-    { tp: "ci", ti: "Severe Tachycardia/ACS", tx: "Reflex sympathetic activation \u2191myocardial O\u2082 demand. Dangerous in unstable angina/MI." },
-    { tp: "cau", ti: "Unpredictable Onset/Response", tx: "Variable onset (5\u201320 min) and acetylator-dependent metabolism make titration difficult. Less predictable than nicardipine or clevidipine." },
+    { tp: "ci", ti: "Aortic Dissection", tx: "CONTRAINDICATED. Reflex tachycardia ↑dP/dt (rate of pressure rise) → worsens aortic shear stress and propagation. Use esmolol or labetalol instead." },
+    { tp: "ci", ti: "Severe Tachycardia/ACS", tx: "Reflex sympathetic activation ↑myocardial O₂ demand. Dangerous in unstable angina/MI." },
+    { tp: "cau", ti: "Unpredictable Onset/Response", tx: "Variable onset (5–20 min) and acetylator-dependent metabolism make titration difficult. Less predictable than nicardipine or clevidipine." },
     { tp: "cau", ti: "Reflex Tachycardia", tx: "Robust baroreceptor-mediated sympathetic activation. Pair with beta-blocker. Avoid in aortic dissection, ACS, tachyarrhythmias." },
   ],
   ix: [
     { dr: "Beta-Blockers", ef: "Beneficial pairing: beta-blocker controls reflex tachycardia. Standard combination for chronic HTN.", sv: "mod" },
     { dr: "Diuretics", ef: "Prevents hydralazine-induced fluid retention from RAAS activation. Enhances antihypertensive effect.", sv: "mod" },
-    { dr: "Isosorbide Dinitrate", ef: "Fixed-dose combo (BiDil). Synergistic: hydralazine \u2193afterload + ISDN \u2193preload + supplemental NO. A-HeFT trial: mortality benefit in African American HF patients.", sv: "mod" },
+    { dr: "Isosorbide Dinitrate", ef: "Fixed-dose combo (BiDil). Synergistic: hydralazine ↓afterload + ISDN ↓preload + supplemental NO. A-HeFT trial: mortality benefit in African American HF patients.", sv: "mod" },
   ],
   pearls: [
-    { ti: "Arteriolar > Venous", tx: "Unlike nitroprusside (arterial + venous), hydralazine is arteriolar selective. Minimal preload reduction \u2192 robust reflex tachycardia. Never use as monotherapy \u2014 pair with beta-blocker." },
+    { ti: "Arteriolar > Venous", tx: "Unlike nitroprusside (arterial + venous), hydralazine is arteriolar selective. Minimal preload reduction → robust reflex tachycardia. Never use as monotherapy — pair with beta-blocker." },
     { ti: "Pregnancy First-Line", tx: "Along with labetalol and nifedipine. Safe in all trimesters. Does not reduce uteroplacental blood flow at therapeutic doses. ACOG recommended." },
-    { ti: "Aortic Dissection = Contraindicated", tx: "Reflex tachycardia increases dP/dt (rate of aortic pressure rise) \u2192 worsens shear stress on dissection flap. Use esmolol or labetalol (reduce HR first, then MAP)." },
+    { ti: "Aortic Dissection = Contraindicated", tx: "Reflex tachycardia increases dP/dt (rate of aortic pressure rise) → worsens shear stress on dissection flap. Use esmolol or labetalol (reduce HR first, then MAP)." },
     { ti: "Slow vs Fast Acetylators", tx: "NAT2 polymorphism. Slow acetylators: more drug exposure, higher SLE risk, longer half-life. Fast: may need higher doses. This is a classic pharmacogenomics interview question." },
     { ti: "BiDil (Hydralazine + ISDN)", tx: "A-HeFT trial: 43% reduction in mortality in self-identified African American patients with HFrEF. Hydralazine prevents nitrate tolerance by scavenging superoxide." },
   ],
   intQs: [
-    { q: "Pregnant patient at 34 weeks with BP 178/112. What's your approach?", a: "Acute severe hypertension in preeclampsia. IV hydralazine 5 mg or IV labetalol 20 mg. Target SBP <160, DBP <110. Also give magnesium sulfate for seizure prophylaxis. Hydralazine is safe in pregnancy \u2014 does not reduce uteroplacental blood flow at therapeutic doses." },
+    { q: "Pregnant patient at 34 weeks with BP 178/112. What's your approach?", a: "Acute severe hypertension in preeclampsia. IV hydralazine 5 mg or IV labetalol 20 mg. Target SBP <160, DBP <110. Also give magnesium sulfate for seizure prophylaxis. Hydralazine is safe in pregnancy — does not reduce uteroplacental blood flow at therapeutic doses." },
     { q: "Patient with acute aortic dissection. Can you use hydralazine?", a: "Absolutely NOT. Hydralazine causes reflex tachycardia which increases dP/dt (rate of aortic pressure rise). This worsens shear stress on the dissection flap and promotes propagation. Use IV esmolol or labetalol first to reduce HR to <60, THEN add vasodilator (nicardipine or nitroprusside) if MAP still elevated." },
-    { q: "Patient develops joint pain and pleuritis on chronic hydralazine. What's happening?", a: "Drug-induced lupus (SLE-like syndrome). Check anti-histone antibodies (positive in >95% of cases). Risk factors: dose >200 mg/day, slow NAT2 acetylator, female, HLA-DR4. Treatment: discontinue hydralazine \u2014 symptoms resolve over weeks to months. Unlike idiopathic SLE, drug-induced lupus does NOT cause renal or CNS involvement and resolves on discontinuation." },
+    { q: "Patient develops joint pain and pleuritis on chronic hydralazine. What's happening?", a: "Drug-induced lupus (SLE-like syndrome). Check anti-histone antibodies (positive in >95% of cases). Risk factors: dose >200 mg/day, slow NAT2 acetylator, female, HLA-DR4. Treatment: discontinue hydralazine — symptoms resolve over weeks to months. Unlike idiopathic SLE, drug-induced lupus does NOT cause renal or CNS involvement and resolves on discontinuation." },
   ],
 },{
   id: "labetalol", name: "Labetalol", brand: "Trandate / Normodyne",
   tags: ["Combined \u03b1/\u03b2 Blocker", "Non-Selective \u03b2 + \u03b11", "Antihypertensive", "Adrenergic Antagonist"],
   systems: ["cardio", "pharm"], type: "medication",
   ov: { "Drug Class": "Combined non-selective \u03b2 + selective \u03b11 adrenergic antagonist", "Primary Targets": "\u03b21, \u03b22 (antagonist) + \u03b11 (antagonist)", "Action": "Dual blockade: \u03b2 >> \u03b1 (ratio 7:1 IV, 3:1 PO)", "G-Proteins": "Blocks \u03b21/\u03b22 (Gs) + \u03b11 (Gq) signaling", "Selectivity": "\u03b2:\u03b1 ratio = 7:1 IV, 3:1 oral", "Key Feature": "Reduces BP without reflex tachycardia (combined \u03b1+\u03b2 blockade)" },
-  moa: "Labetalol provides dual adrenergic blockade at both alpha and beta receptors:\n\n\u03b21/\u03b22 Antagonism (primary): Blocks Gs-coupled receptors \u2192 \u2193adenylyl cyclase activity \u2192 \u2193cAMP \u2192 \u2193PKA. At the heart: \u2193chronotropy (HR), \u2193inotropy (contractility), \u2193dromotropy (AV conduction). At the kidney: \u2193renin release. Net: \u2193CO and \u2193RAAS activation.\n\n\u03b11 Antagonism (secondary): Blocks Gq-coupled receptors \u2192 prevents PLC/IP\u2083/Ca\u00b2\u207a cascade \u2192 prevents vasoconstriction \u2192 \u2193SVR. This peripheral vasodilation component is what distinguishes labetalol from pure beta-blockers.\n\nThe dual blockade ratio is 7:1 (\u03b2:\u03b1) IV and 3:1 PO. This means beta-blockade predominates, but the alpha component provides critical vasodilation that:\n(1) Prevents the reflex tachycardia seen with pure vasodilators (hydralazine)\n(2) Prevents the \u2191SVR seen with pure beta-blockers (compensatory \u03b1 vasoconstriction when \u03b2 is blocked)\n\nNet hemodynamic effect: \u2193BP (via \u2193SVR + \u2193CO) with PRESERVED cardiac output (the \u03b1 vasodilation offsets the \u03b2-mediated CO reduction). Heart rate decreases modestly or remains stable.",
-  recPhys: "Understanding why labetalol preserves cardiac output despite beta-blockade:\n\nPure beta-blockers (metoprolol, esmolol): Block \u03b21 \u2192 \u2193HR + \u2193contractility \u2192 \u2193CO. This triggers baroreceptor-mediated sympathetic activation \u2192 \u2191NE release \u2192 unopposed \u03b11 stimulation \u2192 \u2191SVR. Net: CO falls, SVR rises, BP may not decrease significantly.\n\nLabetalol adds \u03b11 blockade: The \u03b11 component blocks the compensatory vasoconstriction \u2192 SVR decreases. Reduced afterload means the ventricle ejects more easily despite reduced contractility. This afterload reduction partially compensates for the \u03b21-mediated CO reduction, preserving overall cardiac output.\n\nDual Gq + Gs blockade: \u03b11 blockade prevents PLC \u2192 IP\u2083 \u2192 Ca\u00b2\u207a \u2192 MLCK pathway in vascular smooth muscle. \u03b21 blockade prevents adenylyl cyclase \u2192 cAMP \u2192 PKA pathway in cardiomyocytes. Both signaling cascades are suppressed simultaneously.\n\nPregnancy considerations: Labetalol does not significantly reduce uteroplacental blood flow because the \u03b11 blockade prevents vasoconstriction in the uteroplacental bed. It is first-line (along with nifedipine and hydralazine) for both acute and chronic hypertension in pregnancy. \u03b21 blockade: potential fetal bradycardia/hypoglycemia at high doses, but clinically manageable.",
+  moa: "Labetalol provides dual adrenergic blockade at both alpha and beta receptors:\n\n\u03b21/\u03b22 Antagonism (primary): Blocks Gs-coupled receptors → ↓adenylyl cyclase activity → ↓cAMP → ↓PKA. At the heart: ↓chronotropy (HR), ↓inotropy (contractility), ↓dromotropy (AV conduction). At the kidney: ↓renin release. Net: ↓CO and ↓RAAS activation.\n\n\u03b11 Antagonism (secondary): Blocks Gq-coupled receptors → prevents PLC/IP₃/Ca\u00b2\u207a cascade → prevents vasoconstriction → ↓SVR. This peripheral vasodilation component is what distinguishes labetalol from pure beta-blockers.\n\nThe dual blockade ratio is 7:1 (\u03b2:\u03b1) IV and 3:1 PO. This means beta-blockade predominates, but the alpha component provides critical vasodilation that:\n(1) Prevents the reflex tachycardia seen with pure vasodilators (hydralazine)\n(2) Prevents the ↑SVR seen with pure beta-blockers (compensatory \u03b1 vasoconstriction when \u03b2 is blocked)\n\nNet hemodynamic effect: ↓BP (via ↓SVR + ↓CO) with PRESERVED cardiac output (the \u03b1 vasodilation offsets the \u03b2-mediated CO reduction). Heart rate decreases modestly or remains stable.",
+  recPhys: "Understanding why labetalol preserves cardiac output despite beta-blockade:\n\nPure beta-blockers (metoprolol, esmolol): Block \u03b21 → ↓HR + ↓contractility → ↓CO. This triggers baroreceptor-mediated sympathetic activation → ↑NE release → unopposed \u03b11 stimulation → ↑SVR. Net: CO falls, SVR rises, BP may not decrease significantly.\n\nLabetalol adds \u03b11 blockade: The \u03b11 component blocks the compensatory vasoconstriction → SVR decreases. Reduced afterload means the ventricle ejects more easily despite reduced contractility. This afterload reduction partially compensates for the \u03b21-mediated CO reduction, preserving overall cardiac output.\n\nDual Gq + Gs blockade: \u03b11 blockade prevents PLC → IP₃ → Ca\u00b2\u207a → MLCK pathway in vascular smooth muscle. \u03b21 blockade prevents adenylyl cyclase → cAMP → PKA pathway in cardiomyocytes. Both signaling cascades are suppressed simultaneously.\n\nPregnancy considerations: Labetalol does not significantly reduce uteroplacental blood flow because the \u03b11 blockade prevents vasoconstriction in the uteroplacental bed. It is first-line (along with nifedipine and hydralazine) for both acute and chronic hypertension in pregnancy. \u03b21 blockade: potential fetal bradycardia/hypoglycemia at high doses, but clinically manageable.",
   dosing: [
-    { ind: "Hypertensive Emergency (IV bolus)", dose: "10\u201320 mg IV over 2 min, then 20\u201380 mg q10 min", notes: "Escalating dose protocol. Max 300 mg total. Onset 2\u20135 min.", clr: "ac" },
-    { ind: "Hypertensive Emergency (infusion)", dose: "0.5\u20132 mg/min IV", notes: "Continuous infusion. Titrate to target BP. Alternative to bolus dosing.", clr: "wn" },
-    { ind: "Preeclampsia / Pregnancy HTN", dose: "20 mg IV, then 20\u201340 mg q10\u201315 min", notes: "First-line IV antihypertensive in pregnancy. Max 300 mg. Target SBP <160, DBP <110.", clr: "pr" },
-    { ind: "Chronic HTN (PO)", dose: "100\u2013400 mg PO BID", notes: "Oral ratio 3:1 (\u03b2:\u03b1). Max 2400 mg/day. Take with food.", clr: "pk" },
-    { ind: "Aortic Dissection (adjunct)", dose: "20 mg IV, then infusion 1\u20132 mg/min", notes: "Reduces both HR and BP. Target HR <60 first, then MAP 60\u201370. Often combined with esmolol for faster HR control.", clr: "dg" },
+    { ind: "Hypertensive Emergency (IV bolus)", dose: "10–20 mg IV over 2 min, then 20–80 mg q10 min", notes: "Escalating dose protocol. Max 300 mg total. Onset 2–5 min.", clr: "ac" },
+    { ind: "Hypertensive Emergency (infusion)", dose: "0.5–2 mg/min IV", notes: "Continuous infusion. Titrate to target BP. Alternative to bolus dosing.", clr: "wn" },
+    { ind: "Preeclampsia / Pregnancy HTN", dose: "20 mg IV, then 20–40 mg q10–15 min", notes: "First-line IV antihypertensive in pregnancy. Max 300 mg. Target SBP <160, DBP <110.", clr: "pr" },
+    { ind: "Chronic HTN (PO)", dose: "100–400 mg PO BID", notes: "Oral ratio 3:1 (\u03b2:\u03b1). Max 2400 mg/day. Take with food.", clr: "pk" },
+    { ind: "Aortic Dissection (adjunct)", dose: "20 mg IV, then infusion 1–2 mg/min", notes: "Reduces both HR and BP. Target HR <60 first, then MAP 60–70. Often combined with esmolol for faster HR control.", clr: "dg" },
   ],
-  kin: { onset: "IV: 2\u20135 min", onsetD: "Rapid onset for hypertensive emergencies", peak: "5\u201315 min IV", peakD: "Predictable dose-response", dur: "2\u201312 hours IV (dose-dependent)", durD: "Prolonged duration allows q10 min bolus dosing", vd: "3\u201316 L/kg", pb: "~50%", hl: "5.5\u20138 hours", csht: "N/A", cl: "Hepatic glucuronidation + CYP2D6", model: "Multi-compartment" },
-  metab: "Extensive hepatic metabolism via two primary pathways:\n\n1. Glucuronidation (primary): Direct conjugation \u2192 inactive glucuronide metabolites \u2192 renal excretion. First-pass metabolism is significant (~75%), explaining low oral bioavailability (25%).\n\n2. CYP2D6 (secondary): Oxidative metabolism. CYP2D6 poor metabolizers may have higher plasma levels and exaggerated effects.\n\nNo active metabolites.\n\n55\u201360% renally excreted (as metabolites), 12\u201327% biliary excretion.\n\nHalf-life 5.5\u20138 hours. Duration of action often exceeds half-life (receptor binding kinetics).\n\nHepatic impairment: significantly increased bioavailability and prolonged effect. Reduce dose.\n\nRenal impairment: metabolites accumulate but are inactive. Generally no dose adjustment needed.\n\nCYP2D6 polymorphism: poor metabolizers (~7% Caucasians) may have exaggerated hypotensive effect.",
+  kin: { onset: "IV: 2–5 min", onsetD: "Rapid onset for hypertensive emergencies", peak: "5–15 min IV", peakD: "Predictable dose-response", dur: "2–12 hours IV (dose-dependent)", durD: "Prolonged duration allows q10 min bolus dosing", vd: "3–16 L/kg", pb: "~50%", hl: "5.5–8 hours", csht: "N/A", cl: "Hepatic glucuronidation + CYP2D6", model: "Multi-compartment" },
+  metab: "Extensive hepatic metabolism via two primary pathways:\n\n1. Glucuronidation (primary): Direct conjugation → inactive glucuronide metabolites → renal excretion. First-pass metabolism is significant (~75%), explaining low oral bioavailability (25%).\n\n2. CYP2D6 (secondary): Oxidative metabolism. CYP2D6 poor metabolizers may have higher plasma levels and exaggerated effects.\n\nNo active metabolites.\n\n55–60% renally excreted (as metabolites), 12–27% biliary excretion.\n\nHalf-life 5.5–8 hours. Duration of action often exceeds half-life (receptor binding kinetics).\n\nHepatic impairment: significantly increased bioavailability and prolonged effect. Reduce dose.\n\nRenal impairment: metabolites accumulate but are inactive. Generally no dose adjustment needed.\n\nCYP2D6 polymorphism: poor metabolizers (~7% Caucasians) may have exaggerated hypotensive effect.",
   warn: [
     { tp: "bb", ti: "Severe Bradycardia/Heart Block", tx: "\u03b21 blockade can cause symptomatic bradycardia, 2nd/3rd degree AV block. Avoid in pre-existing high-degree block without pacemaker." },
     { tp: "ci", ti: "Decompensated Heart Failure", tx: "\u03b21 blockade + negative inotropy can worsen acute HF. Contraindicated in decompensated/acute HF (chronic stable HF: beta-blockers are beneficial)." },
-    { tp: "ci", ti: "Severe Asthma/Bronchospasm", tx: "Non-selective \u03b22 blockade \u2192 bronchoconstriction. Contraindicated in severe reactive airway disease. Use cardioselective beta-blocker if needed (metoprolol, esmolol)." },
-    { tp: "ci", ti: "Cocaine Intoxication", tx: "CONTROVERSIAL. Traditional teaching: beta-blockers cause 'unopposed alpha stimulation' \u2192 worsened HTN/coronary vasospasm. However, labetalol's \u03b11 blockade theoretically mitigates this. Most guidelines still recommend avoiding beta-blockers in acute cocaine toxicity \u2014 use benzodiazepines, phentolamine, or nicardipine." },
-    { tp: "cau", ti: "Rebound Hypertension", tx: "Chronic beta-blocker therapy causes \u03b2-receptor upregulation. Abrupt discontinuation \u2192 increased receptor density + catecholamine surge \u2192 rebound tachycardia and hypertension. Taper over 1\u20132 weeks." },
+    { tp: "ci", ti: "Severe Asthma/Bronchospasm", tx: "Non-selective \u03b22 blockade → bronchoconstriction. Contraindicated in severe reactive airway disease. Use cardioselective beta-blocker if needed (metoprolol, esmolol)." },
+    { tp: "ci", ti: "Cocaine Intoxication", tx: "CONTROVERSIAL. Traditional teaching: beta-blockers cause 'unopposed alpha stimulation' → worsened HTN/coronary vasospasm. However, labetalol's \u03b11 blockade theoretically mitigates this. Most guidelines still recommend avoiding beta-blockers in acute cocaine toxicity — use benzodiazepines, phentolamine, or nicardipine." },
+    { tp: "cau", ti: "Rebound Hypertension", tx: "Chronic beta-blocker therapy causes \u03b2-receptor upregulation. Abrupt discontinuation → increased receptor density + catecholamine surge → rebound tachycardia and hypertension. Taper over 1–2 weeks." },
     { tp: "cau", ti: "Hypoglycemia Masking", tx: "\u03b2 blockade blunts tachycardia and tremor responses to hypoglycemia. Diaphoresis (cholinergic) is preserved. Critical in diabetic patients on insulin." },
   ],
   ix: [
     { dr: "Calcium Channel Blockers (non-DHP)", ef: "Additive negative chronotropy/dromotropy with verapamil/diltiazem. Risk of severe bradycardia, heart block, cardiac arrest.", sv: "high" },
     { dr: "Clonidine", ef: "Additive bradycardia. If both discontinued simultaneously: rebound hypertensive crisis from unopposed sympathetic surge.", sv: "high" },
     { dr: "Insulin / Sulfonylureas", ef: "\u03b2 blockade masks hypoglycemia symptoms (tachycardia, tremor). Diaphoresis preserved. Monitor glucose closely.", sv: "mod" },
-    { dr: "CYP2D6 Inhibitors", ef: "Fluoxetine, paroxetine, bupropion inhibit CYP2D6 \u2192 increased labetalol levels \u2192 exaggerated effect.", sv: "mod" },
+    { dr: "CYP2D6 Inhibitors", ef: "Fluoxetine, paroxetine, bupropion inhibit CYP2D6 → increased labetalol levels → exaggerated effect.", sv: "mod" },
   ],
   pearls: [
     { ti: "7:1 \u03b2:\u03b1 Ratio (IV)", tx: "Beta-blockade predominates. The \u03b11 component prevents reflex tachycardia (unlike pure \u03b2-blockers) and provides vasodilation without compensatory SVR increase. Oral ratio is 3:1." },
-    { ti: "Preserves Cardiac Output", tx: "Unlike pure beta-blockers (\u2193CO from \u2193HR/contractility), labetalol's \u03b11 vasodilation reduces afterload, partially compensating for \u03b21-mediated CO reduction. Net CO is relatively preserved." },
+    { ti: "Preserves Cardiac Output", tx: "Unlike pure beta-blockers (↓CO from ↓HR/contractility), labetalol's \u03b11 vasodilation reduces afterload, partially compensating for \u03b21-mediated CO reduction. Net CO is relatively preserved." },
     { ti: "Pregnancy Safe", tx: "First-line for both acute and chronic HTN in pregnancy. Does not reduce uteroplacental blood flow. Potential fetal bradycardia at high doses but clinically manageable." },
     { ti: "Cocaine: Still Controversial", tx: "Traditional teaching says avoid all beta-blockers with cocaine (unopposed alpha). Labetalol has \u03b11 blockade, but most guidelines still recommend against it. Use benzos + phentolamine + nicardipine." },
-    { ti: "Rebound Hypertension", tx: "Chronic \u03b2 blockade causes receptor upregulation. Abrupt stop \u2192 catecholamine surge hits increased receptor density \u2192 severe rebound HTN/tachycardia. Always taper over 1\u20132 weeks." },
+    { ti: "Rebound Hypertension", tx: "Chronic \u03b2 blockade causes receptor upregulation. Abrupt stop → catecholamine surge hits increased receptor density → severe rebound HTN/tachycardia. Always taper over 1–2 weeks." },
     { ti: "Aortic Dissection Role", tx: "Reduces BOTH HR (dP/dt) and BP. Can be used alone or with esmolol. Target HR <60 first, then MAP. Superior to hydralazine which causes reflex tachycardia." },
   ],
   intQs: [
-    { q: "BP 210/120, HR 95, no end-organ damage yet. First-line IV agent?", a: "IV labetalol 20 mg over 2 min. Provides rapid, predictable BP reduction via dual \u03b1+\u03b2 blockade without reflex tachycardia. Escalate to 40\u201380 mg q10 min or start infusion 0.5\u20132 mg/min. Max 300 mg. Alternative: nicardipine infusion." },
-    { q: "Why is labetalol preferred over metoprolol for hypertensive emergencies?", a: "Metoprolol is pure \u03b21-selective \u2192 reduces CO but triggers compensatory \u2191SVR (baroreceptor reflex + unopposed \u03b11). Net BP reduction is modest. Labetalol blocks both \u03b2 AND \u03b11 \u2192 reduces CO AND SVR simultaneously \u2192 more effective BP reduction without compensatory vasoconstriction or reflex tachycardia." },
-    { q: "Patient with cocaine-induced HTN and chest pain. Can you give labetalol?", a: "CONTROVERSIAL but most guidelines say AVOID beta-blockers in acute cocaine toxicity. Traditional concern: \u03b2 blockade removes \u03b22 vasodilation \u2192 unopposed \u03b1 vasoconstriction \u2192 worsened HTN + coronary spasm. Labetalol's \u03b11 blockade theoretically mitigates this, but evidence is limited. First-line: benzodiazepines (reduce sympathetic surge), then phentolamine or nicardipine if BP remains elevated." },
-    { q: "Patient on chronic labetalol stops taking it before surgery. What's the concern?", a: "Rebound hypertension and tachycardia. Chronic \u03b2 blockade causes \u03b2-receptor upregulation (increased receptor density). Abrupt withdrawal \u2192 endogenous catecholamines act on more receptors \u2192 exaggerated response \u2192 hypertensive crisis, tachycardia, potential myocardial ischemia. Continue beta-blockers perioperatively or taper over 1\u20132 weeks before elective surgery." },
+    { q: "BP 210/120, HR 95, no end-organ damage yet. First-line IV agent?", a: "IV labetalol 20 mg over 2 min. Provides rapid, predictable BP reduction via dual \u03b1+\u03b2 blockade without reflex tachycardia. Escalate to 40–80 mg q10 min or start infusion 0.5–2 mg/min. Max 300 mg. Alternative: nicardipine infusion." },
+    { q: "Why is labetalol preferred over metoprolol for hypertensive emergencies?", a: "Metoprolol is pure \u03b21-selective → reduces CO but triggers compensatory ↑SVR (baroreceptor reflex + unopposed \u03b11). Net BP reduction is modest. Labetalol blocks both \u03b2 AND \u03b11 → reduces CO AND SVR simultaneously → more effective BP reduction without compensatory vasoconstriction or reflex tachycardia." },
+    { q: "Patient with cocaine-induced HTN and chest pain. Can you give labetalol?", a: "CONTROVERSIAL but most guidelines say AVOID beta-blockers in acute cocaine toxicity. Traditional concern: \u03b2 blockade removes \u03b22 vasodilation → unopposed \u03b1 vasoconstriction → worsened HTN + coronary spasm. Labetalol's \u03b11 blockade theoretically mitigates this, but evidence is limited. First-line: benzodiazepines (reduce sympathetic surge), then phentolamine or nicardipine if BP remains elevated." },
+    { q: "Patient on chronic labetalol stops taking it before surgery. What's the concern?", a: "Rebound hypertension and tachycardia. Chronic \u03b2 blockade causes \u03b2-receptor upregulation (increased receptor density). Abrupt withdrawal → endogenous catecholamines act on more receptors → exaggerated response → hypertensive crisis, tachycardia, potential myocardial ischemia. Continue beta-blockers perioperatively or taper over 1–2 weeks before elective surgery." },
   ],
 },
 {
   id: "ketamine", name: "Ketamine", brand: "Ketalar",
   tags: ["Dissociative Anesthetic", "NMDA Antagonist", "Phencyclidine Derivative", "Analgesic"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Phencyclidine derivative \u2014 dissociative anesthetic", "Primary Target": "NMDA receptor (non-competitive antagonist)", "Action": "Open-channel block of NMDA Ca\u00b2\u207a/Na\u207a channel + opioid receptor modulation + monoamine reuptake inhibition", "Ion Channel": "Blocks NMDA Ca\u00b2\u207a/Na\u207a influx \u2192 dissociation", "Formulation": "10, 50, 100 mg/mL solutions", "Schedule": "DEA Schedule III" },
-  moa: "Ketamine is a phencyclidine (PCP) derivative that produces dissociative anesthesia \u2014 a unique cataleptic state of profound analgesia and amnesia with preserved airway reflexes and spontaneous ventilation (at appropriate doses).\n\nPRIMARY MECHANISM \u2014 NMDA Receptor Antagonism:\nKetamine is a non-competitive, use-dependent antagonist of the NMDA (N-methyl-D-aspartate) glutamate receptor. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a. Under normal conditions, glutamate + glycine binding opens the channel, but Mg\u00b2\u207a blocks the pore at resting membrane potential (voltage-dependent block). When the neuron depolarizes (by AMPA receptor activation), Mg\u00b2\u207a is expelled, and Ca\u00b2\u207a/Na\u207a flow in \u2014 driving excitatory neurotransmission.\n\nKetamine enters the OPEN channel and binds the PCP site inside the pore (between Mg\u00b2\u207a site and selectivity filter). This is USE-DEPENDENT: the channel must open before ketamine can block it. Once bound, ketamine physically occludes ion flow, preventing Ca\u00b2\u207a/Na\u207a influx even when glutamate is present.\n\nNMDA blockade in the thalamus and limbic system produces the dissociative state: functional disconnection between thalamocortical and limbic systems. The patient appears conscious (eyes open, nystagmus, purposeful movements) but is dissociated from sensory input.\n\nSECONDARY MECHANISMS:\n\u2022 Opioid receptor modulation: weak agonist at mu (\u03bc) and kappa (\u03ba) opioid receptors \u2192 contributes to analgesia\n\u2022 Monoamine reuptake inhibition: blocks reuptake of norepinephrine, dopamine, and serotonin \u2192 sympathomimetic effects (indirect)\n\u2022 Sodium channel blockade: weak local anesthetic effect at high concentrations\n\u2022 HCN1 channel interaction: may contribute to hypnotic effect\n\u2022 Anti-inflammatory: suppresses NF-\u03baB, reduces TNF-\u03b1 and IL-6 production",
-  recPhys: "NMDA Receptor Physiology \u2014 The Coincidence Detector:\n\nThe NMDA receptor requires TWO simultaneous conditions to open (hence 'coincidence detector'):\n1. Ligand binding: Glutamate (agonist site) + Glycine/D-serine (co-agonist site required)\n2. Membrane depolarization: Expels Mg\u00b2\u207a from the channel pore (voltage-dependent block)\n\nWhen both conditions are met: the channel opens and conducts Ca\u00b2\u207a and Na\u207a inward. The Ca\u00b2\u207a influx is critical \u2014 it activates CaMKII (calcium-calmodulin kinase II), which triggers:\n\u2022 Long-term potentiation (LTP) \u2014 synaptic strengthening, learning, memory formation\n\u2022 Central sensitization \u2014 wind-up phenomenon in dorsal horn (pain amplification)\n\u2022 Excitotoxicity \u2014 excessive Ca\u00b2\u207a \u2192 mitochondrial damage \u2192 neuronal death (stroke, TBI)\n\nKetamine's Clinical Relevance at Each Level:\n\nAnalgesia: NMDA blockade in the dorsal horn prevents central sensitization and wind-up. This is why sub-anesthetic ketamine (0.1\u20130.3 mg/kg/hr) is effective for opioid-resistant pain and reduces opioid requirements by 30\u201350% (opioid-sparing effect).\n\nNeuroprotection: By blocking excessive Ca\u00b2\u207a influx through NMDA channels, ketamine may limit excitotoxic injury. Theoretical benefit in TBI, status epilepticus (late/refractory stages).\n\nAntidepressant effect: NMDA blockade triggers a cascade: \u2191BDNF (brain-derived neurotrophic factor) \u2192 \u2191mTOR signaling \u2192 rapid synaptogenesis in prefrontal cortex. This produces antidepressant effects within 2\u20134 hours (vs. weeks for SSRIs). Esketamine (Spravato) is FDA-approved for treatment-resistant depression.\n\nSympathomimetic profile: Ketamine's monoamine reuptake inhibition centrally stimulates the sympathetic nervous system \u2192 \u2191HR, \u2191BP, \u2191SVR. This is why ketamine is the induction agent of choice in hemodynamically unstable patients (trauma, hemorrhagic shock, tamponade). However, in catecholamine-depleted patients (end-stage septic shock, prolonged critical illness), the indirect mechanism fails and ketamine's direct myocardial depressant effect is unmasked \u2192 cardiovascular collapse.",
+  ov: { "Drug Class": "Phencyclidine derivative — dissociative anesthetic", "Primary Target": "NMDA receptor (non-competitive antagonist)", "Action": "Open-channel block of NMDA Ca\u00b2\u207a/Na\u207a channel + opioid receptor modulation + monoamine reuptake inhibition", "Ion Channel": "Blocks NMDA Ca\u00b2\u207a/Na\u207a influx → dissociation", "Formulation": "10, 50, 100 mg/mL solutions", "Schedule": "DEA Schedule III" },
+  moa: "Ketamine is a phencyclidine (PCP) derivative that produces dissociative anesthesia — a unique cataleptic state of profound analgesia and amnesia with preserved airway reflexes and spontaneous ventilation (at appropriate doses).\n\nPRIMARY MECHANISM — NMDA Receptor Antagonism:\nKetamine is a non-competitive, use-dependent antagonist of the NMDA (N-methyl-D-aspartate) glutamate receptor. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a. Under normal conditions, glutamate + glycine binding opens the channel, but Mg\u00b2\u207a blocks the pore at resting membrane potential (voltage-dependent block). When the neuron depolarizes (by AMPA receptor activation), Mg\u00b2\u207a is expelled, and Ca\u00b2\u207a/Na\u207a flow in — driving excitatory neurotransmission.\n\nKetamine enters the OPEN channel and binds the PCP site inside the pore (between Mg\u00b2\u207a site and selectivity filter). This is USE-DEPENDENT: the channel must open before ketamine can block it. Once bound, ketamine physically occludes ion flow, preventing Ca\u00b2\u207a/Na\u207a influx even when glutamate is present.\n\nNMDA blockade in the thalamus and limbic system produces the dissociative state: functional disconnection between thalamocortical and limbic systems. The patient appears conscious (eyes open, nystagmus, purposeful movements) but is dissociated from sensory input.\n\nSECONDARY MECHANISMS:\n\u2022 Opioid receptor modulation: weak agonist at mu (\u03bc) and kappa (\u03ba) opioid receptors → contributes to analgesia\n\u2022 Monoamine reuptake inhibition: blocks reuptake of norepinephrine, dopamine, and serotonin → sympathomimetic effects (indirect)\n\u2022 Sodium channel blockade: weak local anesthetic effect at high concentrations\n\u2022 HCN1 channel interaction: may contribute to hypnotic effect\n\u2022 Anti-inflammatory: suppresses NF-\u03baB, reduces TNF-\u03b1 and IL-6 production",
+  recPhys: "NMDA Receptor Physiology — The Coincidence Detector:\n\nThe NMDA receptor requires TWO simultaneous conditions to open (hence 'coincidence detector'):\n1. Ligand binding: Glutamate (agonist site) + Glycine/D-serine (co-agonist site required)\n2. Membrane depolarization: Expels Mg\u00b2\u207a from the channel pore (voltage-dependent block)\n\nWhen both conditions are met: the channel opens and conducts Ca\u00b2\u207a and Na\u207a inward. The Ca\u00b2\u207a influx is critical — it activates CaMKII (calcium-calmodulin kinase II), which triggers:\n\u2022 Long-term potentiation (LTP) — synaptic strengthening, learning, memory formation\n\u2022 Central sensitization — wind-up phenomenon in dorsal horn (pain amplification)\n\u2022 Excitotoxicity — excessive Ca\u00b2\u207a → mitochondrial damage → neuronal death (stroke, TBI)\n\nKetamine's Clinical Relevance at Each Level:\n\nAnalgesia: NMDA blockade in the dorsal horn prevents central sensitization and wind-up. This is why sub-anesthetic ketamine (0.1–0.3 mg/kg/hr) is effective for opioid-resistant pain and reduces opioid requirements by 30–50% (opioid-sparing effect).\n\nNeuroprotection: By blocking excessive Ca\u00b2\u207a influx through NMDA channels, ketamine may limit excitotoxic injury. Theoretical benefit in TBI, status epilepticus (late/refractory stages).\n\nAntidepressant effect: NMDA blockade triggers a cascade: ↑BDNF (brain-derived neurotrophic factor) → ↑mTOR signaling → rapid synaptogenesis in prefrontal cortex. This produces antidepressant effects within 2–4 hours (vs. weeks for SSRIs). Esketamine (Spravato) is FDA-approved for treatment-resistant depression.\n\nSympathomimetic profile: Ketamine's monoamine reuptake inhibition centrally stimulates the sympathetic nervous system → ↑HR, ↑BP, ↑SVR. This is why ketamine is the induction agent of choice in hemodynamically unstable patients (trauma, hemorrhagic shock, tamponade). However, in catecholamine-depleted patients (end-stage septic shock, prolonged critical illness), the indirect mechanism fails and ketamine's direct myocardial depressant effect is unmasked → cardiovascular collapse.",
   dosing: [
-    { ind: "IV Induction", dose: "1\u20132 mg/kg IV", notes: "Onset 30\u201360 sec. Duration 10\u201320 min. Dissociative dose. Preserves airway reflexes and ventilation (usually).", clr: "ac" },
-    { ind: "IM Induction / Sedation", dose: "4\u201310 mg/kg IM", notes: "Onset 3\u20135 min. Duration 20\u201330 min. Useful when no IV access (pediatric, combative patient, field).", clr: "wn" },
-    { ind: "Analgesic (Sub-dissociative)", dose: "0.1\u20130.3 mg/kg IV bolus or 0.1\u20130.3 mg/kg/hr infusion", notes: "Low-dose. Opioid-sparing 30\u201350%. Adjunct for acute pain, burns, trauma. No dissociation at this dose.", clr: "pr" },
-    { ind: "RSI (Hemodynamically Unstable)", dose: "1\u20132 mg/kg IV", notes: "Agent of choice in shock/trauma. Maintains HR, BP, SVR via sympathomimetic effect. NOT in catecholamine-depleted patients.", clr: "ac" },
-    { ind: "Status Epilepticus (Refractory)", dose: "1\u20134.5 mg/kg IV bolus, then 0.5\u20135 mg/kg/hr infusion", notes: "Third/fourth-line. NMDA antagonism targets glutamate excitotoxicity when GABA agents fail (receptor internalization).", clr: "wn" },
-    { ind: "Procedural Sedation (Peds)", dose: "1\u20132 mg/kg IV or 4\u20135 mg/kg IM", notes: "Excellent for painful procedures. Pair with glycopyrrolate 0.01 mg/kg (antisialagogue) and midazolam 0.05 mg/kg (emergence prophylaxis).", clr: "pk" },
+    { ind: "IV Induction", dose: "1–2 mg/kg IV", notes: "Onset 30–60 sec. Duration 10–20 min. Dissociative dose. Preserves airway reflexes and ventilation (usually).", clr: "ac" },
+    { ind: "IM Induction / Sedation", dose: "4–10 mg/kg IM", notes: "Onset 3–5 min. Duration 20–30 min. Useful when no IV access (pediatric, combative patient, field).", clr: "wn" },
+    { ind: "Analgesic (Sub-dissociative)", dose: "0.1–0.3 mg/kg IV bolus or 0.1–0.3 mg/kg/hr infusion", notes: "Low-dose. Opioid-sparing 30–50%. Adjunct for acute pain, burns, trauma. No dissociation at this dose.", clr: "pr" },
+    { ind: "RSI (Hemodynamically Unstable)", dose: "1–2 mg/kg IV", notes: "Agent of choice in shock/trauma. Maintains HR, BP, SVR via sympathomimetic effect. NOT in catecholamine-depleted patients.", clr: "ac" },
+    { ind: "Status Epilepticus (Refractory)", dose: "1–4.5 mg/kg IV bolus, then 0.5–5 mg/kg/hr infusion", notes: "Third/fourth-line. NMDA antagonism targets glutamate excitotoxicity when GABA agents fail (receptor internalization).", clr: "wn" },
+    { ind: "Procedural Sedation (Peds)", dose: "1–2 mg/kg IV or 4–5 mg/kg IM", notes: "Excellent for painful procedures. Pair with glycopyrrolate 0.01 mg/kg (antisialagogue) and midazolam 0.05 mg/kg (emergence prophylaxis).", clr: "pk" },
   ],
-  kin: { onset: "IV: 30\u201360 sec. IM: 3\u20135 min", onsetD: "Rapid lipophilicity \u2192 fast CNS distribution", peak: "1 min IV, 5\u201320 min IM", peakD: "Redistribution-limited duration", dur: "10\u201320 min IV, 20\u201330 min IM", durD: "Terminated by redistribution (like thiopental), NOT metabolism", vd: "3 L/kg", pb: "12\u201347% (alpha-1 acid glycoprotein)", hl: "2\u20133 hours", csht: "N/A (redistribution-dependent)", cl: "Hepatic CYP3A4, CYP2B6", model: "Three-compartment" },
-  metab: "Hepatic metabolism via CYP3A4 (major) and CYP2B6:\n\nPrimary pathway: N-demethylation to NORKETAMINE (active metabolite).\nNorketamine has ~30% the potency of ketamine at the NMDA receptor.\nNorketamine is further hydroxylated then conjugated (glucuronidation) for renal excretion.\n\nTermination of single-dose effect: REDISTRIBUTION (like thiopental) \u2014 rapid movement from CNS to muscle/fat. NOT metabolism.\n\nHalf-life: 2\u20133 hours (parent compound). Context-sensitive: prolonged infusions accumulate norketamine.\n\nHepatically impaired: reduced clearance, prolonged effect. No dose adjustment formally recommended but use with caution.\n\nRenal excretion: 90% as metabolites, <5% unchanged.\n\nStereochemistry: Racemic mixture of S(+) and R(\u2212) enantiomers. S-ketamine (esketamine): 3\u20134x more potent at NMDA receptor, faster clearance, fewer psychomimetic effects. Available as Spravato (nasal spray, depression) and IV formulation in some countries.",
+  kin: { onset: "IV: 30–60 sec. IM: 3–5 min", onsetD: "Rapid lipophilicity → fast CNS distribution", peak: "1 min IV, 5–20 min IM", peakD: "Redistribution-limited duration", dur: "10–20 min IV, 20–30 min IM", durD: "Terminated by redistribution (like thiopental), NOT metabolism", vd: "3 L/kg", pb: "12–47% (alpha-1 acid glycoprotein)", hl: "2–3 hours", csht: "N/A (redistribution-dependent)", cl: "Hepatic CYP3A4, CYP2B6", model: "Three-compartment" },
+  metab: "Hepatic metabolism via CYP3A4 (major) and CYP2B6:\n\nPrimary pathway: N-demethylation to NORKETAMINE (active metabolite).\nNorketamine has ~30% the potency of ketamine at the NMDA receptor.\nNorketamine is further hydroxylated then conjugated (glucuronidation) for renal excretion.\n\nTermination of single-dose effect: REDISTRIBUTION (like thiopental) — rapid movement from CNS to muscle/fat. NOT metabolism.\n\nHalf-life: 2–3 hours (parent compound). Context-sensitive: prolonged infusions accumulate norketamine.\n\nHepatically impaired: reduced clearance, prolonged effect. No dose adjustment formally recommended but use with caution.\n\nRenal excretion: 90% as metabolites, <5% unchanged.\n\nStereochemistry: Racemic mixture of S(+) and R(−) enantiomers. S-ketamine (esketamine): 3–4x more potent at NMDA receptor, faster clearance, fewer psychomimetic effects. Available as Spravato (nasal spray, depression) and IV formulation in some countries.",
   warn: [
-    { tp: "cau", ti: "Emergence Delirium / Psychomimetic Effects", tx: "Vivid dreams, hallucinations, delirium on emergence. Risk: adults > children, females > males, high doses, rapid administration. Prophylaxis: midazolam 0.03\u20130.05 mg/kg co-administration reduces incidence by ~50%." },
+    { tp: "cau", ti: "Emergence Delirium / Psychomimetic Effects", tx: "Vivid dreams, hallucinations, delirium on emergence. Risk: adults > children, females > males, high doses, rapid administration. Prophylaxis: midazolam 0.03–0.05 mg/kg co-administration reduces incidence by ~50%." },
     { tp: "cau", ti: "Hypersalivation", tx: "Stimulates salivary and tracheobronchial secretions (cholinomimetic-like effect). Pre-treat with glycopyrrolate 0.2 mg or atropine 0.01 mg/kg. Excessive secretions can cause laryngospasm, especially in children." },
-    { tp: "ci", ti: "Elevated ICP (Historical \u2014 NOW DEBATED)", tx: "Traditional teaching: ketamine raises ICP via cerebral vasodilation. Current evidence: in ventilated patients, ketamine does NOT significantly raise ICP and may actually be neuroprotective. No longer absolutely contraindicated in TBI when used with controlled ventilation. Still avoid in patients with obstructive hydrocephalus or space-occupying lesions without ICP monitoring." },
-    { tp: "cau", ti: "Catecholamine-Depleted Patients", tx: "In end-stage shock / prolonged critical illness, catecholamine stores are exhausted. Without NE/DA to release, ketamine's indirect sympathomimetic mechanism fails. The direct myocardial depressant effect is UNMASKED \u2192 hypotension, cardiovascular collapse. Use with extreme caution." },
-    { tp: "cau", ti: "Increased Myocardial O\u2082 Demand", tx: "\u2191HR + \u2191BP + \u2191contractility = \u2191MVO\u2082. Avoid in severe CAD, aortic stenosis, or decompensated HF where myocardial oxygen supply-demand balance is critical." },
+    { tp: "ci", ti: "Elevated ICP (Historical — NOW DEBATED)", tx: "Traditional teaching: ketamine raises ICP via cerebral vasodilation. Current evidence: in ventilated patients, ketamine does NOT significantly raise ICP and may actually be neuroprotective. No longer absolutely contraindicated in TBI when used with controlled ventilation. Still avoid in patients with obstructive hydrocephalus or space-occupying lesions without ICP monitoring." },
+    { tp: "cau", ti: "Catecholamine-Depleted Patients", tx: "In end-stage shock / prolonged critical illness, catecholamine stores are exhausted. Without NE/DA to release, ketamine's indirect sympathomimetic mechanism fails. The direct myocardial depressant effect is UNMASKED → hypotension, cardiovascular collapse. Use with extreme caution." },
+    { tp: "cau", ti: "Increased Myocardial O₂ Demand", tx: "↑HR + ↑BP + ↑contractility = ↑MVO₂. Avoid in severe CAD, aortic stenosis, or decompensated HF where myocardial oxygen supply-demand balance is critical." },
   ],
   ix: [
-    { dr: "Benzodiazepines", ef: "Blunt emergence delirium/psychomimetic effects. Midazolam 0.03\u20130.05 mg/kg standard co-administration. Also reduces ketamine-induced nystagmus.", sv: "high" },
+    { dr: "Benzodiazepines", ef: "Blunt emergence delirium/psychomimetic effects. Midazolam 0.03–0.05 mg/kg standard co-administration. Also reduces ketamine-induced nystagmus.", sv: "high" },
     { dr: "Glycopyrrolate / Atropine", ef: "Antisialagogue pairing. Glycopyrrolate preferred (no BBB crossing). Reduces hypersalivation and laryngospasm risk.", sv: "high" },
-    { dr: "Volatile Anesthetics", ef: "May prolong ketamine duration. Additive sympathomimetic effect \u2192 dysrhythmia risk (especially halothane, less with modern agents).", sv: "mod" },
-    { dr: "Propofol / Ketofol", ef: "Complementary hemodynamic profiles: propofol \u2193BP/HR + ketamine \u2191BP/HR = hemodynamic stability. Popular for procedural sedation. Typical ratio 1:1.", sv: "mod" },
+    { dr: "Volatile Anesthetics", ef: "May prolong ketamine duration. Additive sympathomimetic effect → dysrhythmia risk (especially halothane, less with modern agents).", sv: "mod" },
+    { dr: "Propofol / Ketofol", ef: "Complementary hemodynamic profiles: propofol ↓BP/HR + ketamine ↑BP/HR = hemodynamic stability. Popular for procedural sedation. Typical ratio 1:1.", sv: "mod" },
     { dr: "Non-depolarizing NMBAs", ef: "Ketamine may enhance the duration of non-depolarizing NMBAs. Monitor train-of-four closely.", sv: "low" },
-    { dr: "Thyroid Hormones", ef: "Excess thyroid hormone + ketamine \u2192 exaggerated sympathomimetic response \u2192 severe hypertension, tachycardia. Caution in thyrotoxicosis.", sv: "mod" },
+    { dr: "Thyroid Hormones", ef: "Excess thyroid hormone + ketamine → exaggerated sympathomimetic response → severe hypertension, tachycardia. Caution in thyrotoxicosis.", sv: "mod" },
   ],
   pearls: [
     { ti: "The Hemodynamically Stable Induction Agent", tx: "Ketamine is the go-to for induction in trauma, hemorrhagic shock, tamponade, and hemodynamically unstable patients. It maintains HR, BP, and SVR via indirect sympathomimetic effects. EXCEPT in catecholamine-depleted patients (end-stage sepsis, prolonged shock) where the indirect mechanism fails." },
-    { ti: "ICP: The Myth That Won't Die", tx: "Traditional teaching says ketamine is contraindicated in elevated ICP. Current evidence (Zeiler 2014, Cohen 2015): in mechanically ventilated patients with controlled PaCO\u2082, ketamine does NOT significantly increase ICP and may be neuroprotective (NMDA-mediated excitotoxicity reduction). Still avoid in unmonitored, spontaneously breathing patients where PaCO\u2082 may rise." },
-    { ti: "Bronchodilator Properties", tx: "Ketamine is a potent bronchodilator via: (1) direct smooth muscle relaxation, (2) \u2191catecholamine release \u2192 \u03b2\u2082 bronchodilation, (3) possible anticholinergic contribution. Makes it ideal for status asthmaticus induction and sedation." },
-    { ti: "Why Sub-Anesthetic Works for Pain", tx: "At 0.1\u20130.3 mg/kg/hr, ketamine blocks dorsal horn NMDA receptors \u2192 prevents central sensitization and wind-up \u2192 opioid-sparing 30\u201350%. Does NOT produce dissociation at these doses. Increasingly used for acute pain, burns, sickle cell crises." },
+    { ti: "ICP: The Myth That Won't Die", tx: "Traditional teaching says ketamine is contraindicated in elevated ICP. Current evidence (Zeiler 2014, Cohen 2015): in mechanically ventilated patients with controlled PaCO₂, ketamine does NOT significantly increase ICP and may be neuroprotective (NMDA-mediated excitotoxicity reduction). Still avoid in unmonitored, spontaneously breathing patients where PaCO₂ may rise." },
+    { ti: "Bronchodilator Properties", tx: "Ketamine is a potent bronchodilator via: (1) direct smooth muscle relaxation, (2) ↑catecholamine release → \u03b2₂ bronchodilation, (3) possible anticholinergic contribution. Makes it ideal for status asthmaticus induction and sedation." },
+    { ti: "Why Sub-Anesthetic Works for Pain", tx: "At 0.1–0.3 mg/kg/hr, ketamine blocks dorsal horn NMDA receptors → prevents central sensitization and wind-up → opioid-sparing 30–50%. Does NOT produce dissociation at these doses. Increasingly used for acute pain, burns, sickle cell crises." },
     { ti: "Dissociative vs. Standard Anesthesia", tx: "Dissociative anesthesia is NOT unconsciousness. It's a functional disconnection of thalamo-cortical from limbic pathways. Eyes open, nystagmus, muscle tone preserved, swallow/cough reflexes present (usually), spontaneous ventilation maintained. This is fundamentally different from GABA-ergic agents." },
-    { ti: "Ketofol: Best of Both Worlds", tx: "1:1 mix of ketamine:propofol. Propofol provides smooth sedation + antiemetic + \u2193BP. Ketamine provides analgesia + \u2191BP + airway maintenance. Hemodynamic effects offset each other. Excellent for procedural sedation." },
-    { ti: "Stereochemistry Matters", tx: "S-ketamine (esketamine): 3\u20134x more potent NMDA antagonist, faster hepatic clearance, fewer psychomimetic effects, faster recovery. Available as Spravato (intranasal) for treatment-resistant depression. R-ketamine: weaker NMDA antagonism but possibly better antidepressant with fewer side effects (under investigation)." },
+    { ti: "Ketofol: Best of Both Worlds", tx: "1:1 mix of ketamine:propofol. Propofol provides smooth sedation + antiemetic + ↓BP. Ketamine provides analgesia + ↑BP + airway maintenance. Hemodynamic effects offset each other. Excellent for procedural sedation." },
+    { ti: "Stereochemistry Matters", tx: "S-ketamine (esketamine): 3–4x more potent NMDA antagonist, faster hepatic clearance, fewer psychomimetic effects, faster recovery. Available as Spravato (intranasal) for treatment-resistant depression. R-ketamine: weaker NMDA antagonism but possibly better antidepressant with fewer side effects (under investigation)." },
   ],
   intQs: [
-    { q: "25-year-old motorcycle crash, GCS 8, BP 78/40, HR 128, needs intubation. What induction agent?", a: "Ketamine 1\u20132 mg/kg IV. Hemodynamically unstable trauma patient \u2014 ketamine maintains HR, BP, and SVR via indirect sympathomimetic effects (monoamine reuptake inhibition \u2192 \u2191circulating catecholamines). Preserves spontaneous ventilation as backup. Provides analgesia. Note: the old contraindication for TBI/elevated ICP is largely debunked in ventilated patients with controlled PaCO\u2082. Alternatives: etomidate (hemodynamically neutral but adrenal suppression debate)." },
-    { q: "How does ketamine work at the NMDA receptor?", a: "Non-competitive, use-dependent open-channel block. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a, requiring both glutamate binding AND membrane depolarization (to expel Mg\u00b2\u207a block). Ketamine enters the OPEN channel and binds the PCP site inside the pore, physically occluding ion flow. 'Use-dependent' means the channel must first open before ketamine can access its binding site \u2014 more active neurons are blocked preferentially." },
-    { q: "Why would ketamine be dangerous in a patient who's been in septic shock for 5 days on multiple vasopressors?", a: "Catecholamine depletion. Ketamine's hemodynamic stability depends on its INDIRECT sympathomimetic mechanism \u2014 it blocks reuptake of NE and dopamine, increasing synaptic catecholamine levels. After days of maximal sympathetic activation in refractory shock, presynaptic catecholamine stores are exhausted. With nothing to release or preserve, the indirect mechanism fails, and ketamine's DIRECT myocardial depressant effect is unmasked \u2192 hypotension, potential cardiovascular collapse." },
-    { q: "You're using sub-anesthetic ketamine for a burn patient. How does this work and what dose?", a: "0.1\u20130.3 mg/kg bolus then 0.1\u20130.3 mg/kg/hr infusion. At sub-dissociative doses, ketamine blocks NMDA receptors in the dorsal horn of the spinal cord, preventing central sensitization (wind-up phenomenon) and glutamate-mediated pain amplification. This reduces opioid requirements by 30\u201350% without producing dissociation or significant hemodynamic changes. Additional benefit: anti-inflammatory properties (\u2193NF-\u03baB, \u2193TNF-\u03b1)." },
-    { q: "A 4-year-old needs a laceration repair but has no IV access. How do you sedate them?", a: "Ketamine 4\u20135 mg/kg IM. Onset 3\u20135 min, duration 20\u201330 min. Pre-treat with glycopyrrolate 0.01 mg/kg IM (antisialagogue \u2014 prevents hypersalivation/laryngospasm) and consider midazolam 0.05 mg/kg (reduces emergence delirium). Ketamine provides dissociative anesthesia with preserved airway reflexes, spontaneous ventilation, and profound analgesia \u2014 ideal for pediatric procedural sedation without IV access." },
+    { q: "25-year-old motorcycle crash, GCS 8, BP 78/40, HR 128, needs intubation. What induction agent?", a: "Ketamine 1–2 mg/kg IV. Hemodynamically unstable trauma patient — ketamine maintains HR, BP, and SVR via indirect sympathomimetic effects (monoamine reuptake inhibition → ↑circulating catecholamines). Preserves spontaneous ventilation as backup. Provides analgesia. Note: the old contraindication for TBI/elevated ICP is largely debunked in ventilated patients with controlled PaCO₂. Alternatives: etomidate (hemodynamically neutral but adrenal suppression debate)." },
+    { q: "How does ketamine work at the NMDA receptor?", a: "Non-competitive, use-dependent open-channel block. The NMDA receptor is a ligand-gated ion channel permeable to Ca\u00b2\u207a and Na\u207a, requiring both glutamate binding AND membrane depolarization (to expel Mg\u00b2\u207a block). Ketamine enters the OPEN channel and binds the PCP site inside the pore, physically occluding ion flow. 'Use-dependent' means the channel must first open before ketamine can access its binding site — more active neurons are blocked preferentially." },
+    { q: "Why would ketamine be dangerous in a patient who's been in septic shock for 5 days on multiple vasopressors?", a: "Catecholamine depletion. Ketamine's hemodynamic stability depends on its INDIRECT sympathomimetic mechanism — it blocks reuptake of NE and dopamine, increasing synaptic catecholamine levels. After days of maximal sympathetic activation in refractory shock, presynaptic catecholamine stores are exhausted. With nothing to release or preserve, the indirect mechanism fails, and ketamine's DIRECT myocardial depressant effect is unmasked → hypotension, potential cardiovascular collapse." },
+    { q: "You're using sub-anesthetic ketamine for a burn patient. How does this work and what dose?", a: "0.1–0.3 mg/kg bolus then 0.1–0.3 mg/kg/hr infusion. At sub-dissociative doses, ketamine blocks NMDA receptors in the dorsal horn of the spinal cord, preventing central sensitization (wind-up phenomenon) and glutamate-mediated pain amplification. This reduces opioid requirements by 30–50% without producing dissociation or significant hemodynamic changes. Additional benefit: anti-inflammatory properties (↓NF-\u03baB, ↓TNF-\u03b1)." },
+    { q: "A 4-year-old needs a laceration repair but has no IV access. How do you sedate them?", a: "Ketamine 4–5 mg/kg IM. Onset 3–5 min, duration 20–30 min. Pre-treat with glycopyrrolate 0.01 mg/kg IM (antisialagogue — prevents hypersalivation/laryngospasm) and consider midazolam 0.05 mg/kg (reduces emergence delirium). Ketamine provides dissociative anesthesia with preserved airway reflexes, spontaneous ventilation, and profound analgesia — ideal for pediatric procedural sedation without IV access." },
   ],
 },{
   id: "succinylcholine", name: "Succinylcholine", brand: "Anectine / Quelicin",
   tags: ["Depolarizing NMBA", "Nicotinic Agonist", "Ultrashort-Acting", "RSI Paralytic"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Depolarizing neuromuscular blocking agent (diacetylcholine)", "Primary Target": "Nicotinic ACh receptor (NMJ) \u2014 \u03b1\u2082\u03b2\u03b4\u03b5 subunits", "Action": "Agonist \u2014 mimics ACh, produces sustained depolarization", "Ion Channel": "Non-selective cation channel (Na\u207a/K\u207a)", "Structure": "Two ACh molecules linked end-to-end (bis-quaternary ammonium)", "Key Feature": "Only depolarizing NMBA in clinical use; fastest onset of any paralytic" },
-  moa: "Succinylcholine (SCh) is structurally two acetylcholine molecules joined end-to-end, creating a bis-quaternary ammonium compound. It binds to one or both \u03b1-subunits of the nicotinic ACh receptor at the neuromuscular junction, mimicking the action of acetylcholine.\n\nPhase I Block (Depolarizing): SCh binds the nicotinic receptor \u2192 channel opens \u2192 Na\u207a influx + K\u207a efflux \u2192 endplate depolarization \u2192 initial muscle contraction (FASCICULATIONS). Unlike ACh (hydrolyzed in <1 ms by acetylcholinesterase at the cleft), SCh is NOT degraded by AChE \u2014 it persists at the receptor. The sustained depolarization holds the motor endplate at approximately -55 mV. Adjacent voltage-gated Na\u207a channels undergo prolonged inactivation (inactivation gate closes), preventing generation of new action potentials. Result: brief excitation \u2192 fasciculations \u2192 flaccid paralysis.\n\nThe receptor stays in the open/desensitized conformation until SCh diffuses away from the NMJ and is hydrolyzed by plasma cholinesterase (pseudocholinesterase/butyrylcholinesterase) in the plasma.\n\nPhase II Block: With prolonged or repeated exposure, the receptor transitions from a depolarized to a desensitized state. The endplate repolarizes but the receptor is conformationally unresponsive to ACh. Clinically resembles a non-depolarizing block: fade on TOF, post-tetanic potentiation. This occurs with doses >5\u20137 mg/kg or prolonged infusions.",
-  recPhys: "The nicotinic ACh receptor at the adult NMJ is a pentameric ligand-gated ion channel with subunit composition \u03b1\u2082\u03b2\u03b4\u03b5 (fetal: \u03b1\u2082\u03b2\u03b4\u03b3 \u2014 the \u03b3 subunit is replaced by \u03b5 postnatally). The receptor has two ACh binding sites located at the \u03b1-\u03b4 and \u03b1-\u03b5 interfaces. BOTH sites must be occupied for channel opening.\n\nStep 1 \u2014 SCh Binding: SCh binds the \u03b1-\u03b4 and/or \u03b1-\u03b5 interfaces. The quaternary ammonium group mimics the trimethylammonium head of ACh, fitting the anionic binding pocket on the \u03b1-subunit.\n\nStep 2 \u2014 Channel Opening: Conformational change rotates the M2 transmembrane helices of all five subunits, opening the central cation pore (~6.5 \u00c5 diameter). Non-selective: Na\u207a influx (dominant, driving depolarization) + K\u207a efflux + Ca\u00b2\u207a influx.\n\nStep 3 \u2014 Endplate Depolarization: Motor endplate depolarizes from -90 mV toward -55 mV. If threshold is reached, voltage-gated Na\u207a channels in the perijunctional zone fire \u2192 action potential propagates along muscle fiber \u2192 FASCICULATION.\n\nStep 4 \u2014 Sustained Depolarization + Na\u207a Channel Inactivation: SCh does not dissociate rapidly. Endplate remains depolarized. Surrounding voltage-gated Na\u207a channels enter the INACTIVATED state (inactivation gate closed). No new action potentials can be generated despite continued endplate depolarization. Result: FLACCID PARALYSIS.\n\nStep 5 \u2014 Desensitization (Phase II): With prolonged exposure, the nAChR itself undergoes conformational change to a desensitized state \u2014 channel closes despite agonist still bound. The endplate repolarizes, but the receptor is refractory. Block now behaves like non-depolarizing block.\n\nHYPERKALEMIA MECHANISM: Each channel opening allows K\u207a efflux. Normal: serum K\u207a rises 0.5\u20131.0 mEq/L. In denervation injuries, burns, immobility, or upper motor neuron lesions: upregulation of extrajunctional (fetal-type, \u03b3-containing) nAChRs across the entire muscle surface \u2192 massive simultaneous K\u207a efflux from channels everywhere on the fiber (not just the endplate) \u2192 life-threatening hyperkalemia (can exceed 10\u201313 mEq/L) \u2192 cardiac arrest.",
+  ov: { "Drug Class": "Depolarizing neuromuscular blocking agent (diacetylcholine)", "Primary Target": "Nicotinic ACh receptor (NMJ) — \u03b1₂\u03b2\u03b4\u03b5 subunits", "Action": "Agonist — mimics ACh, produces sustained depolarization", "Ion Channel": "Non-selective cation channel (Na\u207a/K\u207a)", "Structure": "Two ACh molecules linked end-to-end (bis-quaternary ammonium)", "Key Feature": "Only depolarizing NMBA in clinical use; fastest onset of any paralytic" },
+  moa: "Succinylcholine (SCh) is structurally two acetylcholine molecules joined end-to-end, creating a bis-quaternary ammonium compound. It binds to one or both \u03b1-subunits of the nicotinic ACh receptor at the neuromuscular junction, mimicking the action of acetylcholine.\n\nPhase I Block (Depolarizing): SCh binds the nicotinic receptor → channel opens → Na\u207a influx + K\u207a efflux → endplate depolarization → initial muscle contraction (FASCICULATIONS). Unlike ACh (hydrolyzed in <1 ms by acetylcholinesterase at the cleft), SCh is NOT degraded by AChE — it persists at the receptor. The sustained depolarization holds the motor endplate at approximately -55 mV. Adjacent voltage-gated Na\u207a channels undergo prolonged inactivation (inactivation gate closes), preventing generation of new action potentials. Result: brief excitation → fasciculations → flaccid paralysis.\n\nThe receptor stays in the open/desensitized conformation until SCh diffuses away from the NMJ and is hydrolyzed by plasma cholinesterase (pseudocholinesterase/butyrylcholinesterase) in the plasma.\n\nPhase II Block: With prolonged or repeated exposure, the receptor transitions from a depolarized to a desensitized state. The endplate repolarizes but the receptor is conformationally unresponsive to ACh. Clinically resembles a non-depolarizing block: fade on TOF, post-tetanic potentiation. This occurs with doses >5–7 mg/kg or prolonged infusions.",
+  recPhys: "The nicotinic ACh receptor at the adult NMJ is a pentameric ligand-gated ion channel with subunit composition \u03b1₂\u03b2\u03b4\u03b5 (fetal: \u03b1₂\u03b2\u03b4\u03b3 — the \u03b3 subunit is replaced by \u03b5 postnatally). The receptor has two ACh binding sites located at the \u03b1-\u03b4 and \u03b1-\u03b5 interfaces. BOTH sites must be occupied for channel opening.\n\nStep 1 — SCh Binding: SCh binds the \u03b1-\u03b4 and/or \u03b1-\u03b5 interfaces. The quaternary ammonium group mimics the trimethylammonium head of ACh, fitting the anionic binding pocket on the \u03b1-subunit.\n\nStep 2 — Channel Opening: Conformational change rotates the M2 transmembrane helices of all five subunits, opening the central cation pore (~6.5 \u00c5 diameter). Non-selective: Na\u207a influx (dominant, driving depolarization) + K\u207a efflux + Ca\u00b2\u207a influx.\n\nStep 3 — Endplate Depolarization: Motor endplate depolarizes from -90 mV toward -55 mV. If threshold is reached, voltage-gated Na\u207a channels in the perijunctional zone fire → action potential propagates along muscle fiber → FASCICULATION.\n\nStep 4 — Sustained Depolarization + Na\u207a Channel Inactivation: SCh does not dissociate rapidly. Endplate remains depolarized. Surrounding voltage-gated Na\u207a channels enter the INACTIVATED state (inactivation gate closed). No new action potentials can be generated despite continued endplate depolarization. Result: FLACCID PARALYSIS.\n\nStep 5 — Desensitization (Phase II): With prolonged exposure, the nAChR itself undergoes conformational change to a desensitized state — channel closes despite agonist still bound. The endplate repolarizes, but the receptor is refractory. Block now behaves like non-depolarizing block.\n\nHYPERKALEMIA MECHANISM: Each channel opening allows K\u207a efflux. Normal: serum K\u207a rises 0.5–1.0 mEq/L. In denervation injuries, burns, immobility, or upper motor neuron lesions: upregulation of extrajunctional (fetal-type, \u03b3-containing) nAChRs across the entire muscle surface → massive simultaneous K\u207a efflux from channels everywhere on the fiber (not just the endplate) → life-threatening hyperkalemia (can exceed 10–13 mEq/L) → cardiac arrest.",
   dosing: [
-    { ind: "RSI Intubation", dose: "1\u20131.5 mg/kg IV", notes: "Standard: 1 mg/kg. Most practitioners use 1.5 mg/kg for optimal conditions. Provides complete paralysis in 45\u201360 sec.", clr: "ac" },
-    { ind: "Laryngospasm Rescue", dose: "0.5 mg/kg IV (or 4 mg/kg IM if no IV)", notes: "Lower dose sufficient to break spasm. IM onset ~3\u20134 min. Some use 0.1\u20130.2 mg/kg IV (subparalyzing) to relax cords.", clr: "wn" },
-    { ind: "Continuous Infusion (rare)", dose: "2.5 mg/min (diluted to 1\u20132 mg/mL)", notes: "Rarely used. Phase II block risk with prolonged use. Requires TOF monitoring. Largely replaced by short-acting NDMBAs.", clr: "pr" },
+    { ind: "RSI Intubation", dose: "1–1.5 mg/kg IV", notes: "Standard: 1 mg/kg. Most practitioners use 1.5 mg/kg for optimal conditions. Provides complete paralysis in 45–60 sec.", clr: "ac" },
+    { ind: "Laryngospasm Rescue", dose: "0.5 mg/kg IV (or 4 mg/kg IM if no IV)", notes: "Lower dose sufficient to break spasm. IM onset ~3–4 min. Some use 0.1–0.2 mg/kg IV (subparalyzing) to relax cords.", clr: "wn" },
+    { ind: "Continuous Infusion (rare)", dose: "2.5 mg/min (diluted to 1–2 mg/mL)", notes: "Rarely used. Phase II block risk with prolonged use. Requires TOF monitoring. Largely replaced by short-acting NDMBAs.", clr: "pr" },
   ],
-  kin: { onset: "30\u201360 sec IV", onsetD: "Fastest onset of any NMBA \u2014 basis for RSI use", peak: "1 min", peakD: "Complete paralysis within 60 sec at intubating dose", dur: "8\u201315 min", durD: "Ultrashort \u2014 spontaneous recovery without reversal", vd: "Low (does not extensively distribute \u2014 hydrophilic)", pb: "Minimal", hl: "2\u20134 min (plasma cholinesterase hydrolysis)", csht: "N/A", cl: "Plasma cholinesterase (butyrylcholinesterase)", model: "Rapid hydrolysis \u2014 effect terminated by enzymatic degradation, not redistribution" },
-  metab: "SCh is rapidly hydrolyzed by PLASMA CHOLINESTERASE (pseudocholinesterase / butyrylcholinesterase / BChE), which is synthesized in the liver and circulates in plasma. Importantly, plasma cholinesterase is NOT present at the neuromuscular junction \u2014 AChE at the NMJ does not degrade SCh. This means the drug effect ends only when SCh diffuses away from the NMJ back into plasma where it encounters BChE.\n\nHydrolysis pathway: Succinylcholine \u2192 succinylmonocholine (weak NMBA, 1/20th activity) + choline \u2192 succinic acid + choline. Rapid: 90\u201395% hydrolyzed before reaching the NMJ (only 5\u201310% of administered dose actually reaches receptors).\n\nATYPICAL PSEUDOCHOLINESTERASE: Genetic variants of BChE (BCHE gene) with reduced activity cause prolonged paralysis:\n\u2022 Dibucaine Number (DN): normal DN = 80 (80% inhibition of BChE by dibucaine). Heterozygous atypical: DN ~50 (moderate prolongation, 20\u201330 min). Homozygous atypical: DN ~20 (severe prolongation, 4\u20138 hours).\n\u2022 Prevalence: Homozygous atypical ~1:2,500. Heterozygous ~1:25\u201350.\n\u2022 Also: acquired pseudocholinesterase deficiency from liver disease, pregnancy, burns, organophosphate exposure, malnutrition, plasmapheresis.\n\nManagement of prolonged block: SUPPORTIVE \u2014 maintain sedation, mechanical ventilation, and monitor TOF until recovery. Neostigmine will NOT work (depolarizing block). Fresh frozen plasma (provides normal BChE) can accelerate recovery but is rarely needed.",
+  kin: { onset: "30–60 sec IV", onsetD: "Fastest onset of any NMBA — basis for RSI use", peak: "1 min", peakD: "Complete paralysis within 60 sec at intubating dose", dur: "8–15 min", durD: "Ultrashort — spontaneous recovery without reversal", vd: "Low (does not extensively distribute — hydrophilic)", pb: "Minimal", hl: "2–4 min (plasma cholinesterase hydrolysis)", csht: "N/A", cl: "Plasma cholinesterase (butyrylcholinesterase)", model: "Rapid hydrolysis — effect terminated by enzymatic degradation, not redistribution" },
+  metab: "SCh is rapidly hydrolyzed by PLASMA CHOLINESTERASE (pseudocholinesterase / butyrylcholinesterase / BChE), which is synthesized in the liver and circulates in plasma. Importantly, plasma cholinesterase is NOT present at the neuromuscular junction — AChE at the NMJ does not degrade SCh. This means the drug effect ends only when SCh diffuses away from the NMJ back into plasma where it encounters BChE.\n\nHydrolysis pathway: Succinylcholine → succinylmonocholine (weak NMBA, 1/20th activity) + choline → succinic acid + choline. Rapid: 90–95% hydrolyzed before reaching the NMJ (only 5–10% of administered dose actually reaches receptors).\n\nATYPICAL PSEUDOCHOLINESTERASE: Genetic variants of BChE (BCHE gene) with reduced activity cause prolonged paralysis:\n\u2022 Dibucaine Number (DN): normal DN = 80 (80% inhibition of BChE by dibucaine). Heterozygous atypical: DN ~50 (moderate prolongation, 20–30 min). Homozygous atypical: DN ~20 (severe prolongation, 4–8 hours).\n\u2022 Prevalence: Homozygous atypical ~1:2,500. Heterozygous ~1:25–50.\n\u2022 Also: acquired pseudocholinesterase deficiency from liver disease, pregnancy, burns, organophosphate exposure, malnutrition, plasmapheresis.\n\nManagement of prolonged block: SUPPORTIVE — maintain sedation, mechanical ventilation, and monitor TOF until recovery. Neostigmine will NOT work (depolarizing block). Fresh frozen plasma (provides normal BChE) can accelerate recovery but is rarely needed.",
   warn: [
-    { tp: "bb", ti: "Hyperkalemia \u2192 Cardiac Arrest", tx: "Absolute contraindication in: burns (>24h post-injury), denervation injuries, prolonged immobility (>72h), spinal cord injury, crush injuries, muscular dystrophies, stroke (>72h), severe sepsis with muscle wasting. Extrajunctional nAChR upregulation \u2192 massive K\u207a efflux \u2192 VFib arrest. Safe window for burns/denervation: first 24\u201372 hours only." },
-    { tp: "bb", ti: "Malignant Hyperthermia", tx: "Known trigger agent. SCh + volatile anesthetics = highest risk combination. MH: genetic defect in ryanodine receptor (RyR1) \u2192 uncontrolled Ca\u00b2\u207a release from SR \u2192 sustained muscle contraction, hypermetabolism, \u2191CO\u2082, hyperthermia, rhabdomyolysis, DIC. Treatment: dantrolene 2.5 mg/kg IV (inhibits RyR1), repeat up to 10 mg/kg." },
+    { tp: "bb", ti: "Hyperkalemia → Cardiac Arrest", tx: "Absolute contraindication in: burns (>24h post-injury), denervation injuries, prolonged immobility (>72h), spinal cord injury, crush injuries, muscular dystrophies, stroke (>72h), severe sepsis with muscle wasting. Extrajunctional nAChR upregulation → massive K\u207a efflux → VFib arrest. Safe window for burns/denervation: first 24–72 hours only." },
+    { tp: "bb", ti: "Malignant Hyperthermia", tx: "Known trigger agent. SCh + volatile anesthetics = highest risk combination. MH: genetic defect in ryanodine receptor (RyR1) → uncontrolled Ca\u00b2\u207a release from SR → sustained muscle contraction, hypermetabolism, ↑CO₂, hyperthermia, rhabdomyolysis, DIC. Treatment: dantrolene 2.5 mg/kg IV (inhibits RyR1), repeat up to 10 mg/kg." },
     { tp: "bb", ti: "Bradycardia / Asystole", tx: "SCh stimulates ALL cholinergic receptors, including cardiac muscarinic (M2). Can cause profound bradycardia, especially with repeat doses or in children. Pretreat with atropine 0.02 mg/kg in pediatrics. Adults: have atropine at bedside." },
-    { tp: "ci", ti: "Pediatric Elective Use Restriction", tx: "FDA black box: do not use for elective intubation in children <8 years due to undiagnosed myopathy risk \u2192 hyperkalemic arrest. Reserve for EMERGENCY laryngospasm or situations requiring immediate securing of the airway." },
-    { tp: "cau", ti: "Increased IOP/ICP", tx: "Transient \u2191IOP (5\u201310 mmHg for 5\u20137 min) and \u2191ICP from fasciculations. Controversial in open globe injury. \u2191ICP from fasciculation-induced venous congestion. Consider defasciculating dose or rocuronium alternative." },
-    { tp: "cau", ti: "Myalgias", tx: "Post-operative myalgias in 40\u201380% of patients (from fasciculations). More common in young ambulatory patients. Defasciculating dose (0.01 mg/kg non-depolarizer) may reduce but not eliminate." },
+    { tp: "ci", ti: "Pediatric Elective Use Restriction", tx: "FDA black box: do not use for elective intubation in children <8 years due to undiagnosed myopathy risk → hyperkalemic arrest. Reserve for EMERGENCY laryngospasm or situations requiring immediate securing of the airway." },
+    { tp: "cau", ti: "Increased IOP/ICP", tx: "Transient ↑IOP (5–10 mmHg for 5–7 min) and ↑ICP from fasciculations. Controversial in open globe injury. ↑ICP from fasciculation-induced venous congestion. Consider defasciculating dose or rocuronium alternative." },
+    { tp: "cau", ti: "Myalgias", tx: "Post-operative myalgias in 40–80% of patients (from fasciculations). More common in young ambulatory patients. Defasciculating dose (0.01 mg/kg non-depolarizer) may reduce but not eliminate." },
   ],
   ix: [
-    { dr: "Anticholinesterases (neostigmine, organophosphates)", ef: "Inhibit plasma cholinesterase \u2192 prolonged SCh duration. Phase II block risk increases.", sv: "high" },
+    { dr: "Anticholinesterases (neostigmine, organophosphates)", ef: "Inhibit plasma cholinesterase → prolonged SCh duration. Phase II block risk increases.", sv: "high" },
     { dr: "Anticonvulsants (phenytoin, carbamazepine)", ef: "May increase K\u207a release. Chronic use can alter NMJ receptor expression.", sv: "mod" },
     { dr: "Lithium", ef: "Prolongs neuromuscular block via unknown mechanism.", sv: "mod" },
-    { dr: "Quinidine", ef: "Inhibits plasma cholinesterase \u2192 prolonged block.", sv: "mod" },
+    { dr: "Quinidine", ef: "Inhibits plasma cholinesterase → prolonged block.", sv: "mod" },
     { dr: "Non-depolarizing NMBAs (defasciculating dose)", ef: "Pre-treatment with 10% of intubating dose (e.g., rocuronium 0.06 mg/kg) reduces fasciculations but may increase SCh dose requirement.", sv: "low" },
   ],
   pearls: [
-    { ti: "Why SCh for RSI?", tx: "Fastest onset (45\u201360 sec) and shortest duration (8\u201315 min) of any NMBA. If intubation fails, patient resumes spontaneous ventilation quickly. Rocuronium 1.2 mg/kg has comparable onset but 45\u201390 min duration (unless sugammadex available for immediate reversal)." },
-    { ti: "Fasciculations = Depolarization", tx: "Visible fasciculations confirm the drug reached the NMJ and caused depolarization. Absence of fasciculations does NOT mean the drug didn't work \u2014 it may indicate denervation, prior non-depolarizer, or myopathy. Post-fasciculation, look for jaw relaxation and loss of TOF twitches." },
-    { ti: "Phase I vs Phase II Block (TOF)", tx: "Phase I: decreased amplitude of all 4 twitches equally (no fade), no post-tetanic potentiation. Phase II: fade on TOF (T4/T1 ratio decreased), post-tetanic potentiation present \u2014 mimics non-depolarizing block." },
-    { ti: "Dibucaine Number", tx: "Measures quality (not quantity) of pseudocholinesterase. DN 80 = normal enzyme. DN 20 = atypical homozygous (paralysis 4\u20138h). Always check DN when prolonged paralysis occurs after SCh." },
-    { ti: "K\u207a Rise Timing After Injury", tx: "Extrajunctional receptor upregulation begins ~48\u201372h post-denervation and PERSISTS for months to years. SCh is safe in the first 24\u201348h after burn/spinal cord injury. After that window: absolute contraindication." },
+    { ti: "Why SCh for RSI?", tx: "Fastest onset (45–60 sec) and shortest duration (8–15 min) of any NMBA. If intubation fails, patient resumes spontaneous ventilation quickly. Rocuronium 1.2 mg/kg has comparable onset but 45–90 min duration (unless sugammadex available for immediate reversal)." },
+    { ti: "Fasciculations = Depolarization", tx: "Visible fasciculations confirm the drug reached the NMJ and caused depolarization. Absence of fasciculations does NOT mean the drug didn't work — it may indicate denervation, prior non-depolarizer, or myopathy. Post-fasciculation, look for jaw relaxation and loss of TOF twitches." },
+    { ti: "Phase I vs Phase II Block (TOF)", tx: "Phase I: decreased amplitude of all 4 twitches equally (no fade), no post-tetanic potentiation. Phase II: fade on TOF (T4/T1 ratio decreased), post-tetanic potentiation present — mimics non-depolarizing block." },
+    { ti: "Dibucaine Number", tx: "Measures quality (not quantity) of pseudocholinesterase. DN 80 = normal enzyme. DN 20 = atypical homozygous (paralysis 4–8h). Always check DN when prolonged paralysis occurs after SCh." },
+    { ti: "K\u207a Rise Timing After Injury", tx: "Extrajunctional receptor upregulation begins ~48–72h post-denervation and PERSISTS for months to years. SCh is safe in the first 24–48h after burn/spinal cord injury. After that window: absolute contraindication." },
     { ti: "MH Susceptibility", tx: "If family or personal history of MH, SCh is absolutely contraindicated. Use rocuronium 1.2 mg/kg + sugammadex as RSI alternative. Non-triggering anesthetic (TIVA with propofol/remifentanil)." },
   ],
   intQs: [
-    { q: "Patient with 3-day-old C5 spinal cord injury needs emergent intubation. Can you use succinylcholine?", a: "Extremely cautious timing. Extrajunctional receptor upregulation typically begins 48\u201372h post-injury but timing varies. At exactly 72 hours, this is at the edge of the safe window. Given the life-threatening hyperkalemia risk, use rocuronium 1.2 mg/kg instead. If only SCh is available, have calcium chloride, insulin/dextrose, and bicarbonate drawn up." },
-    { q: "You give SCh and the patient is still paralyzed after 45 minutes. What happened?", a: "Pseudocholinesterase deficiency \u2014 either genetic (atypical BChE) or acquired (liver disease, organophosphate exposure, pregnancy, plasmapheresis). Maintain sedation, mechanical ventilation, monitor TOF. Send dibucaine number. DO NOT give neostigmine (won't reverse depolarizing block, may worsen). Support until spontaneous recovery. FFP if prolonged." },
-    { q: "Succinylcholine vs rocuronium for RSI \u2014 when do you choose each?", a: "SCh: fastest onset (45\u201360 sec), shortest duration (8\u201315 min) \u2014 ideal when rapid return of spontaneous ventilation is the priority (difficult airway without sugammadex). Rocuronium 1.2 mg/kg: comparable onset (~60 sec), longer duration (45\u201390 min) but immediately reversible with sugammadex 16 mg/kg. Rocuronium preferred when: MH risk, hyperkalemia risk, neuromuscular disease, burn/denervation, myopathy, or sugammadex is available." },
+    { q: "Patient with 3-day-old C5 spinal cord injury needs emergent intubation. Can you use succinylcholine?", a: "Extremely cautious timing. Extrajunctional receptor upregulation typically begins 48–72h post-injury but timing varies. At exactly 72 hours, this is at the edge of the safe window. Given the life-threatening hyperkalemia risk, use rocuronium 1.2 mg/kg instead. If only SCh is available, have calcium chloride, insulin/dextrose, and bicarbonate drawn up." },
+    { q: "You give SCh and the patient is still paralyzed after 45 minutes. What happened?", a: "Pseudocholinesterase deficiency — either genetic (atypical BChE) or acquired (liver disease, organophosphate exposure, pregnancy, plasmapheresis). Maintain sedation, mechanical ventilation, monitor TOF. Send dibucaine number. DO NOT give neostigmine (won't reverse depolarizing block, may worsen). Support until spontaneous recovery. FFP if prolonged." },
+    { q: "Succinylcholine vs rocuronium for RSI — when do you choose each?", a: "SCh: fastest onset (45–60 sec), shortest duration (8–15 min) — ideal when rapid return of spontaneous ventilation is the priority (difficult airway without sugammadex). Rocuronium 1.2 mg/kg: comparable onset (~60 sec), longer duration (45–90 min) but immediately reversible with sugammadex 16 mg/kg. Rocuronium preferred when: MH risk, hyperkalemia risk, neuromuscular disease, burn/denervation, myopathy, or sugammadex is available." },
   ],
 },{
   id: "rocuronium", name: "Rocuronium", brand: "Zemuron",
   tags: ["Non-Depolarizing NMBA", "Steroidal", "Aminosteroid", "Competitive Antagonist"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Intermediate-acting steroidal (aminosteroid) non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) \u2014 competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening \u2192 prevents Na\u207a influx", "Structure": "Aminosteroid (steroidal backbone with quaternary nitrogen)", "Key Feature": "Fastest onset of any non-depolarizing NMBA; reversible by sugammadex" },
-  moa: "Rocuronium is a monoquaternary aminosteroid that produces skeletal muscle paralysis by competitively binding the \u03b1-subunits of the nicotinic acetylcholine receptor at the neuromuscular junction. It blocks ACh from binding, thereby preventing channel opening and subsequent endplate depolarization.\n\nUnlike succinylcholine (agonist \u2192 depolarization \u2192 then block), rocuronium NEVER causes depolarization. It simply occupies the binding site and prevents ACh access. Because the nAChR requires BOTH \u03b1-subunit sites to be occupied by ACh for channel opening, blocking even ONE site is sufficient to prevent channel opening.\n\nThe competitive nature means rocuronium's block can be overcome by increasing ACh concentration at the NMJ \u2014 the basis for reversal by acetylcholinesterase inhibitors (neostigmine). Additionally, rocuronium's steroidal structure allows direct encapsulation by sugammadex (modified \u03b3-cyclodextrin), providing a unique non-competitive reversal pathway.\n\nRocuronium has the fastest onset of any non-depolarizing NMBA (60\u201390 sec at 1.2 mg/kg RSI dose), attributed to its relatively low potency requiring higher molar doses \u2192 more molecules flooding the NMJ \u2192 faster receptor occupancy. This inverse relationship between potency and onset speed is a key pharmacological principle: ED95 of rocuronium (~0.3 mg/kg) is much higher than vecuronium (~0.05 mg/kg) or cisatracurium (~0.05 mg/kg), but this lower potency translates to faster onset.",
-  recPhys: "Competitive antagonism at the nAChR follows these principles:\n\nStep 1 \u2014 Receptor Occupancy: Rocuronium binds the anionic subsite on the \u03b1-subunit at the \u03b1-\u03b4 and/or \u03b1-\u03b5 interface. The quaternary ammonium group mimics the ACh binding moiety. However, unlike ACh, rocuronium does NOT trigger the conformational change needed to open the channel. It is a competitive antagonist: occupies the site without activating it.\n\nStep 2 \u2014 Prevention of Depolarization: With rocuronium occupying one or both \u03b1-subunit sites, ACh released from the presynaptic motor neuron cannot bind \u2192 channel stays closed \u2192 no Na\u207a influx \u2192 no endplate depolarization \u2192 no muscle action potential \u2192 PARALYSIS.\n\nStep 3 \u2014 Safety Margin Erosion: Normally, ACh is released in ~5\u00d7 excess of what is needed for endplate depolarization (safety margin). Non-depolarizing NMBAs must occupy ~75% of receptors before any clinical weakness appears, and ~90\u201395% for complete block. This explains the gradual onset (progressive receptor occupancy) and the importance of TOF monitoring.\n\nStep 4 \u2014 Block Characteristics (Non-Depolarizing): TOF shows FADE (progressive decrease T1>T2>T3>T4) due to presynaptic nAChR blockade reducing ACh mobilization during repetitive stimulation. Post-tetanic potentiation is present (brief high-frequency stimulation transiently overcomes block). NO fasciculations (no depolarization occurs). TOF count is used to guide reversal timing.\n\nPotency-Onset Inverse Relationship: Low potency \u2192 requires large molar dose \u2192 high plasma concentration \u2192 steep concentration gradient from plasma to NMJ \u2192 rapid biophase equilibration \u2192 FAST ONSET. This is why rocuronium (low potency, ED95 0.3 mg/kg) has faster onset than vecuronium (high potency, ED95 0.05 mg/kg) or cisatracurium (high potency, ED95 0.05 mg/kg).",
+  ov: { "Drug Class": "Intermediate-acting steroidal (aminosteroid) non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) — competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening → prevents Na\u207a influx", "Structure": "Aminosteroid (steroidal backbone with quaternary nitrogen)", "Key Feature": "Fastest onset of any non-depolarizing NMBA; reversible by sugammadex" },
+  moa: "Rocuronium is a monoquaternary aminosteroid that produces skeletal muscle paralysis by competitively binding the \u03b1-subunits of the nicotinic acetylcholine receptor at the neuromuscular junction. It blocks ACh from binding, thereby preventing channel opening and subsequent endplate depolarization.\n\nUnlike succinylcholine (agonist → depolarization → then block), rocuronium NEVER causes depolarization. It simply occupies the binding site and prevents ACh access. Because the nAChR requires BOTH \u03b1-subunit sites to be occupied by ACh for channel opening, blocking even ONE site is sufficient to prevent channel opening.\n\nThe competitive nature means rocuronium's block can be overcome by increasing ACh concentration at the NMJ — the basis for reversal by acetylcholinesterase inhibitors (neostigmine). Additionally, rocuronium's steroidal structure allows direct encapsulation by sugammadex (modified \u03b3-cyclodextrin), providing a unique non-competitive reversal pathway.\n\nRocuronium has the fastest onset of any non-depolarizing NMBA (60–90 sec at 1.2 mg/kg RSI dose), attributed to its relatively low potency requiring higher molar doses → more molecules flooding the NMJ → faster receptor occupancy. This inverse relationship between potency and onset speed is a key pharmacological principle: ED95 of rocuronium (~0.3 mg/kg) is much higher than vecuronium (~0.05 mg/kg) or cisatracurium (~0.05 mg/kg), but this lower potency translates to faster onset.",
+  recPhys: "Competitive antagonism at the nAChR follows these principles:\n\nStep 1 — Receptor Occupancy: Rocuronium binds the anionic subsite on the \u03b1-subunit at the \u03b1-\u03b4 and/or \u03b1-\u03b5 interface. The quaternary ammonium group mimics the ACh binding moiety. However, unlike ACh, rocuronium does NOT trigger the conformational change needed to open the channel. It is a competitive antagonist: occupies the site without activating it.\n\nStep 2 — Prevention of Depolarization: With rocuronium occupying one or both \u03b1-subunit sites, ACh released from the presynaptic motor neuron cannot bind → channel stays closed → no Na\u207a influx → no endplate depolarization → no muscle action potential → PARALYSIS.\n\nStep 3 — Safety Margin Erosion: Normally, ACh is released in ~5\u00d7 excess of what is needed for endplate depolarization (safety margin). Non-depolarizing NMBAs must occupy ~75% of receptors before any clinical weakness appears, and ~90–95% for complete block. This explains the gradual onset (progressive receptor occupancy) and the importance of TOF monitoring.\n\nStep 4 — Block Characteristics (Non-Depolarizing): TOF shows FADE (progressive decrease T1>T2>T3>T4) due to presynaptic nAChR blockade reducing ACh mobilization during repetitive stimulation. Post-tetanic potentiation is present (brief high-frequency stimulation transiently overcomes block). NO fasciculations (no depolarization occurs). TOF count is used to guide reversal timing.\n\nPotency-Onset Inverse Relationship: Low potency → requires large molar dose → high plasma concentration → steep concentration gradient from plasma to NMJ → rapid biophase equilibration → FAST ONSET. This is why rocuronium (low potency, ED95 0.3 mg/kg) has faster onset than vecuronium (high potency, ED95 0.05 mg/kg) or cisatracurium (high potency, ED95 0.05 mg/kg).",
   dosing: [
-    { ind: "Standard Intubation", dose: "0.6 mg/kg IV", notes: "2\u00d7 ED95. Onset 60\u201390 sec. Duration 30\u201360 min. Good conditions by 90 sec.", clr: "ac" },
-    { ind: "RSI (Modified)", dose: "1.2 mg/kg IV", notes: "4\u00d7 ED95. Onset 45\u201360 sec (comparable to SCh). Duration 45\u201390 min. Reversible with sugammadex 16 mg/kg.", clr: "wn" },
-    { ind: "Maintenance Bolus", dose: "0.1\u20130.15 mg/kg IV PRN", notes: "Guided by TOF monitoring. Redose when T2 returns. Maintain 1\u20132 twitches on TOF.", clr: "pr" },
-    { ind: "Continuous Infusion", dose: "10\u201312 mcg/kg/min", notes: "Range 5\u201316 mcg/kg/min. Titrate to TOF 1\u20132 twitches. Reduce rate with volatile anesthetics (potentiate block).", clr: "pk" },
+    { ind: "Standard Intubation", dose: "0.6 mg/kg IV", notes: "2\u00d7 ED95. Onset 60–90 sec. Duration 30–60 min. Good conditions by 90 sec.", clr: "ac" },
+    { ind: "RSI (Modified)", dose: "1.2 mg/kg IV", notes: "4\u00d7 ED95. Onset 45–60 sec (comparable to SCh). Duration 45–90 min. Reversible with sugammadex 16 mg/kg.", clr: "wn" },
+    { ind: "Maintenance Bolus", dose: "0.1–0.15 mg/kg IV PRN", notes: "Guided by TOF monitoring. Redose when T2 returns. Maintain 1–2 twitches on TOF.", clr: "pr" },
+    { ind: "Continuous Infusion", dose: "10–12 mcg/kg/min", notes: "Range 5–16 mcg/kg/min. Titrate to TOF 1–2 twitches. Reduce rate with volatile anesthetics (potentiate block).", clr: "pk" },
   ],
-  kin: { onset: "60\u201390 sec (0.6 mg/kg); 45\u201360 sec (1.2 mg/kg)", onsetD: "Fastest NDMBA \u2014 low potency = high molar dose = rapid NMJ flooding", peak: "1\u20133 min", peakD: "Complete block within 2 min at intubating dose", dur: "30\u201360 min (0.6 mg/kg); 45\u201390 min (1.2 mg/kg)", durD: "Duration is dose-dependent. Accumulates with repeated doses.", vd: "0.2\u20130.3 L/kg", pb: "~30%", hl: "60\u2013120 min", csht: "Moderate accumulation with prolonged use", cl: "Hepatic uptake (primary) + renal (~30%)", model: "Two-compartment" },
-  metab: "Rocuronium is primarily eliminated by HEPATIC UPTAKE and biliary excretion (60\u201370%). The liver actively transports rocuronium into hepatocytes via organic cation transporters. Approximately 30% is excreted unchanged in urine.\n\nMinimal metabolism occurs \u2014 rocuronium undergoes limited deacetylation to 17-desacetylrocuronium, which has ~5\u201310% the neuromuscular blocking activity of the parent compound. This metabolite contributes negligibly to clinical effect.\n\nNO Hofmann elimination (unlike cisatracurium). NO ester hydrolysis. Effect depends on organ function.\n\nHepatic impairment: significantly increased Vd and prolonged duration (up to 1.5\u20132\u00d7 normal). Reduced hepatic uptake and biliary clearance \u2192 slower offset.\n\nRenal impairment: modest prolongation (~20\u201330% increased duration) from reduced renal excretion of the unchanged drug.\n\nObesity: dose on IDEAL body weight (IBW) for intubation. Vd increases modestly with obesity but onset is delayed if dosed on total body weight due to increased Vd.\n\nElderly: reduced hepatic blood flow and clearance \u2192 prolonged duration. Reduce maintenance doses.",
+  kin: { onset: "60–90 sec (0.6 mg/kg); 45–60 sec (1.2 mg/kg)", onsetD: "Fastest NDMBA — low potency = high molar dose = rapid NMJ flooding", peak: "1–3 min", peakD: "Complete block within 2 min at intubating dose", dur: "30–60 min (0.6 mg/kg); 45–90 min (1.2 mg/kg)", durD: "Duration is dose-dependent. Accumulates with repeated doses.", vd: "0.2–0.3 L/kg", pb: "~30%", hl: "60–120 min", csht: "Moderate accumulation with prolonged use", cl: "Hepatic uptake (primary) + renal (~30%)", model: "Two-compartment" },
+  metab: "Rocuronium is primarily eliminated by HEPATIC UPTAKE and biliary excretion (60–70%). The liver actively transports rocuronium into hepatocytes via organic cation transporters. Approximately 30% is excreted unchanged in urine.\n\nMinimal metabolism occurs — rocuronium undergoes limited deacetylation to 17-desacetylrocuronium, which has ~5–10% the neuromuscular blocking activity of the parent compound. This metabolite contributes negligibly to clinical effect.\n\nNO Hofmann elimination (unlike cisatracurium). NO ester hydrolysis. Effect depends on organ function.\n\nHepatic impairment: significantly increased Vd and prolonged duration (up to 1.5–2\u00d7 normal). Reduced hepatic uptake and biliary clearance → slower offset.\n\nRenal impairment: modest prolongation (~20–30% increased duration) from reduced renal excretion of the unchanged drug.\n\nObesity: dose on IDEAL body weight (IBW) for intubation. Vd increases modestly with obesity but onset is delayed if dosed on total body weight due to increased Vd.\n\nElderly: reduced hepatic blood flow and clearance → prolonged duration. Reduce maintenance doses.",
   warn: [
     { tp: "ci", ti: "Hypersensitivity", tx: "Anaphylaxis risk. Aminosteroids (rocuronium, vecuronium, pancuronium) are the most common cause of NMBA-related anaphylaxis. Quaternary ammonium groups can cross-react with environmental allergens (cosmetics, household products)." },
-    { tp: "cau", ti: "Hepatic Impairment", tx: "Primary hepatic elimination. Cirrhosis/hepatic failure: \u2191Vd, \u2193clearance \u2192 prolonged duration. Reduce dose, monitor TOF closely, and allow longer recovery time." },
+    { tp: "cau", ti: "Hepatic Impairment", tx: "Primary hepatic elimination. Cirrhosis/hepatic failure: ↑Vd, ↓clearance → prolonged duration. Reduce dose, monitor TOF closely, and allow longer recovery time." },
     { tp: "cau", ti: "Cannot Intubate Conscious Patient", tx: "Non-depolarizing NMBAs produce paralysis WITHOUT amnesia, anxiolysis, or analgesia. ALWAYS ensure adequate anesthesia/sedation BEFORE administering any NMBA. Awareness under paralysis is a devastating complication." },
-    { tp: "cau", ti: "Volatile Anesthetic Potentiation", tx: "Sevoflurane, desflurane, isoflurane potentiate non-depolarizing block (impair post-junctional nAChR function + reduce ACh release). Reduce maintenance NMBA dose by 25\u201340% with volatile agents." },
+    { tp: "cau", ti: "Volatile Anesthetic Potentiation", tx: "Sevoflurane, desflurane, isoflurane potentiate non-depolarizing block (impair post-junctional nAChR function + reduce ACh release). Reduce maintenance NMBA dose by 25–40% with volatile agents." },
   ],
   ix: [
-    { dr: "Volatile Anesthetics", ef: "Potentiate NM block. Sevoflurane/desflurane/isoflurane reduce ACh release and impair post-junctional receptor function. Reduce rocuronium dose 25\u201340%.", sv: "mod" },
-    { dr: "Aminoglycosides", ef: "Potentiate block via presynaptic Ca\u00b2\u207a channel blockade (\u2193ACh release) and post-junctional receptor stabilization.", sv: "mod" },
-    { dr: "Magnesium", ef: "Potentiates NM block: \u2193presynaptic ACh release (\u2193Ca\u00b2\u207a entry) + \u2193post-junctional receptor sensitivity. Reduce NMBA dose 25\u201350% in MgSO\u2084-treated patients (eclampsia).", sv: "high" },
-    { dr: "Sugammadex", ef: "Direct encapsulation reversal. Dose-dependent: 2 mg/kg (moderate block, TOF \u22652), 4 mg/kg (deep block, PTC \u22651\u20132), 16 mg/kg (immediate reversal after RSI dose 1.2 mg/kg).", sv: "high" },
+    { dr: "Volatile Anesthetics", ef: "Potentiate NM block. Sevoflurane/desflurane/isoflurane reduce ACh release and impair post-junctional receptor function. Reduce rocuronium dose 25–40%.", sv: "mod" },
+    { dr: "Aminoglycosides", ef: "Potentiate block via presynaptic Ca\u00b2\u207a channel blockade (↓ACh release) and post-junctional receptor stabilization.", sv: "mod" },
+    { dr: "Magnesium", ef: "Potentiates NM block: ↓presynaptic ACh release (↓Ca\u00b2\u207a entry) + ↓post-junctional receptor sensitivity. Reduce NMBA dose 25–50% in MgSO\u2084-treated patients (eclampsia).", sv: "high" },
+    { dr: "Sugammadex", ef: "Direct encapsulation reversal. Dose-dependent: 2 mg/kg (moderate block, TOF ≥2), 4 mg/kg (deep block, PTC ≥1–2), 16 mg/kg (immediate reversal after RSI dose 1.2 mg/kg).", sv: "high" },
     { dr: "Succinylcholine", ef: "If SCh given first, delay rocuronium until patient recovers from SCh (avoid prolonged/unpredictable block from interaction at the receptor).", sv: "mod" },
   ],
   pearls: [
     { ti: "Potency-Onset Inverse Relationship", tx: "Rocuronium has the lowest potency (ED95 0.3 mg/kg) of intermediate-acting NDMBAs but the fastest onset. Low potency = need more molecules = higher plasma concentration = steeper concentration gradient to NMJ = faster biophase equilibration. Classic interview concept." },
-    { ti: "RSI Alternative to SCh", tx: "Rocuronium 1.2 mg/kg (4\u00d7 ED95): onset 45\u201360 sec, comparable to SCh. Key advantage: no hyperkalemia risk, no MH trigger, no fasciculations. Key disadvantage: 45\u201390 min duration (vs 8\u201315 min for SCh) UNLESS sugammadex is available for immediate reversal (16 mg/kg)." },
+    { ti: "RSI Alternative to SCh", tx: "Rocuronium 1.2 mg/kg (4\u00d7 ED95): onset 45–60 sec, comparable to SCh. Key advantage: no hyperkalemia risk, no MH trigger, no fasciculations. Key disadvantage: 45–90 min duration (vs 8–15 min for SCh) UNLESS sugammadex is available for immediate reversal (16 mg/kg)." },
     { ti: "Sugammadex Changed Everything", tx: "Sugammadex encapsulates rocuronium 1:1 in its cyclodextrin ring. Complete reversal at any depth of block, including immediately after RSI dose. This eliminated the primary advantage of SCh (ultrashort duration). Where sugammadex is available, rocuronium is increasingly the default RSI paralytic." },
-    { ti: "Reversal: Sugammadex vs Neostigmine", tx: "Neostigmine: only works at shallow block (TOF \u22652 twitches), ceiling effect (max ~0.07 mg/kg), requires anticholinergic co-administration, 10\u201315 min for full reversal. Sugammadex: works at ANY depth, dose-dependent, no muscarinic side effects, reversal in 2\u20133 min." },
-    { ti: "Anaphylaxis Risk", tx: "Aminosteroid NMBAs (rocuronium > vecuronium > pancuronium) are the #1 cause of perioperative anaphylaxis. IgE-mediated against quaternary ammonium epitope. Cross-reactivity possible with other NMBAs. If anaphylaxis occurs: epinephrine 10\u201320 mcg IV boluses, sugammadex (emerging evidence it may help by encapsulating the antigen)." },
+    { ti: "Reversal: Sugammadex vs Neostigmine", tx: "Neostigmine: only works at shallow block (TOF ≥2 twitches), ceiling effect (max ~0.07 mg/kg), requires anticholinergic co-administration, 10–15 min for full reversal. Sugammadex: works at ANY depth, dose-dependent, no muscarinic side effects, reversal in 2–3 min." },
+    { ti: "Anaphylaxis Risk", tx: "Aminosteroid NMBAs (rocuronium > vecuronium > pancuronium) are the #1 cause of perioperative anaphylaxis. IgE-mediated against quaternary ammonium epitope. Cross-reactivity possible with other NMBAs. If anaphylaxis occurs: epinephrine 10–20 mcg IV boluses, sugammadex (emerging evidence it may help by encapsulating the antigen)." },
   ],
   intQs: [
     { q: "Patient with personal history of MH needs emergent intubation. What paralytic?", a: "Rocuronium 1.2 mg/kg IV. SCh is absolutely contraindicated in MH. Rocuronium is NOT a triggering agent. Pair with non-triggering anesthetic (TIVA: propofol + remifentanil). Have dantrolene available. Have sugammadex available for reversal if needed." },
-    { q: "Why does rocuronium have faster onset than cisatracurium?", a: "Inverse potency-onset relationship. Rocuronium ED95 is 0.3 mg/kg (low potency, many molecules needed). Cisatracurium ED95 is 0.05 mg/kg (high potency, few molecules). At equipotent intubating doses (2\u20134\u00d7 ED95), rocuronium delivers ~6\u00d7 more molecules to the NMJ, creating a steeper concentration gradient and faster biophase equilibration." },
-    { q: "Patient is on magnesium for eclampsia prophylaxis. How do you adjust rocuronium?", a: "Reduce dose by 25\u201350%. Mg\u00b2\u207a decreases presynaptic ACh release (competes with Ca\u00b2\u207a at the nerve terminal) and reduces postsynaptic receptor sensitivity. Expect prolonged duration. Monitor TOF closely. Sugammadex reversal is unaffected by magnesium." },
+    { q: "Why does rocuronium have faster onset than cisatracurium?", a: "Inverse potency-onset relationship. Rocuronium ED95 is 0.3 mg/kg (low potency, many molecules needed). Cisatracurium ED95 is 0.05 mg/kg (high potency, few molecules). At equipotent intubating doses (2–4\u00d7 ED95), rocuronium delivers ~6\u00d7 more molecules to the NMJ, creating a steeper concentration gradient and faster biophase equilibration." },
+    { q: "Patient is on magnesium for eclampsia prophylaxis. How do you adjust rocuronium?", a: "Reduce dose by 25–50%. Mg\u00b2\u207a decreases presynaptic ACh release (competes with Ca\u00b2\u207a at the nerve terminal) and reduces postsynaptic receptor sensitivity. Expect prolonged duration. Monitor TOF closely. Sugammadex reversal is unaffected by magnesium." },
   ],
 },{
   id: "vecuronium", name: "Vecuronium", brand: "Norcuron",
   tags: ["Non-Depolarizing NMBA", "Steroidal", "Aminosteroid", "Competitive Antagonist"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Intermediate-acting steroidal (aminosteroid) non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) \u2014 competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening \u2192 prevents Na\u207a influx", "Structure": "Aminosteroid (bis-quaternary pancuronium analog with one less quaternary nitrogen)", "Key Feature": "Minimal cardiovascular effects; active 3-OH metabolite can accumulate" },
+  ov: { "Drug Class": "Intermediate-acting steroidal (aminosteroid) non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) — competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening → prevents Na\u207a influx", "Structure": "Aminosteroid (bis-quaternary pancuronium analog with one less quaternary nitrogen)", "Key Feature": "Minimal cardiovascular effects; active 3-OH metabolite can accumulate" },
   moa: "Vecuronium is a monoquaternary aminosteroid NDMBA that competitively binds the \u03b1-subunits of the nicotinic ACh receptor at the NMJ, preventing ACh binding and subsequent channel opening. Identical competitive antagonism mechanism as rocuronium.\n\nVecuronium is a structural analog of pancuronium (long-acting) with one quaternary nitrogen removed, converting it from bis- to monoquaternary. This structural change eliminated pancuronium's vagolytic (M2 blockade) and sympathomimetic (norepinephrine reuptake inhibition) properties, producing a cardiovascular-neutral NMBA.\n\nMinimal cardiovascular effects: no histamine release, no vagolysis, no ganglionic blockade, no sympathetic stimulation. Heart rate, blood pressure, and cardiac output are essentially unchanged. This makes vecuronium an ideal choice in patients where hemodynamic stability is paramount (CAD, cardiac surgery, neurosurgical patients).\n\nHowever, vecuronium has two clinical limitations: (1) the active 3-desacetylvecuronium metabolite accumulates in hepatic and renal failure, producing prolonged paralysis; and (2) hypothermia significantly prolongs its effect.",
-  recPhys: "Same competitive antagonism mechanism as rocuronium (see rocuronium recPhys for detailed NMJ physiology).\n\nKey pharmacological distinction from rocuronium:\n\nPotency: Vecuronium ED95 = 0.05 mg/kg (higher potency than rocuronium's 0.3 mg/kg). This means fewer molecules are needed for equipotent block, but onset is SLOWER (potency-onset inverse relationship). Onset at 2\u00d7 ED95 (0.1 mg/kg): 3\u20135 minutes, vs rocuronium 60\u201390 sec.\n\nCardiovascular neutrality explained: Vecuronium has extremely low affinity for muscarinic receptors (M2, M3) and ganglionic nicotinic receptors compared to pancuronium. It also does not inhibit neuronal norepinephrine reuptake. These absent off-target effects make it hemodynamically inert.\n\nHistamine: Does NOT release histamine (unlike atracurium/mivacurium). No bronchospasm, flushing, or hypotension from histamine-mediated mechanisms.\n\n3-Desacetylvecuronium: The 3-OH metabolite has 50\u201380% of the parent compound's neuromuscular blocking activity. In hepatic or renal failure, or with prolonged ICU infusions, this metabolite accumulates and can produce significantly prolonged paralysis even after stopping the drug.",
+  recPhys: "Same competitive antagonism mechanism as rocuronium (see rocuronium recPhys for detailed NMJ physiology).\n\nKey pharmacological distinction from rocuronium:\n\nPotency: Vecuronium ED95 = 0.05 mg/kg (higher potency than rocuronium's 0.3 mg/kg). This means fewer molecules are needed for equipotent block, but onset is SLOWER (potency-onset inverse relationship). Onset at 2\u00d7 ED95 (0.1 mg/kg): 3–5 minutes, vs rocuronium 60–90 sec.\n\nCardiovascular neutrality explained: Vecuronium has extremely low affinity for muscarinic receptors (M2, M3) and ganglionic nicotinic receptors compared to pancuronium. It also does not inhibit neuronal norepinephrine reuptake. These absent off-target effects make it hemodynamically inert.\n\nHistamine: Does NOT release histamine (unlike atracurium/mivacurium). No bronchospasm, flushing, or hypotension from histamine-mediated mechanisms.\n\n3-Desacetylvecuronium: The 3-OH metabolite has 50–80% of the parent compound's neuromuscular blocking activity. In hepatic or renal failure, or with prolonged ICU infusions, this metabolite accumulates and can produce significantly prolonged paralysis even after stopping the drug.",
   dosing: [
-    { ind: "Intubation", dose: "0.1 mg/kg IV", notes: "2\u00d7 ED95. Onset 3\u20135 min. Good conditions by 3\u20134 min. Duration 20\u201360 min.", clr: "ac" },
-    { ind: "Maintenance Bolus", dose: "0.01\u20130.015 mg/kg IV", notes: "When first twitch recovery begins. Guided by TOF monitoring.", clr: "wn" },
-    { ind: "Continuous Infusion", dose: "0.8\u20131.2 mcg/kg/min", notes: "Range 0.08\u20131.2 mcg/kg/min. Titrate to TOF 1\u20132 twitches. Monitor for accumulation in organ dysfunction.", clr: "pr" },
+    { ind: "Intubation", dose: "0.1 mg/kg IV", notes: "2\u00d7 ED95. Onset 3–5 min. Good conditions by 3–4 min. Duration 20–60 min.", clr: "ac" },
+    { ind: "Maintenance Bolus", dose: "0.01–0.015 mg/kg IV", notes: "When first twitch recovery begins. Guided by TOF monitoring.", clr: "wn" },
+    { ind: "Continuous Infusion", dose: "0.8–1.2 mcg/kg/min", notes: "Range 0.08–1.2 mcg/kg/min. Titrate to TOF 1–2 twitches. Monitor for accumulation in organ dysfunction.", clr: "pr" },
   ],
-  kin: { onset: "3\u20135 min", onsetD: "Slower than rocuronium due to higher potency (fewer molecules \u2192 slower NMJ flooding)", peak: "3\u20135 min", peakD: "Complete block correlates with onset", dur: "20\u201360 min", durD: "Intermediate duration. Prolonged in hypothermia, hepatic/renal failure", vd: "0.3\u20130.4 L/kg", pb: "~30%", hl: "65\u201375 min", csht: "Accumulates modestly \u2014 active metabolite more concerning than parent", cl: "Hepatic (~60%) + renal (~40%)", model: "Two-compartment" },
-  metab: "Primarily HEPATIC metabolism (~60%): deacetylation in the liver produces 3-desacetylvecuronium, the clinically significant active metabolite. 3-desacetylvecuronium retains 50\u201380% of the parent compound's neuromuscular blocking activity and is excreted primarily in BILE.\n\nRenal excretion: ~40% of parent compound excreted unchanged in urine.\n\nThe 3-OH metabolite is the clinical problem: in ICU patients with hepatic dysfunction, renal failure, or both, 3-desacetylvecuronium accumulates substantially. Reports of paralysis lasting 24\u201372+ hours after prolonged vecuronium infusions in ICU patients with multiorgan failure are well-documented.\n\nHypothermic patients: hepatic metabolism slows dramatically with temperature reduction. At 34\u00b0C (targeted temperature management after cardiac arrest), vecuronium duration may double or triple.\n\nReversal: Sugammadex encapsulates vecuronium (steroidal NMBA), though with ~10\u00d7 lower affinity than for rocuronium. Standard sugammadex dosing is effective but may need higher doses for deep vecuronium block.",
+  kin: { onset: "3–5 min", onsetD: "Slower than rocuronium due to higher potency (fewer molecules → slower NMJ flooding)", peak: "3–5 min", peakD: "Complete block correlates with onset", dur: "20–60 min", durD: "Intermediate duration. Prolonged in hypothermia, hepatic/renal failure", vd: "0.3–0.4 L/kg", pb: "~30%", hl: "65–75 min", csht: "Accumulates modestly — active metabolite more concerning than parent", cl: "Hepatic (~60%) + renal (~40%)", model: "Two-compartment" },
+  metab: "Primarily HEPATIC metabolism (~60%): deacetylation in the liver produces 3-desacetylvecuronium, the clinically significant active metabolite. 3-desacetylvecuronium retains 50–80% of the parent compound's neuromuscular blocking activity and is excreted primarily in BILE.\n\nRenal excretion: ~40% of parent compound excreted unchanged in urine.\n\nThe 3-OH metabolite is the clinical problem: in ICU patients with hepatic dysfunction, renal failure, or both, 3-desacetylvecuronium accumulates substantially. Reports of paralysis lasting 24–72+ hours after prolonged vecuronium infusions in ICU patients with multiorgan failure are well-documented.\n\nHypothermic patients: hepatic metabolism slows dramatically with temperature reduction. At 34\u00b0C (targeted temperature management after cardiac arrest), vecuronium duration may double or triple.\n\nReversal: Sugammadex encapsulates vecuronium (steroidal NMBA), though with ~10\u00d7 lower affinity than for rocuronium. Standard sugammadex dosing is effective but may need higher doses for deep vecuronium block.",
   warn: [
-    { tp: "cau", ti: "Active Metabolite Accumulation", tx: "3-Desacetylvecuronium has 50\u201380% parent activity. Accumulates in hepatic and renal failure. Can cause prolonged paralysis (hours to days) in ICU patients with organ dysfunction. Monitor TOF, use drug holidays." },
+    { tp: "cau", ti: "Active Metabolite Accumulation", tx: "3-Desacetylvecuronium has 50–80% parent activity. Accumulates in hepatic and renal failure. Can cause prolonged paralysis (hours to days) in ICU patients with organ dysfunction. Monitor TOF, use drug holidays." },
     { tp: "cau", ti: "Hypothermia Prolongs Effect", tx: "At 34\u00b0C (post-arrest TTM): effect may double. Reduce dose, monitor TOF frequently. Common ICU pitfall." },
     { tp: "cau", ti: "Hypercarbia Enhances Block", tx: "Respiratory acidosis potentiates vecuronium effect. Ensure adequate ventilation. Relevant in patients with COPD or permissive hypercapnia." },
     { tp: "ci", ti: "Hypersensitivity", tx: "Same aminosteroid class as rocuronium/pancuronium. Cross-reactivity possible." },
     { tp: "cau", ti: "Do NOT Intubate Conscious Patient", tx: "Provides paralysis WITHOUT sedation, amnesia, or analgesia. Always ensure adequate anesthesia first." },
   ],
   ix: [
-    { dr: "Volatile Anesthetics", ef: "Potentiate block by 25\u201340%. Reduce maintenance dose accordingly.", sv: "mod" },
-    { dr: "Aminoglycosides", ef: "Potentiate NM block via \u2193presynaptic Ca\u00b2\u207a entry and post-junctional receptor effects.", sv: "mod" },
-    { dr: "Magnesium / Dantrolene", ef: "Both prolong vecuronium effect. Mg\u00b2\u207a: \u2193ACh release + \u2193receptor sensitivity. Dantrolene: \u2193intracellular Ca\u00b2\u207a (excitation-contraction coupling impaired).", sv: "high" },
+    { dr: "Volatile Anesthetics", ef: "Potentiate block by 25–40%. Reduce maintenance dose accordingly.", sv: "mod" },
+    { dr: "Aminoglycosides", ef: "Potentiate NM block via ↓presynaptic Ca\u00b2\u207a entry and post-junctional receptor effects.", sv: "mod" },
+    { dr: "Magnesium / Dantrolene", ef: "Both prolong vecuronium effect. Mg\u00b2\u207a: ↓ACh release + ↓receptor sensitivity. Dantrolene: ↓intracellular Ca\u00b2\u207a (excitation-contraction coupling impaired).", sv: "high" },
     { dr: "Succinylcholine", ef: "If SCh given first, delay vecuronium until SCh recovery. Giving vecuronium during SCh block can produce unpredictable prolonged paralysis.", sv: "mod" },
     { dr: "Sugammadex", ef: "Encapsulates vecuronium with lower affinity than rocuronium. Effective reversal but may need higher doses (4 mg/kg for deep block). Some protocols use 4 mg/kg for vecuronium where 2 mg/kg suffices for rocuronium.", sv: "high" },
   ],
@@ -762,106 +762,106 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
     { ti: "Vecuronium vs Rocuronium", tx: "Both are aminosteroids with identical receptor mechanism. Vecuronium: more potent, slower onset, minimal CV effects, active metabolite risk. Rocuronium: less potent, faster onset, slight vagolytic effect at high doses, no active metabolites. Rocuronium dominates current practice due to speed and sugammadex compatibility." },
   ],
   intQs: [
-    { q: "ICU patient on vecuronium drip develops AKI and elevated LFTs. What's the concern?", a: "Active metabolite accumulation. 3-Desacetylvecuronium (50\u201380% activity of parent) is cleared hepatically and renally. Dual organ dysfunction \u2192 massive accumulation \u2192 prolonged paralysis lasting days. Stop the drip, support ventilation, monitor TOF for recovery. Consider switching to cisatracurium, which undergoes Hofmann elimination (organ-independent)." },
-    { q: "Why does vecuronium have minimal hemodynamic effects compared to pancuronium?", a: "Vecuronium is a monoquaternary analog of bis-quaternary pancuronium. Removing one quaternary nitrogen eliminated muscarinic M2 receptor blockade (which caused vagolytic tachycardia with pancuronium) and norepinephrine reuptake inhibition (which caused sympathomimetic effects). Vecuronium lacks these off-target interactions \u2192 cardiovascular neutrality." },
+    { q: "ICU patient on vecuronium drip develops AKI and elevated LFTs. What's the concern?", a: "Active metabolite accumulation. 3-Desacetylvecuronium (50–80% activity of parent) is cleared hepatically and renally. Dual organ dysfunction → massive accumulation → prolonged paralysis lasting days. Stop the drip, support ventilation, monitor TOF for recovery. Consider switching to cisatracurium, which undergoes Hofmann elimination (organ-independent)." },
+    { q: "Why does vecuronium have minimal hemodynamic effects compared to pancuronium?", a: "Vecuronium is a monoquaternary analog of bis-quaternary pancuronium. Removing one quaternary nitrogen eliminated muscarinic M2 receptor blockade (which caused vagolytic tachycardia with pancuronium) and norepinephrine reuptake inhibition (which caused sympathomimetic effects). Vecuronium lacks these off-target interactions → cardiovascular neutrality." },
   ],
 },{
   id: "cisatracurium", name: "Cisatracurium", brand: "Nimbex",
   tags: ["Non-Depolarizing NMBA", "Benzylisoquinoline", "Hofmann Elimination", "Organ-Independent"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Intermediate-acting benzylisoquinoline non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) \u2014 competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening \u2192 prevents Na\u207a influx", "Structure": "1R-cis, 1'R-cis isomer of atracurium (benzylisoquinoline)", "Key Feature": "Organ-independent Hofmann elimination; NO histamine release (unlike atracurium)" },
-  moa: "Cisatracurium is the 1R-cis, 1'R-cis stereoisomer of atracurium, representing approximately 15% of the commercial atracurium mixture but ~4\u00d7 more potent. It competitively antagonizes the nicotinic ACh receptor at the NMJ, producing non-depolarizing neuromuscular blockade identical in mechanism to all competitive NMBAs.\n\nThe critical distinction is the elimination pathway: Hofmann elimination \u2014 a spontaneous, non-enzymatic, temperature- and pH-dependent chemical degradation that occurs in plasma and tissues regardless of hepatic or renal function. This makes cisatracurium the ideal NMBA for patients with organ dysfunction.\n\nUnlike its parent compound atracurium, cisatracurium does NOT release histamine at clinical doses. Atracurium's histamine release was attributed to the other stereoisomers in the mixture. By isolating the 1R-cis, 1'R-cis isomer, the histaminoid response is eliminated.\n\nCisatracurium forms laudanosine (a tertiary amine) as a metabolite. Laudanosine CROSSES the blood-brain barrier and has CNS excitatory (seizurogenic) potential at high concentrations. However, cisatracurium produces significantly LESS laudanosine than atracurium (~5\u00d7 less at equipotent doses due to the 4\u00d7 higher potency requiring lower total drug load).",
-  recPhys: "Same competitive antagonism at the NMJ as all non-depolarizing NMBAs (see rocuronium recPhys).\n\nHOFMANN ELIMINATION explained:\n\nStep 1: Cisatracurium undergoes spontaneous chemical degradation in plasma via Hofmann elimination \u2014 a base-catalyzed, temperature-dependent E2 elimination reaction. The ester bonds in the molecule undergo non-enzymatic cleavage.\n\nStep 2: Products are laudanosine (tertiary amine) and a monoquaternary acrylate. Neither has neuromuscular blocking activity.\n\nStep 3: The monoquaternary acrylate undergoes further Hofmann elimination and ester hydrolysis (by non-specific plasma esterases) to additional inactive metabolites.\n\nKey properties of Hofmann elimination:\n\u2022 No enzymes required \u2014 purely chemical. No hepatic metabolism needed.\n\u2022 Temperature-dependent: SLOWER in hypothermia (important in TTM \u2014 effect prolonged at 34\u00b0C)\n\u2022 pH-dependent: SLOWER in acidosis (protonation stabilizes the molecule against elimination)\n\u2022 Organ-INDEPENDENT: identical degradation rate regardless of hepatic or renal function\n\u2022 Predictable pharmacokinetics even in multiorgan failure\n\nLaudanosine: Crosses BBB. In animal studies, high concentrations cause CNS excitation and seizures. Clinical significance at cisatracurium doses is minimal because plasma laudanosine levels remain well below the seizure threshold (unlike atracurium, where laudanosine accumulation was a genuine concern in ICU patients with renal failure).",
+  ov: { "Drug Class": "Intermediate-acting benzylisoquinoline non-depolarizing NMBA", "Primary Target": "Nicotinic ACh receptor (NMJ) — competitive antagonist", "Action": "Competitive antagonist at \u03b1-subunit binding sites", "Ion Channel": "Blocks nAChR opening → prevents Na\u207a influx", "Structure": "1R-cis, 1'R-cis isomer of atracurium (benzylisoquinoline)", "Key Feature": "Organ-independent Hofmann elimination; NO histamine release (unlike atracurium)" },
+  moa: "Cisatracurium is the 1R-cis, 1'R-cis stereoisomer of atracurium, representing approximately 15% of the commercial atracurium mixture but ~4\u00d7 more potent. It competitively antagonizes the nicotinic ACh receptor at the NMJ, producing non-depolarizing neuromuscular blockade identical in mechanism to all competitive NMBAs.\n\nThe critical distinction is the elimination pathway: Hofmann elimination — a spontaneous, non-enzymatic, temperature- and pH-dependent chemical degradation that occurs in plasma and tissues regardless of hepatic or renal function. This makes cisatracurium the ideal NMBA for patients with organ dysfunction.\n\nUnlike its parent compound atracurium, cisatracurium does NOT release histamine at clinical doses. Atracurium's histamine release was attributed to the other stereoisomers in the mixture. By isolating the 1R-cis, 1'R-cis isomer, the histaminoid response is eliminated.\n\nCisatracurium forms laudanosine (a tertiary amine) as a metabolite. Laudanosine CROSSES the blood-brain barrier and has CNS excitatory (seizurogenic) potential at high concentrations. However, cisatracurium produces significantly LESS laudanosine than atracurium (~5\u00d7 less at equipotent doses due to the 4\u00d7 higher potency requiring lower total drug load).",
+  recPhys: "Same competitive antagonism at the NMJ as all non-depolarizing NMBAs (see rocuronium recPhys).\n\nHOFMANN ELIMINATION explained:\n\nStep 1: Cisatracurium undergoes spontaneous chemical degradation in plasma via Hofmann elimination — a base-catalyzed, temperature-dependent E2 elimination reaction. The ester bonds in the molecule undergo non-enzymatic cleavage.\n\nStep 2: Products are laudanosine (tertiary amine) and a monoquaternary acrylate. Neither has neuromuscular blocking activity.\n\nStep 3: The monoquaternary acrylate undergoes further Hofmann elimination and ester hydrolysis (by non-specific plasma esterases) to additional inactive metabolites.\n\nKey properties of Hofmann elimination:\n\u2022 No enzymes required — purely chemical. No hepatic metabolism needed.\n\u2022 Temperature-dependent: SLOWER in hypothermia (important in TTM — effect prolonged at 34\u00b0C)\n\u2022 pH-dependent: SLOWER in acidosis (protonation stabilizes the molecule against elimination)\n\u2022 Organ-INDEPENDENT: identical degradation rate regardless of hepatic or renal function\n\u2022 Predictable pharmacokinetics even in multiorgan failure\n\nLaudanosine: Crosses BBB. In animal studies, high concentrations cause CNS excitation and seizures. Clinical significance at cisatracurium doses is minimal because plasma laudanosine levels remain well below the seizure threshold (unlike atracurium, where laudanosine accumulation was a genuine concern in ICU patients with renal failure).",
   dosing: [
-    { ind: "Intubation", dose: "0.1\u20130.2 mg/kg IV", notes: "2\u20134\u00d7 ED95. Onset 3\u20135 min. Higher end provides faster onset but longer duration. Good conditions by 3 min at 0.15 mg/kg.", clr: "ac" },
-    { ind: "Maintenance Bolus", dose: "0.02 mg/kg IV", notes: "When first twitch recovery begins on TOF. Provides additional 15\u201320 min of block.", clr: "wn" },
-    { ind: "Continuous Infusion", dose: "1\u20133 mcg/kg/min", notes: "Start 1\u20132 mcg/kg/min. Titrate to TOF 1\u20132 twitches. Predictable and non-accumulating even with prolonged infusion.", clr: "pr" },
+    { ind: "Intubation", dose: "0.1–0.2 mg/kg IV", notes: "2–4\u00d7 ED95. Onset 3–5 min. Higher end provides faster onset but longer duration. Good conditions by 3 min at 0.15 mg/kg.", clr: "ac" },
+    { ind: "Maintenance Bolus", dose: "0.02 mg/kg IV", notes: "When first twitch recovery begins on TOF. Provides additional 15–20 min of block.", clr: "wn" },
+    { ind: "Continuous Infusion", dose: "1–3 mcg/kg/min", notes: "Start 1–2 mcg/kg/min. Titrate to TOF 1–2 twitches. Predictable and non-accumulating even with prolonged infusion.", clr: "pr" },
   ],
-  kin: { onset: "3\u20135 min", onsetD: "Slower than rocuronium (high potency = low molar dose = slow NMJ equilibration)", peak: "5 min", peakD: "Complete block ~5 min at intubating dose", dur: "30\u201345 min", durD: "Intermediate. Non-accumulating on repeat dosing (Hofmann elimination)", vd: "0.16 L/kg", pb: "Low", hl: "~30 min", csht: "Minimal accumulation \u2014 Hofmann elimination prevents buildup", cl: "Hofmann elimination (77%) + ester hydrolysis (23%)", model: "Two-compartment" },
-  metab: "Primary: HOFMANN ELIMINATION (77%) \u2014 spontaneous non-enzymatic degradation in plasma and tissues. Temperature-dependent (slower in hypothermia), pH-dependent (slower in acidosis), but completely ORGAN-INDEPENDENT.\n\nSecondary: Non-specific ester hydrolysis by plasma esterases (~23%). NOT dependent on pseudocholinesterase (unlike succinylcholine and mivacurium).\n\nMetabolites: Laudanosine (tertiary amine, crosses BBB, CNS excitatory at high concentrations) + monoquaternary acrylate (inactive). Laudanosine is further metabolized hepatically and renally excreted. In renal failure, laudanosine accumulates but at clinically insignificant levels with cisatracurium (unlike atracurium).\n\nNO CYP450 involvement. No active neuromuscular-blocking metabolites.\n\nOrgan failure: NO dose adjustment needed. Identical pharmacokinetics in hepatic failure, renal failure, and multiorgan dysfunction. This is the primary reason cisatracurium is the preferred NMBA for ICU paralysis in patients with organ dysfunction.\n\nHypothermia (34\u00b0C TTM): Hofmann degradation slows significantly. Duration may increase 30\u201350%. Monitor TOF, reduce infusion rate.\n\nAcidosis: pH <7.3 slows Hofmann elimination. Anticipate prolonged effect in acidotic patients.",
+  kin: { onset: "3–5 min", onsetD: "Slower than rocuronium (high potency = low molar dose = slow NMJ equilibration)", peak: "5 min", peakD: "Complete block ~5 min at intubating dose", dur: "30–45 min", durD: "Intermediate. Non-accumulating on repeat dosing (Hofmann elimination)", vd: "0.16 L/kg", pb: "Low", hl: "~30 min", csht: "Minimal accumulation — Hofmann elimination prevents buildup", cl: "Hofmann elimination (77%) + ester hydrolysis (23%)", model: "Two-compartment" },
+  metab: "Primary: HOFMANN ELIMINATION (77%) — spontaneous non-enzymatic degradation in plasma and tissues. Temperature-dependent (slower in hypothermia), pH-dependent (slower in acidosis), but completely ORGAN-INDEPENDENT.\n\nSecondary: Non-specific ester hydrolysis by plasma esterases (~23%). NOT dependent on pseudocholinesterase (unlike succinylcholine and mivacurium).\n\nMetabolites: Laudanosine (tertiary amine, crosses BBB, CNS excitatory at high concentrations) + monoquaternary acrylate (inactive). Laudanosine is further metabolized hepatically and renally excreted. In renal failure, laudanosine accumulates but at clinically insignificant levels with cisatracurium (unlike atracurium).\n\nNO CYP450 involvement. No active neuromuscular-blocking metabolites.\n\nOrgan failure: NO dose adjustment needed. Identical pharmacokinetics in hepatic failure, renal failure, and multiorgan dysfunction. This is the primary reason cisatracurium is the preferred NMBA for ICU paralysis in patients with organ dysfunction.\n\nHypothermia (34\u00b0C TTM): Hofmann degradation slows significantly. Duration may increase 30–50%. Monitor TOF, reduce infusion rate.\n\nAcidosis: pH <7.3 slows Hofmann elimination. Anticipate prolonged effect in acidotic patients.",
   warn: [
     { tp: "cau", ti: "Laudanosine (CNS Metabolite)", tx: "Crosses BBB. CNS excitatory at high concentrations. Cisatracurium produces ~5\u00d7 less laudanosine than atracurium. Clinically insignificant at standard doses. Theoretically more relevant in prolonged ICU use with renal failure (laudanosine accumulation). Caution in patients with seizure history." },
-    { tp: "cau", ti: "Hypothermia/Acidosis Prolongs Effect", tx: "Hofmann elimination is temperature- and pH-dependent. At 34\u00b0C or pH <7.3, degradation rate decreases \u2192 prolonged block. Adjust infusion rate accordingly. Still more predictable than hepatically-metabolized NMBAs in these conditions." },
+    { tp: "cau", ti: "Hypothermia/Acidosis Prolongs Effect", tx: "Hofmann elimination is temperature- and pH-dependent. At 34\u00b0C or pH <7.3, degradation rate decreases → prolonged block. Adjust infusion rate accordingly. Still more predictable than hepatically-metabolized NMBAs in these conditions." },
     { tp: "ci", ti: "Hypersensitivity", tx: "Benzylisoquinoline class. Cross-reactivity with atracurium possible. Lower anaphylaxis risk than aminosteroids overall." },
     { tp: "cau", ti: "NO Histamine Release", tx: "Unlike atracurium, cisatracurium does NOT cause histamine release at clinical doses. No bronchospasm, flushing, or hypotension from histamine. Confirmed safe for asthmatics and hemodynamically unstable patients." },
   ],
   ix: [
-    { dr: "Volatile Anesthetics", ef: "Potentiate block 25\u201340%. Reduce infusion rate with sevoflurane/desflurane/isoflurane.", sv: "mod" },
-    { dr: "Aminoglycosides / Polymyxins / Bacitracin", ef: "Potentiate NM block via \u2193presynaptic ACh release and post-junctional effects. Enhanced block with aminoglycosides is a common clinical interaction.", sv: "mod" },
-    { dr: "Magnesium", ef: "Potentiates block: \u2193ACh release + \u2193receptor sensitivity. Reduce cisatracurium dose 25\u201350%.", sv: "high" },
-    { dr: "Phenytoin / Carbamazepine (chronic)", ef: "Chronic anticonvulsants upregulate nAChR expression \u2192 resistance to non-depolarizing NMBAs. May need higher doses. Acute anticonvulsant use may potentiate block.", sv: "mod" },
+    { dr: "Volatile Anesthetics", ef: "Potentiate block 25–40%. Reduce infusion rate with sevoflurane/desflurane/isoflurane.", sv: "mod" },
+    { dr: "Aminoglycosides / Polymyxins / Bacitracin", ef: "Potentiate NM block via ↓presynaptic ACh release and post-junctional effects. Enhanced block with aminoglycosides is a common clinical interaction.", sv: "mod" },
+    { dr: "Magnesium", ef: "Potentiates block: ↓ACh release + ↓receptor sensitivity. Reduce cisatracurium dose 25–50%.", sv: "high" },
+    { dr: "Phenytoin / Carbamazepine (chronic)", ef: "Chronic anticonvulsants upregulate nAChR expression → resistance to non-depolarizing NMBAs. May need higher doses. Acute anticonvulsant use may potentiate block.", sv: "mod" },
     { dr: "Lithium / Local Anesthetics / Procainamide / Quinidine", ef: "Various mechanisms of NM block potentiation. Monitor TOF and reduce NMBA dose.", sv: "mod" },
   ],
   pearls: [
-    { ti: "Organ-Independent = ICU Workhorse", tx: "Hofmann elimination proceeds identically in hepatic failure, renal failure, and multiorgan dysfunction. No active metabolites with NM blocking activity. This is THE NMBA for ICU paralysis in patients with organ dysfunction \u2014 predictable offset regardless of organ function." },
-    { ti: "Cisatracurium vs Atracurium", tx: "Cisatracurium is the purified 1R-cis,1'R-cis isomer (15% of atracurium mixture). 4\u00d7 more potent \u2192 lower total dose \u2192 5\u00d7 less laudanosine production. NO histamine release. Same Hofmann elimination pathway but cleaner pharmacologic profile." },
-    { ti: "Reversal: Neostigmine (NOT Sugammadex)", tx: "Cisatracurium is a benzylisoquinoline \u2014 sugammadex does NOT encapsulate it (sugammadex only works on steroidal NMBAs: rocuronium > vecuronium). Reversal: neostigmine 0.05\u20130.07 mg/kg + glycopyrrolate 0.01\u20130.02 mg/kg when TOF count \u22652." },
+    { ti: "Organ-Independent = ICU Workhorse", tx: "Hofmann elimination proceeds identically in hepatic failure, renal failure, and multiorgan dysfunction. No active metabolites with NM blocking activity. This is THE NMBA for ICU paralysis in patients with organ dysfunction — predictable offset regardless of organ function." },
+    { ti: "Cisatracurium vs Atracurium", tx: "Cisatracurium is the purified 1R-cis,1'R-cis isomer (15% of atracurium mixture). 4\u00d7 more potent → lower total dose → 5\u00d7 less laudanosine production. NO histamine release. Same Hofmann elimination pathway but cleaner pharmacologic profile." },
+    { ti: "Reversal: Neostigmine (NOT Sugammadex)", tx: "Cisatracurium is a benzylisoquinoline — sugammadex does NOT encapsulate it (sugammadex only works on steroidal NMBAs: rocuronium > vecuronium). Reversal: neostigmine 0.05–0.07 mg/kg + glycopyrrolate 0.01–0.02 mg/kg when TOF count ≥2." },
     { ti: "ACURASYS Trial (ARDS Paralysis)", tx: "ACURASYS (NEJM 2010): cisatracurium infusion for 48h in early ARDS improved 90-day survival and ventilator-free days. Led to widespread use of NMBAs in severe ARDS. ROSE trial (2019) did not confirm mortality benefit but used lighter sedation protocol." },
-    { ti: "Slower Onset = Less Flexible", tx: "3\u20135 min onset makes cisatracurium unsuitable for RSI. For rapid intubation: rocuronium or SCh. Cisatracurium is best for maintenance paralysis, ICU use, and situations where hemodynamic stability and organ-independent metabolism are priorities." },
+    { ti: "Slower Onset = Less Flexible", tx: "3–5 min onset makes cisatracurium unsuitable for RSI. For rapid intubation: rocuronium or SCh. Cisatracurium is best for maintenance paralysis, ICU use, and situations where hemodynamic stability and organ-independent metabolism are priorities." },
   ],
   intQs: [
-    { q: "ICU patient with liver cirrhosis and AKI needs prolonged paralysis for ARDS. Which NMBA?", a: "Cisatracurium. Hofmann elimination is organ-independent \u2014 identical degradation rate regardless of hepatic or renal function. No active metabolites with NM blocking activity. Vecuronium would be dangerous here (3-desacetylvecuronium accumulation). Rocuronium would also have prolonged, unpredictable duration (hepatic uptake dependent)." },
-    { q: "Why can't you use sugammadex to reverse cisatracurium?", a: "Sugammadex is a modified \u03b3-cyclodextrin that specifically encapsulates STEROIDAL NMBAs (aminosteroids). The hydrophobic cavity is sized and shaped for the steroidal backbone of rocuronium/vecuronium. Cisatracurium is a benzylisoquinoline \u2014 different molecular structure that doesn't fit in the cyclodextrin ring. Must use neostigmine for reversal." },
-    { q: "Patient on cisatracurium drip is being cooled to 34\u00b0C post-arrest. What adjustment?", a: "Reduce infusion rate. Hofmann elimination is temperature-dependent \u2014 slows significantly at 34\u00b0C. Duration prolonged 30\u201350%. Monitor TOF frequently and titrate to 1\u20132 twitches. Even with prolonged effect, cisatracurium remains more predictable than vecuronium in hypothermia (which has both reduced hepatic metabolism AND temperature-dependent effects)." },
+    { q: "ICU patient with liver cirrhosis and AKI needs prolonged paralysis for ARDS. Which NMBA?", a: "Cisatracurium. Hofmann elimination is organ-independent — identical degradation rate regardless of hepatic or renal function. No active metabolites with NM blocking activity. Vecuronium would be dangerous here (3-desacetylvecuronium accumulation). Rocuronium would also have prolonged, unpredictable duration (hepatic uptake dependent)." },
+    { q: "Why can't you use sugammadex to reverse cisatracurium?", a: "Sugammadex is a modified \u03b3-cyclodextrin that specifically encapsulates STEROIDAL NMBAs (aminosteroids). The hydrophobic cavity is sized and shaped for the steroidal backbone of rocuronium/vecuronium. Cisatracurium is a benzylisoquinoline — different molecular structure that doesn't fit in the cyclodextrin ring. Must use neostigmine for reversal." },
+    { q: "Patient on cisatracurium drip is being cooled to 34\u00b0C post-arrest. What adjustment?", a: "Reduce infusion rate. Hofmann elimination is temperature-dependent — slows significantly at 34\u00b0C. Duration prolonged 30–50%. Monitor TOF frequently and titrate to 1–2 twitches. Even with prolonged effect, cisatracurium remains more predictable than vecuronium in hypothermia (which has both reduced hepatic metabolism AND temperature-dependent effects)." },
   ],
 },{
   id: "neostigmine", name: "Neostigmine", brand: "Bloxiverz / Prostigmin",
   tags: ["Anticholinesterase", "NMB Reversal", "Quaternary Ammonium", "AChE Inhibitor"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Reversible acetylcholinesterase inhibitor (quaternary ammonium carbamate)", "Primary Target": "Acetylcholinesterase (AChE) at the NMJ", "Action": "Competitive inhibitor of AChE \u2192 \u2191ACh at NMJ", "Structure": "Quaternary ammonium \u2192 DOES NOT cross BBB", "Key Feature": "Standard reversal agent for non-depolarizing NMBAs; requires anticholinergic co-administration", "Pairing": "ALWAYS give with glycopyrrolate or atropine to block muscarinic side effects" },
-  moa: "Neostigmine is a quaternary ammonium carbamate that reversibly inhibits acetylcholinesterase (AChE) at the neuromuscular junction. AChE normally hydrolyzes ACh within ~1 ms of release, terminating the signal. By inhibiting AChE, neostigmine allows ACh to accumulate in the synaptic cleft, increasing both the concentration and the duration of ACh at the nicotinic receptor.\n\nThe increased ACh concentration competitively displaces non-depolarizing NMBAs from the nicotinic receptor (competitive antagonism is overcome by mass action \u2014 flooding the receptor with more agonist). This is the basis for NDMBA reversal.\n\nMechanism of AChE inhibition: Neostigmine's carbamate group binds the esteratic site of AChE (serine hydroxyl at the active site), forming a carbamylated enzyme. Unlike the acetylated enzyme intermediate (formed by ACh, hydrolyzed in microseconds), the carbamylated enzyme is hydrolyzed slowly (~15\u201330 min). This means AChE is functionally inactivated for the duration of neostigmine's presence.\n\nCRITICAL LIMITATION \u2014 CEILING EFFECT: Neostigmine can only increase ACh concentration to a maximum level. Once all AChE at the NMJ is inhibited (100% enzyme occupancy), no further ACh accumulation occurs. If NDMBA receptor occupancy exceeds what this maximum ACh concentration can overcome (\u2265 deep block), neostigmine will be insufficient. This is why neostigmine requires a minimum TOF count of 2 (ideally 4) before administration \u2014 indicating the block has spontaneously recovered to a shallow enough level for competitive reversal.\n\nNon-selective AChE inhibition: Neostigmine inhibits AChE EVERYWHERE \u2014 not just the NMJ. This means ACh also accumulates at muscarinic receptors throughout the body (heart, GI, respiratory, salivary, sweat glands), producing unwanted muscarinic effects: bradycardia (M2), bronchospasm/\u2191secretions (M3), nausea/vomiting, salivation, miosis, increased GI motility. These MUST be blocked with concurrent anticholinergic administration.",
-  recPhys: "AChE at the NMJ: A serine hydrolase anchored in the basal lamina of the synaptic cleft. Structure includes an anionic site (binds quaternary ammonium head of ACh) and an esteratic site (serine \u2013OH that hydrolyzes the ester bond). AChE is one of the fastest enzymes in biology \u2014 turnover rate ~25,000 ACh molecules/second/enzyme.\n\nNeostigmine inhibition mechanism:\n\nStep 1: The quaternary ammonium group of neostigmine binds the anionic site of AChE (electrostatic attraction, same site ACh uses).\n\nStep 2: The carbamate group transfers to the esteratic site serine, forming a CARBAMYLATED enzyme intermediate.\n\nStep 3: The carbamylated enzyme hydrolyzes slowly (t\u00bd ~15\u201330 min vs microseconds for acetylated intermediate). AChE is functionally inhibited.\n\nResult: ACh accumulates in the synaptic cleft. At the NMJ nicotinic receptor, increased ACh competes with the non-depolarizing NMBA for the \u03b1-subunit binding sites. If enough ACh accumulates relative to the NMBA concentration, ACh wins the competition \u2192 channel opening \u2192 endplate depolarization \u2192 muscle contraction restored.\n\nMusacrinic effects (unwanted):\n\u2022 Heart (M2): ACh at cardiac muscarinic receptors \u2192 \u2191vagal tone \u2192 \u2193HR, \u2193conduction velocity (AV block risk), \u2193contractility. Can cause severe bradycardia or asystole.\n\u2022 Airways (M3): Bronchial smooth muscle contraction + \u2191secretions \u2192 bronchospasm, wheezing, copious secretions.\n\u2022 GI (M3): \u2191motility, \u2191secretions \u2192 nausea, vomiting, diarrhea.\n\u2022 Eyes (M3): Miosis, \u2191lacrimation.\n\u2022 Glands: Salivation, diaphoresis (SLUDGE/DUMBELS mnemonic).\n\nAnticholinergic pairing rationale: Glycopyrrolate (0.2 mg per 1 mg neostigmine) or atropine (0.015\u20130.02 mg/kg) blocks muscarinic receptors, preventing bradycardia and secretions WITHOUT affecting nicotinic reversal at the NMJ. Glycopyrrolate preferred: onset matches neostigmine (2\u20133 min), does not cross BBB, longer duration. Atropine onset is faster \u2014 may cause initial tachycardia before neostigmine's bradycardia effect.",
+  ov: { "Drug Class": "Reversible acetylcholinesterase inhibitor (quaternary ammonium carbamate)", "Primary Target": "Acetylcholinesterase (AChE) at the NMJ", "Action": "Competitive inhibitor of AChE → ↑ACh at NMJ", "Structure": "Quaternary ammonium → DOES NOT cross BBB", "Key Feature": "Standard reversal agent for non-depolarizing NMBAs; requires anticholinergic co-administration", "Pairing": "ALWAYS give with glycopyrrolate or atropine to block muscarinic side effects" },
+  moa: "Neostigmine is a quaternary ammonium carbamate that reversibly inhibits acetylcholinesterase (AChE) at the neuromuscular junction. AChE normally hydrolyzes ACh within ~1 ms of release, terminating the signal. By inhibiting AChE, neostigmine allows ACh to accumulate in the synaptic cleft, increasing both the concentration and the duration of ACh at the nicotinic receptor.\n\nThe increased ACh concentration competitively displaces non-depolarizing NMBAs from the nicotinic receptor (competitive antagonism is overcome by mass action — flooding the receptor with more agonist). This is the basis for NDMBA reversal.\n\nMechanism of AChE inhibition: Neostigmine's carbamate group binds the esteratic site of AChE (serine hydroxyl at the active site), forming a carbamylated enzyme. Unlike the acetylated enzyme intermediate (formed by ACh, hydrolyzed in microseconds), the carbamylated enzyme is hydrolyzed slowly (~15–30 min). This means AChE is functionally inactivated for the duration of neostigmine's presence.\n\nCRITICAL LIMITATION — CEILING EFFECT: Neostigmine can only increase ACh concentration to a maximum level. Once all AChE at the NMJ is inhibited (100% enzyme occupancy), no further ACh accumulation occurs. If NDMBA receptor occupancy exceeds what this maximum ACh concentration can overcome (≥ deep block), neostigmine will be insufficient. This is why neostigmine requires a minimum TOF count of 2 (ideally 4) before administration — indicating the block has spontaneously recovered to a shallow enough level for competitive reversal.\n\nNon-selective AChE inhibition: Neostigmine inhibits AChE EVERYWHERE — not just the NMJ. This means ACh also accumulates at muscarinic receptors throughout the body (heart, GI, respiratory, salivary, sweat glands), producing unwanted muscarinic effects: bradycardia (M2), bronchospasm/↑secretions (M3), nausea/vomiting, salivation, miosis, increased GI motility. These MUST be blocked with concurrent anticholinergic administration.",
+  recPhys: "AChE at the NMJ: A serine hydrolase anchored in the basal lamina of the synaptic cleft. Structure includes an anionic site (binds quaternary ammonium head of ACh) and an esteratic site (serine –OH that hydrolyzes the ester bond). AChE is one of the fastest enzymes in biology — turnover rate ~25,000 ACh molecules/second/enzyme.\n\nNeostigmine inhibition mechanism:\n\nStep 1: The quaternary ammonium group of neostigmine binds the anionic site of AChE (electrostatic attraction, same site ACh uses).\n\nStep 2: The carbamate group transfers to the esteratic site serine, forming a CARBAMYLATED enzyme intermediate.\n\nStep 3: The carbamylated enzyme hydrolyzes slowly (t\u00bd ~15–30 min vs microseconds for acetylated intermediate). AChE is functionally inhibited.\n\nResult: ACh accumulates in the synaptic cleft. At the NMJ nicotinic receptor, increased ACh competes with the non-depolarizing NMBA for the \u03b1-subunit binding sites. If enough ACh accumulates relative to the NMBA concentration, ACh wins the competition → channel opening → endplate depolarization → muscle contraction restored.\n\nMusacrinic effects (unwanted):\n\u2022 Heart (M2): ACh at cardiac muscarinic receptors → ↑vagal tone → ↓HR, ↓conduction velocity (AV block risk), ↓contractility. Can cause severe bradycardia or asystole.\n\u2022 Airways (M3): Bronchial smooth muscle contraction + ↑secretions → bronchospasm, wheezing, copious secretions.\n\u2022 GI (M3): ↑motility, ↑secretions → nausea, vomiting, diarrhea.\n\u2022 Eyes (M3): Miosis, ↑lacrimation.\n\u2022 Glands: Salivation, diaphoresis (SLUDGE/DUMBELS mnemonic).\n\nAnticholinergic pairing rationale: Glycopyrrolate (0.2 mg per 1 mg neostigmine) or atropine (0.015–0.02 mg/kg) blocks muscarinic receptors, preventing bradycardia and secretions WITHOUT affecting nicotinic reversal at the NMJ. Glycopyrrolate preferred: onset matches neostigmine (2–3 min), does not cross BBB, longer duration. Atropine onset is faster — may cause initial tachycardia before neostigmine's bradycardia effect.",
   dosing: [
-    { ind: "NMB Reversal (Standard)", dose: "0.04\u20130.07 mg/kg IV (max 5 mg)", notes: "Give when TOF count \u22652 (ideally 4). Typical: 0.05 mg/kg. MUST pair with glycopyrrolate 0.2 mg per 1 mg neostigmine or atropine 0.015\u20130.02 mg/kg.", clr: "ac" },
+    { ind: "NMB Reversal (Standard)", dose: "0.04–0.07 mg/kg IV (max 5 mg)", notes: "Give when TOF count ≥2 (ideally 4). Typical: 0.05 mg/kg. MUST pair with glycopyrrolate 0.2 mg per 1 mg neostigmine or atropine 0.015–0.02 mg/kg.", clr: "ac" },
     { ind: "NMB Reversal (Lower Dose)", dose: "0.03 mg/kg IV", notes: "When TOF ratio >0.4 (near full spontaneous recovery). Lower dose reduces muscarinic side effects.", clr: "dg" },
     { ind: "Myasthenia Gravis (Diagnostic)", dose: "0.04 mg/kg IV (max 2.5 mg)", notes: "Improvement in muscle strength supports diagnosis. Give with atropine 0.4 mg pretreatment.", clr: "pr" },
   ],
-  kin: { onset: "1\u20133 min IV", onsetD: "Onset matches glycopyrrolate well; atropine is faster", peak: "7\u201310 min", peakD: "Full reversal effect by 7\u201310 min. If inadequate at 10 min, additional dose unlikely to help (ceiling effect)", dur: "40\u201360 min", durD: "Shorter than most NDMBAs \u2192 RECURARIZATION risk if NMBA has longer duration", vd: "0.7 L/kg", pb: "15\u201325%", hl: "24\u201380 min", csht: "N/A", cl: "Renal (50%) + plasma cholinesterase hydrolysis (50%)", model: "Renal elimination predominant" },
-  metab: "Neostigmine undergoes dual elimination: approximately 50% is excreted UNCHANGED in urine (renal clearance) and approximately 50% is hydrolyzed by plasma cholinesterases and hepatic microsomal enzymes.\n\nThe quaternary ammonium structure means neostigmine DOES NOT cross the blood-brain barrier \u2014 no central nervous system effects (unlike physostigmine, a tertiary amine AChE inhibitor that crosses the BBB).\n\nRenal impairment: Significantly prolongs half-life and duration of action. However, this is rarely a clinical problem because renal impairment also prolongs NDMBA duration. The prolonged neostigmine effect helps match the prolonged NMBA effect. Net result: reversal is still usually adequate, though onset may be slower.\n\nMaximum dose: 5 mg (0.07 mg/kg). Beyond this dose, no additional NMJ reversal occurs (ceiling effect \u2014 all AChE already inhibited) but muscarinic side effects continue to increase.",
+  kin: { onset: "1–3 min IV", onsetD: "Onset matches glycopyrrolate well; atropine is faster", peak: "7–10 min", peakD: "Full reversal effect by 7–10 min. If inadequate at 10 min, additional dose unlikely to help (ceiling effect)", dur: "40–60 min", durD: "Shorter than most NDMBAs → RECURARIZATION risk if NMBA has longer duration", vd: "0.7 L/kg", pb: "15–25%", hl: "24–80 min", csht: "N/A", cl: "Renal (50%) + plasma cholinesterase hydrolysis (50%)", model: "Renal elimination predominant" },
+  metab: "Neostigmine undergoes dual elimination: approximately 50% is excreted UNCHANGED in urine (renal clearance) and approximately 50% is hydrolyzed by plasma cholinesterases and hepatic microsomal enzymes.\n\nThe quaternary ammonium structure means neostigmine DOES NOT cross the blood-brain barrier — no central nervous system effects (unlike physostigmine, a tertiary amine AChE inhibitor that crosses the BBB).\n\nRenal impairment: Significantly prolongs half-life and duration of action. However, this is rarely a clinical problem because renal impairment also prolongs NDMBA duration. The prolonged neostigmine effect helps match the prolonged NMBA effect. Net result: reversal is still usually adequate, though onset may be slower.\n\nMaximum dose: 5 mg (0.07 mg/kg). Beyond this dose, no additional NMJ reversal occurs (ceiling effect — all AChE already inhibited) but muscarinic side effects continue to increase.",
   warn: [
-    { tp: "bb", ti: "Bradycardia / Asystole Without Anticholinergic", tx: "NEVER give neostigmine without concurrent anticholinergic. Unopposed muscarinic stimulation \u2192 severe bradycardia, AV block, or asystole. Glycopyrrolate 0.2 mg per 1 mg neostigmine (preferred) or atropine 0.015\u20130.02 mg/kg." },
+    { tp: "bb", ti: "Bradycardia / Asystole Without Anticholinergic", tx: "NEVER give neostigmine without concurrent anticholinergic. Unopposed muscarinic stimulation → severe bradycardia, AV block, or asystole. Glycopyrrolate 0.2 mg per 1 mg neostigmine (preferred) or atropine 0.015–0.02 mg/kg." },
     { tp: "ci", ti: "GI/GU Obstruction", tx: "Increased smooth muscle tone and motility. Contraindicated in mechanical GI or urinary obstruction." },
-    { tp: "cau", ti: "Ceiling Effect", tx: "Max dose ~0.07 mg/kg (5 mg). Beyond this: no additional NMJ reversal but increasing muscarinic toxicity. If block not reversed at max dose, the block is too deep for neostigmine \u2192 consider sugammadex (for steroidal NMBAs) or wait for further spontaneous recovery." },
-    { tp: "cau", ti: "Bronchospasm Risk", tx: "M3 stimulation in airways \u2192 bronchoconstriction + \u2191secretions. Use with extreme caution in severe asthma/COPD. Glycopyrrolate co-administration helps but may not fully prevent." },
-    { tp: "cau", ti: "Recurarization", tx: "Neostigmine duration (40\u201360 min) may be shorter than the NDMBA it's reversing (especially long-acting agents or high doses). If the NMBA outlasts neostigmine, the block can return. Monitor patients post-reversal." },
+    { tp: "cau", ti: "Ceiling Effect", tx: "Max dose ~0.07 mg/kg (5 mg). Beyond this: no additional NMJ reversal but increasing muscarinic toxicity. If block not reversed at max dose, the block is too deep for neostigmine → consider sugammadex (for steroidal NMBAs) or wait for further spontaneous recovery." },
+    { tp: "cau", ti: "Bronchospasm Risk", tx: "M3 stimulation in airways → bronchoconstriction + ↑secretions. Use with extreme caution in severe asthma/COPD. Glycopyrrolate co-administration helps but may not fully prevent." },
+    { tp: "cau", ti: "Recurarization", tx: "Neostigmine duration (40–60 min) may be shorter than the NDMBA it's reversing (especially long-acting agents or high doses). If the NMBA outlasts neostigmine, the block can return. Monitor patients post-reversal." },
   ],
   ix: [
     { dr: "Glycopyrrolate", ef: "REQUIRED pairing. 0.2 mg per 1 mg neostigmine. Blocks muscarinic effects (bradycardia, secretions). Onset matches neostigmine.", sv: "high" },
-    { dr: "Atropine", ef: "Alternative pairing. 0.015\u20130.02 mg/kg. Faster onset than neostigmine \u2192 may see initial tachycardia before neostigmine-induced bradycardia.", sv: "high" },
-    { dr: "Succinylcholine", ef: "Neostigmine inhibits plasma cholinesterase \u2192 prolongs SCh duration if given together. Avoid SCh for 30+ min after neostigmine.", sv: "high" },
+    { dr: "Atropine", ef: "Alternative pairing. 0.015–0.02 mg/kg. Faster onset than neostigmine → may see initial tachycardia before neostigmine-induced bradycardia.", sv: "high" },
+    { dr: "Succinylcholine", ef: "Neostigmine inhibits plasma cholinesterase → prolongs SCh duration if given together. Avoid SCh for 30+ min after neostigmine.", sv: "high" },
     { dr: "Beta-blockers", ef: "Potentiates bradycardia risk. Neostigmine's vagotonic effect added to beta-blocker's chronotropic depression. Monitor HR closely.", sv: "mod" },
     { dr: "Depolarizing NMBAs", ef: "Will NOT reverse depolarizing block (SCh). May potentiate Phase I block. Only reverses NON-depolarizing block.", sv: "high" },
   ],
   pearls: [
-    { ti: "TOF \u22652 Before Giving", tx: "Neostigmine has a ceiling effect \u2014 it can only increase ACh so much. If the block is deep (TOF 0\u20131), there's too much NMBA for ACh to overcome. Wait until TOF \u22652 (ideally 4) before attempting reversal. Giving neostigmine too early wastes time and adds muscarinic side effects without benefit." },
-    { ti: "Glycopyrrolate vs Atropine Pairing", tx: "Glycopyrrolate: onset 2\u20133 min (matches neostigmine), does NOT cross BBB, longer duration, less tachycardia. Atropine: faster onset (30\u201360 sec, causes brief tachycardia before neostigmine kicks in), crosses BBB (central effects), shorter duration. Standard practice: glycopyrrolate unless speed of anticholinergic needed." },
-    { ti: "Neostigmine vs Sugammadex", tx: "Neostigmine: works on ALL NDMBAs (benzylisoquinoline + aminosteroid), cheap, requires TOF \u22652, ceiling effect, muscarinic side effects, 10\u201315 min reversal. Sugammadex: ONLY works on steroidal NMBAs (rocuronium/vecuronium), expensive, works at ANY depth, no ceiling, no muscarinic effects, 2\u20133 min reversal." },
+    { ti: "TOF ≥2 Before Giving", tx: "Neostigmine has a ceiling effect — it can only increase ACh so much. If the block is deep (TOF 0–1), there's too much NMBA for ACh to overcome. Wait until TOF ≥2 (ideally 4) before attempting reversal. Giving neostigmine too early wastes time and adds muscarinic side effects without benefit." },
+    { ti: "Glycopyrrolate vs Atropine Pairing", tx: "Glycopyrrolate: onset 2–3 min (matches neostigmine), does NOT cross BBB, longer duration, less tachycardia. Atropine: faster onset (30–60 sec, causes brief tachycardia before neostigmine kicks in), crosses BBB (central effects), shorter duration. Standard practice: glycopyrrolate unless speed of anticholinergic needed." },
+    { ti: "Neostigmine vs Sugammadex", tx: "Neostigmine: works on ALL NDMBAs (benzylisoquinoline + aminosteroid), cheap, requires TOF ≥2, ceiling effect, muscarinic side effects, 10–15 min reversal. Sugammadex: ONLY works on steroidal NMBAs (rocuronium/vecuronium), expensive, works at ANY depth, no ceiling, no muscarinic effects, 2–3 min reversal." },
     { ti: "Cannot Reverse SCh", tx: "Neostigmine inhibits AChE, increasing ACh at the NMJ. For a depolarizing block (SCh = ACh mimic), more ACh WORSENS the block. Neostigmine is contraindicated for depolarizing block reversal." },
-    { ti: "Post-Op Residual Curarization (PORC)", tx: "Incomplete NMBA reversal is the #1 cause of post-operative respiratory failure related to NMBAs. Neostigmine's ceiling effect means it cannot guarantee full reversal. TOF ratio \u22650.9 (quantitative monitoring) is the standard for safe extubation. Subjective TOF assessment misses residual block in up to 40% of cases." },
+    { ti: "Post-Op Residual Curarization (PORC)", tx: "Incomplete NMBA reversal is the #1 cause of post-operative respiratory failure related to NMBAs. Neostigmine's ceiling effect means it cannot guarantee full reversal. TOF ratio ≥0.9 (quantitative monitoring) is the standard for safe extubation. Subjective TOF assessment misses residual block in up to 40% of cases." },
   ],
   intQs: [
-    { q: "Patient reversed with neostigmine but develops respiratory failure in PACU 30 minutes later. What happened?", a: "Recurarization. Neostigmine duration (40\u201360 min) may be shorter than the NDMBA being reversed. As neostigmine wears off, AChE activity returns \u2192 ACh levels drop \u2192 residual NMBA re-establishes block. Risk factors: deep block at reversal, long-acting NMBA, renal/hepatic dysfunction slowing NMBA elimination. Treatment: re-dose neostigmine with anticholinergic, or give sugammadex if steroidal NMBA was used." },
-    { q: "TOF count is 0. Can you give neostigmine?", a: "No. Ceiling effect \u2014 neostigmine cannot overcome deep block (high receptor occupancy by NMBA). At TOF 0, >95% of receptors are blocked. Maximum ACh accumulation from neostigmine cannot compete. Wait for spontaneous recovery to TOF \u22652 (some say 4) before giving neostigmine. Alternative: sugammadex 4\u201316 mg/kg can reverse even deep rocuronium/vecuronium block." },
-    { q: "Why do you pair neostigmine with glycopyrrolate instead of atropine?", a: "Onset matching. Glycopyrrolate onset (2\u20133 min) closely matches neostigmine onset (1\u20133 min), providing contemporaneous muscarinic protection. Atropine onset (30\u201360 sec) is faster \u2192 initial tachycardia before neostigmine's bradycardic effect begins, then potential bradycardia rebound as atropine wears off before neostigmine. Also: glycopyrrolate doesn't cross BBB (no central anticholinergic effects), longer duration of action." },
+    { q: "Patient reversed with neostigmine but develops respiratory failure in PACU 30 minutes later. What happened?", a: "Recurarization. Neostigmine duration (40–60 min) may be shorter than the NDMBA being reversed. As neostigmine wears off, AChE activity returns → ACh levels drop → residual NMBA re-establishes block. Risk factors: deep block at reversal, long-acting NMBA, renal/hepatic dysfunction slowing NMBA elimination. Treatment: re-dose neostigmine with anticholinergic, or give sugammadex if steroidal NMBA was used." },
+    { q: "TOF count is 0. Can you give neostigmine?", a: "No. Ceiling effect — neostigmine cannot overcome deep block (high receptor occupancy by NMBA). At TOF 0, >95% of receptors are blocked. Maximum ACh accumulation from neostigmine cannot compete. Wait for spontaneous recovery to TOF ≥2 (some say 4) before giving neostigmine. Alternative: sugammadex 4–16 mg/kg can reverse even deep rocuronium/vecuronium block." },
+    { q: "Why do you pair neostigmine with glycopyrrolate instead of atropine?", a: "Onset matching. Glycopyrrolate onset (2–3 min) closely matches neostigmine onset (1–3 min), providing contemporaneous muscarinic protection. Atropine onset (30–60 sec) is faster → initial tachycardia before neostigmine's bradycardic effect begins, then potential bradycardia rebound as atropine wears off before neostigmine. Also: glycopyrrolate doesn't cross BBB (no central anticholinergic effects), longer duration of action." },
   ],
 },{
   id: "sugammadex", name: "Sugammadex", brand: "Bridion",
   tags: ["NMBA Reversal", "\u03b3-Cyclodextrin", "Steroidal NMBA Encapsulation", "Rocuronium Reversal"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Modified \u03b3-cyclodextrin selective relaxant binding agent (SRBA)", "Primary Target": "Steroidal NMBAs (rocuronium >> vecuronium >> pancuronium)", "Action": "Chemical encapsulation \u2014 traps NMBA molecules in cyclodextrin ring", "Structure": "Modified \u03b3-cyclodextrin with 8 side chains extending the hydrophobic cavity", "Key Feature": "Reverses NM block at ANY depth, including immediately after RSI dose; no muscarinic side effects" },
-  moa: "Sugammadex is a modified \u03b3-cyclodextrin molecule \u2014 a ring of 8 glucose units forming a truncated cone with a hydrophobic interior cavity and hydrophilic exterior. The cavity is specifically sized and chemically modified to encapsulate steroidal NMBA molecules through a 1:1 host-guest molecular interaction.\n\nMechanism: Sugammadex administered IV rapidly distributes through plasma. Its hydrophobic cavity engulfs the steroidal NMBA molecule (rocuronium, vecuronium) through tight van der Waals forces, thermodynamic trapping, and electrostatic interactions with the negatively charged carboxyl side chains on sugammadex and the positively charged quaternary nitrogen on the NMBA. The resulting sugammadex-NMBA complex is extremely stable (binding affinity for rocuronium: Ka ~10\u2077 M\u207b\u00b9).\n\nThis encapsulation creates a steep concentration gradient: free NMBA in plasma drops precipitously as sugammadex binds it \u2192 NMBA molecules at the NMJ diffuse down their concentration gradient back into plasma \u2192 sugammadex captures them \u2192 more NMBA leaves the NMJ. This cascade rapidly depletes NMBA from the neuromuscular junction, restoring ACh access to nicotinic receptors.\n\nKey distinction from neostigmine: Sugammadex works by REMOVING the NMBA from the system entirely (chemical chelation), NOT by increasing ACh. This means no ceiling effect, no muscarinic side effects (no ACh manipulation), and effectiveness at ANY depth of block \u2014 including immediate reversal after RSI dose.\n\nSelectivity: Rocuronium > vecuronium >> pancuronium. Does NOT encapsulate benzylisoquinoline NMBAs (cisatracurium, atracurium) \u2014 wrong molecular shape for the cavity. Does NOT reverse succinylcholine (different structure, different mechanism).",
-  recPhys: "Cyclodextrin encapsulation pharmacology:\n\nStep 1 \u2014 IV Administration: Sugammadex distributes rapidly in plasma (Vd = 0.07 L/kg, essentially plasma volume only \u2014 stays intravascular).\n\nStep 2 \u2014 Plasma Binding: Sugammadex encounters free rocuronium/vecuronium in plasma and encapsulates it within seconds. The association rate is extremely fast. Binding constant for rocuronium: Ka ~10\u2077 M\u207b\u00b9 (very tight). For vecuronium: Ka ~10\u2076 M\u207b\u00b9 (10\u00d7 lower affinity, still clinically effective).\n\nStep 3 \u2014 Concentration Gradient: Rapid removal of free NMBA from plasma creates a steep plasma-to-NMJ concentration gradient. NMBA molecules at the NMJ (bound to nicotinic receptors and free in the biophase) diffuse back into plasma along this gradient.\n\nStep 4 \u2014 NMJ Clearance: As NMBA leaves the NMJ, nicotinic receptor occupancy falls below the threshold for block (~75% occupancy needed for clinical weakness). ACh can now access unblocked receptors \u2192 endplate depolarization restored \u2192 muscle contraction returns.\n\nStep 5 \u2014 Renal Excretion: The sugammadex-rocuronium complex is highly water-soluble and is excreted intact by the kidneys via glomerular filtration. The complex does NOT dissociate under physiologic conditions. No hepatic metabolism required.\n\nWhy no muscarinic effects: Sugammadex does not interact with AChE, ACh, or any receptor system. It only binds the NMBA molecule itself. No ACh accumulation occurs, so no muscarinic stimulation. No anticholinergic co-administration needed.\n\nHormonal interaction: Sugammadex can bind steroidal hormones (progesterone, estradiol) with much lower affinity. Clinical significance: may reduce effectiveness of hormonal contraceptives for one cycle \u2014 counsel patients to use backup contraception.",
+  ov: { "Drug Class": "Modified \u03b3-cyclodextrin selective relaxant binding agent (SRBA)", "Primary Target": "Steroidal NMBAs (rocuronium >> vecuronium >> pancuronium)", "Action": "Chemical encapsulation — traps NMBA molecules in cyclodextrin ring", "Structure": "Modified \u03b3-cyclodextrin with 8 side chains extending the hydrophobic cavity", "Key Feature": "Reverses NM block at ANY depth, including immediately after RSI dose; no muscarinic side effects" },
+  moa: "Sugammadex is a modified \u03b3-cyclodextrin molecule — a ring of 8 glucose units forming a truncated cone with a hydrophobic interior cavity and hydrophilic exterior. The cavity is specifically sized and chemically modified to encapsulate steroidal NMBA molecules through a 1:1 host-guest molecular interaction.\n\nMechanism: Sugammadex administered IV rapidly distributes through plasma. Its hydrophobic cavity engulfs the steroidal NMBA molecule (rocuronium, vecuronium) through tight van der Waals forces, thermodynamic trapping, and electrostatic interactions with the negatively charged carboxyl side chains on sugammadex and the positively charged quaternary nitrogen on the NMBA. The resulting sugammadex-NMBA complex is extremely stable (binding affinity for rocuronium: Ka ~10\u2077 M\u207b\u00b9).\n\nThis encapsulation creates a steep concentration gradient: free NMBA in plasma drops precipitously as sugammadex binds it → NMBA molecules at the NMJ diffuse down their concentration gradient back into plasma → sugammadex captures them → more NMBA leaves the NMJ. This cascade rapidly depletes NMBA from the neuromuscular junction, restoring ACh access to nicotinic receptors.\n\nKey distinction from neostigmine: Sugammadex works by REMOVING the NMBA from the system entirely (chemical chelation), NOT by increasing ACh. This means no ceiling effect, no muscarinic side effects (no ACh manipulation), and effectiveness at ANY depth of block — including immediate reversal after RSI dose.\n\nSelectivity: Rocuronium > vecuronium >> pancuronium. Does NOT encapsulate benzylisoquinoline NMBAs (cisatracurium, atracurium) — wrong molecular shape for the cavity. Does NOT reverse succinylcholine (different structure, different mechanism).",
+  recPhys: "Cyclodextrin encapsulation pharmacology:\n\nStep 1 — IV Administration: Sugammadex distributes rapidly in plasma (Vd = 0.07 L/kg, essentially plasma volume only — stays intravascular).\n\nStep 2 — Plasma Binding: Sugammadex encounters free rocuronium/vecuronium in plasma and encapsulates it within seconds. The association rate is extremely fast. Binding constant for rocuronium: Ka ~10\u2077 M\u207b\u00b9 (very tight). For vecuronium: Ka ~10\u2076 M\u207b\u00b9 (10\u00d7 lower affinity, still clinically effective).\n\nStep 3 — Concentration Gradient: Rapid removal of free NMBA from plasma creates a steep plasma-to-NMJ concentration gradient. NMBA molecules at the NMJ (bound to nicotinic receptors and free in the biophase) diffuse back into plasma along this gradient.\n\nStep 4 — NMJ Clearance: As NMBA leaves the NMJ, nicotinic receptor occupancy falls below the threshold for block (~75% occupancy needed for clinical weakness). ACh can now access unblocked receptors → endplate depolarization restored → muscle contraction returns.\n\nStep 5 — Renal Excretion: The sugammadex-rocuronium complex is highly water-soluble and is excreted intact by the kidneys via glomerular filtration. The complex does NOT dissociate under physiologic conditions. No hepatic metabolism required.\n\nWhy no muscarinic effects: Sugammadex does not interact with AChE, ACh, or any receptor system. It only binds the NMBA molecule itself. No ACh accumulation occurs, so no muscarinic stimulation. No anticholinergic co-administration needed.\n\nHormonal interaction: Sugammadex can bind steroidal hormones (progesterone, estradiol) with much lower affinity. Clinical significance: may reduce effectiveness of hormonal contraceptives for one cycle — counsel patients to use backup contraception.",
   dosing: [
-    { ind: "Moderate Block (TOF \u22652)", dose: "2 mg/kg IV", notes: "Standard post-surgical reversal when TOF count \u22652 twitches. Full reversal in ~2 min.", clr: "ac" },
-    { ind: "Deep Block (PTC \u22651\u20132)", dose: "4 mg/kg IV", notes: "Post-tetanic count 1\u20132 twitches (deep block, no TOF twitches). Full reversal in ~3 min.", clr: "wn" },
+    { ind: "Moderate Block (TOF ≥2)", dose: "2 mg/kg IV", notes: "Standard post-surgical reversal when TOF count ≥2 twitches. Full reversal in ~2 min.", clr: "ac" },
+    { ind: "Deep Block (PTC ≥1–2)", dose: "4 mg/kg IV", notes: "Post-tetanic count 1–2 twitches (deep block, no TOF twitches). Full reversal in ~3 min.", clr: "wn" },
     { ind: "Immediate Reversal (post-RSI)", dose: "16 mg/kg IV", notes: "For immediate reversal after rocuronium 1.2 mg/kg RSI dose. Give 3 min after rocuronium. Full reversal in ~3 min. This is the 'rescue' dose.", clr: "pr" },
   ],
-  kin: { onset: "1\u20133 min", onsetD: "Dose-dependent: 2 mg/kg reversal by ~2 min; 16 mg/kg by ~3 min", peak: "2\u20133 min", peakD: "TOF ratio \u22650.9 within 2\u20133 min at appropriate dose", dur: "Permanent encapsulation", durD: "Complex is stable and excreted intact. No re-curarization at proper dosing", vd: "0.07 L/kg (plasma volume)", pb: "Minimal", hl: "100\u2013150 min", csht: "N/A \u2014 irreversible encapsulation", cl: "Renal (>90% excreted as intact sugammadex-NMBA complex)", model: "One-compartment (stays in plasma)" },
-  metab: "Sugammadex undergoes virtually NO METABOLISM. It is not a substrate for CYP450 enzymes, plasma esterases, or any known metabolic pathway.\n\nThe sugammadex-rocuronium complex is excreted INTACT by glomerular filtration in the kidneys. >95% recovered unchanged in urine within 24 hours.\n\nRenal impairment: In severe renal failure (CrCl <30 mL/min), excretion of the sugammadex-NMBA complex is dramatically slowed. The complex remains in plasma for prolonged periods. However, the encapsulation is so tight that the NMBA does not dissociate \u2192 NMJ block does not return. The clinical effect (reversal) is maintained even though excretion is delayed.\n\nHemodialysis: Sugammadex-NMBA complex has a molecular weight ~2,000 Da. Standard high-flux dialysis can remove ~70% of the complex.\n\nHepatic impairment: No dose adjustment. Metabolism is not hepatic.",
+  kin: { onset: "1–3 min", onsetD: "Dose-dependent: 2 mg/kg reversal by ~2 min; 16 mg/kg by ~3 min", peak: "2–3 min", peakD: "TOF ratio ≥0.9 within 2–3 min at appropriate dose", dur: "Permanent encapsulation", durD: "Complex is stable and excreted intact. No re-curarization at proper dosing", vd: "0.07 L/kg (plasma volume)", pb: "Minimal", hl: "100–150 min", csht: "N/A — irreversible encapsulation", cl: "Renal (>90% excreted as intact sugammadex-NMBA complex)", model: "One-compartment (stays in plasma)" },
+  metab: "Sugammadex undergoes virtually NO METABOLISM. It is not a substrate for CYP450 enzymes, plasma esterases, or any known metabolic pathway.\n\nThe sugammadex-rocuronium complex is excreted INTACT by glomerular filtration in the kidneys. >95% recovered unchanged in urine within 24 hours.\n\nRenal impairment: In severe renal failure (CrCl <30 mL/min), excretion of the sugammadex-NMBA complex is dramatically slowed. The complex remains in plasma for prolonged periods. However, the encapsulation is so tight that the NMBA does not dissociate → NMJ block does not return. The clinical effect (reversal) is maintained even though excretion is delayed.\n\nHemodialysis: Sugammadex-NMBA complex has a molecular weight ~2,000 Da. Standard high-flux dialysis can remove ~70% of the complex.\n\nHepatic impairment: No dose adjustment. Metabolism is not hepatic.",
   warn: [
     { tp: "cau", ti: "Hormonal Contraceptive Interaction", tx: "Sugammadex can bind steroidal hormones (progesterone, estradiol) with low affinity. May reduce effectiveness of hormonal contraceptives for the current cycle. Advise backup contraception for 7 days after administration." },
-    { tp: "cau", ti: "Hypersensitivity / Anaphylaxis", tx: "Post-marketing reports of anaphylaxis (rare, ~0.3%). Can occur on first exposure (no prior sensitization needed \u2014 cyclodextrin-mediated). Have epinephrine available." },
-    { tp: "cau", ti: "Severe Renal Impairment (CrCl <30)", tx: "Excretion of sugammadex-NMBA complex is significantly delayed. Clinical reversal still occurs but complex circulates longer. Monitor closely for \u226548h post-administration." },
+    { tp: "cau", ti: "Hypersensitivity / Anaphylaxis", tx: "Post-marketing reports of anaphylaxis (rare, ~0.3%). Can occur on first exposure (no prior sensitization needed — cyclodextrin-mediated). Have epinephrine available." },
+    { tp: "cau", ti: "Severe Renal Impairment (CrCl <30)", tx: "Excretion of sugammadex-NMBA complex is significantly delayed. Clinical reversal still occurs but complex circulates longer. Monitor closely for ≥48h post-administration." },
     { tp: "cau", ti: "Bradycardia (Rare)", tx: "Isolated reports of marked bradycardia within minutes of administration. Mechanism unclear (possibly vagal response to rapid recovery of diaphragm/airway reflexes). Have atropine available." },
     { tp: "cau", ti: "Re-Administration of NMBA After Sugammadex", tx: "If re-intubation needed after sugammadex: wait 5 min and give rocuronium 1.2 mg/kg (higher dose to overcome residual sugammadex). OR use SCh (not affected by sugammadex). OR use benzylisoquinoline NMBA (cisatracurium)." },
   ],
@@ -869,41 +869,41 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
     { dr: "Rocuronium", ef: "Primary target. Ka ~10\u2077 M\u207b\u00b9 (tight binding). 2 mg/kg reverses moderate block, 16 mg/kg provides immediate reversal post-RSI.", sv: "high" },
     { dr: "Vecuronium", ef: "Secondary target. Ka ~10\u2076 M\u207b\u00b9 (~10\u00d7 lower affinity). Standard dosing effective but may need higher doses for deep block.", sv: "high" },
     { dr: "Hormonal Contraceptives", ef: "Sugammadex can encapsulate steroidal hormones (progesterone, estrogen). May reduce contraceptive efficacy. Advise backup contraception \u00d77 days.", sv: "mod" },
-    { dr: "Toremifene (SERM)", ef: "Higher affinity for sugammadex than most hormones. Theoretical displacement of NMBA from sugammadex \u2192 re-curarization. Clinical significance uncertain.", sv: "mod" },
+    { dr: "Toremifene (SERM)", ef: "Higher affinity for sugammadex than most hormones. Theoretical displacement of NMBA from sugammadex → re-curarization. Clinical significance uncertain.", sv: "mod" },
     { dr: "Benzylisoquinoline NMBAs", ef: "NO interaction. Sugammadex does NOT encapsulate cisatracurium or atracurium. Wrong molecular shape.", sv: "low" },
   ],
   pearls: [
-    { ti: "Dose by Depth of Block", tx: "2-4-16 rule: 2 mg/kg for moderate block (TOF \u22652), 4 mg/kg for deep block (PTC \u22651\u20132), 16 mg/kg for immediate reversal (3 min after RSI dose). Underdosing risks re-curarization." },
+    { ti: "Dose by Depth of Block", tx: "2-4-16 rule: 2 mg/kg for moderate block (TOF ≥2), 4 mg/kg for deep block (PTC ≥1–2), 16 mg/kg for immediate reversal (3 min after RSI dose). Underdosing risks re-curarization." },
     { ti: "Changed the RSI Paradigm", tx: "Sugammadex 16 mg/kg can immediately reverse rocuronium 1.2 mg/kg. This eliminates SCh's main advantage (ultrashort duration). Where sugammadex is available, rocuronium + sugammadex is replacing SCh for RSI, avoiding hyperkalemia, MH, fasciculation, and cardiac risks." },
     { ti: "No Muscarinic Effects", tx: "Unlike neostigmine, sugammadex does not affect AChE or ACh levels. No bradycardia, bronchospasm, or secretions from the mechanism itself. No anticholinergic co-administration needed. Simpler, faster, cleaner reversal." },
-    { ti: "Cost Consideration", tx: "Sugammadex is significantly more expensive than neostigmine (16 mg/kg dose for a 100 kg patient = 1600 mg = ~$200\u2013400). Neostigmine + glycopyrrolate costs ~$5\u201310. Cost is the main reason neostigmine remains in use for routine shallow block reversal." },
+    { ti: "Cost Consideration", tx: "Sugammadex is significantly more expensive than neostigmine (16 mg/kg dose for a 100 kg patient = 1600 mg = ~$200–400). Neostigmine + glycopyrrolate costs ~$5–10. Cost is the main reason neostigmine remains in use for routine shallow block reversal." },
     { ti: "Cannot Reverse Cisatracurium", tx: "Sugammadex only encapsulates STEROIDAL NMBAs. If using cisatracurium (benzylisoquinoline), reversal options are neostigmine (with anticholinergic) or waiting for Hofmann elimination. This is a key factor in NMBA selection." },
-    { ti: "Rocuronium Re-Administration", tx: "After full-dose sugammadex, if you need to re-paralyze: wait \u22655 min, give rocuronium 1.2 mg/kg (extra dose overcomes residual sugammadex). OR give SCh or cisatracurium (unaffected by sugammadex). Some institutions wait 24h before standard-dose rocuronium." },
+    { ti: "Rocuronium Re-Administration", tx: "After full-dose sugammadex, if you need to re-paralyze: wait ≥5 min, give rocuronium 1.2 mg/kg (extra dose overcomes residual sugammadex). OR give SCh or cisatracurium (unaffected by sugammadex). Some institutions wait 24h before standard-dose rocuronium." },
   ],
   intQs: [
-    { q: "Can't intubate, can't oxygenate after rocuronium 1.2 mg/kg RSI. No surgical airway kit. Options?", a: "Sugammadex 16 mg/kg IV immediately. This is the rescue scenario sugammadex was designed for. Full reversal of rocuronium in ~3 minutes. Patient resumes spontaneous ventilation while you regroup. Without sugammadex, you would be committed to a paralyzed, unoxygenatable patient for 45\u201390 minutes \u2014 catastrophic." },
-    { q: "Patient needs paralysis for ARDS but has liver and kidney failure. Your NMBA is cisatracurium. Surgeon needs immediate reversal for emergency surgery. Can you give sugammadex?", a: "No. Sugammadex does not reverse cisatracurium (benzylisoquinoline structure doesn't fit the cyclodextrin cavity). Options: give neostigmine 0.05\u20130.07 mg/kg + glycopyrrolate IF TOF \u22652. If still deeply blocked: support ventilation through surgery, allow Hofmann elimination to degrade cisatracurium (organ-independent, will proceed even in organ failure). This scenario illustrates why NMBA selection matters \u2014 if you anticipate needing immediate reversal capability, use rocuronium." },
-    { q: "After sugammadex reversal, you need to re-intubate 20 minutes later. What paralytic?", a: "Three options: (1) SCh 1\u20131.5 mg/kg \u2014 unaffected by sugammadex, normal onset/duration. Best if no SCh contraindications. (2) Rocuronium 1.2 mg/kg \u2014 higher dose to saturate residual sugammadex first; the excess rocuronium provides paralysis. Wait \u22655 min after sugammadex. (3) Cisatracurium \u2014 unaffected by sugammadex. Option 1 or 3 are most reliable." },
+    { q: "Can't intubate, can't oxygenate after rocuronium 1.2 mg/kg RSI. No surgical airway kit. Options?", a: "Sugammadex 16 mg/kg IV immediately. This is the rescue scenario sugammadex was designed for. Full reversal of rocuronium in ~3 minutes. Patient resumes spontaneous ventilation while you regroup. Without sugammadex, you would be committed to a paralyzed, unoxygenatable patient for 45–90 minutes — catastrophic." },
+    { q: "Patient needs paralysis for ARDS but has liver and kidney failure. Your NMBA is cisatracurium. Surgeon needs immediate reversal for emergency surgery. Can you give sugammadex?", a: "No. Sugammadex does not reverse cisatracurium (benzylisoquinoline structure doesn't fit the cyclodextrin cavity). Options: give neostigmine 0.05–0.07 mg/kg + glycopyrrolate IF TOF ≥2. If still deeply blocked: support ventilation through surgery, allow Hofmann elimination to degrade cisatracurium (organ-independent, will proceed even in organ failure). This scenario illustrates why NMBA selection matters — if you anticipate needing immediate reversal capability, use rocuronium." },
+    { q: "After sugammadex reversal, you need to re-intubate 20 minutes later. What paralytic?", a: "Three options: (1) SCh 1–1.5 mg/kg — unaffected by sugammadex, normal onset/duration. Best if no SCh contraindications. (2) Rocuronium 1.2 mg/kg — higher dose to saturate residual sugammadex first; the excess rocuronium provides paralysis. Wait ≥5 min after sugammadex. (3) Cisatracurium — unaffected by sugammadex. Option 1 or 3 are most reliable." },
   ],
 },{
   id: "etomidate", name: "Etomidate", brand: "Amidate",
   tags: ["Sedative-Hypnotic", "GABA-A Agonist", "Induction Agent", "Hemodynamically Stable"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Carboxylated imidazole sedative-hypnotic (GABA\u2090 receptor positive allosteric modulator)", "Primary Target": "GABA\u2090 receptor \u2014 \u03b1-\u03b2 subunit interface", "Action": "Positive allosteric modulator \u2192 enhances GABA-mediated Cl\u207b conductance", "Ion Channel": "GABA\u2090 Cl\u207b channel \u2192 \u2191Cl\u207b influx \u2192 neuronal hyperpolarization", "Structure": "Carboxylated imidazole with chiral center (R(+) enantiomer is active)", "Key Feature": "Minimal hemodynamic depression; adrenal suppression limits use" },
-  moa: "Etomidate is a carboxylated imidazole that produces hypnosis by enhancing GABA\u2090 receptor function in the central nervous system. It acts as a positive allosteric modulator at the GABA\u2090 receptor, binding at the \u03b1-\u03b2 subunit interface (a distinct site from the benzodiazepine binding site at the \u03b1-\u03b3 interface). At clinical concentrations, etomidate potentiates GABA-mediated chloride conductance. At higher concentrations, it can directly activate the GABA\u2090 receptor even in the absence of GABA.\n\nHEMODYNAMIC STABILITY: Etomidate's defining clinical feature is its minimal effect on cardiovascular function. Unlike propofol and thiopental, etomidate does not significantly reduce myocardial contractility, systemic vascular resistance, or baroreceptor reflex sensitivity. Blood pressure and cardiac output are maintained. This makes it the induction agent of choice for hemodynamically unstable patients.\n\nADRENAL SUPPRESSION: Etomidate's major limitation. It reversibly inhibits 11\u03b2-hydroxylase (CYP11B1), the enzyme that converts 11-deoxycortisol to cortisol in the adrenal cortex. Even a SINGLE INDUCTION DOSE (0.3 mg/kg) suppresses cortisol synthesis for 12\u201324 hours.",
-  recPhys: "GABA\u2090 Receptor Physiology:\n\nThe GABA\u2090 receptor is a pentameric ligand-gated Cl\u207b channel, most commonly composed of 2\u03b1 + 2\u03b2 + 1\u03b3 subunits. The receptor has multiple allosteric binding sites for different drug classes:\n\n\u2022 GABA binding site: \u03b1-\u03b2 interface (orthosteric site)\n\u2022 Benzodiazepine site: \u03b1-\u03b3 interface\n\u2022 Etomidate/propofol site: \u03b1-\u03b2 interface (transmembrane domain, distinct from GABA site)\n\u2022 Barbiturate site: \u03b2-subunit transmembrane domain\n\u2022 Neurosteroid site: \u03b1-subunit transmembrane domain\n\nEtomidate binding at the \u03b1-\u03b2 interface:\n\nStep 1: Etomidate binds in the transmembrane domain at the interface between \u03b1 and \u03b2 subunits. Key residue: \u03b2N265 (asparagine at position 265 on the \u03b2 subunit) is critical for etomidate binding.\n\nStep 2: Allosteric modulation \u2192 conformational change increases the receptor's affinity for GABA and prolongs the open time of the Cl\u207b channel.\n\nStep 3: Enhanced Cl\u207b influx \u2192 membrane hyperpolarization from resting ~-65 mV toward ~-90 mV \u2192 decreased neuronal excitability \u2192 CNS depression \u2192 loss of consciousness.\n\nAdrenal cortisol synthesis pathway (where etomidate interferes):\nCholesterol \u2192 pregnenolone \u2192 17-OH-pregnenolone \u2192 11-deoxycortisol \u2192 [11\u03b2-HYDROXYLASE / CYP11B1] \u2192 CORTISOL\n\nEtomidate's imidazole ring binds the heme iron of CYP11B1, reversibly inhibiting the enzyme. This blocks the final step of cortisol synthesis. Duration: 12\u201324h after a single bolus, indefinite with infusion.",
+  ov: { "Drug Class": "Carboxylated imidazole sedative-hypnotic (GABA\u2090 receptor positive allosteric modulator)", "Primary Target": "GABA\u2090 receptor — \u03b1-\u03b2 subunit interface", "Action": "Positive allosteric modulator → enhances GABA-mediated Cl\u207b conductance", "Ion Channel": "GABA\u2090 Cl\u207b channel → ↑Cl\u207b influx → neuronal hyperpolarization", "Structure": "Carboxylated imidazole with chiral center (R(+) enantiomer is active)", "Key Feature": "Minimal hemodynamic depression; adrenal suppression limits use" },
+  moa: "Etomidate is a carboxylated imidazole that produces hypnosis by enhancing GABA\u2090 receptor function in the central nervous system. It acts as a positive allosteric modulator at the GABA\u2090 receptor, binding at the \u03b1-\u03b2 subunit interface (a distinct site from the benzodiazepine binding site at the \u03b1-\u03b3 interface). At clinical concentrations, etomidate potentiates GABA-mediated chloride conductance. At higher concentrations, it can directly activate the GABA\u2090 receptor even in the absence of GABA.\n\nHEMODYNAMIC STABILITY: Etomidate's defining clinical feature is its minimal effect on cardiovascular function. Unlike propofol and thiopental, etomidate does not significantly reduce myocardial contractility, systemic vascular resistance, or baroreceptor reflex sensitivity. Blood pressure and cardiac output are maintained. This makes it the induction agent of choice for hemodynamically unstable patients.\n\nADRENAL SUPPRESSION: Etomidate's major limitation. It reversibly inhibits 11\u03b2-hydroxylase (CYP11B1), the enzyme that converts 11-deoxycortisol to cortisol in the adrenal cortex. Even a SINGLE INDUCTION DOSE (0.3 mg/kg) suppresses cortisol synthesis for 12–24 hours.",
+  recPhys: "GABA\u2090 Receptor Physiology:\n\nThe GABA\u2090 receptor is a pentameric ligand-gated Cl\u207b channel, most commonly composed of 2\u03b1 + 2\u03b2 + 1\u03b3 subunits. The receptor has multiple allosteric binding sites for different drug classes:\n\n\u2022 GABA binding site: \u03b1-\u03b2 interface (orthosteric site)\n\u2022 Benzodiazepine site: \u03b1-\u03b3 interface\n\u2022 Etomidate/propofol site: \u03b1-\u03b2 interface (transmembrane domain, distinct from GABA site)\n\u2022 Barbiturate site: \u03b2-subunit transmembrane domain\n\u2022 Neurosteroid site: \u03b1-subunit transmembrane domain\n\nEtomidate binding at the \u03b1-\u03b2 interface:\n\nStep 1: Etomidate binds in the transmembrane domain at the interface between \u03b1 and \u03b2 subunits. Key residue: \u03b2N265 (asparagine at position 265 on the \u03b2 subunit) is critical for etomidate binding.\n\nStep 2: Allosteric modulation → conformational change increases the receptor's affinity for GABA and prolongs the open time of the Cl\u207b channel.\n\nStep 3: Enhanced Cl\u207b influx → membrane hyperpolarization from resting ~-65 mV toward ~-90 mV → decreased neuronal excitability → CNS depression → loss of consciousness.\n\nAdrenal cortisol synthesis pathway (where etomidate interferes):\nCholesterol → pregnenolone → 17-OH-pregnenolone → 11-deoxycortisol → [11\u03b2-HYDROXYLASE / CYP11B1] → CORTISOL\n\nEtomidate's imidazole ring binds the heme iron of CYP11B1, reversibly inhibiting the enzyme. This blocks the final step of cortisol synthesis. Duration: 12–24h after a single bolus, indefinite with infusion.",
   dosing: [
-    { ind: "Induction of Anesthesia", dose: "0.2\u20130.3 mg/kg IV", notes: "Standard: 0.3 mg/kg. Loss of consciousness in 15\u201345 sec. Duration of hypnosis: 3\u20135 min.", clr: "ac" },
-    { ind: "RSI (Hemodynamically Unstable)", dose: "0.3 mg/kg IV", notes: "Paired with rocuronium 1.2 mg/kg or SCh 1\u20131.5 mg/kg. Preferred induction agent in shock, cardiac tamponade, severe cardiac disease.", clr: "wn" },
+    { ind: "Induction of Anesthesia", dose: "0.2–0.3 mg/kg IV", notes: "Standard: 0.3 mg/kg. Loss of consciousness in 15–45 sec. Duration of hypnosis: 3–5 min.", clr: "ac" },
+    { ind: "RSI (Hemodynamically Unstable)", dose: "0.3 mg/kg IV", notes: "Paired with rocuronium 1.2 mg/kg or SCh 1–1.5 mg/kg. Preferred induction agent in shock, cardiac tamponade, severe cardiac disease.", clr: "wn" },
   ],
-  kin: { onset: "15\u201345 sec (one arm-brain circulation)", onsetD: "Rapid \u2014 highly lipophilic, crosses BBB quickly", peak: "1 min", peakD: "Peak brain concentration within 1 min", dur: "3\u20135 min (single dose)", durD: "Rapid redistribution from brain to peripheral tissues terminates effect", vd: "2.5\u20134.5 L/kg (large \u2014 highly lipophilic)", pb: "75%", hl: "2\u20135 hours (elimination half-life)", csht: "Short context-sensitive half-time \u2014 rapid awakening after single bolus", cl: "Hepatic ester hydrolysis (primary) + renal", model: "Three-compartment" },
-  metab: "Primarily HEPATIC: ester hydrolysis by hepatic esterases converts etomidate to its carboxylic acid metabolite, which is pharmacologically INACTIVE.\n\nRapid redistribution (NOT metabolism) terminates the clinical effect after a single bolus. The drug redistributes from the highly perfused brain to less perfused tissues (muscle, fat).\n\nPropylene glycol vehicle: Some formulations use propylene glycol as solvent \u2192 PAIN ON INJECTION (30\u201340% of patients). Newer lipid emulsion formulations reduce injection pain.\n\nElderly: Reduce dose by ~25\u201350% (0.15\u20130.2 mg/kg). Reduced Vd and cardiac output \u2192 higher brain concentration per dose.",
+  kin: { onset: "15–45 sec (one arm-brain circulation)", onsetD: "Rapid — highly lipophilic, crosses BBB quickly", peak: "1 min", peakD: "Peak brain concentration within 1 min", dur: "3–5 min (single dose)", durD: "Rapid redistribution from brain to peripheral tissues terminates effect", vd: "2.5–4.5 L/kg (large — highly lipophilic)", pb: "75%", hl: "2–5 hours (elimination half-life)", csht: "Short context-sensitive half-time — rapid awakening after single bolus", cl: "Hepatic ester hydrolysis (primary) + renal", model: "Three-compartment" },
+  metab: "Primarily HEPATIC: ester hydrolysis by hepatic esterases converts etomidate to its carboxylic acid metabolite, which is pharmacologically INACTIVE.\n\nRapid redistribution (NOT metabolism) terminates the clinical effect after a single bolus. The drug redistributes from the highly perfused brain to less perfused tissues (muscle, fat).\n\nPropylene glycol vehicle: Some formulations use propylene glycol as solvent → PAIN ON INJECTION (30–40% of patients). Newer lipid emulsion formulations reduce injection pain.\n\nElderly: Reduce dose by ~25–50% (0.15–0.2 mg/kg). Reduced Vd and cardiac output → higher brain concentration per dose.",
   warn: [
-    { tp: "bb", ti: "Adrenal Suppression (11\u03b2-Hydroxylase Inhibition)", tx: "Single induction dose suppresses cortisol synthesis for 12\u201324h. Continuous infusion: indefinite adrenal suppression \u2192 adrenal crisis. CONTRAINDICATED as continuous infusion for ICU sedation. In sepsis/septic shock: controversial \u2014 may worsen outcomes by suppressing stress cortisol response." },
-    { tp: "cau", ti: "Myoclonus", tx: "Involuntary myoclonic movements in 30\u201360% of patients during induction. NOT seizures \u2014 subcortical disinhibition. EEG shows cortical depression, not epileptiform activity. Pretreatment with midazolam 1\u20132 mg or fentanyl 1\u20132 mcg/kg reduces incidence." },
-    { tp: "cau", ti: "Pain on Injection", tx: "30\u201340% incidence with propylene glycol formulation. Lidocaine pretreatment or lipid emulsion formulation reduces pain." },
+    { tp: "bb", ti: "Adrenal Suppression (11\u03b2-Hydroxylase Inhibition)", tx: "Single induction dose suppresses cortisol synthesis for 12–24h. Continuous infusion: indefinite adrenal suppression → adrenal crisis. CONTRAINDICATED as continuous infusion for ICU sedation. In sepsis/septic shock: controversial — may worsen outcomes by suppressing stress cortisol response." },
+    { tp: "cau", ti: "Myoclonus", tx: "Involuntary myoclonic movements in 30–60% of patients during induction. NOT seizures — subcortical disinhibition. EEG shows cortical depression, not epileptiform activity. Pretreatment with midazolam 1–2 mg or fentanyl 1–2 mcg/kg reduces incidence." },
+    { tp: "cau", ti: "Pain on Injection", tx: "30–40% incidence with propylene glycol formulation. Lidocaine pretreatment or lipid emulsion formulation reduces pain." },
     { tp: "cau", ti: "Nausea and Vomiting", tx: "Higher incidence of PONV compared to propofol (which has antiemetic properties). Consider prophylactic antiemetic." },
-    { tp: "ci", ti: "Continuous Infusion", tx: "NEVER use as continuous infusion. Prolonged adrenal suppression \u2192 Addisonian crisis. Historical mortality data from ICU sedation trials led to this absolute contraindication." },
+    { tp: "ci", ti: "Continuous Infusion", tx: "NEVER use as continuous infusion. Prolonged adrenal suppression → Addisonian crisis. Historical mortality data from ICU sedation trials led to this absolute contraindication." },
   ],
   ix: [
     { dr: "Opioids (fentanyl, remifentanil)", ef: "Synergistic CNS depression. Reduce etomidate dose. Opioid pretreatment reduces myoclonus.", sv: "mod" },
@@ -912,16 +912,16 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   ],
   pearls: [
     { ti: "Hemodynamic Stability = Main Advantage", tx: "Blood pressure, heart rate, and cardiac output maintained. No histamine release, no sympatholytic effect, baroreceptor reflex intact. THE induction agent for hemorrhagic shock, cardiac tamponade, severe cardiomyopathy, aortic stenosis." },
-    { ti: "Adrenal Suppression = Main Limitation", tx: "Even a single dose inhibits 11\u03b2-hydroxylase for 12\u201324h. In healthy surgical patients: clinically insignificant. In sepsis/critical illness: potentially harmful. CORTICUS sub-study suggested trend toward worse outcomes with etomidate in septic shock, but data is mixed." },
+    { ti: "Adrenal Suppression = Main Limitation", tx: "Even a single dose inhibits 11\u03b2-hydroxylase for 12–24h. In healthy surgical patients: clinically insignificant. In sepsis/critical illness: potentially harmful. CORTICUS sub-study suggested trend toward worse outcomes with etomidate in septic shock, but data is mixed." },
     { ti: "Myoclonus \u2260 Seizures", tx: "Involuntary movements during induction are subcortical disinhibition, NOT epileptiform activity. EEG shows burst suppression. Important to differentiate from actual seizure activity." },
     { ti: "Single Dose Only", tx: "Use ONLY for induction (single bolus). NEVER as infusion. Historical ICU sedation trials showed dramatically increased mortality from sustained adrenal suppression." },
     { ti: "Etomidate vs Ketamine in Shock", tx: "Both maintain hemodynamics. Ketamine: sympathomimetic, bronchodilator, analgesic, no adrenal suppression. Etomidate: more neutral hemodynamics, but adrenal suppression concern. Increasingly, ketamine is preferred in septic shock." },
     { ti: "The GABA\u2090 Binding Map", tx: "Interview pearl: Etomidate/propofol: \u03b1-\u03b2 interface (transmembrane). Benzodiazepines: \u03b1-\u03b3 interface. Barbiturates: \u03b2-subunit transmembrane. Neurosteroids: \u03b1-subunit. Volatile anesthetics: multiple sites. All enhance Cl\u207b conductance." },
   ],
   intQs: [
-    { q: "Septic shock patient, MAP 55, needs emergent intubation. Do you use etomidate?", a: "Controversial. Etomidate preserves hemodynamics but suppresses adrenal cortisol synthesis for 12\u201324h via 11\u03b2-hydroxylase inhibition. Two approaches: (1) Use etomidate, then give stress-dose hydrocortisone (100 mg IV q8h). (2) Use ketamine 1\u20132 mg/kg instead \u2014 sympathomimetic, hemodynamically stable, no adrenal suppression. Increasingly, ketamine is the preferred choice in septic shock." },
-    { q: "Patient develops involuntary jerking movements during etomidate induction. Is this a seizure?", a: "No \u2014 this is myoclonus (30\u201360% incidence), caused by subcortical disinhibition. EEG shows burst suppression, NOT epileptiform activity. Management: administer the NMBA (which you're giving anyway for intubation). Prevention: pretreatment with midazolam 1\u20132 mg or fentanyl 1\u20132 mcg/kg." },
-    { q: "Why is etomidate contraindicated as a continuous infusion?", a: "Continuous etomidate infusion causes SUSTAINED 11\u03b2-hydroxylase (CYP11B1) inhibition \u2192 persistent adrenal suppression \u2192 no cortisol production \u2192 Addisonian crisis. In the 1980s, ICU sedation trials showed dramatically increased mortality. Single-dose use is acceptable because adrenal function recovers within 12\u201324 hours." },
+    { q: "Septic shock patient, MAP 55, needs emergent intubation. Do you use etomidate?", a: "Controversial. Etomidate preserves hemodynamics but suppresses adrenal cortisol synthesis for 12–24h via 11\u03b2-hydroxylase inhibition. Two approaches: (1) Use etomidate, then give stress-dose hydrocortisone (100 mg IV q8h). (2) Use ketamine 1–2 mg/kg instead — sympathomimetic, hemodynamically stable, no adrenal suppression. Increasingly, ketamine is the preferred choice in septic shock." },
+    { q: "Patient develops involuntary jerking movements during etomidate induction. Is this a seizure?", a: "No — this is myoclonus (30–60% incidence), caused by subcortical disinhibition. EEG shows burst suppression, NOT epileptiform activity. Management: administer the NMBA (which you're giving anyway for intubation). Prevention: pretreatment with midazolam 1–2 mg or fentanyl 1–2 mcg/kg." },
+    { q: "Why is etomidate contraindicated as a continuous infusion?", a: "Continuous etomidate infusion causes SUSTAINED 11\u03b2-hydroxylase (CYP11B1) inhibition → persistent adrenal suppression → no cortisol production → Addisonian crisis. In the 1980s, ICU sedation trials showed dramatically increased mortality. Single-dose use is acceptable because adrenal function recovers within 12–24 hours." },
   ],
 }];
 
@@ -1473,7 +1473,7 @@ export default function App() {
         <nav style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", padding: "8px 16px", borderBottom: `1px solid ${t.bd}`, background: t.bgC, position: "sticky", top: 0, zIndex: 100, gap: "8px" }}>
           {(pg === "detail" || pg === "proto" || pg === "receptor" || pg === "device") && (
             <button onClick={() => { if (pg === "receptor") { setPg("pg-recep"); setRecSel(null); } else { setPg("dash"); setSel(null); setProto(null); setDeviceView(null); } }} style={{ marginRight: "auto", background: t.bgS, border: `1px solid ${t.bd}`, borderRadius: "6px", padding: "5px 12px", color: t.t2, cursor: "pointer", fontSize: "12px", fontWeight: 500 }}>
-              \u2190 Back
+              ← Back
             </button>
           )}
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginLeft: "auto" }}>
@@ -1876,25 +1876,25 @@ function NEInteractiveDiagram({ t }) {
 
   const paths = {
     a1: {
-      label: "\u03B11 Receptor", subtitle: "Vascular Smooth Muscle",
-      color: "#ef4444", gp: "Gq\u03B1",
-      steps: ["PLC activation", "IP\u2083 + DAG \u2191", "Ca\u00B2\u207A release", "Vasoconstriction"],
-      effect: "\u2191SVR \u2192 \u2191MAP",
+      label: "α1 Receptor", subtitle: "Vascular Smooth Muscle",
+      color: "#ef4444", gp: "Gqα",
+      steps: ["PLC activation", "IP₃ + DAG ↑", "Ca²⁺ release", "Vasoconstriction"],
+      effect: "↑SVR → ↑MAP",
       note: "Dominant vasopressor effect. Primary mechanism of action. Every IV vasopressor works here.",
     },
     b1: {
-      label: "\u03B21 Receptor", subtitle: "Cardiac Myocyte",
-      color: "#3b82f6", gp: "Gs\u03B1",
-      steps: ["Adenylyl cyclase \u2191", "cAMP \u2191\u2191", "PKA activation", "+Inotrope / +Chronotrope"],
-      effect: "\u2191CO, \u2191contractility",
-      note: "NE \u03B21 effect is weaker than \u03B1. HR often unchanged or \u2193 due to reflex bradycardia from \u2191MAP.",
+      label: "β1 Receptor", subtitle: "Cardiac Myocyte",
+      color: "#3b82f6", gp: "Gsα",
+      steps: ["Adenylyl cyclase ↑", "cAMP ↑↑", "PKA activation", "+Inotrope / +Chronotrope"],
+      effect: "↑CO, ↑contractility",
+      note: "NE β1 effect is weaker than α. HR often unchanged or ↓ due to reflex bradycardia from ↑MAP.",
     },
     a2: {
-      label: "\u03B12 Receptor", subtitle: "Presynaptic Terminal",
-      color: "#a855f7", gp: "Gi\u03B1",
-      steps: ["Adenylyl cyclase \u2193", "cAMP \u2193\u2193", "GIRK K\u207A opening", "\u2193NE release (feedback)"],
+      label: "α2 Receptor", subtitle: "Presynaptic Terminal",
+      color: "#a855f7", gp: "Giα",
+      steps: ["Adenylyl cyclase ↓", "cAMP ↓↓", "GIRK K⁺ opening", "↓NE release (feedback)"],
       effect: "Negative feedback",
-      note: "Autoreceptor: limits own release. Dexmedetomidine/clonidine exploit \u03B12 for sedation and sympatholysis.",
+      note: "Autoreceptor: limits own release. Dexmedetomidine/clonidine exploit α2 for sedation and sympatholysis.",
     },
   };
 
@@ -1928,7 +1928,7 @@ function NEInteractiveDiagram({ t }) {
           {/* NE molecule */}
           <circle cx={W / 2} cy="28" r="18" fill="#10b981" stroke="#34d399" strokeWidth="2"/>
           <text x={W / 2} y="24" fill="#fff" fontSize="9" textAnchor="middle" fontWeight="700">NE</text>
-          <text x={W / 2} y="34" fill="#fff" fontSize="7" textAnchor="middle">\u03B1\u2081\u003E\u03B11\u003E\u03B21</text>
+          <text x={W / 2} y="34" fill="#fff" fontSize="7" textAnchor="middle">α₁\u003Eα1\u003Eβ1</text>
           {/* Lines from NE to each receptor */}
           {Object.entries(cols).map(([k, cx]) => (
             <line key={k} x1={W / 2} y1="46" x2={cx} y2={memY - 8}
@@ -1976,7 +1976,7 @@ function NEInteractiveDiagram({ t }) {
           {activePath === "a1" && (
             <g>
               <rect x="6" y={H - 36} width="548" height="28" rx="5" fill={`${"#ef4444"}12`} stroke={"#ef4444"} strokeWidth="1"/>
-              <text x="10" y={H - 22} fill={"#ef4444"} fontSize="8.5" fontWeight="600">\u2191MAP \u2192 baroreceptors \u2192 \u2191vagal tone \u2192 reflex bradycardia — offsets \u03B21 chronotropy. Net HR \u2248 unchanged or \u2193.</text>
+              <text x="10" y={H - 22} fill={"#ef4444"} fontSize="8.5" fontWeight="600">↑MAP → baroreceptors → ↑vagal tone → reflex bradycardia — offsets β1 chronotropy. Net HR ≈ unchanged or ↓.</text>
             </g>
           )}
         </svg>
@@ -2001,16 +2001,16 @@ function PropofolInteractiveDiagram({ t }) {
   }, []);
 
   const modes = {
-    baseline: { label: "Baseline", color: "#64748b", desc: "No drug. Infrequent GABA-A opening. Resting Vm \u221270 mV.", clRate: 0.05, vm: "\u221270 mV", openFreq: "Low", gaba: false, propofol: false },
-    gaba:     { label: "GABA only", color: "#22c55e", desc: "Endogenous GABA binds \u03B1-\u03B2 interface \u2192 pore opens. Cl\u207B influx, hyperpolarization.", clRate: 0.4, vm: "\u221278 mV", openFreq: "Moderate", gaba: true, propofol: false },
-    propofol: { label: "Propofol alone", color: t.ac, desc: "Propofol binds \u03B2 TM2/TM3 — direct allosteric gating even without GABA (at clinical doses).", clRate: 0.5, vm: "\u221282 mV", openFreq: "Moderate-High", gaba: false, propofol: true },
-    potent:   { label: "GABA + Propofol", color: "#f59e0b", desc: "Propofol potentiates GABA: prolongs channel open time, increases Cl\u207B conductance. Synergistic \u2192 anesthesia.", clRate: 0.95, vm: "\u221285+ mV", openFreq: "Very High", gaba: true, propofol: true },
+    baseline: { label: "Baseline", color: "#64748b", desc: "No drug. Infrequent GABA-A opening. Resting Vm −70 mV.", clRate: 0.05, vm: "−70 mV", openFreq: "Low", gaba: false, propofol: false },
+    gaba:     { label: "GABA only", color: "#22c55e", desc: "Endogenous GABA binds α-β interface → pore opens. Cl⁻ influx, hyperpolarization.", clRate: 0.4, vm: "−78 mV", openFreq: "Moderate", gaba: true, propofol: false },
+    propofol: { label: "Propofol alone", color: t.ac, desc: "Propofol binds β TM2/TM3 — direct allosteric gating even without GABA (at clinical doses).", clRate: 0.5, vm: "−82 mV", openFreq: "Moderate-High", gaba: false, propofol: true },
+    potent:   { label: "GABA + Propofol", color: "#f59e0b", desc: "Propofol potentiates GABA: prolongs channel open time, increases Cl⁻ conductance. Synergistic → anesthesia.", clRate: 0.95, vm: "−85+ mV", openFreq: "Very High", gaba: true, propofol: true },
   };
   const m = modes[mode];
 
   const W = 500, H = 330;
   const memY1 = 115, memY2 = 185;
-  const subunits = [{ label: "\u03B1", x: 118, color: "#3b82f6" }, { label: "\u03B2", x: 166, color: "#a855f7" }, { label: "\u03B1", x: 214, color: "#3b82f6" }, { label: "\u03B2", x: 262, color: "#a855f7" }, { label: "\u03B3", x: 310, color: "#22c55e" }];
+  const subunits = [{ label: "α", x: 118, color: "#3b82f6" }, { label: "β", x: 166, color: "#a855f7" }, { label: "α", x: 214, color: "#3b82f6" }, { label: "β", x: 262, color: "#a855f7" }, { label: "γ", x: 310, color: "#22c55e" }];
   const poreX = 238, poreW = 14;
   const clOpen = Math.random() < m.clRate;
   const phase = tick / 100;
@@ -2092,7 +2092,7 @@ function PropofolInteractiveDiagram({ t }) {
           {ions.map((ion, i) => (
             <g key={i} opacity={Math.max(0.1, ion.a)}>
               <circle cx={ion.x} cy={ion.y} r="7" fill="#a855f7"/>
-              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Cl\u207B</text>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Cl⁻</text>
             </g>
           ))}
           {m.clRate > 0.1 && (
@@ -2108,7 +2108,7 @@ function PropofolInteractiveDiagram({ t }) {
           <text x={W - 54} y="106" fill={m.color} fontSize="22" fontWeight="700" textAnchor="middle">{m.vm}</text>
           <text x={W - 54} y="120" fill={t.tM} fontSize="8" textAnchor="middle">Open freq:</text>
           <text x={W - 54} y="134" fill={m.color} fontSize="9" fontWeight="600" textAnchor="middle">{m.openFreq}</text>
-          <text x={W - 54} y="152" fill={t.tM} fontSize="7" textAnchor="middle">Cl\u207B flow:</text>
+          <text x={W - 54} y="152" fill={t.tM} fontSize="7" textAnchor="middle">Cl⁻ flow:</text>
           <text x={W - 54} y="166" fill={m.color} fontSize="9" fontWeight="600" textAnchor="middle">{Math.round(m.clRate * 100)}%</text>
         </svg>
       </div>
@@ -2130,16 +2130,16 @@ function SCHInteractiveDiagram({ t }) {
   }, []);
 
   const phases = {
-    normal: { label: "Normal ACh", color: "#22c55e", desc: "Two ACh molecules bind both \u03B1 subunits \u2192 brief channel opening \u2192 Na\u207A/Ca\u00B2\u207A influx \u2192 end-plate potential \u2192 muscle contraction. AChE rapidly hydrolyzes ACh (milliseconds) \u2192 channel closes.", vm: "+40 mV", nachr: "open", ache: true },
-    phase1: { label: "SCh Phase I", color: "#f59e0b", desc: "SCh binds \u03B1 subunits like ACh but resists AChE hydrolysis. Prolonged depolarization \u2192 Na\u207A channels inactivate (cannot fire again). Fasciculations then flaccid paralysis. Duration ~5–10 min until plasma cholinesterase hydrolyzes SCh.", vm: "+40 mV \u2192 stuck", nachr: "prolonged", ache: false },
-    phase2: { label: "SCh Phase II", color: "#ef4444", desc: "With repeated/large doses: receptor desensitization. nAChR shifts to desensitized state (channel closed despite agonist present). Mimics competitive block. Unpredictable duration. Treated like non-depolarizing block (neostigmine may help).", vm: "\u221270 mV (closed)", nachr: "desensitized", ache: false },
-    rocuronium: { label: "Rocuronium (compare)", color: "#3b82f6", desc: "Competitive antagonist: blocks \u03B1 subunits without activating channel. NO depolarization, NO fasciculations. Membrane stays at resting \u221270 mV. Reversed by sugammadex encapsulation. Duration 30–60 min.", vm: "\u221270 mV (resting)", nachr: "blocked", ache: false },
+    normal: { label: "Normal ACh", color: "#22c55e", desc: "Two ACh molecules bind both α subunits → brief channel opening → Na⁺/Ca²⁺ influx → end-plate potential → muscle contraction. AChE rapidly hydrolyzes ACh (milliseconds) → channel closes.", vm: "+40 mV", nachr: "open", ache: true },
+    phase1: { label: "SCh Phase I", color: "#f59e0b", desc: "SCh binds α subunits like ACh but resists AChE hydrolysis. Prolonged depolarization → Na⁺ channels inactivate (cannot fire again). Fasciculations then flaccid paralysis. Duration ~5–10 min until plasma cholinesterase hydrolyzes SCh.", vm: "+40 mV → stuck", nachr: "prolonged", ache: false },
+    phase2: { label: "SCh Phase II", color: "#ef4444", desc: "With repeated/large doses: receptor desensitization. nAChR shifts to desensitized state (channel closed despite agonist present). Mimics competitive block. Unpredictable duration. Treated like non-depolarizing block (neostigmine may help).", vm: "−70 mV (closed)", nachr: "desensitized", ache: false },
+    rocuronium: { label: "Rocuronium (compare)", color: "#3b82f6", desc: "Competitive antagonist: blocks α subunits without activating channel. NO depolarization, NO fasciculations. Membrane stays at resting −70 mV. Reversed by sugammadex encapsulation. Duration 30–60 min.", vm: "−70 mV (resting)", nachr: "blocked", ache: false },
   };
   const p = phases[phase];
   const W = 500, H = 350;
   const memY1 = 140, memY2 = 215;
 
-  const subunits = [{ label: "\u03B1", x: 140, color: "#f59e0b" }, { label: "\u03B4", x: 185, color: "#94a3b8" }, { label: "\u03B1", x: 230, color: "#f59e0b" }, { label: "\u03B5", x: 275, color: "#94a3b8" }, { label: "\u03B2", x: 320, color: "#94a3b8" }];
+  const subunits = [{ label: "α", x: 140, color: "#f59e0b" }, { label: "δ", x: 185, color: "#94a3b8" }, { label: "α", x: 230, color: "#f59e0b" }, { label: "\u03B5", x: 275, color: "#94a3b8" }, { label: "β", x: 320, color: "#94a3b8" }];
   const poreX = 207, poreW = 14;
   const tickN = tick / 120;
   const naIons = (p.nachr === "open" || p.nachr === "prolonged") ? Array.from({ length: p.nachr === "prolonged" ? 5 : 3 }, (_, i) => {
@@ -2232,7 +2232,7 @@ function SCHInteractiveDiagram({ t }) {
           {naIons.map((ion, i) => (
             <g key={i} opacity={Math.max(0.1, ion.a)}>
               <circle cx={ion.x} cy={ion.y} r="7" fill="#f59e0b"/>
-              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Na\u207A</text>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="6.5" textAnchor="middle" fontWeight="700">Na⁺</text>
             </g>
           ))}
           {(p.nachr === "open" || p.nachr === "prolonged") && (
@@ -2252,7 +2252,7 @@ function SCHInteractiveDiagram({ t }) {
                 fill={phase === "phase1" ? "#f59e0b12" : "#ef444412"}
                 stroke={phase === "phase1" ? "#f59e0b" : "#ef4444"} strokeWidth="1"/>
               <text x="16" y={H - 28} fill={phase === "phase1" ? "#f59e0b" : "#ef4444"} fontSize="8.5" fontWeight="700">
-                {phase === "phase1" ? "Phase I: Depolarizing block. Na\u207A channels inactivate. Fasciculations first, then paralysis. Reversal: wait for plasma ChE." : "Phase II: Desensitization block. Channel unresponsive to agonist. Unpredictable. May respond to neostigmine."}
+                {phase === "phase1" ? "Phase I: Depolarizing block. Na⁺ channels inactivate. Fasciculations first, then paralysis. Reversal: wait for plasma ChE." : "Phase II: Desensitization block. Channel unresponsive to agonist. Unpredictable. May respond to neostigmine."}
               </text>
             </g>
           )}
@@ -2284,9 +2284,9 @@ function NEDiagram({ t }) {
   }, [activated]);
 
   const recs = {
-    a1: { label: "\u03B11 Receptor", loc: "Vascular smooth muscle", gp: "Gq", gpColor: "#f59e0b", effector: "Phospholipase C \u2191", messenger: "IP\u2083 + DAG \u2191", kinase: "PKC + Ca\u00B2\u207A release", effect: "Vasoconstriction \u2191SVR \u2191MAP", color: "#ef4444", ionLabel: "Ca\u00B2\u207A", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\nVasoconstriction" },
-    a2: { label: "\u03B12 Receptor", loc: "Presynaptic nerve terminal", gp: "Gi", gpColor: "#ef4444", effector: "Adenylyl Cyclase \u2193", messenger: "cAMP \u2193\u2193", kinase: "PKA \u2193", effect: "NE release \u2193 (autoreceptor) \u2022 Sedation", color: "#8b5cf6", ionLabel: "K\u207A", ionColor: "#22c55e", ionDir: "out", vmLabel: "Hyperpolarization\nNE release \u2193" },
-    b1: { label: "\u03B21 Receptor", loc: "Heart (SA node / myocardium)", gp: "Gs", gpColor: "#22c55e", effector: "Adenylyl Cyclase \u2191", messenger: "cAMP \u2191\u2191", kinase: "PKA \u2191", effect: "\u2191HR \u2022 \u2191Contractility \u2022 \u2191CO", color: "#3b82f6", ionLabel: "Ca\u00B2\u207A", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\n\u2191Inotropy / Chronotropy" },
+    a1: { label: "α1 Receptor", loc: "Vascular smooth muscle", gp: "Gq", gpColor: "#f59e0b", effector: "Phospholipase C ↑", messenger: "IP₃ + DAG ↑", kinase: "PKC + Ca²⁺ release", effect: "Vasoconstriction ↑SVR ↑MAP", color: "#ef4444", ionLabel: "Ca²⁺", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\nVasoconstriction" },
+    a2: { label: "α2 Receptor", loc: "Presynaptic nerve terminal", gp: "Gi", gpColor: "#ef4444", effector: "Adenylyl Cyclase ↓", messenger: "cAMP ↓↓", kinase: "PKA ↓", effect: "NE release ↓ (autoreceptor) \u2022 Sedation", color: "#8b5cf6", ionLabel: "K⁺", ionColor: "#22c55e", ionDir: "out", vmLabel: "Hyperpolarization\nNE release ↓" },
+    b1: { label: "β1 Receptor", loc: "Heart (SA node / myocardium)", gp: "Gs", gpColor: "#22c55e", effector: "Adenylyl Cyclase ↑", messenger: "cAMP ↑↑", kinase: "PKA ↑", effect: "↑HR \u2022 ↑Contractility \u2022 ↑CO", color: "#3b82f6", ionLabel: "Ca²⁺", ionColor: "#f59e0b", ionDir: "in", vmLabel: "Depolarization\n↑Inotropy / Chronotropy" },
   };
   const r = recs[receptor];
   const W = 580, H = 360;
@@ -2371,7 +2371,7 @@ function NEDiagram({ t }) {
           {/* Step hint */}
           <rect x="80" y="336" width="220" height="18" rx="4" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
           <text x="190" y="349" fill={t.tM} fontSize="8" textAnchor="middle">
-            {activated ? `G\u03B1(${r.gp}) \u2192 ${r.effector}` : "Click Activate to show cascade"}
+            {activated ? `Gα(${r.gp}) → ${r.effector}` : "Click Activate to show cascade"}
           </text>
         </svg>
       </div>
@@ -2418,11 +2418,11 @@ function PropofolDiagram({ t }) {
   const poreX = 240, poreW = m.poreOpen ? 20 : 5;
   // Subunits: 5 around pore
   const subDefs = [
-    { x: 170, y: 175, label: "\u03B1", color: "#3b82f6" },
-    { x: 205, y: 148, label: "\u03B2", color: "#a855f7" },
-    { x: 245, y: 142, label: "\u03B3", color: "#22c55e" },
-    { x: 278, y: 152, label: "\u03B2", color: "#a855f7" },
-    { x: 305, y: 175, label: "\u03B1", color: "#3b82f6" },
+    { x: 170, y: 175, label: "α", color: "#3b82f6" },
+    { x: 205, y: 148, label: "β", color: "#a855f7" },
+    { x: 245, y: 142, label: "γ", color: "#22c55e" },
+    { x: 278, y: 152, label: "β", color: "#a855f7" },
+    { x: 305, y: 175, label: "α", color: "#3b82f6" },
   ];
   // Cl- ions when open
   const ions = m.poreOpen ? Array.from({ length: 5 }, (_, i) => {
@@ -2466,7 +2466,7 @@ function PropofolDiagram({ t }) {
           {/* Subunits */}
           {subDefs.map((s, i) => (
             <g key={i}>
-              <ellipse cx={s.x} cy={s.y} rx="24" ry="36" fill={`${s.color}18`} stroke={s.color} strokeWidth={m.propBound && s.label === "\u03B2" ? "2.5" : "1.5"}/>
+              <ellipse cx={s.x} cy={s.y} rx="24" ry="36" fill={`${s.color}18`} stroke={s.color} strokeWidth={m.propBound && s.label === "β" ? "2.5" : "1.5"}/>
               <text x={s.x} y={s.y + 4} fill={s.color} fontSize="13" textAnchor="middle" fontWeight="700">{s.label}</text>
             </g>
           ))}
@@ -2480,7 +2480,7 @@ function PropofolDiagram({ t }) {
           {ions.map((ion, i) => (
             <g key={i} opacity={Math.min(1, Math.max(0.1, Math.abs(Math.sin(i * 1.2 + tick * 0.1))))}>
               <circle cx={ion.x} cy={ion.y} r="7" fill="#a855f7" opacity="0.85"/>
-              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">Cl\u207B</text>
+              <text x={ion.x} y={ion.y + 3} fill="#fff" fontSize="7" textAnchor="middle" fontWeight="700">Cl⁻</text>
             </g>
           ))}
           {m.poreOpen && <line x1={poreX + 14} y1={memY + 8} x2={poreX + 14} y2={memY + memH - 8} stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#clArrow)" strokeDasharray="4,2"/>}
@@ -2499,7 +2499,7 @@ function PropofolDiagram({ t }) {
             <g>
               <ellipse cx="230" cy="108" rx="18" ry="11" fill="#10b98130" stroke="#10b981" strokeWidth="2.5"/>
               <text x="230" y="112" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="700">PROP</text>
-              <text x="230" y="95" fill="#10b981" fontSize="8" textAnchor="middle">\u03B2-TM2/3 site</text>
+              <text x="230" y="95" fill="#10b981" fontSize="8" textAnchor="middle">β-TM2/3 site</text>
               <line x1="238" y1="119" x2="246" y2="133" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3,2"/>
             </g>
           )}
@@ -2515,8 +2515,8 @@ function PropofolDiagram({ t }) {
           {mode === "prop" && (
             <g>
               <text x="465" y="275" fill="#10b981" fontSize="9" textAnchor="middle" fontWeight="600">Potentiated inhibition</text>
-              <text x="465" y="290" fill="#10b981" fontSize="8" textAnchor="middle">\u2191 Channel open duration</text>
-              <text x="465" y="303" fill="#10b981" fontSize="8" textAnchor="middle">Sedation \u2192 Anesthesia</text>
+              <text x="465" y="290" fill="#10b981" fontSize="8" textAnchor="middle">↑ Channel open duration</text>
+              <text x="465" y="303" fill="#10b981" fontSize="8" textAnchor="middle">Sedation → Anesthesia</text>
             </g>
           )}
           {mode === "proponly" && (
@@ -2530,14 +2530,14 @@ function PropofolDiagram({ t }) {
           {/* Comparator legend */}
           <rect x="100" y="285" width="260" height="60" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
           <text x="230" y="301" fill={t.tx} fontSize="9" textAnchor="middle" fontWeight="700">Drug Comparison at GABA-A</text>
-          <circle cx="118" cy="318" r="5" fill="#10b981"/><text x="128" y="321" fill={t.t2} fontSize="8">Propofol: \u2191duration + direct gate</text>
-          <circle cx="118" cy="332" r="5" fill="#6366f1"/><text x="128" y="335" fill={t.t2} fontSize="8">BZD: \u2191frequency only (no direct gate)</text>
+          <circle cx="118" cy="318" r="5" fill="#10b981"/><text x="128" y="321" fill={t.t2} fontSize="8">Propofol: ↑duration + direct gate</text>
+          <circle cx="118" cy="332" r="5" fill="#6366f1"/><text x="128" y="335" fill={t.t2} fontSize="8">BZD: ↑frequency only (no direct gate)</text>
         </svg>
       </div>
       <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
         {mode === "resting" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Channel is <strong style={{ color: t.tx }}>closed</strong>. GABA-A requires ligand binding to open. Resting Vm = &minus;70 mV.</p>}
-        {mode === "gaba" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>GABA binds at the <strong style={{ color: "#22c55e" }}>\u03B1-\u03B2 interface</strong> (2 sites). Channel opens, Cl\u207B flows in, Vm shifts to &minus;82 mV. Physiologic inhibition.</p>}
-        {mode === "prop" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Propofol binds at the <strong style={{ color: "#10b981" }}>\u03B2-TM2/3 site</strong> (allosteric). Potentiates GABA: increases channel <em>open duration</em>. Vm &minus;90 mV. Deeper inhibition than GABA alone.</p>}
+        {mode === "gaba" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>GABA binds at the <strong style={{ color: "#22c55e" }}>α-β interface</strong> (2 sites). Channel opens, Cl⁻ flows in, Vm shifts to &minus;82 mV. Physiologic inhibition.</p>}
+        {mode === "prop" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>Propofol binds at the <strong style={{ color: "#10b981" }}>β-TM2/3 site</strong> (allosteric). Potentiates GABA: increases channel <em>open duration</em>. Vm &minus;90 mV. Deeper inhibition than GABA alone.</p>}
         {mode === "proponly" && <p style={{ margin: 0, fontSize: "12px", color: t.t2 }}>At high concentrations, propofol <strong style={{ color: "#10b981" }}>directly gates</strong> the channel without GABA. This is the mechanism of LOC at induction doses. Also explains apnea risk.</p>}
       </div>
     </div>
@@ -2611,7 +2611,7 @@ function NMJDiagram({ t, drugId }) {
           {/* Nerve terminal */}
           <rect x="150" y={nerveY} width="260" height="60" rx="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
           <text x="280" y={nerveY + 22} fill={t.tx} fontSize="11" textAnchor="middle" fontWeight="700">Motor Nerve Terminal</text>
-          <text x="280" y={nerveY + 37} fill={t.tM} fontSize="8" textAnchor="middle">Action potential \u2192 Ca\u00B2\u207A influx \u2192 ACh exocytosis</text>
+          <text x="280" y={nerveY + 37} fill={t.tM} fontSize="8" textAnchor="middle">Action potential → Ca²⁺ influx → ACh exocytosis</text>
           {/* Vesicles */}
           {Array.from({ length: 5 }, (_, i) => {
             const vy = nerveY + 48 + Math.sin(vesiclePh * Math.PI * 2 + i) * 3;
@@ -2662,17 +2662,17 @@ function NMJDiagram({ t, drugId }) {
           {/* Ion flow (Na+ in) when normal */}
           {ionFlow && <g>
             <line x1="280" y1={muscleY + 50} x2="280" y2={muscleY + 85} stroke="#f59e0b" strokeWidth="2" markerEnd="url(#naArrow)"/>
-            <text x="296" y={muscleY + 72} fill="#f59e0b" fontSize="9">Na\u207A in</text>
+            <text x="296" y={muscleY + 72} fill="#f59e0b" fontSize="9">Na⁺ in</text>
           </g>}
           {/* Muscle status */}
           <rect x="100" y="315" width="360" height="30" rx="6" fill={t.bgC} stroke={ph.color} strokeWidth="1.5"/>
           <text x="280" y="335" fill={ph.color} fontSize="10" textAnchor="middle" fontWeight="700">
-            {phase === "normal" ? "\u2713 Depolarization \u2192 Muscle Contraction" :
-             phase === "cis_partial" ? "\u26a0 Partial block \u2014 reduced strength" :
-             phase === "cis_full" ? "\u2717 Complete NMJ block \u2014 paralysis" :
-             phase === "reversal" ? "\u21BA Neostigmine \u2191ACh \u2192 Reversal" :
-             phase === "sux_bind" ? "\u26a0 Depolarization \u2192 Fasciculations" :
-             phase === "fascic" ? "\u2717 Sustained depol \u2014 Phase I block" :
+            {phase === "normal" ? "\u2713 Depolarization → Muscle Contraction" :
+             phase === "cis_partial" ? "\u26a0 Partial block — reduced strength" :
+             phase === "cis_full" ? "\u2717 Complete NMJ block — paralysis" :
+             phase === "reversal" ? "\u21BA Neostigmine ↑ACh → Reversal" :
+             phase === "sux_bind" ? "\u26a0 Depolarization → Fasciculations" :
+             phase === "fascic" ? "\u2717 Sustained depol — Phase I block" :
              "\u2717 Phase II block (desensitization)"}
           </text>
         </svg>
@@ -2680,17 +2680,17 @@ function NMJDiagram({ t, drugId }) {
       <div style={{ padding: "10px 14px", background: t.bgC, borderTop: `1px solid ${t.bd}`, fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
         {isSux ? (
           <>
-            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh released \u2192 binds nAChR \u2192 Na\u207A/K\u207A flux \u2192 end plate depolarization \u2192 muscle action potential.</p>}
-            {phase === "sux_bind" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>SCh mimics ACh</strong> at both \u03B1-subunits. Causes initial depolarization. Unlike ACh, SCh resists acetylcholinesterase \u2014 it cannot be hydrolyzed at the NMJ.</p>}
-            {phase === "fascic" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Phase I (Depolarizing) Block:</strong> Sustained end plate depolarization keeps voltage-gated Na\u207A channels inactivated. Muscle cannot repolarize. Fasciculations occur as the depolarization wave spreads before block sets in.</p>}
+            {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh released → binds nAChR → Na⁺/K⁺ flux → end plate depolarization → muscle action potential.</p>}
+            {phase === "sux_bind" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>SCh mimics ACh</strong> at both α-subunits. Causes initial depolarization. Unlike ACh, SCh resists acetylcholinesterase — it cannot be hydrolyzed at the NMJ.</p>}
+            {phase === "fascic" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Phase I (Depolarizing) Block:</strong> Sustained end plate depolarization keeps voltage-gated Na⁺ channels inactivated. Muscle cannot repolarize. Fasciculations occur as the depolarization wave spreads before block sets in.</p>}
             {phase === "phase2" && <p style={{ margin: 0 }}><strong style={{ color: "#8b5cf6" }}>Phase II Block (Desensitization):</strong> With prolonged or high-dose SCh, the receptor enters a desensitized state resembling a non-depolarizing block. Train-of-four fade becomes apparent. Mechanism not fully understood.</p>}
           </>
         ) : (
           <>
             {phase === "normal" && <p style={{ margin: 0 }}>Normal NMJ: ACh competes freely for all four nAChR sites on the motor end plate. Full depolarization and muscle contraction occur.</p>}
-            {phase === "cis_partial" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>Partial Block:</strong> Cisatracurium competitively occupies some \u03B1-subunit sites. Reduced ACh binding = reduced end plate potential = muscle weakness. Train-of-four ratio decreases.</p>}
-            {phase === "cis_full" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Full Competitive Block:</strong> All or most nAChRs occupied. No ACh binding \u2192 no depolarization \u2192 complete paralysis. Reversible with neostigmine (increased ACh outcompetes Cis) or sugammadex (not for Cis \u2014 use neostigmine).</p>}
-            {phase === "reversal" && <p style={{ margin: 0 }}><strong style={{ color: "#3b82f6" }}>Neostigmine Reversal:</strong> Inhibits acetylcholinesterase \u2192 ACh accumulates in cleft \u2192 mass-action effect outcompetes Cisatracurium at \u03B1-subunits \u2192 NMJ function restored. Requires TOF ratio &gt;0.2 to be effective.</p>}
+            {phase === "cis_partial" && <p style={{ margin: 0 }}><strong style={{ color: "#f59e0b" }}>Partial Block:</strong> Cisatracurium competitively occupies some α-subunit sites. Reduced ACh binding = reduced end plate potential = muscle weakness. Train-of-four ratio decreases.</p>}
+            {phase === "cis_full" && <p style={{ margin: 0 }}><strong style={{ color: "#ef4444" }}>Full Competitive Block:</strong> All or most nAChRs occupied. No ACh binding → no depolarization → complete paralysis. Reversible with neostigmine (increased ACh outcompetes Cis) or sugammadex (not for Cis — use neostigmine).</p>}
+            {phase === "reversal" && <p style={{ margin: 0 }}><strong style={{ color: "#3b82f6" }}>Neostigmine Reversal:</strong> Inhibits acetylcholinesterase → ACh accumulates in cleft → mass-action effect outcompetes Cisatracurium at α-subunits → NMJ function restored. Requires TOF ratio &gt;0.2 to be effective.</p>}
           </>
         )}
       </div>
@@ -2710,9 +2710,9 @@ function FentanylDiagram({ t }) {
   }, [activated]);
 
   const focusList = [
-    { id: "analgesia", label: "Analgesia (Dorsal Horn)", color: "#22c55e", desc: "Fentanyl binds \u03BC-OR on presynaptic pain fibers AND postsynaptic dorsal horn neurons. \u2193 cAMP \u2192 \u2193 Ca\u00B2\u207A influx (presynaptic) = less substance P / glutamate release. \u2191 K\u207A conductance (postsynaptic) = hyperpolarization = \u2193 nociceptive transmission." },
-    { id: "resp", label: "Resp. Depression (Brainstem)", color: "#ef4444", desc: "\u03BC-OR in pre-B\u00F6tzinger complex (respiratory rhythm generator). Gi activation \u2192 \u2193 cAMP \u2192 \u2193 pacemaker neuron firing \u2192 decreased respiratory drive. Dose-dependent: analgesia \u2192 sedation \u2192 apnea. Reversed by naloxone (\u03BC-OR antagonist)." },
-    { id: "gi", label: "GI (Enteric \u03BC-OR)", color: "#f59e0b", desc: "Enteric nervous system \u03BC-OR activation \u2192 \u2193 propulsive motility, \u2191 sphincter tone, \u2193 secretion. Gi \u2192 \u2193 cAMP \u2192 hyperpolarization of enteric neurons. Constipation is peripheral and does NOT develop tolerance (unlike analgesia)." },
+    { id: "analgesia", label: "Analgesia (Dorsal Horn)", color: "#22c55e", desc: "Fentanyl binds μ-OR on presynaptic pain fibers AND postsynaptic dorsal horn neurons. ↓ cAMP → ↓ Ca²⁺ influx (presynaptic) = less substance P / glutamate release. ↑ K⁺ conductance (postsynaptic) = hyperpolarization = ↓ nociceptive transmission." },
+    { id: "resp", label: "Resp. Depression (Brainstem)", color: "#ef4444", desc: "μ-OR in pre-B\u00F6tzinger complex (respiratory rhythm generator). Gi activation → ↓ cAMP → ↓ pacemaker neuron firing → decreased respiratory drive. Dose-dependent: analgesia → sedation → apnea. Reversed by naloxone (μ-OR antagonist)." },
+    { id: "gi", label: "GI (Enteric μ-OR)", color: "#f59e0b", desc: "Enteric nervous system μ-OR activation → ↓ propulsive motility, ↑ sphincter tone, ↓ secretion. Gi → ↓ cAMP → hyperpolarization of enteric neurons. Constipation is peripheral and does NOT develop tolerance (unlike analgesia)." },
   ];
   const fc = focusList.find(f => f.id === focus);
   const W = 560, H = 350;
@@ -2722,7 +2722,7 @@ function FentanylDiagram({ t }) {
   return (
     <div style={{ borderRadius: "10px", overflow: "hidden", border: `1px solid #a855f740` }}>
       <div style={{ background: t.bgH, padding: "10px 14px", borderBottom: `1px solid ${t.bd}` }}>
-        <span style={{ fontSize: "12px", color: "#a855f7", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Fentanyl &mdash; \u03BC-Opioid Receptor (Gi-coupled GPCR)</span>
+        <span style={{ fontSize: "12px", color: "#a855f7", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px" }}>&#9654; Fentanyl &mdash; μ-Opioid Receptor (Gi-coupled GPCR)</span>
       </div>
       <div style={{ display: "flex", gap: "6px", padding: "10px 14px", background: t.bgH, borderBottom: `1px solid ${t.bd}`, flexWrap: "wrap" }}>
         {focusList.map(f => (
@@ -2758,7 +2758,7 @@ function FentanylDiagram({ t }) {
             <rect key={i} x={190 + i*26 - 9} y={memY - 22 + (i%2)*5} width="16" height={memH + 22 + (i%2)*5} rx="5"
               fill={activated ? "#a855f720" : `${t.bd}60`} stroke="#a855f7" strokeWidth="1.5" opacity={activated ? 1 : 0.6}/>
           ))}
-          <text x="228" y={memY - 30} fill="#a855f7" fontSize="11" textAnchor="middle" fontWeight="700">\u03BC-Opioid Receptor</text>
+          <text x="228" y={memY - 30} fill="#a855f7" fontSize="11" textAnchor="middle" fontWeight="700">μ-Opioid Receptor</text>
           <text x="228" y={memY - 16} fill={t.tM} fontSize="8" textAnchor="middle">7TM GPCR, Gi-coupled</text>
           {/* Fentanyl molecule */}
           <circle cx="228" cy={memY - 50} r="19" fill={activated ? "#a855f730" : "#a855f715"} stroke="#a855f7" strokeWidth={activated ? "2.5" : "1.5"}/>
@@ -2767,7 +2767,7 @@ function FentanylDiagram({ t }) {
           <line x1="228" y1={memY - 31} x2="228" y2={memY - 22} stroke="#a855f7" strokeWidth={activated ? "2" : "1"} strokeDasharray="3,2"/>
           {/* G-protein Gi */}
           <ellipse cx="230" cy={memY + 68} rx="28" ry="18" fill={activated ? "#ef444420" : "#ef444410"} stroke="#ef4444" strokeWidth={activated ? "2" : "1.5"}/>
-          <text x="230" y={memY + 65} fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">G\u03B1i</text>
+          <text x="230" y={memY + 65} fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Gαi</text>
           <text x="230" y={memY + 77} fill="#ef4444" fontSize="7" textAnchor="middle">{activated ? "Active" : "Inactive"}</text>
           {!activated && <line x1="230" y1={memY + 50} x2="228" y2={memY + 30} stroke="#ef4444" strokeWidth="1" strokeDasharray="3,2" opacity="0.4"/>}
           {/* Cascade nodes when activated */}
@@ -2777,21 +2777,21 @@ function FentanylDiagram({ t }) {
               <line x1="256" y1={memY + 60} x2="350" y2="190" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
               {/* AC box */}
               <rect x="330" y="190" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2)) * 0.4}/>
-              <text x="395" y="210" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Adenylyl Cyclase \u2193</text>
+              <text x="395" y="210" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">Adenylyl Cyclase ↓</text>
               <line x1="395" y1="220" x2="395" y2="248" stroke="#ef4444" strokeWidth="2" markerEnd="url(#ftArrow)"/>
               <rect x="330" y="248" width="130" height="30" rx="6" fill="#ef444418" stroke="#ef4444" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1)) * 0.4}/>
-              <text x="395" y="268" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">cAMP \u2193\u2193</text>
+              <text x="395" y="268" fill="#ef4444" fontSize="10" textAnchor="middle" fontWeight="700">cAMP ↓↓</text>
               {/* K+ channel effect */}
               <line x1="202" y1={memY + 68} x2="130" y2="220" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
               <rect x="60" y="220" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 0.5)) * 0.4}/>
-              <text x="120" y="240" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">GIRK (K\u207A) \u2191</text>
+              <text x="120" y="240" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">GIRK (K⁺) ↑</text>
               <line x1="120" y1="250" x2="120" y2="276" stroke="#22c55e" strokeWidth="2" markerEnd="url(#ftArrowG)"/>
               <rect x="60" y="276" width="120" height="30" rx="6" fill="#22c55e18" stroke="#22c55e" strokeWidth="1.5"/>
               <text x="120" y="296" fill="#22c55e" fontSize="10" textAnchor="middle" fontWeight="700">Hyperpolarization</text>
               {/* Ca2+ channel block */}
               <line x1="230" y1={memY + 86} x2="230" y2="225" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.7"/>
               <rect x="165" y="225" width="130" height="30" rx="6" fill="#3b82f618" stroke="#3b82f6" strokeWidth="1.5" opacity={0.6 + Math.abs(Math.sin(phase * Math.PI * 2 - 1.5)) * 0.4}/>
-              <text x="230" y="245" fill="#3b82f6" fontSize="10" textAnchor="middle" fontWeight="700">VGCC Ca\u00B2\u207A \u2193</text>
+              <text x="230" y="245" fill="#3b82f6" fontSize="10" textAnchor="middle" fontWeight="700">VGCC Ca²⁺ ↓</text>
               {/* Effect label */}
               <rect x="145" y="310" width="270" height="30" rx="6" fill={`${fc.color}18`} stroke={fc.color} strokeWidth="1.5"/>
               <text x="280" y="330" fill={fc.color} fontSize="10" textAnchor="middle" fontWeight="700">&#8594; {fc.label.split(" (")[0]}</text>
@@ -2800,15 +2800,15 @@ function FentanylDiagram({ t }) {
           {/* Legend */}
           <rect x="400" y="60" width="140" height="55" rx="6" fill={t.bgC} stroke={t.bd} strokeWidth="1"/>
           <text x="470" y="76" fill={t.tM} fontSize="8" textAnchor="middle" fontWeight="600">Key Channels</text>
-          <circle cx="415" cy="91" r="4" fill="#22c55e"/><text x="424" y="94" fill={t.t2} fontSize="8">GIRK K\u207A channel</text>
-          <circle cx="415" cy="105" r="4" fill="#3b82f6"/><text x="424" y="108" fill={t.t2} fontSize="8">VGCC Ca\u00B2\u207A channel</text>
+          <circle cx="415" cy="91" r="4" fill="#22c55e"/><text x="424" y="94" fill={t.t2} fontSize="8">GIRK K⁺ channel</text>
+          <circle cx="415" cy="105" r="4" fill="#3b82f6"/><text x="424" y="108" fill={t.t2} fontSize="8">VGCC Ca²⁺ channel</text>
           {!activated && <text x="228" y="300" fill={t.tM} fontSize="10" textAnchor="middle">Click Bind Fentanyl below to activate</text>}
         </svg>
       </div>
       <div style={{ padding: "12px 16px", background: t.bgC, borderTop: `1px solid ${t.bd}` }}>
         <button onClick={() => setActivated(a => !a)}
           style={{ padding: "7px 16px", borderRadius: "8px", border: `2px solid #a855f7`, background: activated ? "#a855f7" : "transparent", color: activated ? "#fff" : "#a855f7", fontSize: "12px", fontWeight: 700, cursor: "pointer", marginBottom: "12px" }}>
-          {activated ? "\u2713 Fentanyl Bound & Active" : "Bind Fentanyl to \u03BC-OR"}
+          {activated ? "\u2713 Fentanyl Bound & Active" : "Bind Fentanyl to μ-OR"}
         </button>
         <div style={{ padding: "10px 14px", background: t.bgH, borderRadius: "8px", borderLeft: `4px solid ${fc.color}` }}>
           <div style={{ fontSize: "12px", fontWeight: 700, color: fc.color, marginBottom: "4px" }}>{fc.label}</div>
@@ -2820,63 +2820,511 @@ function FentanylDiagram({ t }) {
 }
 
 
-// ── Receptor Superfamily Reference (shown below med-specific diagram) ─────────
-function ReceptorFamilyRef({ medId, t }) {
-  const [open, setOpen] = useState(false);
 
-  // Map each medication to its receptor superfamily
-  const gpcr = ["norepinephrine","epinephrine","phenylephrine","ephedrine","vasopressin",
-                 "atropine","glycopyrrolate","labetalol","hydralazine","dobutamine",
-                 "fentanyl","morphine","ketamine","dexmedetomidine","clonidine"];
-  const lgic = ["propofol","etomidate","succinylcholine","rocuronium","vecuronium",
-                "cisatracurium","neostigmine"];
+// ── Etomidate: GABA-A at β-subunit TM1/3 ─────────────────────────────────────
+function EtomitateDiagram({ t }) {
+  const [state, setState] = useState("resting");
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 120), 50);
+    return () => clearInterval(id);
+  }, []);
 
-  const isGpcr = gpcr.includes(medId);
-  const isLgic = lgic.includes(medId);
-  if (!isGpcr && !isLgic) return null;
+  const states = [
+    { id: "resting", label: "Resting",               color: "#64748b" },
+    { id: "gaba",    label: "GABA Alone",             color: "#22c55e" },
+    { id: "etom",    label: "Etomidate Potentiation", color: "#8b5cf6" },
+  ];
+  const cur = states.find(s => s.id === state);
+  const poreOpen = state !== "resting";
+  const poreW = state === "resting" ? 5 : state === "gaba" ? 14 : 22;
+  const vm = state === "resting" ? "-70 mV" : state === "gaba" ? "-82 mV" : "-93 mV";
 
-  const label = isGpcr ? "G-Protein Coupled Receptor (GPCR) — Superfamily Reference"
-                       : "Ligand-Gated Ion Channel (LGIC) — Superfamily Reference";
-  const color = isGpcr ? "#10b981" : "#3b82f6";
-  const subtitle = isGpcr
-    ? "This medication acts via a 7-transmembrane GPCR. The diagram below shows the full Gs/Gi/Gq signaling framework."
-    : "This medication acts at a ligand-gated ion channel. The diagram below shows the pentameric GABA-A and nAChR framework.";
+  const ions = Array.from({ length: 6 }, (_, i) => {
+    const prog = ((tick / 120) + i / 6) % 1;
+    return { x: 280 + (Math.sin(tick / 20 + i) * 2), y: 105 + prog * 190, op: poreOpen ? (0.4 + 0.5 * Math.sin(prog * Math.PI)) : 0 };
+  });
+
+  // Pentamer: 2 alpha, 2 beta, 1 gamma arranged around central pore
+  const subData = [
+    { angle: -90, label: "α1", fill: "#3b82f6" },
+    { angle: -18, label: "β2", fill: "#8b5cf6" },
+    { angle:  54, label: "γ2", fill: "#10b981" },
+    { angle: 126, label: "β2", fill: "#8b5cf6" },
+    { angle: 198, label: "α1", fill: "#3b82f6" },
+  ];
+  const r = 60, cx = 280, cy = 195;
 
   return (
-    <div style={{ marginTop: "20px" }}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: "12px 16px", borderRadius: open ? "10px 10px 0 0" : "10px",
-          border: `1px solid ${color}40`, background: `${color}08`,
-          cursor: "pointer", textAlign: "left" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color, flexShrink: 0 }} />
-          <div>
-            <div style={{ fontSize: "12px", fontWeight: 700, color: color, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-              Receptor Superfamily Reference
-            </div>
-            <div style={{ fontSize: "11px", color: t.tM, marginTop: "2px" }}>{label}</div>
-          </div>
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:"1px solid #8b5cf640" }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}` }}>
+        <span style={{ fontSize:"12px", color:"#8b5cf6", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Etomidate &mdash; GABA-A Receptor (&#946;-subunit TM1/3 site)
+        </span>
+      </div>
+      <div style={{ display:"flex", gap:"6px", padding:"10px 14px", background:t.bgH, borderBottom:`1px solid ${t.bd}`, flexWrap:"wrap" }}>
+        {states.map(s => (
+          <button key={s.id} onClick={() => setState(s.id)}
+            style={{ padding:"5px 12px", borderRadius:"6px", border:`2px solid ${state===s.id ? s.color : t.bd}`,
+              background: state===s.id ? `${s.color}18` : t.bgC, color: state===s.id ? s.color : t.tM,
+              fontSize:"11px", fontWeight: state===s.id ? 700 : 400, cursor:"pointer" }}>
+            {s.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background:t.bgH }}>
+        <svg viewBox="0 0 560 370" width="100%" style={{ display:"block", minWidth:"340px" }}>
+          {/* Extracellular / membrane / intracellular labels */}
+          <text x="16" y="90" fill={t.tM} fontSize="9">Extracellular</text>
+          <rect x="0" y="142" width="560" height="106" fill={`${t.bgC}bb`}/>
+          <rect x="0" y="142" width="560" height="7"  fill="#94a3b820"/>
+          <rect x="0" y="241" width="560" height="7"  fill="#94a3b820"/>
+          <text x="16" y="202" fill={t.tM} fontSize="9" fontWeight="600">MEMBRANE</text>
+          <text x="16" y="270" fill={t.tM} fontSize="9">Intracellular</text>
+
+          {/* Pentameric subunits */}
+          {subData.map((su, i) => {
+            const rad = su.angle * Math.PI / 180;
+            const sx = cx + r * Math.cos(rad), sy = cy + r * Math.sin(rad);
+            return (
+              <g key={i}>
+                <ellipse cx={sx} cy={sy} rx="25" ry="38" fill={`${su.fill}20`} stroke={su.fill} strokeWidth="2"/>
+                <text x={sx} y={sy - 4} fill={su.fill} fontSize="12" textAnchor="middle" fontWeight="800">{su.label}</text>
+                <text x={sx} y={sy + 11} fill={su.fill} fontSize="8" textAnchor="middle">sub</text>
+              </g>
+            );
+          })}
+
+          {/* Central Cl- pore */}
+          <ellipse cx={cx} cy={cy} rx={poreW} ry="38"
+            fill={poreOpen ? "#06b6d420" : "#64748b10"}
+            stroke={poreOpen ? "#06b6d4" : "#64748b"} strokeWidth="2.5"/>
+          <text x={cx} y={cy + 4} fill={poreOpen ? "#06b6d4" : "#64748b"} fontSize="8" textAnchor="middle" fontWeight="700">Cl&#8315;</text>
+
+          {/* Flowing Cl- ions */}
+          {ions.map((ion, i) => (
+            <circle key={i} cx={ion.x} cy={ion.y} r="6"
+              fill="#06b6d430" stroke="#06b6d4" strokeWidth="1.5" opacity={ion.op}/>
+          ))}
+          {poreOpen && (
+            <text x={cx + 30} y={cy - 20} fill="#06b6d4" fontSize="10" fontWeight="700">Cl&#8315; influx &#8595;</text>
+          )}
+
+          {/* GABA binding indicators — extracellular alpha-beta interface */}
+          {(state === "gaba" || state === "etom") && [{ ax: -54 }, { ax: 162 }].map((s, i) => {
+            const rad = s.ax * Math.PI / 180;
+            const bx = cx + (r + 14) * Math.cos(rad);
+            const by = cy - 32 + (r + 14) * Math.sin(rad) / 2;
+            return (
+              <g key={i}>
+                <circle cx={bx} cy={by} r="10" fill="#22c55e30" stroke="#22c55e" strokeWidth="1.5"/>
+                <text x={bx} y={by + 4} fill="#22c55e" fontSize="8" textAnchor="middle" fontWeight="800">G</text>
+              </g>
+            );
+          })}
+
+          {/* Etomidate binding sites — beta TM1/3 transmembrane */}
+          {state === "etom" && [{ ax: -18 }, { ax: 126 }].map((s, i) => {
+            const rad = s.ax * Math.PI / 180;
+            const bx = cx + (r - 4) * Math.cos(rad);
+            const by = cy + (r - 4) * Math.sin(rad);
+            return (
+              <g key={i}>
+                <circle cx={bx} cy={by} r="11"
+                  fill="#8b5cf640" stroke="#8b5cf6" strokeWidth="2"
+                  opacity={0.7 + 0.3 * Math.sin(tick / 15)}/>
+                <text x={bx} y={by + 4} fill="#8b5cf6" fontSize="8" textAnchor="middle" fontWeight="800">Eto</text>
+              </g>
+            );
+          })}
+
+          {/* Vm + state label */}
+          <rect x="10" y="308" width="110" height="28" rx="6" fill={t.bgC} stroke={cur.color} strokeWidth="1.5"/>
+          <text x="65" y="326" fill={cur.color} fontSize="11" textAnchor="middle" fontWeight="800">Vm {vm}</text>
+
+          {/* Key callout vs propofol */}
+          <rect x="380" y="308" width="170" height="50" rx="6" fill={t.bgC} stroke="#8b5cf640" strokeWidth="1"/>
+          <text x="390" y="325" fill="#8b5cf6" fontSize="9" fontWeight="700">vs Propofol:</text>
+          <text x="390" y="339" fill={t.tM} fontSize="8">Propofol binds &#946;-TM2/3 &#8594; direct gating</text>
+          <text x="390" y="352" fill={t.tM} fontSize="8">Etomidate &#946;-TM1/3 &#8594; potentiates only</text>
+
+          {/* Legend */}
+          <g transform="translate(10,10)">
+            <rect width="210" height="54" rx="6" fill={t.bgC} stroke={`${t.bd}`} strokeWidth="1"/>
+            <circle cx="14" cy="16" r="8" fill="#22c55e30" stroke="#22c55e" strokeWidth="1.5"/>
+            <text x="14" y="19" fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="700">G</text>
+            <text x="28" y="20" fill={t.tM} fontSize="9">GABA &#8212; &#945;-&#946; interface (extracellular)</text>
+            <circle cx="14" cy="36" r="8" fill="#8b5cf640" stroke="#8b5cf6" strokeWidth="1.5"/>
+            <text x="14" y="39" fill="#8b5cf6" fontSize="7" textAnchor="middle" fontWeight="700">Eto</text>
+            <text x="28" y="40" fill={t.tM} fontSize="9">Etomidate &#8212; &#946;-subunit TM1/3</text>
+            <circle cx="14" cy="52" r="5" fill="#06b6d430" stroke="#06b6d4" strokeWidth="1"/>
+            <text x="28" y="55" fill={t.tM} fontSize="8">Cl&#8315; ion (influx &#8594; hyperpolarization)</text>
+          </g>
+        </svg>
+      </div>
+
+      {/* Adrenal suppression panel */}
+      <div style={{ margin:"0 14px 14px", padding:"12px 14px", background: `#ef444410`, borderRadius:"8px", border:"1px solid #ef444430" }}>
+        <div style={{ fontSize:"11px", fontWeight:700, color:"#ef4444", marginBottom:"6px" }}>
+          &#9888; Adrenal Suppression &mdash; Key Clinical Warning
         </div>
-        <span style={{ color: color, fontSize: "16px", transition: "transform 0.2s",
-          display: "inline-block", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>&#9660;</span>
-      </button>
-      {open && (
-        <div style={{ border: `1px solid ${color}40`, borderTop: "none", borderRadius: "0 0 10px 10px",
-          padding: "16px", background: t.bgH }}>
-          <p style={{ margin: "0 0 16px", fontSize: "12px", color: t.tM, lineHeight: 1.6,
-            padding: "10px 14px", background: t.bgC, borderRadius: "8px", borderLeft: `3px solid ${color}` }}>
-            {subtitle}
-          </p>
-          {isGpcr ? <GPCRDiagram t={t} /> : <LGICDiagram t={t} />}
+        <div style={{ fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+          Etomidate inhibits <strong>11&#946;-hydroxylase</strong> (CYP11B1) in the adrenal cortex, blocking the final step of cortisol synthesis (11-deoxycortisol &#8594; cortisol). Even a <em>single induction dose</em> suppresses cortisol production for 6&#8211;24 hours. In septic patients or those with adrenal insufficiency, this is clinically significant. Consider hydrocortisone supplementation if etomidate is used for sepsis intubation.
         </div>
-      )}
+      </div>
+
+      {/* Description */}
+      <div style={{ padding:"10px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}`, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+        {state === "resting" && <p style={{ margin:0 }}>Resting GABA-A: Cl&#8315; pore sealed. No agonist bound. Membrane potential at &#8722;70 mV baseline.</p>}
+        {state === "gaba" && <p style={{ margin:0 }}><strong style={{ color:"#22c55e" }}>GABA alone:</strong> Binds &#945;-&#946; interface in extracellular domain &#8594; conformational change &#8594; Cl&#8315; influx &#8594; mild hyperpolarization. Modest increase in channel open probability.</p>}
+        {state === "etom" && <p style={{ margin:0 }}><strong style={{ color:"#8b5cf6" }}>Etomidate potentiation:</strong> Binds &#946;-subunit TM1/3 transmembrane region &#8212; a site distinct from propofol (TM2/3) and benzodiazepines (&#945;-&#947; interface). Markedly prolongs channel open duration in the presence of GABA. Unlike propofol, etomidate cannot directly gate the channel without GABA, which contributes to its superior cardiovascular stability and lack of propofol infusion syndrome risk.</p>}
+      </div>
     </div>
   );
 }
 
-// MED DETAIL
+// ── Rocuronium Diagram: NMJ competitive block + sugammadex reversal ───────────
+function RocuroniumDiagram({ t }) {
+  const [phase, setPhase] = useState("normal");
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
+    return () => clearInterval(id);
+  }, []);
+
+  const phases = [
+    { id: "normal",   label: "Normal NMJ",         color: "#22c55e" },
+    { id: "partial",  label: "Partial Block",       color: "#f59e0b" },
+    { id: "full",     label: "Full Block (RSI)",    color: "#ef4444" },
+    { id: "suggest",  label: "Sugammadex Reversal", color: "#10b981" },
+    { id: "neostig",  label: "Neostigmine Reversal",color: "#3b82f6" },
+  ];
+  const ph = phases.find(p => p.id === phase);
+  const drugColor = "#f59e0b";
+  const W = 560, H = 380;
+  const nerveY = 50, cleftY = 148, muscleY = 248;
+  const vesiclePh = tick / 100;
+
+  const nAChRBlocked = [
+    phase === "partial" || phase === "full",
+    phase === "partial" || phase === "full",
+    phase === "full",
+    phase === "full",
+  ];
+  const nAChROpen = phase === "normal" || phase === "suggest" || phase === "neostig";
+  const tofFade = phase === "partial";
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:`1px solid ${drugColor}40` }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}` }}>
+        <span style={{ fontSize:"12px", color:drugColor, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Rocuronium &mdash; Competitive nAChR Antagonist + Dual Reversal
+        </span>
+      </div>
+      <div style={{ display:"flex", gap:"6px", padding:"10px 14px", background:t.bgH, borderBottom:`1px solid ${t.bd}`, flexWrap:"wrap" }}>
+        {phases.map(p => (
+          <button key={p.id} onClick={() => setPhase(p.id)}
+            style={{ padding:"5px 12px", borderRadius:"6px", border:`2px solid ${phase===p.id ? p.color : t.bd}`,
+              background: phase===p.id ? `${p.color}18` : t.bgC, color: phase===p.id ? p.color : t.tM,
+              fontSize:"11px", fontWeight: phase===p.id ? 700 : 400, cursor:"pointer" }}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background:t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display:"block", minWidth:"380px" }}>
+          <defs>
+            <marker id="rocArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
+            </marker>
+          </defs>
+
+          {/* Motor nerve terminal */}
+          <rect x="150" y={nerveY} width="260" height="65" rx="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="280" y={nerveY + 20} fill={t.tx} fontSize="11" textAnchor="middle" fontWeight="700">Motor Nerve Terminal</text>
+          <text x="280" y={nerveY + 35} fill={t.tM} fontSize="8" textAnchor="middle">AP &#8594; Ca&#178;&#8314; influx &#8594; ACh exocytosis</text>
+
+          {/* TOF indicator */}
+          {tofFade && (
+            <g>
+              <text x="450" y={nerveY + 20} fill="#f59e0b" fontSize="9" fontWeight="700">TOF FADE</text>
+              {[0,1,2,3].map(i => (
+                <rect key={i} x={438 + i*14} y={nerveY + 25} width="11" height={14 - i * 3}
+                  rx="2" fill={`#f59e0b${Math.round(255 - i*50).toString(16).padStart(2,'0')}`}/>
+              ))}
+            </g>
+          )}
+
+          {/* ACh vesicles */}
+          {Array.from({ length: 5 }, (_, i) => {
+            const vy = nerveY + 52 + Math.sin(vesiclePh * Math.PI * 2 + i) * 3;
+            const vx = 185 + i * 36;
+            const released = phase !== "normal" && i <= 2;
+            return (
+              <g key={i}>
+                <circle cx={vx} cy={released ? cleftY - 18 + vesiclePh * 28 : vy} r="9"
+                  fill="#22c55e28" stroke="#22c55e" strokeWidth="1.5" opacity={released ? 0.7 : 1}/>
+                <text x={vx} y={(released ? cleftY - 18 + vesiclePh * 28 : vy) + 3}
+                  fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="700">ACh</text>
+              </g>
+            );
+          })}
+
+          {/* Synaptic cleft */}
+          <text x="14" y={cleftY + 12} fill={t.tM} fontSize="8" fontWeight="600">CLEFT</text>
+          <rect x="100" y={cleftY} width="360" height={muscleY - cleftY} fill={t.bgH}/>
+
+          {/* Rocuronium molecules */}
+          {(phase === "partial" || phase === "full") && Array.from({ length: phase === "full" ? 5 : 3 }, (_, i) => (
+            <g key={i}>
+              <circle cx={155 + i * 58} cy={cleftY + 28} r="10"
+                fill={`${drugColor}28`} stroke={drugColor} strokeWidth="1.5"/>
+              <text x={155 + i * 58} y={cleftY + 32} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">Roc</text>
+            </g>
+          ))}
+
+          {/* Sugammadex encapsulation animation */}
+          {phase === "suggest" && Array.from({ length: 4 }, (_, i) => (
+            <g key={i}>
+              <circle cx={165 + i * 60} cy={cleftY + 28} r="14"
+                fill="#10b98118" stroke="#10b981" strokeWidth="1.5"
+                opacity={0.5 + 0.4 * Math.sin(tick / 12 + i)}/>
+              <text x={165 + i * 60} y={cleftY + 24} fill="#10b981" fontSize="6" textAnchor="middle" fontWeight="700">&#947;-CD</text>
+              <text x={165 + i * 60} y={cleftY + 34} fill="#10b981" fontSize="5" textAnchor="middle">encapsulates</text>
+              <text x={165 + i * 60} y={cleftY + 43} fill={drugColor} fontSize="5" textAnchor="middle">Roc</text>
+            </g>
+          ))}
+
+          {/* Neostigmine: extra ACh in cleft */}
+          {phase === "neostig" && Array.from({ length: 5 }, (_, i) => (
+            <g key={i}>
+              <circle cx={148 + i * 54} cy={cleftY + 45} r="9"
+                fill="#3b82f618" stroke="#3b82f6" strokeWidth="1.5"/>
+              <text x={148 + i * 54} y={cleftY + 49} fill="#3b82f6" fontSize="6" textAnchor="middle" fontWeight="700">ACh</text>
+            </g>
+          ))}
+
+          {/* Motor end plate */}
+          <rect x="100" y={muscleY} width="360" height="65" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="280" y={muscleY + 17} fill={t.tx} fontSize="10" textAnchor="middle" fontWeight="700">Motor End Plate</text>
+
+          {/* nAChRs */}
+          {[160, 220, 300, 380].map((rx, i) => {
+            const blocked = nAChRBlocked[i];
+            const open = nAChROpen;
+            const col = blocked ? drugColor : (open ? "#22c55e" : t.tM);
+            return (
+              <g key={i}>
+                <rect x={rx - 14} y={muscleY + 24} width="28" height="28" rx="6"
+                  fill={blocked ? `${drugColor}18` : (open ? "#22c55e18" : t.bgH)}
+                  stroke={col} strokeWidth={blocked ? 2 : 1.5}/>
+                <text x={rx} y={muscleY + 38} fill={col} fontSize="8" textAnchor="middle" fontWeight="700">nAChR</text>
+                <text x={rx} y={muscleY + 50} fill={col} fontSize="7" textAnchor="middle">
+                  {blocked ? "BLOCKED" : (open ? "OPEN" : "closed")}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Ion flow when open */}
+          {nAChROpen && (
+            <g>
+              <line x1="280" y1={muscleY + 52} x2="280" y2={muscleY + 78} stroke="#f59e0b" strokeWidth="2" markerEnd="url(#rocArrow)"/>
+              <text x="298" y={muscleY + 70} fill="#f59e0b" fontSize="9">Na&#8314; in</text>
+            </g>
+          )}
+
+          {/* Status bar */}
+          <rect x="100" y="330" width="360" height="30" rx="6" fill={t.bgC} stroke={ph.color} strokeWidth="1.5"/>
+          <text x="280" y="349" fill={ph.color} fontSize="10" textAnchor="middle" fontWeight="700">
+            {phase === "normal"  ? "Normal NMJ — Full contraction" :
+             phase === "partial" ? "Partial block — TOF fade, reduced strength" :
+             phase === "full"    ? "Full paralysis — RSI dose (1.2 mg/kg)" :
+             phase === "suggest" ? "Sugammadex: 1:1 encapsulation, instant reversal" :
+                                   "Neostigmine: ACh excess outcompetes Roc"}
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding:"10px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}`, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+        {phase === "normal"  && <p style={{ margin:0 }}>Normal NMJ: ACh binds both &#945;-subunit sites &#8594; Na&#8314;/K&#8314; flux &#8594; end plate depolarization &#8594; muscle contraction. TOF ratio = 1.0.</p>}
+        {phase === "partial" && <p style={{ margin:0 }}><strong style={{ color:drugColor }}>Partial competitive block:</strong> Rocuronium occupies &#945;-subunits on some receptors. Reduced end plate potential. TOF shows characteristic <em>fade</em> (T4 &lt; T3 &lt; T2 &lt; T1) due to presynaptic nAChR blockade reducing ACh mobilization with repeated stimulation.</p>}
+        {phase === "full"    && <p style={{ margin:0 }}><strong style={{ color:"#ef4444" }}>Full NMJ block (RSI 1.2 mg/kg):</strong> Rocuronium onset ~60 sec at RSI dose. Low potency (ED95 = 0.3 mg/kg) means high molar dose &#8594; fast NMJ flooding &#8594; fast onset. No fasciculations (no depolarization occurs). Duration 45&#8211;90 min.</p>}
+        {phase === "suggest" && <p style={{ margin:0 }}><strong style={{ color:"#10b981" }}>Sugammadex (modified &#947;-cyclodextrin):</strong> Encapsulates rocuronium 1:1 in its hydrophobic core &#8594; renders it pharmacologically inactive &#8594; plasma gradient pulls drug off nAChR &#8594; reversal in 1&#8211;3 min even at full RSI block. Dose: 16 mg/kg for immediate reversal.</p>}
+        {phase === "neostig" && <p style={{ margin:0 }}><strong style={{ color:"#3b82f6" }}>Neostigmine reversal:</strong> Inhibits acetylcholinesterase &#8594; ACh accumulates &#8594; mass-action effect outcompetes rocuronium at nAChR &#945;-subunits. Requires TOF count &#8805;2 to be effective. Must co-administer anticholinergic (glycopyrrolate/atropine) to blunt muscarinic side effects.</p>}
+      </div>
+    </div>
+  );
+}
+
+// ── Vecuronium Diagram: NMJ block + active metabolite accumulation ────────────
+function VecuroniumDiagram({ t }) {
+  const [phase, setPhase] = useState("normal");
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick(v => (v + 1) % 100), 55);
+    return () => clearInterval(id);
+  }, []);
+
+  const phases = [
+    { id: "normal",   label: "Normal NMJ",           color: "#22c55e" },
+    { id: "block",    label: "Vecuronium Block",      color: "#8b5cf6" },
+    { id: "icu",      label: "ICU Accumulation",      color: "#ef4444" },
+    { id: "suggest",  label: "Sugammadex Reversal",   color: "#10b981" },
+  ];
+  const ph = phases.find(p => p.id === phase);
+  const drugColor = "#8b5cf6";
+  const W = 560, H = 380;
+  const nerveY = 50, cleftY = 148, muscleY = 248;
+  const vesiclePh = tick / 100;
+  const nAChROpen = phase === "normal" || phase === "suggest";
+
+  return (
+    <div style={{ borderRadius:"10px", overflow:"hidden", border:`1px solid ${drugColor}40` }}>
+      <div style={{ background:t.bgH, padding:"10px 14px", borderBottom:`1px solid ${t.bd}` }}>
+        <span style={{ fontSize:"12px", color:drugColor, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+          &#9654; Vecuronium &mdash; Cardiovascular-Neutral NMB + Active Metabolite Risk
+        </span>
+      </div>
+      <div style={{ display:"flex", gap:"6px", padding:"10px 14px", background:t.bgH, borderBottom:`1px solid ${t.bd}`, flexWrap:"wrap" }}>
+        {phases.map(p => (
+          <button key={p.id} onClick={() => setPhase(p.id)}
+            style={{ padding:"5px 12px", borderRadius:"6px", border:`2px solid ${phase===p.id ? p.color : t.bd}`,
+              background: phase===p.id ? `${p.color}18` : t.bgC, color: phase===p.id ? p.color : t.tM,
+              fontSize:"11px", fontWeight: phase===p.id ? 700 : 400, cursor:"pointer" }}>
+            {p.label}
+          </button>
+        ))}
+      </div>
+      <div style={{ background:t.bgH }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display:"block", minWidth:"380px" }}>
+          <defs>
+            <marker id="vecArrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 Z" fill="#f59e0b"/>
+            </marker>
+          </defs>
+
+          {/* Motor nerve — note NO HR/BP effect label */}
+          <rect x="120" y={nerveY} width="280" height="65" rx="12" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="260" y={nerveY + 20} fill={t.tx} fontSize="11" textAnchor="middle" fontWeight="700">Motor Nerve Terminal</text>
+          <text x="260" y={nerveY + 35} fill={t.tM} fontSize="8" textAnchor="middle">AP &#8594; Ca&#178;&#8314; influx &#8594; ACh exocytosis</text>
+
+          {/* Cardiovascular neutral badge */}
+          <rect x="430" y={nerveY + 5} width="115" height="40" rx="6" fill="#22c55e10" stroke="#22c55e40" strokeWidth="1"/>
+          <text x="487" y={nerveY + 21} fill="#22c55e" fontSize="9" textAnchor="middle" fontWeight="700">CV Neutral</text>
+          <text x="487" y={nerveY + 34} fill={t.tM} fontSize="8" textAnchor="middle">No histamine</text>
+          <text x="487" y={nerveY + 44} fill={t.tM} fontSize="8" textAnchor="middle">No vagolysis</text>
+
+          {/* ACh vesicles */}
+          {Array.from({ length: 5 }, (_, i) => {
+            const vy = nerveY + 52 + Math.sin(vesiclePh * Math.PI * 2 + i) * 3;
+            const vx = 155 + i * 35;
+            const released = phase !== "normal" && i <= 2;
+            return (
+              <g key={i}>
+                <circle cx={vx} cy={released ? cleftY - 18 + vesiclePh * 28 : vy} r="9"
+                  fill="#22c55e28" stroke="#22c55e" strokeWidth="1.5" opacity={released ? 0.7 : 1}/>
+                <text x={vx} y={(released ? cleftY - 18 + vesiclePh * 28 : vy) + 3}
+                  fill="#22c55e" fontSize="7" textAnchor="middle" fontWeight="700">ACh</text>
+              </g>
+            );
+          })}
+
+          {/* Cleft */}
+          <text x="14" y={cleftY + 12} fill={t.tM} fontSize="8" fontWeight="600">CLEFT</text>
+          <rect x="80" y={cleftY} width="390" height={muscleY - cleftY} fill={t.bgH}/>
+
+          {/* Vecuronium molecules */}
+          {(phase === "block") && Array.from({ length: 4 }, (_, i) => (
+            <g key={i}>
+              <circle cx={130 + i * 65} cy={cleftY + 30} r="10"
+                fill={`${drugColor}28`} stroke={drugColor} strokeWidth="1.5"/>
+              <text x={130 + i * 65} y={cleftY + 34} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">Vec</text>
+            </g>
+          ))}
+
+          {/* ICU Accumulation: parent + active metabolite */}
+          {phase === "icu" && (<>
+            {Array.from({ length: 4 }, (_, i) => (
+              <g key={i}>
+                <circle cx={120 + i * 68} cy={cleftY + 22} r="10" fill={`${drugColor}28`} stroke={drugColor} strokeWidth="1.5"/>
+                <text x={120 + i * 68} y={cleftY + 26} fill={drugColor} fontSize="7" textAnchor="middle" fontWeight="700">Vec</text>
+              </g>
+            ))}
+            {Array.from({ length: 4 }, (_, i) => (
+              <g key={i}>
+                <circle cx={135 + i * 68} cy={cleftY + 50} r="10" fill="#ef444428" stroke="#ef4444" strokeWidth="1.5"
+                  opacity={0.6 + 0.4 * Math.sin(tick / 12 + i)}/>
+                <text x={135 + i * 68} y={cleftY + 47} fill="#ef4444" fontSize="5.5" textAnchor="middle" fontWeight="700">3-OH</text>
+                <text x={135 + i * 68} y={cleftY + 57} fill="#ef4444" fontSize="5.5" textAnchor="middle">Vec</text>
+              </g>
+            ))}
+            <rect x="10" y={cleftY + 10} width="68" height="52" rx="5" fill="#ef444410" stroke="#ef444440" strokeWidth="1"/>
+            <text x="44" y={cleftY + 26} fill="#ef4444" fontSize="8" textAnchor="middle" fontWeight="700">ICU</text>
+            <text x="44" y={cleftY + 40} fill="#ef4444" fontSize="7" textAnchor="middle">active</text>
+            <text x="44" y={cleftY + 52} fill="#ef4444" fontSize="7" textAnchor="middle">metabolite</text>
+          </>)}
+
+          {/* Sugammadex */}
+          {phase === "suggest" && Array.from({ length: 4 }, (_, i) => (
+            <g key={i}>
+              <circle cx={130 + i * 68} cy={cleftY + 28} r="14" fill="#10b98118" stroke="#10b981" strokeWidth="1.5"
+                opacity={0.5 + 0.4 * Math.sin(tick / 12 + i)}/>
+              <text x={130 + i * 68} y={cleftY + 25} fill="#10b981" fontSize="6" textAnchor="middle" fontWeight="700">&#947;-CD</text>
+              <text x={130 + i * 68} y={cleftY + 35} fill="#10b981" fontSize="5" textAnchor="middle">encapsulates Vec</text>
+            </g>
+          ))}
+
+          {/* Motor end plate */}
+          <rect x="80" y={muscleY} width="390" height="65" rx="8" fill={t.bgC} stroke={t.bd} strokeWidth="1.5"/>
+          <text x="275" y={muscleY + 17} fill={t.tx} fontSize="10" textAnchor="middle" fontWeight="700">Motor End Plate</text>
+
+          {[155, 220, 295, 370].map((rx, i) => {
+            const blocked = phase === "block" || phase === "icu";
+            const open = nAChROpen;
+            const col = blocked ? drugColor : (open ? "#22c55e" : t.tM);
+            return (
+              <g key={i}>
+                <rect x={rx - 14} y={muscleY + 24} width="28" height="28" rx="6"
+                  fill={blocked ? `${drugColor}18` : (open ? "#22c55e18" : t.bgH)}
+                  stroke={col} strokeWidth={blocked ? 2 : 1.5}/>
+                <text x={rx} y={muscleY + 38} fill={col} fontSize="8" textAnchor="middle" fontWeight="700">nAChR</text>
+                <text x={rx} y={muscleY + 50} fill={col} fontSize="7" textAnchor="middle">
+                  {blocked ? "BLOCKED" : (open ? "OPEN" : "closed")}
+                </text>
+              </g>
+            );
+          })}
+
+          {nAChROpen && (
+            <g>
+              <line x1="275" y1={muscleY + 52} x2="275" y2={muscleY + 78} stroke="#f59e0b" strokeWidth="2" markerEnd="url(#vecArrow)"/>
+              <text x="293" y={muscleY + 70} fill="#f59e0b" fontSize="9">Na&#8314; in</text>
+            </g>
+          )}
+
+          {/* Status */}
+          <rect x="80" y="330" width="390" height="30" rx="6" fill={t.bgC} stroke={ph.color} strokeWidth="1.5"/>
+          <text x="275" y="349" fill={ph.color} fontSize="10" textAnchor="middle" fontWeight="700">
+            {phase === "normal"  ? "Normal NMJ — full contraction, CV unchanged" :
+             phase === "block"   ? "Competitive block — onset 3–5 min, duration 20–60 min" :
+             phase === "icu"     ? "ICU: 3-OH metabolite accumulates — prolonged paralysis risk" :
+                                   "Sugammadex encapsulates Vec (lower affinity than Roc)"}
+          </text>
+        </svg>
+      </div>
+      <div style={{ padding:"10px 14px", background:t.bgC, borderTop:`1px solid ${t.bd}`, fontSize:"12px", color:t.t2, lineHeight:1.7 }}>
+        {phase === "normal"  && <p style={{ margin:0 }}>Normal NMJ: No cardiovascular effects from vecuronium &#8212; no histamine release, no vagolysis (M2 antagonism), no sympathetic stimulation. Heart rate and blood pressure unchanged. This is the primary advantage over older agents like pancuronium.</p>}
+        {phase === "block"   && <p style={{ margin:0 }}><strong style={{ color:drugColor }}>Competitive nAChR block:</strong> Identical mechanism to rocuronium (&#945;-subunit antagonism) but higher potency (ED95 = 0.05 mg/kg vs. rocuronium 0.3 mg/kg). Higher potency = slower onset (3&#8211;5 min at 0.1 mg/kg) due to fewer molecules reaching the NMJ. Intermediate duration: 20&#8211;60 min.</p>}
+        {phase === "icu"     && <p style={{ margin:0 }}><strong style={{ color:"#ef4444" }}>ICU accumulation &#8212; active metabolite danger:</strong> 3-desacetylvecuronium retains 50&#8211;80% of parent activity. In hepatic or renal failure, or with prolonged ICU infusions, this metabolite accumulates and produces paralysis lasting 24&#8211;72+ hours after the drip is stopped. Avoid prolonged vecuronium infusions in critically ill patients. Cisatracurium (Hofmann elimination) is preferred in ICU.</p>}
+        {phase === "suggest" && <p style={{ margin:0 }}><strong style={{ color:"#10b981" }}>Sugammadex:</strong> Encapsulates vecuronium within its &#947;-cyclodextrin ring, but with ~10&#215; lower affinity than for rocuronium (steroidal NMBA binding depends on molecular fit). Standard dosing effective, but deeper blocks may need higher doses. Note: sugammadex does NOT encapsulate the 3-OH metabolite as effectively &#8212; clinical monitoring is essential after reversal.</p>}
+      </div>
+    </div>
+  );
+}
+
+// ── Receptor Superfamily Reference (shown below med-specific diagram) ─────────
+function ReceptorFamilyRef({ medId, t }) {
+
 function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes }) {
   const svgRef = useRef(null);
   const tabs = ["overview", "receptor", "dosing", "metabolism", "warnings", "pearls", "diagram"];
@@ -3478,15 +3926,15 @@ function LGICDiagram({ t }) {
 
   const cfg = {
     gabaa: {
-      label: "GABA-A Receptor", subtype: "Cl\u207B channel \u2014 Inhibitory",
-      subunits: ["\u03B11","\u03B22","\u03B11","\u03B23","\u03B32"],
+      label: "GABA-A Receptor", subtype: "Cl⁻ channel — Inhibitory",
+      subunits: ["α1","β2","α1","β3","γ2"],
       subColors: ["#3b82f6","#a855f7","#3b82f6","#a855f7","#22c55e"],
       poreColor: "#a855f7",
-      ion: "Cl\u207B", ionColor: "#a855f7",
+      ion: "Cl⁻", ionColor: "#a855f7",
       color: "#3b82f6",
-      effect: "Cl\u207B influx \u2192 hyperpolarization \u2192 neuronal inhibition",
-      vmClosed: "\u221270 mV", vmOpen: "\u221285 mV",
-      note: "Propofol & Etomidate: \u03B2-TM2/TM3 interface \u2192 \u2191channel open duration. Benzodiazepines: \u03B1-\u03B3 interface \u2192 \u2191open frequency (no direct gate). Barbiturates: \u03B2 subunit \u2192 \u2191duration + direct activation.",
+      effect: "Cl⁻ influx → hyperpolarization → neuronal inhibition",
+      vmClosed: "−70 mV", vmOpen: "−85 mV",
+      note: "Propofol & Etomidate: β-TM2/TM3 interface → ↑channel open duration. Benzodiazepines: α-γ interface → ↑open frequency (no direct gate). Barbiturates: β subunit → ↑duration + direct activation.",
       bindLabels: [
         { sub: 0, label: "GABA", color: "#22c55e" },
         { sub: 2, label: "GABA", color: "#22c55e" },
@@ -3495,15 +3943,15 @@ function LGICDiagram({ t }) {
       ],
     },
     nachr: {
-      label: "Nicotinic ACh Receptor (NMJ)", subtype: "Na\u207A / Ca\u00B2\u207A channel \u2014 Excitatory",
-      subunits: ["\u03B11","\u03B51","\u03B11","\u03B41","\u03B21"],
+      label: "Nicotinic ACh Receptor (NMJ)", subtype: "Na⁺ / Ca²⁺ channel — Excitatory",
+      subunits: ["α1","\u03B51","α1","δ1","β1"],
       subColors: ["#f59e0b","#64748b","#f59e0b","#64748b","#64748b"],
       poreColor: "#f59e0b",
-      ion: "Na\u207A", ionColor: "#f59e0b",
+      ion: "Na⁺", ionColor: "#f59e0b",
       color: "#f59e0b",
-      effect: "Na\u207A / Ca\u00B2\u207A influx \u2192 end-plate depolarization \u2192 muscle contraction",
-      vmClosed: "\u221280 mV", vmOpen: "+10 mV",
-      note: "Two ACh molecules must bind (both \u03B1 subunits). Succinylcholine mimics ACh but is not hydrolyzed \u2192 Phase I block. Rocuronium/Vecuronium/Cisatracurium competitively block \u03B1 sites without depolarization.",
+      effect: "Na⁺ / Ca²⁺ influx → end-plate depolarization → muscle contraction",
+      vmClosed: "−80 mV", vmOpen: "+10 mV",
+      note: "Two ACh molecules must bind (both α subunits). Succinylcholine mimics ACh but is not hydrolyzed → Phase I block. Rocuronium/Vecuronium/Cisatracurium competitively block α sites without depolarization.",
       bindLabels: [
         { sub: 0, label: "ACh / SCh", color: "#22c55e" },
         { sub: 2, label: "ACh / SCh", color: "#22c55e" },
@@ -3646,7 +4094,7 @@ function LGICDiagram({ t }) {
             <g key={i}>
               <rect x={startX + i * 130} y={H - 22} width="9" height="9" rx="2" fill={`${col}25`} stroke={col} strokeWidth="1.2"/>
               <text x={startX + i * 130 + 13} y={H - 14} fill={t.t2} fontSize="8">
-                {col === "#3b82f6" ? "\u03B1 subunit (GABA-A)" : col === "#a855f7" ? "\u03B2 subunit (GABA-A)" : col === "#22c55e" ? "\u03B3 subunit (BZD site)" : col === "#f59e0b" ? "\u03B1 subunit (nAChR)" : "structural"}
+                {col === "#3b82f6" ? "α subunit (GABA-A)" : col === "#a855f7" ? "β subunit (GABA-A)" : col === "#22c55e" ? "γ subunit (BZD site)" : col === "#f59e0b" ? "α subunit (nAChR)" : "structural"}
               </text>
             </g>
           ))}
@@ -3697,9 +4145,9 @@ function GPCRDiagram({ t }) {
   }, [step]);
 
   const pw = {
-    gs: { label: "Gs", color: "#22c55e", receptors: "\u03B21, \u03B22, D1, H2, V2", effector: "Adenylyl Cyclase \u2191", messenger: "cAMP \u2191\u2191", kinase: "PKA", shortEffect: "\u2191HR, \u2191contractility, smooth muscle relax", fullEffect: "Increased heart rate & contractility (\u03B21), smooth muscle relaxation (\u03B22), increased renin secretion", drugs: "\u03B21: Dobutamine, Isoproterenol\n\u03B22: Albuterol, Terbutaline" },
-    gi: { label: "Gi", color: "#ef4444", receptors: "\u03B12, M2, opioid (\u03BC/\u03BA/\u03B4), D2", effector: "Adenylyl Cyclase \u2193", messenger: "cAMP \u2193\u2193", kinase: "PKA\u2193", shortEffect: "\u2193HR, \u2193AV conduction, analgesia", fullEffect: "Bradycardia & decreased AV conduction (M2), analgesia & sedation (opioid), vasoconstriction (\u03B12)", drugs: "\u03B12: Clonidine, Dexmedetomidine\nM2: Neostigmine (indirect)\nOpioid: Morphine, Fentanyl" },
-    gq: { label: "Gq", color: "#f59e0b", receptors: "\u03B11, M1, M3, H1, AT1, V1a", effector: "Phospholipase C \u2191", messenger: "IP\u2083 + DAG \u2191", kinase: "PKC + Ca\u00B2\u207A release", shortEffect: "Vasoconstriction, secretion, contraction", fullEffect: "Vasoconstriction (\u03B11), bronchoconstriction & secretion (M3), uterine/vascular contraction (V1a)", drugs: "\u03B11: Phenylephrine, Norepinephrine\nM3: Pilocarpine\nV1a: Vasopressin" },
+    gs: { label: "Gs", color: "#22c55e", receptors: "β1, β2, D1, H2, V2", effector: "Adenylyl Cyclase ↑", messenger: "cAMP ↑↑", kinase: "PKA", shortEffect: "↑HR, ↑contractility, smooth muscle relax", fullEffect: "Increased heart rate & contractility (β1), smooth muscle relaxation (β2), increased renin secretion", drugs: "β1: Dobutamine, Isoproterenol\nβ2: Albuterol, Terbutaline" },
+    gi: { label: "Gi", color: "#ef4444", receptors: "α2, M2, opioid (μ/\u03BA/δ), D2", effector: "Adenylyl Cyclase ↓", messenger: "cAMP ↓↓", kinase: "PKA↓", shortEffect: "↓HR, ↓AV conduction, analgesia", fullEffect: "Bradycardia & decreased AV conduction (M2), analgesia & sedation (opioid), vasoconstriction (α2)", drugs: "α2: Clonidine, Dexmedetomidine\nM2: Neostigmine (indirect)\nOpioid: Morphine, Fentanyl" },
+    gq: { label: "Gq", color: "#f59e0b", receptors: "α1, M1, M3, H1, AT1, V1a", effector: "Phospholipase C ↑", messenger: "IP₃ + DAG ↑", kinase: "PKC + Ca²⁺ release", shortEffect: "Vasoconstriction, secretion, contraction", fullEffect: "Vasoconstriction (α1), bronchoconstriction & secretion (M3), uterine/vascular contraction (V1a)", drugs: "α1: Phenylephrine, Norepinephrine\nM3: Pilocarpine\nV1a: Vasopressin" },
   };
   const p = pw[pathway];
   const W = 600, H = 390;
@@ -3937,11 +4385,11 @@ function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
 
   const lgicMeds = [
     { id: "propofol",       name: "Propofol",        note: "GABA-A positive allosteric modulator + direct agonist", component: "propofol" },
-    { id: "etomidate",      name: "Etomidate",        note: "GABA-A modulator at α-β interface", component: null },
+    { id: "etomidate",      name: "Etomidate",        note: "GABA-A modulator at β-subunit TM1/3 — potentiation only", component: "etomidate" },
     { id: "succinylcholine",name: "Succinylcholine",  note: "nAChR depolarizing agonist — Phase I & II block", component: "succinylcholine" },
     { id: "cisatracurium",  name: "Cisatracurium",    note: "nAChR competitive (non-depolarizing) antagonist", component: "cisatracurium" },
-    { id: "rocuronium",     name: "Rocuronium",       note: "nAChR competitive antagonist — rapid onset", component: null },
-    { id: "vecuronium",     name: "Vecuronium",       note: "nAChR competitive antagonist — intermediate", component: null },
+    { id: "rocuronium",     name: "Rocuronium",       note: "nAChR competitive antagonist — rapid onset, dual reversal", component: "rocuronium" },
+    { id: "vecuronium",     name: "Vecuronium",       note: "nAChR competitive antagonist — CV neutral, active metabolite", component: "vecuronium" },
   ];
 
   const gpcrMeds = [
@@ -3965,11 +4413,14 @@ function LinkedMedDiagrams({ recId, color, t, onMedClick }) {
     : "Each drug below acts via a G-protein coupled receptor. Expand any card to see its specific cascade and clinical effect.";
 
   const renderDiagram = (med) => {
-    if (med.component === "propofol") return <PropofolDiagram t={t} />;
+    if (med.component === "propofol")        return <PropofolDiagram t={t} />;
+    if (med.component === "etomidate")       return <EtomitateDiagram t={t} />;
     if (med.component === "succinylcholine") return <NMJDiagram t={t} drugId="succinylcholine" />;
-    if (med.component === "cisatracurium") return <NMJDiagram t={t} drugId="cisatracurium" />;
-    if (med.component === "ne") return <NEDiagram t={t} />;
-    if (med.component === "fentanyl") return <FentanylDiagram t={t} />;
+    if (med.component === "cisatracurium")   return <NMJDiagram t={t} drugId="cisatracurium" />;
+    if (med.component === "rocuronium")      return <RocuroniumDiagram t={t} />;
+    if (med.component === "vecuronium")      return <VecuroniumDiagram t={t} />;
+    if (med.component === "ne")              return <NEDiagram t={t} />;
+    if (med.component === "fentanyl")        return <FentanylDiagram t={t} />;
     return (
       <div style={{ padding: "24px", textAlign: "center", background: t.bgH, borderRadius: "8px", border: `1px solid ${color}30` }}>
         <div style={{ fontSize: "13px", color: t.tM, fontStyle: "italic", marginBottom: "8px" }}>
@@ -4283,16 +4734,16 @@ function CRRTDevice({ t, theme }) {
   const [fl, setFl] = useState(true);
   const tabs=[{id:"overview",label:"Overview & Principles"},{id:"modalities",label:"CRRT Modalities"},{id:"circuit",label:"Interactive Circuit"},{id:"prescriptions",label:"Prescriptions & Dosing"},{id:"troubleshooting",label:"Troubleshooting"},{id:"pearls",label:"Clinical Pearls"},{id:"interview",label:"Interview Angles"}];
   const ci={
-    access:{title:"Vascular Access Catheter",detail:"Large-bore dual-lumen dialysis catheter (11.5\u201313.5 Fr) in IJ (preferred), femoral, or subclavian. Right IJ ideal \u2014 straight path to SVC, low recirculation (~5%). Femoral: higher recirculation (10\u201315%) and infection risk. Subclavian: stenosis risk \u2014 avoid if future AV fistula needed.",color:"#ef4444"},
-    bloodpump:{title:"Blood Pump (Peristaltic Roller)",detail:"Peristaltic roller pump at 150\u2013300 mL/min (typical 200). Compresses tubing against raceway \u2014 no direct pump-blood contact, reducing hemolysis. Higher flow improves convective clearance but increases TMP and hemolysis risk.",color:"#3b82f6"},
-    prefilter:{title:"Pre-Filter Replacement Fluid",detail:"Predilution: sterile bicarbonate-buffered fluid infused BEFORE the hemofilter. Dilutes blood \u2192 reduces hematocrit in fibers \u2192 extends filter life. Trade-off: clearance drops ~15\u201320%. Compensate with increased volume. Preferred in most ICUs for filter longevity.",color:"#8b5cf6"},
-    hemofilter:{title:"Hemofilter (Dialyzer)",detail:"Hollow-fiber membrane cartridge (polysulfone or AN69, MWCO ~20\u201350 kDa). Blood inside fibers; dialysate countercurrent outside. DIFFUSION: concentration gradient for small solutes. CONVECTION: solvent drag for medium molecules up to ~50 kDa. Surface area 0.6\u20132.15 m\u00B2. AN69 can adsorb cytokines but causes bradykinin release with ACE inhibitors.",color:"#f59e0b"},
-    dialysate:{title:"Dialysate Fluid",detail:"Countercurrent flow in CVVHD/CVVHDF. Na\u207A ~140, K\u207A 0\u20134, Ca\u00B2\u207A 0\u20133, HCO\u2083\u207B 22\u201335. Flow: 1,000\u20132,000 mL/hr. K\u207A 0 for severe hyperkalemia; K\u207A 2\u20134 to prevent overcorrection.",color:"#06b6d4"},
-    effluent:{title:"Effluent (Ultrafiltrate)",detail:"Collects UF + spent dialysate + replacement fluid. Total rate = replacement + dialysate + net UF. Blood-tinged = membrane rupture. Decreasing rate = clotting. KDIGO target: 20\u201325 mL/kg/hr.",color:"#10b981"},
-    postfilter:{title:"Post-Filter Replacement Fluid",detail:"Postdilution: fluid AFTER hemofilter. Undiluted blood = maximal clearance but higher hematocrit in fibers \u2192 accelerated clotting. Keep FF <20\u201325%. Many protocols: 2/3 pre + 1/3 post.",color:"#ec4899"},
-    anticoag:{title:"Anticoagulation",detail:"Regional citrate preferred (KDIGO). Trisodium citrate 4% pre-filter chelates iCa\u00B2\u207A (needed for Factors II, VII, IX, X). Circuit iCa\u00B2\u207A target <0.35. CaCl\u2082 infused systemically to restore iCa\u00B2\u207A 1.0\u20131.2. Alt: heparin 500\u20131000 U/hr, aPTT 40\u201345s.",color:"#f97316"},
-    bubbletrap:{title:"Air Detector & Bubble Trap",detail:"Ultrasonic detector on return line. Air >0.1 mL \u2192 alarm + auto-clamp. Gravity separation traps air; de-aired blood exits bottom.",color:"#a855f7"},
-    pressures:{title:"Pressure Monitoring",detail:"(1) ACCESS: negative (\u221250 to \u2212200; more negative = catheter dysfunction). (2) PRE-FILTER: rising = clotting. (3) EFFLUENT: filtrate side. (4) RETURN: +50 to +250; elevated = occlusion. TMP = [(P_pre+P_ret)/2]\u2212P_eff. TMP >250 = significant clotting.",color:"#64748b"}
+    access:{title:"Vascular Access Catheter",detail:"Large-bore dual-lumen dialysis catheter (11.5–13.5 Fr) in IJ (preferred), femoral, or subclavian. Right IJ ideal — straight path to SVC, low recirculation (~5%). Femoral: higher recirculation (10–15%) and infection risk. Subclavian: stenosis risk — avoid if future AV fistula needed.",color:"#ef4444"},
+    bloodpump:{title:"Blood Pump (Peristaltic Roller)",detail:"Peristaltic roller pump at 150–300 mL/min (typical 200). Compresses tubing against raceway — no direct pump-blood contact, reducing hemolysis. Higher flow improves convective clearance but increases TMP and hemolysis risk.",color:"#3b82f6"},
+    prefilter:{title:"Pre-Filter Replacement Fluid",detail:"Predilution: sterile bicarbonate-buffered fluid infused BEFORE the hemofilter. Dilutes blood → reduces hematocrit in fibers → extends filter life. Trade-off: clearance drops ~15–20%. Compensate with increased volume. Preferred in most ICUs for filter longevity.",color:"#8b5cf6"},
+    hemofilter:{title:"Hemofilter (Dialyzer)",detail:"Hollow-fiber membrane cartridge (polysulfone or AN69, MWCO ~20–50 kDa). Blood inside fibers; dialysate countercurrent outside. DIFFUSION: concentration gradient for small solutes. CONVECTION: solvent drag for medium molecules up to ~50 kDa. Surface area 0.6–2.15 m². AN69 can adsorb cytokines but causes bradykinin release with ACE inhibitors.",color:"#f59e0b"},
+    dialysate:{title:"Dialysate Fluid",detail:"Countercurrent flow in CVVHD/CVVHDF. Na⁺ ~140, K⁺ 0–4, Ca²⁺ 0–3, HCO₃⁻ 22–35. Flow: 1,000–2,000 mL/hr. K⁺ 0 for severe hyperkalemia; K⁺ 2–4 to prevent overcorrection.",color:"#06b6d4"},
+    effluent:{title:"Effluent (Ultrafiltrate)",detail:"Collects UF + spent dialysate + replacement fluid. Total rate = replacement + dialysate + net UF. Blood-tinged = membrane rupture. Decreasing rate = clotting. KDIGO target: 20–25 mL/kg/hr.",color:"#10b981"},
+    postfilter:{title:"Post-Filter Replacement Fluid",detail:"Postdilution: fluid AFTER hemofilter. Undiluted blood = maximal clearance but higher hematocrit in fibers → accelerated clotting. Keep FF <20–25%. Many protocols: 2/3 pre + 1/3 post.",color:"#ec4899"},
+    anticoag:{title:"Anticoagulation",detail:"Regional citrate preferred (KDIGO). Trisodium citrate 4% pre-filter chelates iCa²⁺ (needed for Factors II, VII, IX, X). Circuit iCa²⁺ target <0.35. CaCl₂ infused systemically to restore iCa²⁺ 1.0–1.2. Alt: heparin 500–1000 U/hr, aPTT 40–45s.",color:"#f97316"},
+    bubbletrap:{title:"Air Detector & Bubble Trap",detail:"Ultrasonic detector on return line. Air >0.1 mL → alarm + auto-clamp. Gravity separation traps air; de-aired blood exits bottom.",color:"#a855f7"},
+    pressures:{title:"Pressure Monitoring",detail:"(1) ACCESS: negative (−50 to −200; more negative = catheter dysfunction). (2) PRE-FILTER: rising = clotting. (3) EFFLUENT: filtrate side. (4) RETURN: +50 to +250; elevated = occlusion. TMP = [(P_pre+P_ret)/2]−P_eff. TMP >250 = significant clotting.",color:"#64748b"}
   };
   const sC=dm!=="CVVHD",sD=dm!=="CVVH";
   const H=({title})=><h2 style={{color:t.tx,fontSize:"22px",fontWeight:600,marginTop:"32px",marginBottom:"16px",paddingBottom:"8px",borderBottom:`1px solid ${t.bd}`}}>{title}</h2>;
@@ -4431,7 +4882,7 @@ function CRRTDevice({ t, theme }) {
     {activeTab==="prescriptions"&&<div>
       <H title="CRRT Prescription Components" />
       <div style={{display:"grid",gap:"16px",marginTop:"16px"}}>
-        {[{t:"Modality",v:"CVVHDF (most common)",d:"CVVH for medium molecules, CVVHD for uremia/K+, CVVHDF for comprehensive clearance"},{t:"Blood Flow (Qb)",v:"150\u2013250 mL/min",d:"Higher flow increases clearance but also hemolysis. Start 150\u2013200"},{t:"Dialysate Rate (Qd)",v:"1,000\u20132,000 mL/hr",d:"CVVHD/CVVHDF only. Total effluent target: 20\u201325 mL/kg/hr"},{t:"Replacement Fluid (Qr)",v:"1,000\u20133,000 mL/hr",d:"CVVH/CVVHDF. Typical: 2/3 pre, 1/3 post"},{t:"Net Ultrafiltration",v:"50\u2013200 mL/hr",d:"NET fluid removed. Aggressive UF in shock worsens hemodynamics"},{t:"Effluent Dose (KDIGO)",v:"20\u201325 mL/kg/hr",d:"ATN + RENAL trials: NO benefit to higher-intensity (35\u201340 mL/kg/hr)"},{t:"Anticoagulation",v:"Regional citrate (preferred)",d:"Citrate pre-filter + Ca\u00B2\u207A systemically. Alt: heparin 500\u20131000 U/hr"}].map((item,i)=>(
+        {[{t:"Modality",v:"CVVHDF (most common)",d:"CVVH for medium molecules, CVVHD for uremia/K+, CVVHDF for comprehensive clearance"},{t:"Blood Flow (Qb)",v:"150–250 mL/min",d:"Higher flow increases clearance but also hemolysis. Start 150–200"},{t:"Dialysate Rate (Qd)",v:"1,000–2,000 mL/hr",d:"CVVHD/CVVHDF only. Total effluent target: 20–25 mL/kg/hr"},{t:"Replacement Fluid (Qr)",v:"1,000–3,000 mL/hr",d:"CVVH/CVVHDF. Typical: 2/3 pre, 1/3 post"},{t:"Net Ultrafiltration",v:"50–200 mL/hr",d:"NET fluid removed. Aggressive UF in shock worsens hemodynamics"},{t:"Effluent Dose (KDIGO)",v:"20–25 mL/kg/hr",d:"ATN + RENAL trials: NO benefit to higher-intensity (35–40 mL/kg/hr)"},{t:"Anticoagulation",v:"Regional citrate (preferred)",d:"Citrate pre-filter + Ca²⁺ systemically. Alt: heparin 500–1000 U/hr"}].map((item,i)=>(
           <div key={i} style={{padding:"18px",background:t.bgC,borderRadius:"8px",borderLeft:`4px solid ${t.ac}`}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:"6px",flexWrap:"wrap",gap:"8px"}}><div style={{fontSize:"14px",color:t.ac,fontWeight:600}}>{item.t}</div><div style={{fontSize:"15px",color:t.tx,fontWeight:700}}>{item.v}</div></div>
             <div style={{fontSize:"13px",color:t.t2,lineHeight:1.7}}>{item.d}</div>
@@ -4439,7 +4890,7 @@ function CRRTDevice({ t, theme }) {
       </div>
       <H title="Landmark Trials" />
       <div style={{display:"grid",gap:"12px"}}>
-        {[{trial:"ATN Trial (2008)",j:"NEJM",finding:"Intensive dosing (35 mL/kg/hr) NO mortality benefit over standard (20 mL/kg/hr).",take:"More is not better. Dose 20\u201325 mL/kg/hr."},{trial:"RENAL Trial (2009)",j:"NEJM",finding:"Confirmed ATN internationally. Higher-intensity CRRT did not reduce 90-day mortality.",take:"International validation of standard dosing."},{trial:"STARRT-AKI (2020)",j:"NEJM",finding:"Early RRT did NOT reduce 90-day mortality. More adverse events in early group.",take:"Don\u2019t rush \u2014 wait for clear clinical indication."},{trial:"AKIKI (2016)",j:"NEJM",finding:"Delayed RRT non-inferior. ~49% of delayed group never needed RRT at all.",take:"Patience \u2014 nearly half avoided dialysis entirely."}].map((tr,i)=>(
+        {[{trial:"ATN Trial (2008)",j:"NEJM",finding:"Intensive dosing (35 mL/kg/hr) NO mortality benefit over standard (20 mL/kg/hr).",take:"More is not better. Dose 20–25 mL/kg/hr."},{trial:"RENAL Trial (2009)",j:"NEJM",finding:"Confirmed ATN internationally. Higher-intensity CRRT did not reduce 90-day mortality.",take:"International validation of standard dosing."},{trial:"STARRT-AKI (2020)",j:"NEJM",finding:"Early RRT did NOT reduce 90-day mortality. More adverse events in early group.",take:"Don\u2019t rush — wait for clear clinical indication."},{trial:"AKIKI (2016)",j:"NEJM",finding:"Delayed RRT non-inferior. ~49% of delayed group never needed RRT at all.",take:"Patience — nearly half avoided dialysis entirely."}].map((tr,i)=>(
           <div key={i} style={{padding:"16px",background:t.bgC,borderRadius:"8px",border:`1px solid ${t.bd}`}}>
             <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"8px"}}><span style={{background:t.aD,color:t.ac,padding:"2px 10px",borderRadius:"12px",fontSize:"12px",fontWeight:600}}>{tr.trial}</span><span style={{color:t.tM,fontSize:"12px"}}>{tr.j}</span></div>
             <p style={{color:t.t2,fontSize:"13px",lineHeight:1.7,margin:"0 0 6px"}}>{tr.finding}</p>
@@ -4456,7 +4907,7 @@ function CRRTDevice({ t, theme }) {
     {activeTab==="troubleshooting"&&<div>
       <H title="CRRT Alarm Troubleshooting" />
       <div style={{display:"grid",gap:"16px",marginTop:"16px"}}>
-        {[{alarm:"High Access Pressure (very negative)",meaning:"Blood pump struggling to withdraw",causes:"Catheter kink/malposition, against vessel wall, intraluminal clot, hypovolemia",actions:"Reposition patient, flush access lumen, check kinks, CXR position, consider reversing lumens (+10\u201320% recirculation)",color:"#ef4444"},{alarm:"High Return Pressure",meaning:"Resistance to blood returning",causes:"Return lumen clot, kink, catheter malposition",actions:"Check kinks, flush return lumen, tPA lock (2 mg/2 mL x 30\u201360 min). Catheter exchange if P_ret >300",color:"#3b82f6"},{alarm:"Rising TMP",meaning:"Filter clotting",causes:"Insufficient anticoagulation, high FF (>25%), low blood flow, inadequate predilution",actions:"Check citrate + circuit iCa2+, verify FF <20%, increase predilution/blood flow. Filter change if TMP >300",color:"#f59e0b"},{alarm:"Air Detected",meaning:"Air in return line \u2014 auto-clamp",causes:"Loose connection, cracked port, empty fluid bag",actions:"DO NOT override. Check all connections. De-air before resuming",color:"#a855f7"},{alarm:"Blood Leak",meaning:"Membrane rupture",causes:"Physical damage, excessive TMP, defective filter",actions:"STOP CRRT. Clamp lines. Discard filter \u2014 do NOT return blood. Replace circuit. Check hemolysis labs",color:"#dc2626"},{alarm:"Effluent Flow Low",meaning:"Less ultrafiltrate than prescribed",causes:"Filter clotting, effluent line kink/clot, dialysate bag empty",actions:"Check TMP trend. High TMP + low effluent = filter replacement",color:"#10b981"}].map((a,i)=>(
+        {[{alarm:"High Access Pressure (very negative)",meaning:"Blood pump struggling to withdraw",causes:"Catheter kink/malposition, against vessel wall, intraluminal clot, hypovolemia",actions:"Reposition patient, flush access lumen, check kinks, CXR position, consider reversing lumens (+10–20% recirculation)",color:"#ef4444"},{alarm:"High Return Pressure",meaning:"Resistance to blood returning",causes:"Return lumen clot, kink, catheter malposition",actions:"Check kinks, flush return lumen, tPA lock (2 mg/2 mL x 30–60 min). Catheter exchange if P_ret >300",color:"#3b82f6"},{alarm:"Rising TMP",meaning:"Filter clotting",causes:"Insufficient anticoagulation, high FF (>25%), low blood flow, inadequate predilution",actions:"Check citrate + circuit iCa2+, verify FF <20%, increase predilution/blood flow. Filter change if TMP >300",color:"#f59e0b"},{alarm:"Air Detected",meaning:"Air in return line — auto-clamp",causes:"Loose connection, cracked port, empty fluid bag",actions:"DO NOT override. Check all connections. De-air before resuming",color:"#a855f7"},{alarm:"Blood Leak",meaning:"Membrane rupture",causes:"Physical damage, excessive TMP, defective filter",actions:"STOP CRRT. Clamp lines. Discard filter — do NOT return blood. Replace circuit. Check hemolysis labs",color:"#dc2626"},{alarm:"Effluent Flow Low",meaning:"Less ultrafiltrate than prescribed",causes:"Filter clotting, effluent line kink/clot, dialysate bag empty",actions:"Check TMP trend. High TMP + low effluent = filter replacement",color:"#10b981"}].map((a,i)=>(
           <div key={i} style={{padding:"20px",background:t.bgC,borderRadius:"12px",borderLeft:`4px solid ${a.color}`}}>
             <div style={{color:a.color,fontSize:"15px",fontWeight:700,marginBottom:"4px"}}>{a.alarm}</div>
             <div style={{color:t.tx,fontSize:"13px",fontStyle:"italic",marginBottom:"10px"}}>{a.meaning}</div>
@@ -4494,7 +4945,7 @@ function CRRTDevice({ t, theme }) {
       <H title="Interview Angles" />
       <B><p>Expect scenario-based questions testing clinical reasoning.</p></B>
       <div style={{display:"grid",gap:"16px",marginTop:"16px"}}>
-        {[{q:"Patient in septic shock on 3 pressors, Cr 6.2, K+ 6.8. Why CRRT over IHD?",a:"Hemodynamic instability \u2014 IHD\u2019s rapid fluid shifts (300\u2013500 mL/min, 3\u20134hr) cause hypotension in a patient on 3 pressors. CRRT runs continuously at 150\u2013200 mL/min with titrated UF of 50\u2013100 mL/hr. For hyperkalemia: CVVHDF with K+-free dialysate for efficient diffusive K+ clearance while maintaining CV stability.",f:"How do you manage norepinephrine during CRRT? Vancomycin dosing?"},{q:"Explain diffusion vs. convection clinically.",a:"Diffusion: concentration gradient \u2192 small molecules (urea 60 Da, Cr 113 Da, K+ 39 Da). Convection: solvent drag \u2192 medium molecules (IL-6 21 kDa, myoglobin 17 kDa). CVVH preferred in rhabdo because myoglobin needs convective clearance \u2014 too large for efficient diffusion.",f:"Vancomycin (1,450 Da) \u2014 diffusion, convection, or both?"},{q:"Filter clotting every 8\u201312 hours. Troubleshoot.",a:"Systematic: (1) Anticoagulation \u2014 circuit iCa2+? Citrate rate? (2) FF >25%? Increase predilution/reduce UF. (3) Blood flow <150? Stagnation. (4) Catheter dysfunction? (5) Patient hypercoagulable? (6) Downtime \u2192 stasis.",f:"FF calculation? How does predilution change it?"},{q:"Total Ca 12.2 but iCa 0.8 on citrate. What\u2019s happening?",a:"Citrate accumulation. Ratio >2.5 is the hallmark. Impaired hepatic metabolism \u2192 citrate chelates systemic iCa2+ while citrate-Ca complexes raise total Ca2+. Stop citrate, switch to heparin, replace iCa2+ with CaCl2, expect metabolic alkalosis.",f:"How do you monitor proactively?"},{q:"STARRT-AKI showed early RRT didn\u2019t help. Clinical impact?",a:"STARRT-AKI (2020) + AKIKI (2016): watchful waiting. No mortality benefit from early initiation, more adverse events, and 49% of AKIKI delayed group never needed RRT. Initiate for: refractory hyperkalemia, pH <7.15, uremic complications, fluid overload unresponsive to diuretics.",f:"Specific indications for immediate RRT?"}].map((item,i)=>(
+        {[{q:"Patient in septic shock on 3 pressors, Cr 6.2, K+ 6.8. Why CRRT over IHD?",a:"Hemodynamic instability — IHD\u2019s rapid fluid shifts (300–500 mL/min, 3–4hr) cause hypotension in a patient on 3 pressors. CRRT runs continuously at 150–200 mL/min with titrated UF of 50–100 mL/hr. For hyperkalemia: CVVHDF with K+-free dialysate for efficient diffusive K+ clearance while maintaining CV stability.",f:"How do you manage norepinephrine during CRRT? Vancomycin dosing?"},{q:"Explain diffusion vs. convection clinically.",a:"Diffusion: concentration gradient → small molecules (urea 60 Da, Cr 113 Da, K+ 39 Da). Convection: solvent drag → medium molecules (IL-6 21 kDa, myoglobin 17 kDa). CVVH preferred in rhabdo because myoglobin needs convective clearance — too large for efficient diffusion.",f:"Vancomycin (1,450 Da) — diffusion, convection, or both?"},{q:"Filter clotting every 8–12 hours. Troubleshoot.",a:"Systematic: (1) Anticoagulation — circuit iCa2+? Citrate rate? (2) FF >25%? Increase predilution/reduce UF. (3) Blood flow <150? Stagnation. (4) Catheter dysfunction? (5) Patient hypercoagulable? (6) Downtime → stasis.",f:"FF calculation? How does predilution change it?"},{q:"Total Ca 12.2 but iCa 0.8 on citrate. What\u2019s happening?",a:"Citrate accumulation. Ratio >2.5 is the hallmark. Impaired hepatic metabolism → citrate chelates systemic iCa2+ while citrate-Ca complexes raise total Ca2+. Stop citrate, switch to heparin, replace iCa2+ with CaCl2, expect metabolic alkalosis.",f:"How do you monitor proactively?"},{q:"STARRT-AKI showed early RRT didn\u2019t help. Clinical impact?",a:"STARRT-AKI (2020) + AKIKI (2016): watchful waiting. No mortality benefit from early initiation, more adverse events, and 49% of AKIKI delayed group never needed RRT. Initiate for: refractory hyperkalemia, pH <7.15, uremic complications, fluid overload unresponsive to diuretics.",f:"Specific indications for immediate RRT?"}].map((item,i)=>(
           <div key={i} style={{padding:"22px",background:t.bgC,borderRadius:"12px",border:`1px solid ${t.bd}`}}>
             <div style={{fontSize:"15px",color:t.tx,fontWeight:600,marginBottom:"14px",lineHeight:1.6}}><span style={{color:t.wn,marginRight:"8px"}}>Q{i+1}:</span>{item.q}</div>
             <div style={{marginBottom:"14px"}}><span style={{display:"inline-block",background:t.aD,color:t.ac,padding:"2px 10px",borderRadius:"12px",fontSize:"11px",fontWeight:600,marginBottom:"8px"}}>Strong Answer</span><p style={{color:t.t2,fontSize:"14px",lineHeight:1.8,margin:0}}>{item.a}</p></div>
@@ -4573,13 +5024,13 @@ function generateVentWaveformData(modeKey, params, N) {
 
 function getVentSliderConfig(modeKey) {
   const c = {
-    acvc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH\u2082O'},{key:'vt',label:'Tidal Volume',min:300,max:700,step:50,unit:' mL'},{key:'flow',label:'Flow Rate',min:30,max:80,step:5,unit:' L/min'}],
-    acpc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH\u2082O'},{key:'pinsp',label:'\u0394 Pressure',min:5,max:30,step:1,unit:' cmH\u2082O'},{key:'ti',label:'I-Time',min:0.5,max:1.5,step:0.1,unit:' s'},{key:'rr',label:'Rate',min:8,max:24,step:1,unit:' bpm'}],
-    simv: [{key:'peep',label:'PEEP',min:3,max:15,step:1,unit:' cmH\u2082O'},{key:'vt',label:'Mand. Vt',min:300,max:700,step:50,unit:' mL'},{key:'ps',label:'Spont. PS',min:0,max:20,step:1,unit:' cmH\u2082O'}],
-    psv: [{key:'peep',label:'PEEP',min:3,max:15,step:1,unit:' cmH\u2082O'},{key:'ps',label:'Pressure Support',min:5,max:20,step:1,unit:' cmH\u2082O'}],
-    prvc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH\u2082O'},{key:'targetVt',label:'Target Vt',min:300,max:700,step:50,unit:' mL'},{key:'rr',label:'Rate',min:8,max:24,step:1,unit:' bpm'}],
-    aprv: [{key:'phigh',label:'P_high',min:15,max:35,step:1,unit:' cmH\u2082O'},{key:'plow',label:'P_low',min:0,max:5,step:1,unit:' cmH\u2082O'},{key:'thigh',label:'T_high',min:3,max:7,step:0.5,unit:' s'},{key:'tlow',label:'T_low',min:0.3,max:0.8,step:0.05,unit:' s'}],
-    hfov: [{key:'mpaw',label:'mPaw',min:18,max:35,step:1,unit:' cmH\u2082O'},{key:'amplitude',label:'Amplitude',min:30,max:90,step:5,unit:''},{key:'hz',label:'Frequency',min:3,max:12,step:1,unit:' Hz'}],
+    acvc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH₂O'},{key:'vt',label:'Tidal Volume',min:300,max:700,step:50,unit:' mL'},{key:'flow',label:'Flow Rate',min:30,max:80,step:5,unit:' L/min'}],
+    acpc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH₂O'},{key:'pinsp',label:'\u0394 Pressure',min:5,max:30,step:1,unit:' cmH₂O'},{key:'ti',label:'I-Time',min:0.5,max:1.5,step:0.1,unit:' s'},{key:'rr',label:'Rate',min:8,max:24,step:1,unit:' bpm'}],
+    simv: [{key:'peep',label:'PEEP',min:3,max:15,step:1,unit:' cmH₂O'},{key:'vt',label:'Mand. Vt',min:300,max:700,step:50,unit:' mL'},{key:'ps',label:'Spont. PS',min:0,max:20,step:1,unit:' cmH₂O'}],
+    psv: [{key:'peep',label:'PEEP',min:3,max:15,step:1,unit:' cmH₂O'},{key:'ps',label:'Pressure Support',min:5,max:20,step:1,unit:' cmH₂O'}],
+    prvc: [{key:'peep',label:'PEEP',min:3,max:18,step:1,unit:' cmH₂O'},{key:'targetVt',label:'Target Vt',min:300,max:700,step:50,unit:' mL'},{key:'rr',label:'Rate',min:8,max:24,step:1,unit:' bpm'}],
+    aprv: [{key:'phigh',label:'P_high',min:15,max:35,step:1,unit:' cmH₂O'},{key:'plow',label:'P_low',min:0,max:5,step:1,unit:' cmH₂O'},{key:'thigh',label:'T_high',min:3,max:7,step:0.5,unit:' s'},{key:'tlow',label:'T_low',min:0.3,max:0.8,step:0.05,unit:' s'}],
+    hfov: [{key:'mpaw',label:'mPaw',min:18,max:35,step:1,unit:' cmH₂O'},{key:'amplitude',label:'Amplitude',min:30,max:90,step:5,unit:''},{key:'hz',label:'Frequency',min:3,max:12,step:1,unit:' Hz'}],
   };
   return c[modeKey] || [];
 }
@@ -4689,12 +5140,12 @@ function VentModeWaveform({ modeKey, modeColor, t }) {
         </div>
         <div style={{marginTop:"12px",padding:"8px 12px",background:t.bgH,borderRadius:"6px",border:`1px solid ${t.bd}`}}>
           {modeKey==='acvc'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Increasing <b>Flow Rate</b> raises Ppeak (more resistive pressure) without changing Pplat. Increasing <b>Tidal Volume</b> raises both Ppeak and Pplat (compliance-driven). The gap between Ppeak and Pplat = Raw \xd7 Flow.</p>}
-          {modeKey==='acpc'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Increasing \u0394Pressure raises the pressure plateau and delivered Vt. Shorter I-Time truncates the decelerating flow earlier. If compliance drops, <b>same pressure delivers less volume</b> \u2014 must monitor exhaled Vt closely.</p>}
-          {modeKey==='psv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Each breath is <b>patient-triggered</b> and <b>flow-cycled</b>. Increasing PS raises the pressure support level and delivered Vt. For SBT: target PS 5\u20138 + PEEP 5 for 30\u2013120 min.</p>}
+          {modeKey==='acpc'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Increasing \u0394Pressure raises the pressure plateau and delivered Vt. Shorter I-Time truncates the decelerating flow earlier. If compliance drops, <b>same pressure delivers less volume</b> — must monitor exhaled Vt closely.</p>}
+          {modeKey==='psv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Each breath is <b>patient-triggered</b> and <b>flow-cycled</b>. Increasing PS raises the pressure support level and delivered Vt. For SBT: target PS 5–8 + PEEP 5 for 30–120 min.</p>}
           {modeKey==='simv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Mandatory breaths (cycles 1, 3) deliver full VC breath. Spontaneous breaths (cycles 2) show PS-augmented pattern with smaller amplitude and variable Vt. The difference illustrates why SIMV can increase WOB.</p>}
           {modeKey==='prvc'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Decelerating flow pattern like AC/PC, but <b>volume is guaranteed</b>. Ventilator auto-adjusts inspiratory pressure breath-by-breath to hit Target Vt. If patient takes bigger breaths, support decreases automatically.</p>}
-          {modeKey==='aprv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Long P_high plateau with small spontaneous breath ripples. The brief T_low release generates the large expiratory flow spike that clears CO\u2082. Shorten T_high or lengthen T_low to improve CO\u2082 clearance.</p>}
-          {modeKey==='hfov'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Rapid oscillations around mPaw. Lower Hz = larger Vt per oscillation = better CO\u2082 clearance. Higher Amplitude = larger pressure swing. Oxygenation set by mPaw and FiO\u2082; ventilation by Amplitude and Hz.</p>}
+          {modeKey==='aprv'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Long P_high plateau with small spontaneous breath ripples. The brief T_low release generates the large expiratory flow spike that clears CO₂. Shorten T_high or lengthen T_low to improve CO₂ clearance.</p>}
+          {modeKey==='hfov'&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}><span style={{color:modeColor,fontWeight:600}}>Watch:</span> Rapid oscillations around mPaw. Lower Hz = larger Vt per oscillation = better CO₂ clearance. Higher Amplitude = larger pressure swing. Oxygenation set by mPaw and FiO₂; ventilation by Amplitude and Hz.</p>}
         </div>
       </div>}
     </div>
@@ -4761,8 +5212,8 @@ function CircleSystemDiagram({t}) {
   const comps=[
     {x:290,y:50,label:'PATIENT',sub:'ETT / Mask',color:t.ac,isCircle:true,r:26},
     {x:450,y:95,label:'EXP VALVE',sub:'Unidirectional',color:'#f59e0b',w:84,h:34},
-    {x:505,y:185,label:'CO\u2082 ABSORBER',sub:'Soda Lime',color:'#94a3b8',w:88,h:38},
-    {x:290,y:300,label:'BELLOWS / FGF',sub:'O\u2082 + Volatile Agent',color:'#22c55e',w:102,h:34},
+    {x:505,y:185,label:'CO₂ ABSORBER',sub:'Soda Lime',color:'#94a3b8',w:88,h:38},
+    {x:290,y:300,label:'BELLOWS / FGF',sub:'O₂ + Volatile Agent',color:'#22c55e',w:102,h:34},
     {x:148,y:278,label:'APL VALVE',sub:'Pressure relief',color:'#a855f7',w:82,h:34},
     {x:82,y:185,label:'INSP VALVE',sub:'Unidirectional',color:'#3b82f6',w:84,h:34},
   ];
@@ -5014,7 +5465,7 @@ function IBWCalculator({t}) {
         <div style={{padding:"12px 16px",background:t.aD,borderRadius:"8px",border:`1px solid ${t.aB}`,marginBottom:"14px"}}>
           <div style={{fontSize:"10px",color:t.tM,marginBottom:"2px",textTransform:"uppercase"}}>Ideal Body Weight</div>
           <div style={{fontSize:"28px",fontWeight:700,color:t.ac}}>{ibwR} <span style={{fontSize:"16px"}}>kg</span></div>
-          <div style={{fontSize:"10px",color:t.tM}}>{sex==='male'?`50 + 2.3 \u00d7 (${totalIn} \u2212 60)`:`45.5 + 2.3 \u00d7 (${totalIn} \u2212 60)`}</div>
+          <div style={{fontSize:"10px",color:t.tM}}>{sex==='male'?`50 + 2.3 \u00d7 (${totalIn} − 60)`:`45.5 + 2.3 \u00d7 (${totalIn} − 60)`}</div>
         </div>
         <div style={{marginBottom:"14px"}}>
           <div style={{fontSize:"11px",color:t.tM,marginBottom:"8px",textTransform:"uppercase",letterSpacing:"0.5px"}}>Tidal Volume Targets</div>
@@ -5026,7 +5477,7 @@ function IBWCalculator({t}) {
           </div>
         </div>
         {showCmp&&<div style={{padding:"12px 16px",background:diff>100?'#ef444412':'#22c55e10',borderRadius:"8px",border:`1px solid ${diff>100?t.dg:t.ok}`}}>
-          <div style={{fontSize:"12px",fontWeight:700,color:diff>100?t.dg:t.ok,marginBottom:"4px"}}>{diff>100?'\u26a0 Obese \u2014 DO NOT use actual weight':'\u2713 Actual weight close to IBW'}</div>
+          <div style={{fontSize:"12px",fontWeight:700,color:diff>100?t.dg:t.ok,marginBottom:"4px"}}>{diff>100?'\u26a0 Obese — DO NOT use actual weight':'\u2713 Actual weight close to IBW'}</div>
           {diff>100&&<p style={{margin:0,fontSize:"12px",color:t.t2,lineHeight:1.6}}>6 mL/kg <strong>IBW</strong> = <span style={{color:t.ac,fontWeight:700}}>{Math.round(ibwR*6)} mL</span> vs. actual weight ({actN} kg) = <span style={{color:t.dg,fontWeight:700}}>{Math.round(actN*6)} mL</span> &mdash; <span style={{color:t.dg,fontWeight:700}}>{diff} mL</span> over target ({Math.round((diff/Math.round(ibwR*6))*100)}% excess).</p>}
         </div>}
       </div>
@@ -5104,52 +5555,52 @@ function VentDevice({ t, theme }) {
     acvc:{name:"AC/VC (Volume Control)",full:"Assist-Control / Volume-Cycled",color:"#3b82f6",
       how:"Clinician sets: Vt, RR, FiO2, PEEP, flow rate, I:E ratio. Every breath (mandatory + triggered) delivers the SAME preset tidal volume. Breath cycles off when Vt delivered.",
       trigger:"Time-triggered (mandatory) or patient-triggered (flow/pressure sensor). If patient triggers, they still get the full preset Vt.",
-      control:"Volume is guaranteed. Pressure is variable \u2014 depends on compliance and resistance. Rising Ppeak with stable Pplat = increased airway resistance. Rising both = decreased compliance.",
-      advantage:"Guaranteed minute ventilation (Vt \u00D7 RR). Predictable delivery. Best for paralyzed patients, ARDS (lung-protective strategy).",
-      risk:"Pressure is NOT limited \u2014 can cause barotrauma if compliance drops. Breath stacking if patient\u2019s RR exceeds set rate with inadequate expiratory time. Patient-ventilator dyssynchrony if flow doesn\u2019t match demand.",
-      settings:"Vt: 6\u20138 mL/kg IBW (ARDS: 6 mL/kg). RR: 12\u201320. FiO2: titrate to SpO2 >92%. PEEP: 5\u201320 cmH2O. Flow: 40\u201360 L/min. I:E typically 1:2\u20131:3."},
+      control:"Volume is guaranteed. Pressure is variable — depends on compliance and resistance. Rising Ppeak with stable Pplat = increased airway resistance. Rising both = decreased compliance.",
+      advantage:"Guaranteed minute ventilation (Vt × RR). Predictable delivery. Best for paralyzed patients, ARDS (lung-protective strategy).",
+      risk:"Pressure is NOT limited — can cause barotrauma if compliance drops. Breath stacking if patient\u2019s RR exceeds set rate with inadequate expiratory time. Patient-ventilator dyssynchrony if flow doesn\u2019t match demand.",
+      settings:"Vt: 6–8 mL/kg IBW (ARDS: 6 mL/kg). RR: 12–20. FiO2: titrate to SpO2 >92%. PEEP: 5–20 cmH2O. Flow: 40–60 L/min. I:E typically 1:2–1:3."},
     acpc:{name:"AC/PC (Pressure Control)",full:"Assist-Control / Pressure-Cycled",color:"#8b5cf6",
       how:"Clinician sets: Inspiratory Pressure (above PEEP), RR, Ti (inspiratory time), FiO2, PEEP. Ventilator delivers flow until target pressure reached, then maintains it for set Ti. Volume delivered depends on compliance and resistance.",
       trigger:"Time or patient-triggered. Every breath gets the same pressure target.",
-      control:"Pressure is guaranteed and limited. Volume varies with compliance changes \u2014 if compliance drops, Vt drops. Decelerating flow pattern = more even gas distribution.",
+      control:"Pressure is guaranteed and limited. Volume varies with compliance changes — if compliance drops, Vt drops. Decelerating flow pattern = more even gas distribution.",
       advantage:"Pressure-limited = lower barotrauma risk. Better gas distribution (decelerating flow). More comfortable for breathing patients. Useful when Ppeak is dangerously high in VC.",
-      risk:"Volume NOT guaranteed \u2014 must monitor Vt closely. If compliance improves suddenly, may over-ventilate. Need alarm for low Vt.",
-      settings:"Driving pressure (Pinsp): 10\u201325 cmH2O above PEEP. Total pressure = PEEP + Pinsp. Ti: 0.8\u20131.2 sec. Target Vt: 6\u20138 mL/kg IBW. Monitor exhaled Vt every hour."},
+      risk:"Volume NOT guaranteed — must monitor Vt closely. If compliance improves suddenly, may over-ventilate. Need alarm for low Vt.",
+      settings:"Driving pressure (Pinsp): 10–25 cmH2O above PEEP. Total pressure = PEEP + Pinsp. Ti: 0.8–1.2 sec. Target Vt: 6–8 mL/kg IBW. Monitor exhaled Vt every hour."},
     simv:{name:"SIMV",full:"Synchronized Intermittent Mandatory Ventilation",color:"#f59e0b",
       how:"Delivers a set number of mandatory breaths (VC or PC). Between mandatory breaths, patient can take spontaneous breaths at their own Vt (unsupported, or with PS). Mandatory breaths are synchronized to patient effort.",
       trigger:"Mandatory breaths: time-triggered, synchronized to patient effort within a timing window. Spontaneous breaths: patient-triggered.",
       control:"Mandatory breaths: volume or pressure controlled (SIMV-VC or SIMV-PC). Spontaneous breaths: patient determines Vt (may add Pressure Support).",
       advantage:"Allows partial ventilatory support. Can be used for weaning by gradually reducing mandatory rate. Maintains respiratory muscle conditioning.",
       risk:"Without PS, spontaneous breaths through the ETT increase WOB significantly. Increased WOB can cause fatigue and delayed weaning. Largely fallen out of favor for weaning vs. PS alone.",
-      settings:"Mandatory RR: 4\u201312. Vt (if VC): 6\u20138 mL/kg IBW. PS for spontaneous breaths: 5\u201315 cmH2O. PEEP: 5+. FiO2: titrate."},
+      settings:"Mandatory RR: 4–12. Vt (if VC): 6–8 mL/kg IBW. PS for spontaneous breaths: 5–15 cmH2O. PEEP: 5+. FiO2: titrate."},
     psv:{name:"PSV (Pressure Support)",full:"Pressure Support Ventilation",color:"#10b981",
       how:"EVERY breath is patient-triggered. Ventilator augments each breath with a set pressure above PEEP. Patient controls their own RR, Ti, and Vt. Breath terminates when inspiratory flow drops to ~25% of peak (flow-cycled).",
       trigger:"100% patient-triggered. No mandatory breaths. Requires intact respiratory drive. APNEA BACKUP required.",
       control:"Pressure is set, volume varies. Patient has full control of timing and depth. Most comfortable mode for spontaneous breathing.",
       advantage:"Most physiologic and comfortable mode. Reduces WOB through ETT. Ideal for weaning and SBTs. Reduces sedation needs. Promotes diaphragm conditioning.",
-      risk:"No guaranteed minute ventilation \u2014 apnea backup essential. Unreliable in patients with weak/absent respiratory drive, heavy sedation, or neuromuscular disease. Over-support (high PS) can cause over-ventilation and respiratory alkalosis.",
-      settings:"PS: 5\u201320 cmH2O (start 10\u201315, wean to 5\u20138 for SBT). PEEP: 5. FiO2: titrate. SBT trial: PS 5\u20138 / PEEP 5 for 30\u2013120 min."},
+      risk:"No guaranteed minute ventilation — apnea backup essential. Unreliable in patients with weak/absent respiratory drive, heavy sedation, or neuromuscular disease. Over-support (high PS) can cause over-ventilation and respiratory alkalosis.",
+      settings:"PS: 5–20 cmH2O (start 10–15, wean to 5–8 for SBT). PEEP: 5. FiO2: titrate. SBT trial: PS 5–8 / PEEP 5 for 30–120 min."},
     prvc:{name:"PRVC",full:"Pressure-Regulated Volume Control",color:"#ec4899",
       how:"Dual-control mode. Clinician sets a TARGET Vt, and the ventilator automatically adjusts inspiratory pressure breath-by-breath to deliver that volume. Uses decelerating flow (like PC) but guarantees volume (like VC).",
       trigger:"Time or patient-triggered.",
       control:"Ventilator tests compliance with an initial breath, then adjusts pressure up/down (max \u00B13 cmH2O per breath) to hit target Vt. Combines pressure-limited delivery with volume guarantee.",
       advantage:"Best of both worlds: volume guarantee + pressure limitation + decelerating flow. Auto-adapts to changing compliance. Popular in ICU and anesthesia.",
-      risk:"May under-ventilate if pressure ceiling is hit. Can \u201Cchase\u201D patient effort \u2014 if patient takes large breaths, vent decreases support (reverse-triggering problem). False sense of security.",
-      settings:"Target Vt: 6\u20138 mL/kg IBW. RR: 12\u201320. Pressure limit: usually auto, monitor Pinsp trend. PEEP: 5\u201320. FiO2: titrate."},
+      risk:"May under-ventilate if pressure ceiling is hit. Can \u201Cchase\u201D patient effort — if patient takes large breaths, vent decreases support (reverse-triggering problem). False sense of security.",
+      settings:"Target Vt: 6–8 mL/kg IBW. RR: 12–20. Pressure limit: usually auto, monitor Pinsp trend. PEEP: 5–20. FiO2: titrate."},
     aprv:{name:"APRV",full:"Airway Pressure Release Ventilation",color:"#ef4444",
-      how:"Maintains a high CPAP level (P_high) for a prolonged time (T_high, ~4\u20136 sec), then briefly releases to a low pressure (P_low) for a short time (T_low, ~0.4\u20130.8 sec). The release creates expiratory flow that clears CO2. Patient breathes spontaneously at both pressure levels.",
+      how:"Maintains a high CPAP level (P_high) for a prolonged time (T_high, ~4–6 sec), then briefly releases to a low pressure (P_low) for a short time (T_low, ~0.4–0.8 sec). The release creates expiratory flow that clears CO2. Patient breathes spontaneously at both pressure levels.",
       trigger:"Time-cycled releases. Spontaneous breathing occurs throughout.",
       control:"Inverse I:E ratio (typically 4:1 to 10:1). P_high provides continuous recruitment. Brief T_low creates \u201Cautocycling\u201D ventilation. Spontaneous breathing maintained.",
-      advantage:"Continuous alveolar recruitment \u2014 open lung strategy. Preserves spontaneous breathing (less diaphragm atrophy, less sedation). May improve V/Q matching. Used in refractory ARDS.",
-      risk:"Requires spontaneous breathing \u2014 difficult with paralysis. Complex to set and monitor. Auto-PEEP from short T_low. Risk of hemodynamic compromise from sustained high intrathoracic pressure. Not well-studied vs. conventional low-Vt ventilation.",
-      settings:"P_high: ~20\u201330 cmH2O (set at previous Pplat). P_low: 0 cmH2O. T_high: 4\u20136 sec. T_low: 0.4\u20130.8 sec (set so expiratory flow drops to ~75% of peak). FiO2: titrate."},
+      advantage:"Continuous alveolar recruitment — open lung strategy. Preserves spontaneous breathing (less diaphragm atrophy, less sedation). May improve V/Q matching. Used in refractory ARDS.",
+      risk:"Requires spontaneous breathing — difficult with paralysis. Complex to set and monitor. Auto-PEEP from short T_low. Risk of hemodynamic compromise from sustained high intrathoracic pressure. Not well-studied vs. conventional low-Vt ventilation.",
+      settings:"P_high: ~20–30 cmH2O (set at previous Pplat). P_low: 0 cmH2O. T_high: 4–6 sec. T_low: 0.4–0.8 sec (set so expiratory flow drops to ~75% of peak). FiO2: titrate."},
     hfov:{name:"HFOV",full:"High-Frequency Oscillatory Ventilation",color:"#64748b",
-      how:"Delivers very small tidal volumes (1\u20133 mL/kg) at extremely high frequencies (3\u201315 Hz = 180\u2013900 breaths/min). Continuous distending pressure (mPaw) keeps lungs recruited. Oscillations create gas mixing via multiple mechanisms (not bulk flow).",
+      how:"Delivers very small tidal volumes (1–3 mL/kg) at extremely high frequencies (3–15 Hz = 180–900 breaths/min). Continuous distending pressure (mPaw) keeps lungs recruited. Oscillations create gas mixing via multiple mechanisms (not bulk flow).",
       trigger:"Not patient-triggered. Continuous oscillation.",
       control:"Set: mPaw (mean airway pressure), frequency (Hz), amplitude (\u0394P), FiO2, I:E (typically 1:2). Oxygenation: adjust mPaw and FiO2. Ventilation: adjust amplitude and frequency (lower Hz = more CO2 clearance).",
-      advantage:"Ultra-protective \u2014 tiny Vt avoids volutrauma. Continuous recruitment avoids atelectrauma. Theoretical ideal for ARDS.",
+      advantage:"Ultra-protective — tiny Vt avoids volutrauma. Continuous recruitment avoids atelectrauma. Theoretical ideal for ARDS.",
       risk:"OSCAR and OSCILLATE trials (2013): no benefit, possible harm in adults. Largely abandoned in adult ICU. Still used in neonatal/pediatric. Hemodynamic compromise from high mPaw. Difficult to monitor. Requires specialized circuit.",
-      settings:"mPaw: 5 cmH2O above conventional. Frequency: 5\u20138 Hz (adults). Amplitude: until visible chest wiggle. FiO2: start 1.0, wean. Rarely used in adult practice after 2013 trials."}
+      settings:"mPaw: 5 cmH2O above conventional. Frequency: 5–8 Hz (adults). Amplitude: until visible chest wiggle. FiO2: start 1.0, wean. Rarely used in adult practice after 2013 trials."}
   };
 
   const H=({title})=><h2 style={{color:t.tx,fontSize:"22px",fontWeight:600,marginTop:"32px",marginBottom:"16px",paddingBottom:"8px",borderBottom:`1px solid ${t.bd}`}}>{title}</h2>;
@@ -5205,7 +5656,7 @@ function VentDevice({ t, theme }) {
       <div style={{padding:"24px",background:t.bgC,borderRadius:"12px",border:`1px solid ${t.bd}`}}>
         <div style={{fontFamily:"monospace",fontSize:"18px",color:t.ac,fontWeight:700,textAlign:"center",marginBottom:"16px"}}>P/F = PaO&#8322; / FiO&#8322;</div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"12px"}}>
-          {[{label:"Normal",range:">400",color:t.ok,desc:"PaO2 80+ on RA"},{label:"Mild ARDS",range:"200\u2013300",color:t.wn,desc:"Berlin criteria"},{label:"Moderate ARDS",range:"100\u2013200",color:"#f97316",desc:"Consider prone"},{label:"Severe ARDS",range:"<100",color:t.dg,desc:"Prone, consider ECMO"}].map((pf,i)=>(
+          {[{label:"Normal",range:">400",color:t.ok,desc:"PaO2 80+ on RA"},{label:"Mild ARDS",range:"200–300",color:t.wn,desc:"Berlin criteria"},{label:"Moderate ARDS",range:"100–200",color:"#f97316",desc:"Consider prone"},{label:"Severe ARDS",range:"<100",color:t.dg,desc:"Prone, consider ECMO"}].map((pf,i)=>(
             <div key={i} style={{padding:"14px",background:t.bgH,borderRadius:"8px",textAlign:"center",borderTop:`3px solid ${pf.color}`}}>
               <div style={{fontSize:"12px",color:pf.color,fontWeight:600,marginBottom:"4px"}}>{pf.label}</div>
               <div style={{fontSize:"18px",color:t.tx,fontWeight:700}}>{pf.range}</div>
@@ -5322,13 +5773,13 @@ function VentDevice({ t, theme }) {
         {[{title:"Pressure-Time Waveform",color:t.ac,content:[
           {label:"Volume Control",desc:"Square flow pattern creates a rising, linear pressure waveform. Ppeak reflects total inspiratory pressure (elastic + resistive). Inspiratory pause reveals Pplat (elastic only). Gap between Ppeak and Pplat = resistive pressure from ETT/airways."},
           {label:"Pressure Control",desc:"Square pressure waveform (constant pressure throughout inspiration). Decelerating flow as alveoli fill. Better gas distribution. Ppeak = set pressure + PEEP."},
-          {label:"Auto-PEEP Detection",desc:"If expiratory flow doesn\u2019t return to zero before next breath, auto-PEEP (intrinsic PEEP) is present. Perform expiratory hold \u2014 total PEEP displayed. Auto-PEEP = total PEEP \u2212 set PEEP. Causes: high RR, long Ti, bronchospasm, secretions."}
+          {label:"Auto-PEEP Detection",desc:"If expiratory flow doesn\u2019t return to zero before next breath, auto-PEEP (intrinsic PEEP) is present. Perform expiratory hold — total PEEP displayed. Auto-PEEP = total PEEP − set PEEP. Causes: high RR, long Ti, bronchospasm, secretions."}
         ]},{title:"Flow-Time Waveform",color:t.bl,content:[
           {label:"VC Pattern",desc:"Constant (square) inspiratory flow. Expiratory flow is passive and decelerating. Flow returns to baseline before next breath (no auto-PEEP) or doesn\u2019t (auto-PEEP present)."},
           {label:"PC Pattern",desc:"Decelerating inspiratory flow (high initial, tapers as pressure equilibrates). More physiologic gas distribution. Expiratory flow similar to VC."},
-          {label:"Bronchospasm",desc:"Expiratory flow shows \u201Cscooped\u201D or concave pattern (slow emptying). Prolonged expiratory time. May not return to baseline before next breath \u2192 air trapping."}
+          {label:"Bronchospasm",desc:"Expiratory flow shows \u201Cscooped\u201D or concave pattern (slow emptying). Prolonged expiratory time. May not return to baseline before next breath → air trapping."}
         ]},{title:"Volume-Time Waveform",color:t.wn,content:[
-          {label:"Normal",desc:"Linear rise during inspiration (constant flow) or curved rise (decelerating flow). Rapid drop during expiration. Exhaled Vt should equal inspired Vt \u2014 a leak shows as a gap."},
+          {label:"Normal",desc:"Linear rise during inspiration (constant flow) or curved rise (decelerating flow). Rapid drop during expiration. Exhaled Vt should equal inspired Vt — a leak shows as a gap."},
           {label:"Leak Detection",desc:"Inspired > expired volume. Causes: cuff leak, circuit disconnect, chest tube with bronchopleural fistula."}
         ]}].map((w,i)=>(
           <div key={i} style={{padding:"24px",background:t.bgC,borderRadius:"12px",borderLeft:`5px solid ${w.color}`}}>
@@ -5346,7 +5797,7 @@ function VentDevice({ t, theme }) {
         <div style={{color:t.t2,fontSize:"14px",lineHeight:1.8}}>
           <p><strong style={{color:t.ac}}>Lower inflection point (LIP):</strong> Pressure at which alveolar recruitment begins. Set PEEP at or above LIP to prevent cyclic collapse (atelectrauma).</p>
           <p style={{marginTop:"10px"}}><strong style={{color:t.dg}}>Upper inflection point (UIP):</strong> Pressure at which overdistension begins. Keep Pplat below UIP to prevent volutrauma. Typically &lt;30 cmH2O.</p>
-          <p style={{marginTop:"10px"}}><strong style={{color:t.wn}}>Hysteresis:</strong> Inflation and deflation limbs don\u2019t overlap \u2014 the lung requires less pressure to stay open than to open. This is why recruitment maneuvers work: once recruited at high pressure, alveoli stay open at lower PEEP.</p>
+          <p style={{marginTop:"10px"}}><strong style={{color:t.wn}}>Hysteresis:</strong> Inflation and deflation limbs don\u2019t overlap — the lung requires less pressure to stay open than to open. This is why recruitment maneuvers work: once recruited at high pressure, alveoli stay open at lower PEEP.</p>
         </div>
       </div>
       <WaveformPatternSelector t={t} />
@@ -5357,7 +5808,7 @@ function VentDevice({ t, theme }) {
       <H title="Initial Ventilator Settings" />
       <div style={{padding:"24px",background:t.bgC,borderRadius:"12px",border:`1px solid ${t.bd}`}}>
         <div style={{display:"grid",gap:"12px"}}>
-          {[{param:"Mode",val:"AC/VC or AC/PC",note:"VC for guaranteed ventilation. PC if Ppeak >35 cmH2O"},{param:"Vt",val:"6\u20138 mL/kg IBW",note:"Use IDEAL body weight, not actual. IBW based on height and sex"},{param:"RR",val:"12\u201320 breaths/min",note:"Adjust to target PaCO2 35\u201345. Higher in metabolic acidosis"},{param:"FiO2",val:"Start 1.0, wean to <0.6",note:"O2 toxicity risk >0.6 for >24hr. Target SpO2 92\u201396%"},{param:"PEEP",val:"5 cmH2O minimum",note:"ARDS: use ARDSNet PEEP/FiO2 tables. Never 0 in intubated patients"},{param:"Flow Rate",val:"40\u201360 L/min (VC)",note:"Increase if flow-starved (concave pressure waveform)"},{param:"I:E Ratio",val:"1:2 to 1:3",note:"Longer expiration for obstructive disease. Inverse ratio for severe ARDS only"}].map((s,i)=>(
+          {[{param:"Mode",val:"AC/VC or AC/PC",note:"VC for guaranteed ventilation. PC if Ppeak >35 cmH2O"},{param:"Vt",val:"6–8 mL/kg IBW",note:"Use IDEAL body weight, not actual. IBW based on height and sex"},{param:"RR",val:"12–20 breaths/min",note:"Adjust to target PaCO2 35–45. Higher in metabolic acidosis"},{param:"FiO2",val:"Start 1.0, wean to <0.6",note:"O2 toxicity risk >0.6 for >24hr. Target SpO2 92–96%"},{param:"PEEP",val:"5 cmH2O minimum",note:"ARDS: use ARDSNet PEEP/FiO2 tables. Never 0 in intubated patients"},{param:"Flow Rate",val:"40–60 L/min (VC)",note:"Increase if flow-starved (concave pressure waveform)"},{param:"I:E Ratio",val:"1:2 to 1:3",note:"Longer expiration for obstructive disease. Inverse ratio for severe ARDS only"}].map((s,i)=>(
             <div key={i} style={{display:"grid",gridTemplateColumns:"140px 180px 1fr",gap:"12px",padding:"10px",background:i%2===0?t.bgH:"transparent",borderRadius:"6px",alignItems:"center"}}>
               <div style={{fontSize:"14px",color:t.ac,fontWeight:600}}>{s.param}</div>
               <div style={{fontSize:"14px",color:t.tx,fontWeight:700}}>{s.val}</div>
@@ -5422,7 +5873,7 @@ function VentDevice({ t, theme }) {
     {activeTab==="interview"&&<div>
       <H title="Interview Angles" />
       <div style={{display:"grid",gap:"16px",marginTop:"16px"}}>
-        {[{q:"Patient intubated for ARDS, Ppeak 42, Pplat 34. What do you do?",a:"Both pressures are elevated, so this is a compliance problem (not resistance). Pplat >30 violates ARDSNet protocol. Reduce Vt to 5 then 4 mL/kg IBW until Pplat \u226430. Accept permissive hypercapnia (pH >7.25). Optimize PEEP using ARDSNet table or driving pressure approach. If Pplat was normal with high Ppeak, that\u2019s resistance \u2014 suction, bronchodilators, check ETT.",f:"What if pH drops to 7.18 with low Vt? How do you calculate driving pressure?"},{q:"Explain the difference between oxygenation and ventilation.",a:"Oxygenation = getting O2 into blood. Measured by PaO2/SpO2. Determined by FiO2, PEEP, mean airway pressure, V/Q matching, shunt. Fix with FiO2 and PEEP. Ventilation = removing CO2. Measured by PaCO2/EtCO2. Determined by minute ventilation (Vt \u00D7 RR) and dead space. Fix with RR and Vt. They are independent \u2014 a patient can be well-oxygenated but hypoventilating, or vice versa.",f:"Shunt vs. dead space \u2014 which responds to supplemental O2?"},{q:"You\u2019re doing a right thoracotomy. SpO2 drops to 88% during OLV. Management?",a:"Systematic approach: (1) Confirm DLT position with fiberoptic bronchoscopy. (2) Increase FiO2 to 1.0. (3) Recruitment maneuver to dependent lung. (4) Apply CPAP 5\u201310 to operative lung. (5) Ensure adequate Vt (4\u20136 mL/kg) and PEEP (5\u201310) to dependent lung. (6) Consider TIVA \u2014 volatile agents inhibit HPV dose-dependently. (7) If persistent, intermittent two-lung ventilation or surgeon clamps PA.",f:"How do volatile agents affect HPV? Why is TIVA preferred?"},{q:"Your patient is on AC/VC 500/16. They\u2019re uncomfortable, fighting the vent. What\u2019s happening?",a:"Likely patient-ventilator dyssynchrony. Common in VC when set flow rate doesn\u2019t match patient demand (flow starvation \u2014 look for concave pressure waveform). Options: (1) Increase flow rate. (2) Switch to PC mode (decelerating flow matches patient demand). (3) Assess for auto-PEEP (check expiratory flow). (4) Evaluate sedation/pain. (5) Rule out new pathology: pneumothorax, mucus plug, agitation.",f:"How would you differentiate flow starvation from auto-PEEP on waveforms?"},{q:"How do you set up lung-protective ventilation in the OR?",a:"IMPROVE trial framework: Vt 6\u20138 mL/kg IBW (always ideal body weight from height), PEEP 5\u20138 cmH2O, recruitment maneuvers q30\u201360 min (30 cmH2O \u00D7 30 sec), FiO2 titrated to avoid hyperoxia, keep driving pressure <15 cmH2O and Pplat <30. This reduces postoperative pulmonary complications by ~50%. Same principles as ICU but often underutilized in OR.",f:"What is driving pressure and why might it matter more than Vt?"}].map((item,i)=>(
+        {[{q:"Patient intubated for ARDS, Ppeak 42, Pplat 34. What do you do?",a:"Both pressures are elevated, so this is a compliance problem (not resistance). Pplat >30 violates ARDSNet protocol. Reduce Vt to 5 then 4 mL/kg IBW until Pplat ≤30. Accept permissive hypercapnia (pH >7.25). Optimize PEEP using ARDSNet table or driving pressure approach. If Pplat was normal with high Ppeak, that\u2019s resistance — suction, bronchodilators, check ETT.",f:"What if pH drops to 7.18 with low Vt? How do you calculate driving pressure?"},{q:"Explain the difference between oxygenation and ventilation.",a:"Oxygenation = getting O2 into blood. Measured by PaO2/SpO2. Determined by FiO2, PEEP, mean airway pressure, V/Q matching, shunt. Fix with FiO2 and PEEP. Ventilation = removing CO2. Measured by PaCO2/EtCO2. Determined by minute ventilation (Vt × RR) and dead space. Fix with RR and Vt. They are independent — a patient can be well-oxygenated but hypoventilating, or vice versa.",f:"Shunt vs. dead space — which responds to supplemental O2?"},{q:"You\u2019re doing a right thoracotomy. SpO2 drops to 88% during OLV. Management?",a:"Systematic approach: (1) Confirm DLT position with fiberoptic bronchoscopy. (2) Increase FiO2 to 1.0. (3) Recruitment maneuver to dependent lung. (4) Apply CPAP 5–10 to operative lung. (5) Ensure adequate Vt (4–6 mL/kg) and PEEP (5–10) to dependent lung. (6) Consider TIVA — volatile agents inhibit HPV dose-dependently. (7) If persistent, intermittent two-lung ventilation or surgeon clamps PA.",f:"How do volatile agents affect HPV? Why is TIVA preferred?"},{q:"Your patient is on AC/VC 500/16. They\u2019re uncomfortable, fighting the vent. What\u2019s happening?",a:"Likely patient-ventilator dyssynchrony. Common in VC when set flow rate doesn\u2019t match patient demand (flow starvation — look for concave pressure waveform). Options: (1) Increase flow rate. (2) Switch to PC mode (decelerating flow matches patient demand). (3) Assess for auto-PEEP (check expiratory flow). (4) Evaluate sedation/pain. (5) Rule out new pathology: pneumothorax, mucus plug, agitation.",f:"How would you differentiate flow starvation from auto-PEEP on waveforms?"},{q:"How do you set up lung-protective ventilation in the OR?",a:"IMPROVE trial framework: Vt 6–8 mL/kg IBW (always ideal body weight from height), PEEP 5–8 cmH2O, recruitment maneuvers q30–60 min (30 cmH2O × 30 sec), FiO2 titrated to avoid hyperoxia, keep driving pressure <15 cmH2O and Pplat <30. This reduces postoperative pulmonary complications by ~50%. Same principles as ICU but often underutilized in OR.",f:"What is driving pressure and why might it matter more than Vt?"}].map((item,i)=>(
           <div key={i} style={{padding:"22px",background:t.bgC,borderRadius:"12px",border:`1px solid ${t.bd}`}}>
             <div style={{fontSize:"15px",color:t.tx,fontWeight:600,marginBottom:"14px",lineHeight:1.6}}><span style={{color:t.wn,marginRight:"8px"}}>Q{i+1}:</span>{item.q}</div>
             <div style={{marginBottom:"14px"}}><span style={{display:"inline-block",background:t.aD,color:t.ac,padding:"2px 10px",borderRadius:"12px",fontSize:"11px",fontWeight:600,marginBottom:"8px"}}>Strong Answer</span><p style={{color:t.t2,fontSize:"14px",lineHeight:1.8,margin:0}}>{item.a}</p></div>
@@ -5433,4 +5884,5 @@ function VentDevice({ t, theme }) {
 
     </div>
   </div>);
+}
 }
