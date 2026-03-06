@@ -1,7 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function generateVentWaveformData(modeKey, params, N) {
-  const pressure = [], flow = [];
   const cycles = 3;
   for (let i = 0; i < N; i++) {
     const tg = (i / N) * cycles;

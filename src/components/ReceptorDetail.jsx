@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import { dlPDF } from "../utils/pdf.js";
+import { useState, useEffect, useRef } from "react";
 
 function LGICDiagram({ t }) {
   const [channelType, setChannelType] = useState("gabaa");

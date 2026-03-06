@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { dlPDF, dlDiagram } from "../utils/pdf.js";
 import { NotesBox } from "./NotesBox.jsx";
 import { Stars } from "./ui.jsx";
