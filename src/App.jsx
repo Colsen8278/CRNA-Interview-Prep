@@ -2819,6 +2819,63 @@ function FentanylDiagram({ t }) {
   );
 }
 
+
+// ── Receptor Superfamily Reference (shown below med-specific diagram) ─────────
+function ReceptorFamilyRef({ medId, t }) {
+  const [open, setOpen] = React.useState(false);
+
+  // Map each medication to its receptor superfamily
+  const gpcr = ["norepinephrine","epinephrine","phenylephrine","ephedrine","vasopressin",
+                 "atropine","glycopyrrolate","labetalol","hydralazine","dobutamine",
+                 "fentanyl","morphine","ketamine","dexmedetomidine","clonidine"];
+  const lgic = ["propofol","etomidate","succinylcholine","rocuronium","vecuronium",
+                "cisatracurium","neostigmine"];
+
+  const isGpcr = gpcr.includes(medId);
+  const isLgic = lgic.includes(medId);
+  if (!isGpcr && !isLgic) return null;
+
+  const label = isGpcr ? "G-Protein Coupled Receptor (GPCR) — Superfamily Reference"
+                       : "Ligand-Gated Ion Channel (LGIC) — Superfamily Reference";
+  const color = isGpcr ? "#10b981" : "#3b82f6";
+  const subtitle = isGpcr
+    ? "This medication acts via a 7-transmembrane GPCR. The diagram below shows the full Gs/Gi/Gq signaling framework."
+    : "This medication acts at a ligand-gated ion channel. The diagram below shows the pentameric GABA-A and nAChR framework.";
+
+  return (
+    <div style={{ marginTop: "20px" }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "12px 16px", borderRadius: open ? "10px 10px 0 0" : "10px",
+          border: `1px solid ${color}40`, background: `${color}08`,
+          cursor: "pointer", textAlign: "left" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: color, flexShrink: 0 }} />
+          <div>
+            <div style={{ fontSize: "12px", fontWeight: 700, color: color, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+              Receptor Superfamily Reference
+            </div>
+            <div style={{ fontSize: "11px", color: t.tM, marginTop: "2px" }}>{label}</div>
+          </div>
+        </div>
+        <span style={{ color: color, fontSize: "16px", transition: "transform 0.2s",
+          display: "inline-block", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>&#9660;</span>
+      </button>
+      {open && (
+        <div style={{ border: `1px solid ${color}40`, borderTop: "none", borderRadius: "0 0 10px 10px",
+          padding: "16px", background: t.bgH }}>
+          <p style={{ margin: "0 0 16px", fontSize: "12px", color: t.tM, lineHeight: 1.6,
+            padding: "10px 14px", background: t.bgC, borderRadius: "8px", borderLeft: `3px solid ${color}` }}>
+            {subtitle}
+          </p>
+          {isGpcr ? <GPCRDiagram t={t} /> : <LGICDiagram t={t} />}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // MED DETAIL
 function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes }) {
   const svgRef = useRef(null);
@@ -3321,6 +3378,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
             <div style={{ fontSize: "14px", color: t.tM, fontStyle: "italic" }}>Interactive diagram coming soon for {item.name}</div>
           </div>
         )}
+        <ReceptorFamilyRef medId={item.id} t={t} />
       </div>}
     </div>
   </div>;
