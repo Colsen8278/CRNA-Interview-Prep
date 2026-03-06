@@ -82,27 +82,27 @@ const MEDS = [{
   id: "propofol", name: "Propofol", brand: "Diprivan",
   tags: ["Sedative-Hypnotic", "GABA-A Agonist", "Alkylphenol", "IV Anesthetic"],
   systems: ["neuro", "pharm"], type: "medication",
-  ov: { "Drug Class": "Alkylphenol sedative-hypnotic", "Primary Target": "GABA-A receptor (Î²-subunit)", "Action": "Positive allosteric modulator + direct agonist", "Ion Channel": "Clâ» channel â†’ hyperpolarization", "Formulation": "1% lipid emulsion (10 mg/mL)", "Schedule": "Not federally scheduled" },
-  moa: `Propofol (2,6-diisopropylphenol) acts primarily through positive allosteric modulation of the GABA-A receptor â€” the major inhibitory ligand-gated chloride ion channel in the CNS. It binds to the Î²-subunit at the TM2/TM3 transmembrane domains, distinct from the GABA binding site (Î±-Î² interface).
+  ov: { "Drug Class": "Alkylphenol sedative-hypnotic", "Primary Target": "GABA-A receptor (β-subunit)", "Action": "Positive allosteric modulator + direct agonist", "Ion Channel": "Cl⁻ channel â†’ hyperpolarization", "Formulation": "1% lipid emulsion (10 mg/mL)", "Schedule": "Not federally scheduled" },
+  moa: `Propofol (2,6-diisopropylphenol) acts primarily through positive allosteric modulation of the GABA-A receptor â€” the major inhibitory ligand-gated chloride ion channel in the CNS. It binds to the β-subunit at the TM2/TM3 transmembrane domains, distinct from the GABA binding site (α-β interface).
 
-At lower concentrations, propofol potentiates endogenous GABA by increasing the duration of chloride channel opening â€” prolonged Clâ» influx produces greater postsynaptic hyperpolarization.
+At lower concentrations, propofol potentiates endogenous GABA by increasing the duration of chloride channel opening â€” prolonged Cl⁻ influx produces greater postsynaptic hyperpolarization.
 
 At higher (induction) concentrations, propofol directly gates the GABA-A chloride channel even without GABA â€” forcing the channel open independently for rapid, profound CNS depression.
 
 Net effect: widespread neuronal hyperpolarization (âˆ’70 mV â†’ âˆ’85 mV), making neurons far less likely to fire. This produces sedation, amnesia, anxiolysis, and general anesthesia.
 
-Secondary mechanisms: NMDA receptor inhibition, voltage-gated Naâº channel modulation, slow CaÂ²âº channel inhibition â€” contributing to neuroprotection, reduced CMROâ‚‚, and decreased ICP.`,
-  recPhys: `The GABA-A receptor is a pentameric ligand-gated ion channel (ionotropic) â€” five subunits (2Î±, 2Î², 1Î³) around a central Clâ» pore. Ionotropic = direct coupling of binding to ion flow (no second messengers) = rapid onset.
+Secondary mechanisms: NMDA receptor inhibition, voltage-gated Na⁺ channel modulation, slow Ca²⁺ channel inhibition â€” contributing to neuroprotection, reduced CMROâ‚‚, and decreased ICP.`,
+  recPhys: `The GABA-A receptor is a pentameric ligand-gated ion channel (ionotropic) â€” five subunits (2α, 2β, 1γ) around a central Cl⁻ pore. Ionotropic = direct coupling of binding to ion flow (no second messengers) = rapid onset.
 
-Step 1 â€” Drug Binding: Propofol binds hydrophobic pockets in Î²-subunit TM2/TM3. Extreme lipophilicity (oil:water ~4500:1) enables rapid BBB crossing.
+Step 1 â€” Drug Binding: Propofol binds hydrophobic pockets in β-subunit TM2/TM3. Extreme lipophilicity (oil:water ~4500:1) enables rapid BBB crossing.
 
 Step 2 â€” Conformational Change: Stabilizes channel open state. Allosteric: â†‘ mean open time when GABA binds. Direct-gating: opens pore without GABA.
 
-Step 3 â€” Clâ» Influx: Clâ» flows inward down electrochemical gradient, driving membrane potential from âˆ’70 mV toward âˆ’80 to âˆ’90 mV.
+Step 3 â€” Cl⁻ Influx: Cl⁻ flows inward down electrochemical gradient, driving membrane potential from âˆ’70 mV toward âˆ’80 to âˆ’90 mV.
 
 Step 4 â€” Hyperpolarization: Neuron needs substantially larger excitatory input to reach threshold (âˆ’55 mV). Billions of neurons simultaneously = global CNS depression.
 
-KEY DISTINCTION: Propofol/barbiturates â†‘ Clâ» channel open DURATION + can directly gate. Benzodiazepines â†‘ opening FREQUENCY + require GABA (no direct gating). Classic interview question.`,
+KEY DISTINCTION: Propofol/barbiturates â†‘ Cl⁻ channel open DURATION + can directly gate. Benzodiazepines â†‘ opening FREQUENCY + require GABA (no direct gating). Classic interview question.`,
   dosing: [
     { ind: "Induction", dose: "1.5â€“2.5 mg/kg IV", notes: "Over 20â€“30 sec. Reduce 25â€“50% in elderly/unstable/ASA IIIâ€“IV.", clr: "ac" },
     { ind: "ICU Sedation", dose: "5â€“50 mcg/kg/min", notes: "Start 5â€“10, titrate to RASS. Trigs q48h. PRIS risk >70 mcg/kg/min or >48h.", clr: "wn" },
@@ -139,40 +139,40 @@ Elderly: â†“Vd, â†“clearance, â†‘sensitivity â†’ reduce 25â
   ],
   intQs: [
     { q: "MAP drops to 52 after induction?", a: "Phenylephrine 100â€“200 mcg IV. Volume. Ephedrine 5â€“10 mg if HR low." },
-    { q: "Propofol vs etomidate in trauma?", a: "Etomidate: hemodynamically neutral. Trade-off: adrenal suppression (11Î²-hydroxylase)." },
+    { q: "Propofol vs etomidate in trauma?", a: "Etomidate: hemodynamically neutral. Trade-off: adrenal suppression (11β-hydroxylase)." },
     { q: "ICU patient: unexplained acidosis + rising CK?", a: "PRIS. Stop propofol, switch sedative, check trigs/lactate/CK." },
   ],
 },{
   id: "norepinephrine", name: "Norepinephrine", brand: "Levophed",
-  tags: ["Vasopressor", "Catecholamine", "Î± Agonist", "Sympathomimetic"],
+  tags: ["Vasopressor", "Catecholamine", "α Agonist", "Sympathomimetic"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Endogenous catecholamine / direct-acting sympathomimetic", "Primary Targets": "Î± > Î±â‚‚ > Î² >> Î²â‚‚ adrenergic receptors", "Action": "Full agonist at Î± and Î² negligible Î²â‚‚", "Net Effect": "â†‘SVR (vasoconstriction) + preserved CO (inotropy) Â± reflex â†“HR", "Formulation": "4 mg/4 mL concentrate â†’ dilute in D5W", "First-Line": "Septic shock (SSC 2021 â€” strong recommendation)" },
-  moa: `Norepinephrine is an endogenous catecholamine and direct-acting sympathomimetic with the receptor affinity hierarchy Î±â‚‚ > Î± > Î² >> Î²â‚‚. This profile delivers potent vasoconstriction with cardiac output preservation â€” the ideal hemodynamic response for distributive shock.
+  ov: { "Drug Class": "Endogenous catecholamine / direct-acting sympathomimetic", "Primary Targets": "α > αâ‚‚ > β >> βâ‚‚ adrenergic receptors", "Action": "Full agonist at α and β negligible βâ‚‚", "Net Effect": "â†‘SVR (vasoconstriction) + preserved CO (inotropy) ± reflex â†“HR", "Formulation": "4 mg/4 mL concentrate â†’ dilute in D5W", "First-Line": "Septic shock (SSC 2021 â€” strong recommendation)" },
+  moa: `Norepinephrine is an endogenous catecholamine and direct-acting sympathomimetic with the receptor affinity hierarchy αâ‚‚ > α > β >> βâ‚‚. This profile delivers potent vasoconstriction with cardiac output preservation â€” the ideal hemodynamic response for distributive shock.
 
-At the Î± receptor (Gq-coupled), NE activates PLC â†’ IPâ‚ƒ + DAG â†’ intracellular CaÂ²âº release from SR + PKC activation â†’ MLCK-mediated smooth muscle contraction â†’ vasoconstriction. Vascular beds most affected: splanchnic > cutaneous > renal > skeletal muscle. Cerebral circulation is relatively protected by autoregulation.
+At the α receptor (Gq-coupled), NE activates PLC â†’ IPâ‚ƒ + DAG â†’ intracellular Ca²⁺ release from SR + PKC activation â†’ MLCK-mediated smooth muscle contraction â†’ vasoconstriction. Vascular beds most affected: splanchnic > cutaneous > renal > skeletal muscle. Cerebral circulation is relatively protected by autoregulation.
 
-At the Î² receptor (Gs-coupled), NE activates adenylyl cyclase â†’ â†‘cAMP â†’ PKA â†’ phosphorylation of L-type CaÂ²âº channels (â†‘CaÂ²âº influx = inotropy), RyR2 (enhanced CICR), and phospholamban (faster relaxation = lusitropy). Direct chronotropic effect via If/HCN channels in SA node.
+At the β receptor (Gs-coupled), NE activates adenylyl cyclase â†’ â†‘cAMP â†’ PKA â†’ phosphorylation of L-type Ca²⁺ channels (â†‘Ca²⁺ influx = inotropy), RyR2 (enhanced CICR), and phospholamban (faster relaxation = lusitropy). Direct chronotropic effect via If/HCN channels in SA node.
 
-THE BARORECEPTOR PARADOX: NE's dominant Î± effect raises MAP â†’ carotid/aortic baroreceptors â†’ â†‘vagal tone â†’ REFLEX BRADYCARDIA offsets the direct Î² chronotropic effect. Net HR often stays the same or decreases. This fundamentally distinguishes NE from epinephrine and dobutamine, which reliably increase HR.
+THE BARORECEPTOR PARADOX: NE's dominant α effect raises MAP â†’ carotid/aortic baroreceptors â†’ â†‘vagal tone â†’ REFLEX BRADYCARDIA offsets the direct β chronotropic effect. Net HR often stays the same or decreases. This fundamentally distinguishes NE from epinephrine and dobutamine, which reliably increase HR.
 
-NE has ~10-fold selectivity for Î² over Î²â‚‚ (Xu et al., Cell Research 2021). The structural basis: identical orthosteric binding pockets but different extracellular vestibule entry pathways â€” NE (lacking epinephrine's N-methyl group) enters Î² 30â€“60Ã— faster than Î²â‚‚.`,
-  recPhys: `Î± PATHWAY (Gq â†’ PLC â†’ IPâ‚ƒ/DAG):
-Step 1 â€” NE binds postsynaptic Î± receptor â†’ Gq/G protein activates phospholipase C (PLC).
-Step 2 â€” PLC cleaves PIPâ‚‚ â†’ IPâ‚ƒ + DAG. IPâ‚ƒ binds SR receptors â†’ CaÂ²âº floods cytoplasm.
-Step 3 â€” DAG activates PKC â†’ sensitizes contractile apparatus to CaÂ²âº, inhibits KATP channels â†’ depolarization â†’ additional CaÂ²âº entry via L-type channels.
-Step 4 â€” CaÂ²âº-calmodulin â†’ MLCK â†’ phosphorylates myosin light chains â†’ smooth muscle contraction â†’ VASOCONSTRICTION.
+NE has ~10-fold selectivity for β over βâ‚‚ (Xu et al., Cell Research 2021). The structural basis: identical orthosteric binding pockets but different extracellular vestibule entry pathways â€” NE (lacking epinephrine's N-methyl group) enters β 30â€“60Ã— faster than βâ‚‚.`,
+  recPhys: `α PATHWAY (Gq â†’ PLC â†’ IPâ‚ƒ/DAG):
+Step 1 â€” NE binds postsynaptic α receptor â†’ Gq/G protein activates phospholipase C (PLC).
+Step 2 â€” PLC cleaves PIPâ‚‚ â†’ IPâ‚ƒ + DAG. IPâ‚ƒ binds SR receptors â†’ Ca²⁺ floods cytoplasm.
+Step 3 â€” DAG activates PKC â†’ sensitizes contractile apparatus to Ca²⁺, inhibits KATP channels â†’ depolarization â†’ additional Ca²⁺ entry via L-type channels.
+Step 4 â€” Ca²⁺-calmodulin â†’ MLCK â†’ phosphorylates myosin light chains â†’ smooth muscle contraction â†’ VASOCONSTRICTION.
 
-Î² PATHWAY (Gs â†’ adenylyl cyclase â†’ cAMP):
-Step 1 â€” NE binds cardiac Î² â†’ Gs activates adenylyl cyclase â†’ â†‘cAMP â†’ PKA.
-Step 2 â€” PKA phosphorylates: (a) L-type CaÂ²âº channels â†’ â†‘CaÂ²âº influx = INOTROPY; (b) RyR2 â†’ enhanced CaÂ²âº-induced CaÂ²âº release; (c) phospholamban â†’ disinhibits SERCA2a â†’ faster CaÂ²âº reuptake = LUSITROPY; (d) If/HCN channels â†’ faster phase 4 depolarization = CHRONOTROPY.
+β PATHWAY (Gs â†’ adenylyl cyclase â†’ cAMP):
+Step 1 â€” NE binds cardiac β â†’ Gs activates adenylyl cyclase â†’ â†‘cAMP â†’ PKA.
+Step 2 â€” PKA phosphorylates: (a) L-type Ca²⁺ channels â†’ â†‘Ca²⁺ influx = INOTROPY; (b) RyR2 â†’ enhanced Ca²⁺-induced Ca²⁺ release; (c) phospholamban â†’ disinhibits SERCA2a â†’ faster Ca²⁺ reuptake = LUSITROPY; (d) If/HCN channels â†’ faster phase 4 depolarization = CHRONOTROPY.
 
-Î±â‚‚ PRESYNAPTIC BRAKE (Gi â†’ â†“cAMP):
-NE simultaneously activates Î±â‚‚ autoreceptors on presynaptic nerve terminals â†’ Gi inhibits adenylyl cyclase â†’ â†“cAMP â†’ GÎ²Î³ opens GIRK Kâº channels â†’ hyperpolarization â†’ NEGATIVE FEEDBACK limiting further NE release. This self-limiting mechanism prevents runaway sympathetic activation. Same target as clonidine/dexmedetomidine.
+αâ‚‚ PRESYNAPTIC BRAKE (Gi â†’ â†“cAMP):
+NE simultaneously activates αâ‚‚ autoreceptors on presynaptic nerve terminals â†’ Gi inhibits adenylyl cyclase â†’ â†“cAMP â†’ Gβγ opens GIRK K⁺ channels â†’ hyperpolarization â†’ NEGATIVE FEEDBACK limiting further NE release. This self-limiting mechanism prevents runaway sympathetic activation. Same target as clonidine/dexmedetomidine.
 
 KEY COMPARISONS:
-â€¢ vs. EPINEPHRINE: Epi has equipotent Î²â‚‚ â†’ dose-dependent vasodilation (low dose), bronchodilation, more tachycardia/arrhythmias, lactic acidosis. NE has no biphasic behavior.
+â€¢ vs. EPINEPHRINE: Epi has equipotent βâ‚‚ â†’ dose-dependent vasodilation (low dose), bronchodilation, more tachycardia/arrhythmias, lactic acidosis. NE has no biphasic behavior.
 â€¢ vs. VASOPRESSIN: Non-adrenergic (V pathway). Maintains function in acidosis. No inotropy/chronotropy. Preferential EFFERENT arteriolar constriction (may preserve GFR). Also inhibits KATP channels directly.
-â€¢ vs. PHENYLEPHRINE: Pure Î± only â€” raises SVR but may â†“CO (no Î² support). Reflex bradycardia without compensatory inotropy.`,
+â€¢ vs. PHENYLEPHRINE: Pure α only â€” raises SVR but may â†“CO (no β support). Reflex bradycardia without compensatory inotropy.`,
   dosing: [
     { ind: "Septic Shock (1st-line)", dose: "0.05â€“0.1 mcg/kg/min start â†’ titrate to MAP â‰¥65", notes: "FDA label: 8â€“12 mcg/min start. Titrate q5-15 min by 0.05â€“0.1 mcg/kg/min. Add vasopressin at 0.25â€“0.5 mcg/kg/min.", clr: "ac" },
     { ind: "Maintenance Range", dose: "0.01â€“0.3 mcg/kg/min", notes: "High-dose/refractory: up to 1 mcg/kg/min. Max reported ~3 mcg/kg/min (rare).", clr: "bl" },
@@ -195,7 +195,7 @@ ZERO CYP450 involvement â€” three clinical implications:
 
 In multi-organ dysfunction, NE pharmacokinetics remain remarkably reliable because metabolism is distributed across multiple organ systems via non-CYP enzymes.`,
   warn: [
-    { tp: "bb", ti: "Extravasation â†’ Tissue Necrosis", tx: "Intense Î± vasoconstriction â†’ ischemia â†’ necrosis â†’ gangrene. RESCUE: Phentolamine 5â€“10 mg in 10â€“15 mL NS, infiltrate SC with 25G needle throughout ischemic area. Most effective within 12h. May repeat. Warm compresses (NOT cold)." },
+    { tp: "bb", ti: "Extravasation â†’ Tissue Necrosis", tx: "Intense α vasoconstriction â†’ ischemia â†’ necrosis â†’ gangrene. RESCUE: Phentolamine 5â€“10 mg in 10â€“15 mL NS, infiltrate SC with 25G needle throughout ischemic area. Most effective within 12h. May repeat. Warm compresses (NOT cold)." },
     { tp: "ci", ti: "Mesenteric/Peripheral Vascular Disease", tx: "Use with extreme caution â€” â†‘risk digital ischemia, bowel ischemia. Monitor lactate, abdominal exam, extremity perfusion." },
     { tp: "cau", ti: "MAOI Interaction (CRITICAL)", tx: "MAOIs (phenelzine, tranylcypromine, LINEZOLID) block MAO â†’ impaired NE degradation â†’ SEVERE prolonged hypertensive crisis. Most dangerous interaction." },
     { tp: "cau", ti: "TCA Interaction", tx: "Block norepinephrine transporter (NET) â€” primary termination mechanism. Dramatically amplifies/prolongs NE effect â†’ severe sustained hypertension." },
@@ -204,7 +204,7 @@ In multi-organ dysfunction, NE pharmacokinetics remain remarkably reliable becau
   ix: [
     { dr: "MAOIs / Linezolid", ef: "Blocked MAO degradation â†’ severe prolonged hypertensive crisis. Most dangerous interaction.", sv: "high" },
     { dr: "TCAs", ef: "Block neuronal reuptake (Uptake-1) â†’ amplified/prolonged pressor response.", sv: "high" },
-    { dr: "Non-selective Î²-blockers", ef: "Propranolol blocks Î² compensation â†’ unopposed Î± â†’ severe HTN + reflex bradycardia.", sv: "high" },
+    { dr: "Non-selective β-blockers", ef: "Propranolol blocks β compensation â†’ unopposed α â†’ severe HTN + reflex bradycardia.", sv: "high" },
     { dr: "Halogenated Anesthetics", ef: "Myocardial sensitization to catecholamines. Lower risk with modern agents (sevo/des/iso) vs halothane.", sv: "mod" },
     { dr: "Vasopressin", ef: "Synergistic vasopression. Allows NE dose reduction (catecholamine-sparing). SSC 2021: add at NE 0.25â€“0.5 mcg/kg/min.", sv: "low" },
   ],
@@ -220,22 +220,22 @@ In multi-organ dysfunction, NE pharmacokinetics remain remarkably reliable becau
     { q: "Septic shock, MAP 52 on 30L crystalloid. Next step?", a: "Start NE 0.05â€“0.1 mcg/kg/min. Titrate q5-15 min to MAP â‰¥65. Don't delay pressors for more fluid." },
     { q: "Patient on NE 0.4 mcg/kg/min, still MAP 58?", a: "Add vasopressin 0.03â€“0.04 U/min (SSC 2021 threshold: 0.25â€“0.5 mcg/kg/min). Consider hydrocortisone 200 mg/day." },
     { q: "NE extravasates into forearm. What do you do?", a: "Stop infusion. Infiltrate phentolamine 5â€“10 mg in 10â€“15 mL NS subcutaneously throughout ischemic area with 25G needle within 12h. Warm compresses. Restart NE at new proximal site." },
-    { q: "Why NE over phenylephrine intraop?", a: "Phenylephrine (pure Î± raises SVR but â†“CO via reflex bradycardia without Î² compensation. NE's Î² activity preserves CO while supporting BP. EPON trial and POQI 2024 consensus support NE." },
+    { q: "Why NE over phenylephrine intraop?", a: "Phenylephrine (pure α raises SVR but â†“CO via reflex bradycardia without β compensation. NE's β activity preserves CO while supporting BP. EPON trial and POQI 2024 consensus support NE." },
   ],
 },{
   id: "vasopressin", name: "Vasopressin (AVP)", brand: "Vasostrict",
   tags: ["Vasopressor", "Non-Catecholamine", "V Agonist", "Antidiuretic Hormone"],
   systems: ["cardio", "pharm"], type: "medication",
-  ov: { "Drug Class": "Endogenous nonapeptide / non-catecholamine vasopressor", "Primary Targets": "V (vascular) > V (pituitary) > Vâ‚‚ (renal)", "Action": "Full agonist â€” non-adrenergic vasoconstriction + antidiuresis", "Net Effect": "â†‘SVR (adrenergic-independent) + preserved renal perfusion + NO Î²-adrenergic effects", "Formulation": "20 units/mL â€” dilute prior to infusion", "Role": "2nd-line vasopressor in septic shock (SSC 2021); catecholamine-sparing" },
+  ov: { "Drug Class": "Endogenous nonapeptide / non-catecholamine vasopressor", "Primary Targets": "V (vascular) > V (pituitary) > Vâ‚‚ (renal)", "Action": "Full agonist â€” non-adrenergic vasoconstriction + antidiuresis", "Net Effect": "â†‘SVR (adrenergic-independent) + preserved renal perfusion + NO β-adrenergic effects", "Formulation": "20 units/mL â€” dilute prior to infusion", "Role": "2nd-line vasopressor in septic shock (SSC 2021); catecholamine-sparing" },
   moa: `Vasopressin (arginine vasopressin, AVP, ADH) is an endogenous nonapeptide hormone synthesized in the supraoptic and paraventricular nuclei of the hypothalamus, stored in the posterior pituitary, and released in response to hyperosmolality, hypovolemia, and hypotension.
 
 It acts on three distinct G-protein coupled receptor subtypes â€” V V and Vâ‚‚ â€” each mediating different physiologic effects through different G-protein cascades. Critically, vasopressin's vasoconstrictor mechanism is COMPLETELY INDEPENDENT of adrenergic receptors. This is the key clinical advantage: it works when catecholamines fail.
 
 In vasodilatory shock, vasopressin restores vascular tone through FOUR mechanisms:
 
-1. V receptor activation (Gq â†’ PLC â†’ IPâ‚ƒ/DAG â†’ â†‘CaÂ²âº â†’ smooth muscle contraction) â€” the primary vasoconstrictor pathway. Identical downstream cascade to Î± but via a different receptor.
+1. V receptor activation (Gq â†’ PLC â†’ IPâ‚ƒ/DAG â†’ â†‘Ca²⁺ â†’ smooth muscle contraction) â€” the primary vasoconstrictor pathway. Identical downstream cascade to α but via a different receptor.
 
-2. KATP channel closure â€” In septic shock, hypoxia and acidosis activate ATP-sensitive Kâº channels (KATP) â†’ Kâº efflux â†’ hyperpolarization â†’ voltage-gated CaÂ²âº channels remain closed â†’ vasoplegia (catecholamine resistance). Vasopressin closes KATP channels via PKC, restoring the ability of CaÂ²âº channels to open. This directly explains why vasopressin works in acidotic, catecholamine-resistant shock.
+2. KATP channel closure â€” In septic shock, hypoxia and acidosis activate ATP-sensitive K⁺ channels (KATP) â†’ K⁺ efflux â†’ hyperpolarization â†’ voltage-gated Ca²⁺ channels remain closed â†’ vasoplegia (catecholamine resistance). Vasopressin closes KATP channels via PKC, restoring the ability of Ca²⁺ channels to open. This directly explains why vasopressin works in acidotic, catecholamine-resistant shock.
 
 3. NO modulation â€” Vasopressin inhibits inducible nitric oxide synthase (iNOS) expression, reducing pathologic NO-mediated vasodilation in sepsis.
 
@@ -244,9 +244,9 @@ In vasodilatory shock, vasopressin restores vascular tone through FOUR mechanism
 VASOPRESSIN DEFICIENCY IN SEPSIS: Endogenous AVP stores deplete within 24â€“48h of sustained shock due to exhaustion of posterior pituitary reserves. Serum levels paradoxically DROP to inappropriately low levels. Exogenous vasopressin replaces this deficit â€” it is "hormone replacement" as much as vasopressor therapy.`,
   recPhys: `V PATHWAY â€” Vascular Smooth Muscle (Gq â†’ PLC â†’ IPâ‚ƒ/DAG):
 Step 1 â€” AVP binds V receptor (7-TM GPCR) on vascular smooth muscle â†’ Gq/G protein activates phospholipase C (PLC).
-Step 2 â€” PLC cleaves PIPâ‚‚ â†’ IPâ‚ƒ + DAG. IPâ‚ƒ binds SR receptors â†’ CaÂ²âº release into cytoplasm.
-Step 3 â€” DAG activates PKC â†’ (a) directly opens voltage-gated CaÂ²âº channels (VGCCs) via depolarization; (b) CLOSES KATP channels (Kir6.1/SUR2B) â†’ prevents Kâº efflux â†’ maintains depolarization â†’ CaÂ²âº entry.
-Step 4 â€” CaÂ²âº-calmodulin â†’ MLCK â†’ phosphorylates myosin light chains â†’ VASOCONSTRICTION.
+Step 2 â€” PLC cleaves PIPâ‚‚ â†’ IPâ‚ƒ + DAG. IPâ‚ƒ binds SR receptors â†’ Ca²⁺ release into cytoplasm.
+Step 3 â€” DAG activates PKC â†’ (a) directly opens voltage-gated Ca²⁺ channels (VGCCs) via depolarization; (b) CLOSES KATP channels (Kir6.1/SUR2B) â†’ prevents K⁺ efflux â†’ maintains depolarization â†’ Ca²⁺ entry.
+Step 4 â€” Ca²⁺-calmodulin â†’ MLCK â†’ phosphorylates myosin light chains â†’ VASOCONSTRICTION.
 Location: highest V density in splanchnic, skin, skeletal muscle vasculature. Notably ABSENT in pulmonary vasculature â€” vasopressin does NOT increase PVR. Preferentially constricts EFFERENT > afferent renal arterioles â†’ â†‘GFP â†’ paradoxical increase in urine output despite being "antidiuretic hormone."
 
 Vâ‚‚ PATHWAY â€” Renal Collecting Duct (Gs â†’ adenylyl cyclase â†’ cAMP):
@@ -259,14 +259,14 @@ V PATHWAY â€” Anterior Pituitary (Gq â†’ PLC â†’ IPâ‚ƒ/DAG):
 AVP binds V receptors on corticotroph cells â†’ same Gq cascade â†’ ACTH secretion â†’ cortisol release. This pathway links vasopressin to the stress response and explains the synergy between vasopressin and corticosteroids in septic shock.
 
 KATP CHANNEL MECHANISM (Why vasopressin works when catecholamines fail):
-In septic shock: â†“ATP + â†‘Hâº + â†‘lactate + â†‘NO â†’ KATP channels OPEN â†’ Kâº efflux â†’ smooth muscle hyperpolarization â†’ VGCCs cannot open â†’ NO CaÂ²âº entry â†’ vasoplegia. Catecholamines cannot overcome this because Î± signaling requires intact depolarization to open VGCCs. Vasopressin bypasses this entirely: V directly CLOSES KATP channels â†’ restores depolarization â†’ VGCCs can open again â†’ CaÂ²âº entry â†’ contraction restored.
+In septic shock: â†“ATP + â†‘H⁺ + â†‘lactate + â†‘NO â†’ KATP channels OPEN â†’ K⁺ efflux â†’ smooth muscle hyperpolarization â†’ VGCCs cannot open â†’ NO Ca²⁺ entry â†’ vasoplegia. Catecholamines cannot overcome this because α signaling requires intact depolarization to open VGCCs. Vasopressin bypasses this entirely: V directly CLOSES KATP channels â†’ restores depolarization â†’ VGCCs can open again â†’ Ca²⁺ entry â†’ contraction restored.
 
-ACID RESISTANCE: Unlike catecholamine receptors (Î± Î² which lose affinity in acidotic environments, V receptors maintain full binding affinity regardless of pH. Classic interview point.
+ACID RESISTANCE: Unlike catecholamine receptors (α β which lose affinity in acidotic environments, V receptors maintain full binding affinity regardless of pH. Classic interview point.
 
 KEY COMPARISONS:
-â€¢ vs. NOREPINEPHRINE: NE is adrenergic-dependent (fails in acidosis/vasoplegia). NE has Î² inotropy. NE causes tachycardia risk. VP is non-adrenergic, no inotropy, no chronotropy, spares pulmonary circulation.
+â€¢ vs. NOREPINEPHRINE: NE is adrenergic-dependent (fails in acidosis/vasoplegia). NE has β inotropy. NE causes tachycardia risk. VP is non-adrenergic, no inotropy, no chronotropy, spares pulmonary circulation.
 â€¢ vs. PHENYLEPHRINE: Both lack inotropy. But VP closes KATP channels (works in vasoplegia), PE does not. VP spares pulmonary circulation, PE does not.
-â€¢ vs. EPINEPHRINE: Epi has Î² â†’ tachycardia, arrhythmia, lactic acidosis. VP has zero adrenergic effects.`,
+â€¢ vs. EPINEPHRINE: Epi has β â†’ tachycardia, arrhythmia, lactic acidosis. VP has zero adrenergic effects.`,
   dosing: [
     { ind: "Septic Shock (2nd-line, SSC 2021)", dose: "0.03â€“0.04 U/min (FIXED, non-weight-based)", notes: "Add when NE 0.25â€“0.5 mcg/kg/min. Do NOT titrate above 0.04 U/min â€” higher doses â†‘ischemic risk. Not a standalone vasopressor â€” always WITH norepinephrine.", clr: "ac" },
     { ind: "Post-Cardiotomy Vasoplegia", dose: "0.01â€“0.04 U/min", notes: "Start low. Common after CPB due to vasopressin depletion. VANCS trial validated benefit.", clr: "bl" },
@@ -275,7 +275,7 @@ KEY COMPARISONS:
     { ind: "GI Variceal Hemorrhage", dose: "0.2â€“0.4 U/min IV", notes: "Splanchnic vasoconstriction â†“ portal pressure. Max 0.8 U/min. Co-administer with nitroglycerin to prevent coronary vasoconstriction. Octreotide/terlipressin preferred.", clr: "pk" },
   ],
   kin: { onset: "1â€“2 min IV", onsetD: "Rapid onset â€” comparable to catecholamines", peak: "5â€“15 min", peakD: "Steady-state with continuous infusion", dur: "30â€“60 min after stopping", durD: "Longer than catecholamines (NE offset 1â€“2 min)", vd: "140 mL/kg", pb: "~1% (minimal)", hl: "10â€“20 min", csht: "N/A â€” fixed-dose infusion", cl: "Hepatic + renal peptidase cleavage", model: "Rapid enzymatic degradation" },
-  metab: `Vasopressin is a 9-amino-acid cyclic peptide (Cys-Tyr-Phe-Gln-Asn-Cys-Pro-Arg-Gly-NHâ‚‚) with a disulfide bridge between CysÂ¹ and Cysâ¶.
+  metab: `Vasopressin is a 9-amino-acid cyclic peptide (Cys-Tyr-Phe-Gln-Asn-Cys-Pro-Arg-Gly-NHâ‚‚) with a disulfide bridge between Cys¹ and Cysâ¶.
 
 Metabolism: Enzymatic cleavage by peptidases â€” primarily hepatic and renal serine proteases, carboxypeptidases, and disulfide oxidoreductases. Metabolites are pharmacologically inactive. Half-life 10â€“20 minutes (shorter in shock states due to increased clearance).
 
@@ -289,9 +289,9 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
   warn: [
     { tp: "bb", ti: "Tissue Ischemia (Dose-Dependent)", tx: "Potent vasoconstriction can cause: mesenteric ischemia (splanchnic V density is HIGH), digital ischemia/gangrene, skin necrosis, coronary vasoconstriction â†’ demand ischemia. Risk increases sharply above 0.04 U/min. Do NOT titrate as sole vasopressor." },
     { tp: "ci", ti: "Coronary Artery Disease", tx: "V coronary vasoconstriction can precipitate ischemia. VASST excluded unstable coronary patients. Use with extreme caution â€” if used, keep â‰¤0.03 U/min and monitor troponin." },
-    { tp: "cau", ti: "Hyponatremia Risk", tx: "Vâ‚‚ activation â†’ free water retention â†’ dilutional hyponatremia. Monitor serum Naâº. Risk higher with prolonged infusion. Can complicate neuro patients where Naâº targets matter." },
+    { tp: "cau", ti: "Hyponatremia Risk", tx: "Vâ‚‚ activation â†’ free water retention â†’ dilutional hyponatremia. Monitor serum Na⁺. Risk higher with prolonged infusion. Can complicate neuro patients where Na⁺ targets matter." },
     { tp: "cau", ti: "Mesenteric Ischemia", tx: "Splanchnic bed has highest V receptor density. Monitor lactate and abdominal exam. VASST excluded patients with suspected mesenteric ischemia." },
-    { tp: "cau", ti: "Not a Standalone Vasopressor", tx: "Must be used WITH norepinephrine in septic shock â€” not as replacement. Fixed dose, not titrated. Does not provide Î² inotropy â€” cardiac output not supported." },
+    { tp: "cau", ti: "Not a Standalone Vasopressor", tx: "Must be used WITH norepinephrine in septic shock â€” not as replacement. Fixed dose, not titrated. Does not provide β inotropy â€” cardiac output not supported." },
   ],
   ix: [
     { dr: "Norepinephrine", ef: "Synergistic vasopression (different receptor pathways). VP allows NE dose reduction (catecholamine-sparing). SSC 2021 standard combination.", sv: "low" },
@@ -312,10 +312,10 @@ CRITICAL DISTINCTION from catecholamines: Vasopressin is NOT taken up by neurona
     { ti: "Decatecholaminization trend", tx: "2024â€“2025 literature supports earlier VP addition to reduce catecholamine exposure. High-dose catecholamines â†’ myocardial toxicity, arrhythmias, metabolic derangement. VP spares catecholamine dose." },
   ],
   intQs: [
-    { q: "Patient on NE 0.5 mcg/kg/min, MAP 56, pH 7.18. What's happening and what do you add?", a: "Catecholamine-resistant vasoplegia. Acidosis opens KATP channels â†’ hyperpolarization â†’ Î± receptors can't transduce signal. Add VP 0.03 U/min â€” non-adrenergic, closes KATP channels via PKC, V receptors maintain affinity in acidosis. Also give bicarb if pH <7.15 and consider hydrocortisone." },
+    { q: "Patient on NE 0.5 mcg/kg/min, MAP 56, pH 7.18. What's happening and what do you add?", a: "Catecholamine-resistant vasoplegia. Acidosis opens KATP channels â†’ hyperpolarization â†’ α receptors can't transduce signal. Add VP 0.03 U/min â€” non-adrenergic, closes KATP channels via PKC, V receptors maintain affinity in acidosis. Also give bicarb if pH <7.15 and consider hydrocortisone." },
     { q: "Why does urine output increase when you start vasopressin?", a: "V receptors preferentially constrict EFFERENT arterioles >> afferent. This â†‘glomerular filtration pressure â†’ â†‘GFR â†’ â†‘UOP. Despite Vâ‚‚-mediated water reabsorption, the net effect at low doses is increased filtration." },
-    { q: "VP was removed from ACLS. Does that mean it doesn't work?", a: "It was equivalent to epinephrine â€” removed to simplify, not for harm. AHA 2025 classifies it Class 3: No Benefit (not Class 3: Harm). In cardiac arrest, epinephrine's Î± + Î² effects on coronary perfusion are sufficient. VP's role is in SHOCK, not arrest." },
-    { q: "Cardiogenic shock patient on NE + dobutamine. Can you add VP?", a: "Use cautiously. VP has NO Î² inotropy and increases afterload (â†‘SVR). In cardiogenic shock with â†“CO, â†‘afterload without â†‘contractility worsens output. VP better suited for distributive/vasodilatory shock where the problem is low SVR, not low CO." },
+    { q: "VP was removed from ACLS. Does that mean it doesn't work?", a: "It was equivalent to epinephrine â€” removed to simplify, not for harm. AHA 2025 classifies it Class 3: No Benefit (not Class 3: Harm). In cardiac arrest, epinephrine's α + β effects on coronary perfusion are sufficient. VP's role is in SHOCK, not arrest." },
+    { q: "Cardiogenic shock patient on NE + dobutamine. Can you add VP?", a: "Use cautiously. VP has NO β inotropy and increases afterload (â†‘SVR). In cardiogenic shock with â†“CO, â†‘afterload without â†‘contractility worsens output. VP better suited for distributive/vasodilatory shock where the problem is low SVR, not low CO." },
   ],
 },{
   id: "atropine", name: "Atropine", brand: "AtroPen",
@@ -959,8 +959,8 @@ const PROTOS = [
       { a: "Hypovolemia", d: "Most common PEA cause. Flat neck veins. Volume, blood products, surgical control." },
       { a: "Hypoxia", d: "Confirm ETT with capnography. Bilateral breath sounds. FiOâ‚‚ 100%." },
       { a: "Hydrogen ion (Acidosis)", d: "pH <7.1 impairs contractility + vasopressor response. Bicarb 1 mEq/kg for known severe acidosis or hyperK." },
-      { a: "Hypo/Hyperkalemia", d: "HyperK: peaked T â†’ sine wave â†’ VF. CaClâ‚‚ 1g IV (3x more CaÂ²âº than gluconate), insulin/glucose, albuterol. HypoK: replete >3.5." },
-      { a: "Hypothermia", d: "<30Â°C: refractory VF. Withhold vasopressors until >30Â°C. Rewarm: warm IVF, forced air, lavage, ECMO." },
+      { a: "Hypo/Hyperkalemia", d: "HyperK: peaked T â†’ sine wave â†’ VF. CaClâ‚‚ 1g IV (3x more Ca²⁺ than gluconate), insulin/glucose, albuterol. HypoK: replete >3.5." },
+      { a: "Hypothermia", d: "<30°C: refractory VF. Withhold vasopressors until >30°C. Rewarm: warm IVF, forced air, lavage, ECMO." },
       { a: "Tension Pneumothorax", d: "Absent BS, tracheal deviation, hard to ventilate. Needle decompression â†’ chest tube." },
       { a: "Tamponade", d: "Beck's triad. Bedside echo: effusion + RV collapse. Pericardiocentesis or thoracotomy." },
       { a: "Toxins", d: "Opioid â†’ naloxone. BB/CCB â†’ glucagon, high-dose insulin. TCA â†’ bicarb. LA toxicity â†’ intralipid 20%." },
@@ -976,8 +976,8 @@ const PROTOS = [
       { a: "Atropine 1 mg IV", d: "First-line. Repeat q3â€“5 min, max 3 mg. Blocks M2 muscarinic at SA/AV nodes." },
       { a: "If atropine fails:", d: "Won't work in Mobitz II, 3rd degree block, or denervated hearts." },
       { a: "Transcutaneous pacing", d: "Rate 60â€“80, increase mA to capture. Sedate â€” pacing is painful." },
-      { a: "Dopamine 2â€“20 mcg/kg/min", d: "Î²1 effects â†‘ HR and contractility. Temporizing if pacing unavailable." },
-      { a: "Epinephrine 2â€“10 mcg/min", d: "Î²1 chronotropy. Refractory cases." },
+      { a: "Dopamine 2â€“20 mcg/kg/min", d: "β1 effects â†‘ HR and contractility. Temporizing if pacing unavailable." },
+      { a: "Epinephrine 2â€“10 mcg/min", d: "β1 chronotropy. Refractory cases." },
       { a: "Transvenous pacing", d: "Definitive temporary measure. Bridge to permanent pacemaker." },
     ],
     keys: ["Atropine works on AV NODE only â€” NOT infranodal", "Mobitz I (Wenckebach): AV nodal â†’ may respond to atropine", "Mobitz II: infranodal â†’ pace early", "3rd degree + wide QRS â†’ pace immediately", "Atropine <0.5 mg can paradoxically worsen bradycardia", "BB/CCB OD: glucagon 3â€“5 mg IV, high-dose insulin"] },
@@ -1002,7 +1002,7 @@ const PROTOS = [
       { a: "Airway & Ventilation", d: "SpOâ‚‚ 92â€“98% (avoid hyperoxia). PaCOâ‚‚ 35â€“45. Waveform capnography. ETCOâ‚‚ >40 = adequate CO." },
       { a: "Hemodynamics", d: "SBP >90 or MAP â‰¥65 (some target â‰¥80 for cerebral perfusion). IVF + NE or epi infusion." },
       { a: "12-lead ECG", d: "STEMI â†’ emergent cath regardless of neuro status." },
-      { a: "TTM", d: "Comatose patients: 32â€“36Â°C for â‰¥24h. Cold saline, cooling devices. Prevent shivering. Prevent hyperthermia â‰¥72h." },
+      { a: "TTM", d: "Comatose patients: 32â€“36°C for â‰¥24h. Cold saline, cooling devices. Prevent shivering. Prevent hyperthermia â‰¥72h." },
       { a: "Glucose", d: "Target 144â€“180 mg/dL. Avoid hypoglycemia (<80)." },
       { a: "Seizures", d: "Continuous EEG. Treat aggressively (levetiracetam, BZDs, propofol)." },
       { a: "Neuroprognostication", d: "NEVER before 72h post-ROSC. Multimodal: exam, EEG, SSEPs, MRI, NSE." },
@@ -1029,7 +1029,7 @@ const PROTOS = [
       { a: "Epinephrine", d: "IV/IO: 0.01 mg/kg (0.1 mL/kg of 0.1 mg/mL). Max 1 mg. Every 3â€“5 min. ET dose: 0.1 mg/kg (0.1 mL/kg of 1 mg/mL). For PEA/Asystole: give ASAP. For VF/pVT: after 2nd shock." },
       { a: "Antiarrhythmics (Shockable)", d: "Amiodarone 5 mg/kg IV/IO bolus (may repeat up to 3 total doses) OR Lidocaine 1 mg/kg IV/IO loading dose." },
       { a: "Advanced Airway", d: "ETT or supraglottic airway. Confirm with waveform capnography. Once placed: continuous compressions + 1 breath every 2â€“3 seconds." },
-      { a: "Reversible Causes", d: "Hypovolemia, Hypoxia, Hâº (acidosis), Hypoglycemia, Hypo/hyperkalemia, Hypothermia + Tension pneumothorax, Tamponade, Toxins, Thrombosis (pulmonary & coronary)." },
+      { a: "Reversible Causes", d: "Hypovolemia, Hypoxia, H⁺ (acidosis), Hypoglycemia, Hypo/hyperkalemia, Hypothermia + Tension pneumothorax, Tamponade, Toxins, Thrombosis (pulmonary & coronary)." },
     ],
     keys: ["Compression depth â‰¥â…“ AP diameter (different from adult)", "15:2 ratio in PALS (not 30:2)", "Defibrillation: 2â†’4â†’â‰¥4 J/kg (max 10 J/kg)", "Epinephrine ASAP for non-shockable rhythms", "Hypoglycemia added to H's (unique to peds)", "ET epi dose is 10Ã— the IV dose"] },
   { id: "pals_brady", name: "PALS Bradycardia", cat: "Pediatric", clr: "#0ea5e9",
@@ -1060,17 +1060,17 @@ const PROTOS = [
 
 const QUIZZES = {
   vasopressors: { label: "Vasopressor Dosing", icon: "Q", items: [
-    { q: "78 kg septic shock, MAP 58 despite 2L crystalloid. Vasopressor, dose, target?", a: "Norepinephrine 0.1â€“0.2 mcg/kg/min. Target MAP â‰¥65. First-line per SSC: Î±1 vasoconstriction + moderate Î²1 inotropy.", c: "Vasopressor Dosing" },
+    { q: "78 kg septic shock, MAP 58 despite 2L crystalloid. Vasopressor, dose, target?", a: "Norepinephrine 0.1â€“0.2 mcg/kg/min. Target MAP â‰¥65. First-line per SSC: α1 vasoconstriction + moderate β1 inotropy.", c: "Vasopressor Dosing" },
     { q: "On NE 0.5 mcg/kg/min, MAP still 60. Next?", a: "Vasopressin 0.04 units/min (fixed). V1 agonist â€” non-catecholamine. SSC second-line.", c: "Vasopressor Dosing" },
-    { q: "Decompensated HF: CI 1.8, PCWP 28, SVR 1800. Inotrope?", a: "Dobutamine 2.5â€“10 mcg/kg/min. Î²1â†‘contractility, mild Î²2â†“SVR. Alt: milrinone if on Î²-blockers.", c: "Vasopressor Dosing" },
-    { q: "Max phenylephrine infusion and receptor?", a: "0.5â€“5 mcg/kg/min (up to 10). Pure Î±1. Watch reflex bradycardia.", c: "Vasopressor Dosing" },
-    { q: "Ephedrine vs phenylephrine at receptor level?", a: "Ephedrine: indirect sympathomimetic (releases NE) â†’ mixed Î±1+Î²1/Î²2. Maintains HR/CO+SVR. Tachyphylaxis. PE: direct pure Î±1.", c: "Vasopressor Dosing" },
+    { q: "Decompensated HF: CI 1.8, PCWP 28, SVR 1800. Inotrope?", a: "Dobutamine 2.5â€“10 mcg/kg/min. β1â†‘contractility, mild β2â†“SVR. Alt: milrinone if on β-blockers.", c: "Vasopressor Dosing" },
+    { q: "Max phenylephrine infusion and receptor?", a: "0.5â€“5 mcg/kg/min (up to 10). Pure α1. Watch reflex bradycardia.", c: "Vasopressor Dosing" },
+    { q: "Ephedrine vs phenylephrine at receptor level?", a: "Ephedrine: indirect sympathomimetic (releases NE) â†’ mixed α1+β1/β2. Maintains HR/CO+SVR. Tachyphylaxis. PE: direct pure α1.", c: "Vasopressor Dosing" },
   ]},
   acls: { label: "ACLS Algorithms", icon: "Q", items: [
     { q: "VFib witnessed. Walk through the first 2 cycles.", a: "Call code â†’ CPR (100â€“120/min, 2+in) â†’ defib pads â†’ 2 min check â†’ shock 200J â†’ CPR â†’ IV/IO â†’ after 2nd shock: epi 1mg q3â€“5min â†’ after 3rd: amio 300mg.", c: "ACLS" },
     { q: "PEA, HR 40 on monitor, no pulse. Priorities?", a: "CPR (NO shocks). Epi 1mg ASAP q3â€“5min. H's and T's aggressively. Narrow PEAâ†’mechanical. Wide PEAâ†’metabolic.", c: "ACLS" },
     { q: "Wide-complex tachy 180, alert, BP 108/72. Management?", a: "Stable â†’ amiodarone 150mg over 10min. Alt: procainamide. Polymorphic+long QTc â†’ Mg 1â€“2g. Unstable â†’ sync cardioversion 100J.", c: "ACLS" },
-    { q: "Post-ROSC, comatose, temp 37.8Â°C. TTM protocol?", a: "32â€“36Â°C â‰¥24h. Cool with saline/devices. Treat shivering. Prevent hyperthermia â‰¥72h. Neuroprognosticate â‰¥72h.", c: "ACLS" },
+    { q: "Post-ROSC, comatose, temp 37.8°C. TTM protocol?", a: "32â€“36°C â‰¥24h. Cool with saline/devices. Treat shivering. Prevent hyperthermia â‰¥72h. Neuroprognosticate â‰¥72h.", c: "ACLS" },
     { q: "Name all H's and T's.", a: "H's: Hypovolemia, Hypoxia, H+ (acidosis), Hypo/HyperK, Hypothermia. T's: Tension pneumo, Tamponade, Toxins, Thrombosis (PE + coronary).", c: "ACLS" },
   ]},
 };
@@ -1097,7 +1097,7 @@ const RECEPTORS = [
     examples: "GABA-A, nACh, NMDA, Glycine, 5-HT3",
     prototypeDrug: "Propofol, Succinylcholine",
     color: "#3b82f6",
-    linkedMeds: [{ id: "propofol", name: "Propofol", note: "GABA-A potentiator" },{ id: "etomidate", name: "Etomidate", note: "GABA-A modulator (Î±-Î² interface)" },{ id: "succinylcholine", name: "Succinylcholine", note: "nAChR agonist (depolarizing)" },{ id: "rocuronium", name: "Rocuronium", note: "nAChR antagonist (competitive)" },{ id: "vecuronium", name: "Vecuronium", note: "nAChR antagonist (competitive)" },{ id: "cisatracurium", name: "Cisatracurium", note: "nAChR antagonist (competitive)" }],
+    linkedMeds: [{ id: "propofol", name: "Propofol", note: "GABA-A potentiator" },{ id: "etomidate", name: "Etomidate", note: "GABA-A modulator (α-β interface)" },{ id: "succinylcholine", name: "Succinylcholine", note: "nAChR agonist (depolarizing)" },{ id: "rocuronium", name: "Rocuronium", note: "nAChR antagonist (competitive)" },{ id: "vecuronium", name: "Vecuronium", note: "nAChR antagonist (competitive)" },{ id: "cisatracurium", name: "Cisatracurium", note: "nAChR antagonist (competitive)" }],
     futureMeds: "Ketamine, Midazolam",
     overview: [
       "Ligand-gated ion channels (LGICs) are transmembrane protein complexes that function as both receptor AND ion channel in a single macromolecule. Binding the ligand directly opens or closes the channel with no intermediary signaling molecules, making them the fastest-acting receptor class.",
@@ -2944,8 +2944,8 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
       {tab === "diagram" && <div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px", marginBottom: "14px" }}>
-          <div><h3 style={{ color: t.ac, fontSize: "17px", margin: "0 0 3px" }}>{item.id === "norepinephrine" ? "Î± Adrenergic Receptor Pathways" : item.id === "vasopressin" ? "V / Vâ‚‚ / KATP Channel Pathways" : "GABA-A Receptor Diagram"}</h3>
-            <p style={{ color: t.tM, margin: 0, fontSize: "12px" }}>{item.id === "norepinephrine" ? "NE binding â†’ Gq/Gs/Gi cascades â†’ vasoconstriction + inotropy + autoregulation" : item.id === "vasopressin" ? "AVP binding â†’ V vasoconstriction + KATP closure + Vâ‚‚/Gs antidiuresis" : "Propofol binding â†’ Clâ» influx â†’ hyperpolarization"}</p></div>
+          <div><h3 style={{ color: t.ac, fontSize: "17px", margin: "0 0 3px" }}>{item.id === "norepinephrine" ? "α Adrenergic Receptor Pathways" : item.id === "vasopressin" ? "V / Vâ‚‚ / KATP Channel Pathways" : "GABA-A Receptor Diagram"}</h3>
+            <p style={{ color: t.tM, margin: 0, fontSize: "12px" }}>{item.id === "norepinephrine" ? "NE binding â†’ Gq/Gs/Gi cascades â†’ vasoconstriction + inotropy + autoregulation" : item.id === "vasopressin" ? "AVP binding â†’ V vasoconstriction + KATP closure + Vâ‚‚/Gs antidiuresis" : "Propofol binding â†’ Cl⁻ influx â†’ hyperpolarization"}</p></div>
           <div style={{ display: "flex", gap: "6px" }}>
             <button onClick={() => dlDiagram(svgRef, item.name, "jpeg")} style={{ background: t.bgS, border: `1px solid ${t.bd}`, borderRadius: "7px", padding: "6px 12px", cursor: "pointer", color: t.t2, fontSize: "12px", fontWeight: 600 }}> JPEG</button>
             <button onClick={() => dlDiagram(svgRef, item.name, "png")} style={{ background: t.bgS, border: `1px solid ${t.bd}`, borderRadius: "7px", padding: "6px 12px", cursor: "pointer", color: t.t2, fontSize: "12px", fontWeight: 600 }}> PNG</button>
@@ -3014,10 +3014,10 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <rect x="195" y="216" width="55" height="20" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.2" />
           <text x="222" y="230" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="600">DAG</text>
 
-          {/* IPâ‚ƒ â†’ SR CaÂ²âº */}
+          {/* IPâ‚ƒ â†’ SR Ca²⁺ */}
           <line x1="108" y1="236" x2="108" y2="255" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#avB)" />
           <rect x="70" y="256" width="78" height="28" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="109" y="270" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">SR â†’ CaÂ²âº</text>
+          <text x="109" y="270" textAnchor="middle" fill="#3b82f6" fontSize="8" fontWeight="700">SR â†’ Ca²⁺</text>
           <text x="109" y="280" textAnchor="middle" fill="#3b82f6" fontSize="7">cytoplasmic release</text>
 
           {/* DAG â†’ PKC */}
@@ -3030,11 +3030,11 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <text x="270" y="262" fill="#ef4444" fontSize="7" fontWeight="600">CLOSES</text>
           <text x="270" y="272" fill="#ef4444" fontSize="7" fontWeight="600">KATP </text>
 
-          {/* Converge â†’ CaÂ²âº-CaM â†’ MLCK */}
+          {/* Converge â†’ Ca²⁺-CaM â†’ MLCK */}
           <line x1="109" y1="284" x2="150" y2="305" stroke="#3b82f6" strokeWidth="1.2" markerEnd="url(#avB)" />
           <line x1="222" y1="276" x2="180" y2="305" stroke="#f59e0b" strokeWidth="1.2" markerEnd="url(#avO)" />
           <rect x="115" y="306" width="100" height="22" rx="5" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="1.5" />
-          <text x="165" y="321" textAnchor="middle" fill="#3b82f6" fontSize="9" fontWeight="600">CaÂ²âº-CaM â†’ MLCK</text>
+          <text x="165" y="321" textAnchor="middle" fill="#3b82f6" fontSize="9" fontWeight="600">Ca²⁺-CaM â†’ MLCK</text>
 
           {/* Vasoconstriction */}
           <line x1="165" y1="328" x2="165" y2="348" stroke="#06b6d4" strokeWidth="1.5" markerEnd="url(#avT)" />
@@ -3066,7 +3066,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           {/* Gs */}
           <line x1="440" y1="120" x2="440" y2="135" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
           <rect x="410" y="136" width="60" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="440" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">GsÎ±</text>
+          <text x="440" y="151" textAnchor="middle" fill="#a855f7" fontSize="10" fontWeight="700">Gsα</text>
 
           {/* AC â†’ cAMP */}
           <line x1="440" y1="158" x2="440" y2="172" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
@@ -3122,7 +3122,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
           <line x1="680" y1="158" x2="680" y2="176" stroke="#a855f7" strokeWidth="1.5" markerEnd="url(#avP)" />
           <rect x="640" y="177" width="80" height="22" rx="5" fill={theme === "dark" ? "#2e1065" : "#ede9fe"} stroke="#a855f7" strokeWidth="1.5" />
-          <text x="680" y="192" textAnchor="middle" fill="#a855f7" fontSize="9" fontWeight="600">PLC â†’ CaÂ²âº</text>
+          <text x="680" y="192" textAnchor="middle" fill="#a855f7" fontSize="9" fontWeight="600">PLC â†’ Ca²⁺</text>
 
           <line x1="680" y1="199" x2="680" y2="218" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#avO)" />
           <rect x="625" y="219" width="110" height="32" rx="8" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="2" />
@@ -3139,12 +3139,12 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <text x="667" y="318" textAnchor="middle" fill={t.tx} fontSize="10" fontWeight="700">KATP Channel Mechanism</text>
           <line x1="575" y1="324" x2="760" y2="324" stroke={t.bd} strokeWidth="0.5" />
           <text x="575" y="340" fill="#ef4444" fontSize="8" fontWeight="600">In Septic Shock:</text>
-          <text x="575" y="352" fill={t.tM} fontSize="7">â†“ATP + â†‘Hâº + â†‘NO â†’ KATP OPEN</text>
-          <text x="575" y="364" fill={t.tM} fontSize="7">â†’ Kâº efflux â†’ hyperpolarization</text>
+          <text x="575" y="352" fill={t.tM} fontSize="7">â†“ATP + â†‘H⁺ + â†‘NO â†’ KATP OPEN</text>
+          <text x="575" y="364" fill={t.tM} fontSize="7">â†’ K⁺ efflux â†’ hyperpolarization</text>
           <text x="575" y="376" fill={t.tM} fontSize="7">â†’ VGCCs stuck closed â†’ vasoplegia</text>
           <text x="575" y="392" fill="#10b981" fontSize="8" fontWeight="600">Vasopressin Rescue:</text>
           <text x="575" y="404" fill="#10b981" fontSize="7">V â†’ PKC â†’ CLOSES KATP â†’ restores</text>
-          <text x="704" y="404" fill="#10b981" fontSize="7">CaÂ²âº entry</text>
+          <text x="704" y="404" fill="#10b981" fontSize="7">Ca²⁺ entry</text>
 
 
           {/*  NET EFFECT  */}
@@ -3174,7 +3174,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <rect x="445" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#ede9fe" : "#ede9fe"} stroke="#a855f7" strokeWidth="1" /><text x="460" y="660" fill={t.tM} fontSize="8">V / G-proteins</text>
           <rect x="570" y="651" width="10" height="10" rx="2" fill={theme === "dark" ? "#fef3c7" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" /><text x="585" y="660" fill={t.tM} fontSize="8">2nd messengers</text>
 
-          <text x="80" y="678" fill={t.tM} fontSize="8">7-TM = GPCR | PLC = phospholipase C | IPâ‚ƒ/DAG = 2nd messengers | PKC/PKA = protein kinases | AQP2 = aquaporin-2 | KATP = ATP-sensitive Kâº channel | vWF = von Willebrand factor</text>
+          <text x="80" y="678" fill={t.tM} fontSize="8">7-TM = GPCR | PLC = phospholipase C | IPâ‚ƒ/DAG = 2nd messengers | PKC/PKA = protein kinases | AQP2 = aquaporin-2 | KATP = ATP-sensitive K⁺ channel | vWF = von Willebrand factor</text>
         </svg>
         ) : item.id === "ketamine" ? (
 
@@ -3189,7 +3189,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
           {/* Title */}
           <text x="400" y="26" textAnchor="middle" fill={t.tx} fontSize="15" fontWeight="700">Ketamine â€” NMDA Receptor Open-Channel Block</text>
-          <text x="400" y="44" textAnchor="middle" fill={t.tM} fontSize="10">Non-competitive, use-dependent antagonism of glutamate-gated CaÂ²âº/Naâº channel</text>
+          <text x="400" y="44" textAnchor="middle" fill={t.tM} fontSize="10">Non-competitive, use-dependent antagonism of glutamate-gated Ca²⁺/Na⁺ channel</text>
 
           {/* â•â• EXTRACELLULAR SPACE â•â• */}
           <text x="50" y="72" fill={t.tM} fontSize="10" fontWeight="600">EXTRACELLULAR</text>
@@ -3231,11 +3231,11 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           {/* Channel pore (center) */}
           <rect x="310" y="145" width="140" height="50" rx="6" fill={theme === "dark" ? "#0c1a33" : "#dbeafe"} stroke="#3b82f6" strokeWidth="2" />
           <text x="380" y="165" textAnchor="middle" fill="#3b82f6" fontSize="11" fontWeight="700">ION CHANNEL PORE</text>
-          <text x="380" y="180" textAnchor="middle" fill={t.tM} fontSize="8">CaÂ²âº / Naâº permeable</text>
+          <text x="380" y="180" textAnchor="middle" fill={t.tM} fontSize="8">Ca²⁺ / Na⁺ permeable</text>
 
-          {/* MgÂ²âº voltage block */}
+          {/* Mg²⁺ voltage block */}
           <rect x="355" y="200" width="50" height="22" rx="4" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="380" y="215" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">MgÂ²âº</text>
+          <text x="380" y="215" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">Mg²⁺</text>
           <text x="440" y="214" fill={t.tM} fontSize="8" fontStyle="italic">voltage-dependent block</text>
           <text x="440" y="226" fill={t.tM} fontSize="7">(expelled upon depolarization)</text>
 
@@ -3244,18 +3244,18 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           {/* â•â• NORMAL STATE (Left) â•â• */}
           <rect x="50" y="268" width="330" height="180" rx="10" fill={t.bgC} stroke={t.ok} strokeWidth="1.5" />
           <text x="215" y="290" textAnchor="middle" fill={t.ok} fontSize="13" fontWeight="700">NORMAL: Channel Open</text>
-          <text x="215" y="305" textAnchor="middle" fill={t.tM} fontSize="9">Glu + Gly bound + depolarized (MgÂ²âº expelled)</text>
+          <text x="215" y="305" textAnchor="middle" fill={t.tM} fontSize="9">Glu + Gly bound + depolarized (Mg²⁺ expelled)</text>
 
           {/* Ion flow arrows */}
           <line x1="140" y1="315" x2="140" y2="355" stroke="#3b82f6" strokeWidth="2.5" markerEnd="url(#kB)" />
-          <text x="140" y="370" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="700">CaÂ²âº</text>
+          <text x="140" y="370" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="700">Ca²⁺</text>
           <line x1="200" y1="315" x2="200" y2="355" stroke="#06b6d4" strokeWidth="2.5" markerEnd="url(#kG)" />
-          <text x="200" y="370" textAnchor="middle" fill="#06b6d4" fontSize="10" fontWeight="700">Naâº</text>
+          <text x="200" y="370" textAnchor="middle" fill="#06b6d4" fontSize="10" fontWeight="700">Na⁺</text>
 
           {/* Downstream signaling */}
           <line x1="170" y1="380" x2="170" y2="400" stroke={t.tM} strokeWidth="1.5" markerEnd="url(#kO)" />
           <rect x="100" y="402" width="140" height="36" rx="6" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1.5" />
-          <text x="170" y="418" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">CaÂ²âº â†’ CaMKII</text>
+          <text x="170" y="418" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="700">Ca²⁺ â†’ CaMKII</text>
           <text x="170" y="432" textAnchor="middle" fill={t.tM} fontSize="8">LTP / Central Sensitization</text>
 
           {/* â•â• KETAMINE BLOCKED STATE (Right) â•â• */}
@@ -3276,7 +3276,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
           {/* No downstream */}
           <rect x="510" y="410" width="150" height="30" rx="6" fill={theme === "dark" ? "#450a0a" : "#fecaca"} stroke="#ef4444" strokeWidth="1.5" />
-          <text x="585" y="430" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="9" fontWeight="700">â†“CaÂ²âº influx â†’ BLOCKED</text>
+          <text x="585" y="430" textAnchor="middle" fill={theme === "dark" ? "#fca5a5" : "#dc2626"} fontSize="9" fontWeight="700">â†“Ca²⁺ influx â†’ BLOCKED</text>
 
           {/* â•â• CLINICAL EFFECTS BOX â•â• */}
           <rect x="50" y="465" width="700" height="110" rx="10" fill={t.bgC} stroke={t.bd} strokeWidth="1.5" />
@@ -3303,7 +3303,7 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
 
           <rect x="550" y="495" width="145" height="65" rx="6" fill={theme === "dark" ? "#422006" : "#fef3c7"} stroke="#f59e0b" strokeWidth="1" />
           <text x="622" y="514" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="700">Neuroprotection</text>
-          <text x="622" y="528" textAnchor="middle" fill={t.t2} fontSize="8">â†“Excitotoxic CaÂ²âº</text>
+          <text x="622" y="528" textAnchor="middle" fill={t.t2} fontSize="8">â†“Excitotoxic Ca²⁺</text>
           <text x="622" y="540" textAnchor="middle" fill={t.t2} fontSize="8">â†“Neuronal death</text>
           <text x="622" y="552" textAnchor="middle" fill={t.tM} fontSize="7">(TBI, status epilepticus)</text>
 
@@ -3312,8 +3312,8 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
           <circle cx="80" cy="599" r="5" fill="#ef4444" /><text x="90" y="603" fill={t.tM} fontSize="9">Ketamine</text>
           <circle cx="175" cy="599" r="5" fill="#10b981" /><text x="185" y="603" fill={t.tM} fontSize="9">Glutamate</text>
           <circle cx="275" cy="599" r="5" fill="#06b6d4" /><text x="285" y="603" fill={t.tM} fontSize="9">Glycine</text>
-          <circle cx="355" cy="599" r="5" fill="#3b82f6" /><text x="365" y="603" fill={t.tM} fontSize="9">CaÂ²âº</text>
-          <circle cx="415" cy="599" r="5" fill="#f59e0b" /><text x="425" y="603" fill={t.tM} fontSize="9">MgÂ²âº block</text>
+          <circle cx="355" cy="599" r="5" fill="#3b82f6" /><text x="365" y="603" fill={t.tM} fontSize="9">Ca²⁺</text>
+          <circle cx="415" cy="599" r="5" fill="#f59e0b" /><text x="425" y="603" fill={t.tM} fontSize="9">Mg²⁺ block</text>
           <rect x="500" y="594" width="10" height="10" rx="2" fill="none" stroke="#10b981" strokeWidth="1.5" /><text x="515" y="603" fill={t.tM} fontSize="9">NMDA subunits</text>
         </svg>
         ) : (
