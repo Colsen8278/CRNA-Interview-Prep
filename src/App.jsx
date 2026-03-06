@@ -3718,6 +3718,8 @@ function VecuroniumDiagram({ t }) {
 
 // ── Receptor Superfamily Reference (shown below med-specific diagram) ─────────
 function ReceptorFamilyRef({ medId, t }) {
+  return null;
+}
 
 function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes }) {
   const svgRef = useRef(null);
@@ -6285,5 +6287,4 @@ function VentDevice({ t, theme }) {
 
     </div>
   </div>);
-}
 }
