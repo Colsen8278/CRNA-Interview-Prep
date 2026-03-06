@@ -1993,13 +1993,31 @@ function MedDetail({ item, t, theme, tab, setTab, conf, setConf, notes, setNotes
         {item.id === "norepinephrine" ? (
           <NEDiagram t={t} />
         ) : item.id === "propofol" ? (
-          <PropofolDiagram t={t} />
-        ) : item.id === "cisatracurium" ? (
-          <NMJDiagram t={t} drugId="cisatracurium" />
+          <PropofolInteractiveDiagram t={t} />
         ) : item.id === "succinylcholine" ? (
-          <NMJDiagram t={t} drugId="succinylcholine" />
+          <SCHInteractiveDiagram t={t} />
+        ) : item.id === "cisatracurium" ? (
+          <RocuroniumDiagram t={t} />
         ) : item.id === "fentanyl" ? (
           <FentanylDiagram t={t} />
+        ) : item.id === "epinephrine" ? (
+          <EpinephrineDiagram t={t} />
+        ) : item.id === "phenylephrine" ? (
+          <PhenylephrineDiagram t={t} />
+        ) : item.id === "atropine" ? (
+          <AtropineDiagram t={t} />
+        ) : item.id === "glycopyrrolate" ? (
+          <GlycopyrrolateDiagram t={t} />
+        ) : item.id === "labetalol" ? (
+          <LabetalolDiagram t={t} />
+        ) : item.id === "hydralazine" ? (
+          <HydralazineDiagram t={t} />
+        ) : item.id === "etomidate" ? (
+          <EtomitateDiagram t={t} />
+        ) : item.id === "rocuronium" ? (
+          <RocuroniumDiagram t={t} />
+        ) : item.id === "vecuronium" ? (
+          <VecuroniumDiagram t={t} />
         ) : item.id === "vasopressin" ? (
 
         <svg ref={svgRef} viewBox="0 0 800 700" style={{ width: "100%", maxWidth: "820px", background: theme === "dark" ? "#0d1117" : "#f8fafc", borderRadius: "10px", border: `1px solid ${t.bd}` }}>
