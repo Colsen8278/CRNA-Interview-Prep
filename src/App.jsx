@@ -433,7 +433,7 @@ export default function App() {
 
             {/* Clinical Systems Thinker */}
             <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ac}`, borderRadius: "12px", padding: "24px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
                 <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.ac}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <span style={{ fontSize: "13px", fontWeight: 700, color: t.ac }}>CS</span>
                 </div>
@@ -442,22 +442,41 @@ export default function App() {
                   <div style={{ fontSize: "12px", color: t.tM }}>Core identity &mdash; Why CRNA</div>
                 </div>
               </div>
-              <p style={{ margin: "0 0 14px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
-                You analyze complex, dynamic systems &mdash; identify inefficiencies or gaps &mdash; then engineer a solution. You have done this repeatedly at the unit level. Anesthesia is that exact skill applied at the individual patient level. Every anesthetic plan is a custom-built solution for a single patient&apos;s unique physiology.
+
+              {/* Core concept */}
+              <p style={{ margin: "0 0 20px", fontSize: "14px", lineHeight: "1.8", color: t.tx }}>
+                You analyze complex, dynamic systems &mdash; identify inefficiencies or gaps &mdash; then engineer a solution. You&apos;ve done this repeatedly at the unit level. Anesthesia is that exact skill applied at the individual patient level. Every anesthetic plan is a custom-built solution for a single patient&apos;s unique physiology.
               </p>
-              <div style={{ padding: "14px 18px", background: t.bgS, borderLeft: `3px solid ${t.ac}`, borderRadius: "0 8px 8px 0", fontSize: "13px", lineHeight: "1.75", color: t.t2, fontStyle: "italic" }}>
+
+              {/* Why This Lands */}
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Why This Lands in an Interview</div>
+              <p style={{ margin: "0 0 10px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
+                Most CRNA candidates describe <em>wanting</em> autonomy. You&apos;re describing a <strong>proven pattern of thinking</strong> that demonstrates you&apos;re already wired for it. The committee hears:
+              </p>
+              <div style={{ padding: "14px 18px", background: t.bgS, borderLeft: `3px solid ${t.ac}`, borderRadius: "0 8px 8px 0", fontSize: "13px", lineHeight: "1.75", color: t.t2, fontStyle: "italic", marginBottom: "20px" }}>
                 &ldquo;I don&apos;t just want to make independent decisions &mdash; I have a demonstrated methodology for doing so, and a track record of outcomes.&rdquo;
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "14px" }}>
+
+              {/* Interview-Ready Framing */}
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Interview-Ready Framing</div>
+              <p style={{ margin: "0 0 10px", fontSize: "13px", color: t.tM }}>When asked <em>&ldquo;Why CRNA?&rdquo;</em> &mdash;</p>
+              <div style={{ padding: "16px 18px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}`, fontSize: "13px", lineHeight: "1.85", color: t.t2, fontStyle: "italic", marginBottom: "20px" }}>
+                &ldquo;I&apos;ve always been drawn to problems that require you to understand a system deeply before you can change it. My improvement projects at the TNICU reflect that &mdash; I don&apos;t implement solutions until I understand the mechanism driving the problem. Anesthesia is that same discipline applied to human physiology. Every patient walks in as a unique system &mdash; their pharmacogenomics, hemodynamics, airway anatomy, comorbidities &mdash; and the CRNA builds a solution tailored precisely to that individual. That&apos;s the work I want to do.&rdquo;
+              </div>
+
+              {/* Titles Worth Owning */}
+              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Titles Worth Owning in Your Narrative</div>
+              <p style={{ margin: "0 0 12px", fontSize: "13px", color: t.tM }}>Rather than one label, use layered language:</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {[
-                  { label: "Clinical Systems Thinker", sub: "your cognitive style" },
-                  { label: "Unit-Level Process Engineer", sub: "your track record" },
-                  { label: "Precision Practitioner", sub: "where you are headed" },
+                  { label: "Clinical systems thinker", sub: "your cognitive style" },
+                  { label: "Unit-level process engineer", sub: "your track record" },
+                  { label: "Precision practitioner", sub: "where you&apos;re headed" },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "9px 14px", background: t.bgS, borderRadius: "8px", border: `1px solid ${t.bd}` }}>
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: t.ac, flexShrink: 0 }} />
                     <span style={{ fontSize: "13px", fontWeight: 600, color: t.tx }}>&ldquo;{item.label}&rdquo;</span>
-                    <span style={{ fontSize: "12px", color: t.tM }}>&mdash; {item.sub}</span>
+                    <span style={{ fontSize: "12px", color: t.tM }} dangerouslySetInnerHTML={{ __html: `&mdash; ${item.sub}` }} />
                   </div>
                 ))}
               </div>
