@@ -42,6 +42,7 @@ export default function App() {
   const [recSel, setRecSel] = useState(null);
   const [recTab, setRecTab] = useState("overview");
   const [ipTab, setIpTab] = useState("Narrative");
+  const [ipOpen, setIpOpen] = useState({});
   const sRef = useRef(null);
   const t = TH[theme];
 
@@ -417,7 +418,7 @@ export default function App() {
 
           {/* Tab Nav */}
           <div style={{ display: "flex", gap: "6px", marginBottom: "24px", borderBottom: `1px solid ${t.bd}`, paddingBottom: "0" }}>
-            {["Narrative", "Analogies", "Stories", "Questions"].map(tab => (
+            {["Narrative", "Analogies", "Stories", "Questions", "Shadow Log"].map(tab => (
               <button key={tab} onClick={() => setIpTab(tab)} style={{
                 padding: "9px 18px", border: "none", background: "transparent", cursor: "pointer",
                 fontSize: "13px", fontWeight: ipTab === tab ? 700 : 500,
@@ -614,48 +615,118 @@ export default function App() {
           {/* STORIES TAB */}
           {ipTab === "Stories" && <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 
-            <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${t.ok}`, borderRadius: "12px", padding: "24px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${t.ok}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <span style={{ fontSize: "13px", fontWeight: 700, color: t.ok }}>DCD</span>
-                </div>
-                <div>
-                  <div style={{ fontSize: "16px", fontWeight: 700 }}>Gift of Life &mdash; DCD Case</div>
-                  <div style={{ fontSize: "12px", color: t.tM }}>Use for: proactivity, cross-functional collaboration, patient-centered care</div>
-                </div>
-              </div>
-
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The Scenario</div>
-              <p style={{ margin: "0 0 14px", fontSize: "14px", lineHeight: "1.75", color: t.tx }}>
-                A young male patient was brought to the TNICU following a fall from a parking garage &mdash; a donation after cardiac death (DCD) case. In coordination with a perfusionist, the team performed bedside autotransfusion. The family was present throughout. In an objectively devastating situation, the process we had prepared for &mdash; the protocols, the cross-functional coordination, the proactive setup &mdash; created the only positive outcome available: a meaningful, dignified donation that gave other families a chance.
-              </p>
-
-              <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>What This Story Demonstrates</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
-                {[
-                  "Proactivity &mdash; the preparation that made the outcome possible happened long before that patient arrived",
-                  "Cross-functional collaboration &mdash; nursing, surgery, organ procurement, perfusionist, family all working in concert",
+            {[
+              {
+                icon: "DCD", color: "ok", colorHex: t.ok,
+                title: "Gift of Life \u2014 DCD Case",
+                subtitle: "Use for: proactivity, cross-functional collaboration, patient-centered care",
+                scenario: "A young male patient was brought to the TNICU following a fall from a parking garage \u2014 a donation after cardiac death (DCD) case. In coordination with a perfusionist, the team performed bedside autotransfusion. The family was present throughout. In an objectively devastating situation, the process we had prepared for \u2014 the protocols, the cross-functional coordination, the proactive setup \u2014 created the only positive outcome available: a meaningful, dignified donation that gave other families a chance.",
+                demonstrates: [
+                  "Proactivity \u2014 the preparation that made the outcome possible happened long before that patient arrived",
+                  "Cross-functional collaboration \u2014 nursing, surgery, organ procurement, perfusionist, family all working in concert",
                   "Patient and family-centered care under the most difficult possible circumstances",
-                  "Downstream thinking &mdash; understanding that decisions made early in a case shape what is possible at the end",
-                ].map((point, i) => (
-                  <div key={i} style={{ display: "flex", gap: "10px", padding: "9px 14px", background: t.bgS, borderRadius: "8px", fontSize: "13px", color: t.t2 }}>
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: t.ok, flexShrink: 0, marginTop: "6px" }} />
-                    <span dangerouslySetInnerHTML={{ __html: point }} />
+                  "Downstream thinking \u2014 understanding that decisions made early in a case shape what is possible at the end",
+                ],
+                framing: "When asked about a time you made a meaningful difference, or about proactivity, or about working in high-stakes interdisciplinary teams \u2014 this is your anchor story. The outcome was not saving the patient. The outcome was creating the only good that was possible from that situation. That distinction is powerful.",
+              },
+              {
+                icon: "TY", color: "ac", colorHex: t.ac,
+                title: "Tell Us About Yourself",
+                subtitle: "Use for: opening statement, identity, program fit, what makes you unique",
+                scenario: "My name is Christopher Olsen, and I am a critical care nurse with four years of experience and a background that combines healthcare innovation with technology. I began my nursing career in Lancaster General Hospital\u2019s Trauma Neuro-Surgical ICU, earned my CCRN within eighteen months, followed by SCRN and TCRN certifications. By year three I advanced to charge nurse, overseeing unit operations and leading high-performance teams through complex patient scenarios. I have also expanded my critical care expertise through per diem work at Thomas Jefferson University Hospital\u2019s Surgical ICU. What makes me unique is my previous career at Apple, where I learned to leverage technology and innovation to improve user experiences \u2014 a lens I bring directly into unit improvement projects, from developing brain death communication protocols with Gift of Life to building educational materials that improve team performance. Colleagues describe me as collaborative, innovative, resilient, and someone with exceptional grit. I am drawn to programs that welcome diverse perspectives and challenge conventional thinking, because that openness is exactly how I approach clinical practice and professional growth.",
+                demonstrates: [
+                  "Clinical credibility established in the first two sentences \u2014 TNICU, CCRN in 18 months, SCRN, TCRN",
+                  "The Apple differentiator is your single strongest identity hook \u2014 no other candidate has it",
+                  "Gift of Life and improvement projects show initiative beyond bedside care",
+                  "The close on program fit turns the answer outward and signals you did your research",
+                  "Grit and resilience named directly \u2014 qualities CRNA programs explicitly select for",
+                ],
+                framing: "This is your opening statement. Run three beats: clinical identity and credentials, the Apple differentiator and what it produced, then program fit. The Apple career is not a liability \u2014 it is the most memorable thing in your application. Own it early and connect it to outcomes. The answer should take 90 seconds to deliver aloud \u2014 not 30 and not three minutes.",
+              },
+              {
+                icon: "WA", color: "bl", colorHex: t.bl,
+                title: "Why Anesthesia",
+                subtitle: "Use for: motivation, calling, patient advocacy, why now",
+                scenario: "I am pursuing anesthesia because CRNAs operate at the intersection of three things I value most: evidence-based practice, interdisciplinary collaboration, and innovation. As I grew into leadership roles as a Clinical Nurse III and facilitator, I worked closely with interdisciplinary teams across the hospital \u2014 and that exposure is what introduced me to this convergence point. When I began shadowing CRNAs \u2014 accumulating 56 hours across multiple facilities \u2014 I witnessed it in action. Within the first ten minutes of my first case, watching a CRNA manage a patient\u2019s anesthetic during a complex procedure, I knew this was my calling. I observed how CRNAs blend advanced pharmacological knowledge, precise technical skill, and decisive leadership into a single coherent role. What particularly resonates with me is that every patient under anesthesia becomes critically vulnerable \u2014 regardless of the complexity of the procedure. That requires the same vigilance and commitment to excellence I have cultivated through my CCRN, SCRN, and TCRN certifications. CRNAs do not just administer anesthesia \u2014 they are patient advocates during the most vulnerable moment of a person\u2019s care.",
+                demonstrates: [
+                  "Opens with a concrete, memorable frame \u2014 the intersection of three specific values, not a generic passion statement",
+                  "The shadowing moment is specific and timestamped \u2014 \u201cwithin the first ten minutes\u201d carries authenticity",
+                  "56 hours of shadowing across multiple facilities demonstrates sustained commitment, not a single exposure",
+                  "Connecting patient vulnerability to your existing certifications links your ICU identity directly to anesthesia",
+                  "Patient advocacy framing is what programs want to hear \u2014 it elevates the role beyond technical skill",
+                ],
+                framing: "Do not open with \u201cI love pharmacology\u201d or \u201cI want more autonomy.\u201d Open with the convergence of evidence-based practice, collaboration, and innovation \u2014 and name them. The shadowing detail makes it real. Close on patient advocacy. That framing positions you as someone who understands the weight of the role, not just the appeal of it.",
+              },
+              {
+                icon: "CST", color: "pr", colorHex: t.pr,
+                title: "Cisatracurium, Laudanosine, and CVVHD",
+                subtitle: "Use for: creativity in clinical practice, pharmacological depth, systems thinking, independent clinical judgment",
+                scenario: "A critically injured teenage male required emergent external ventricular drain placement due to severely elevated intracranial pressures with herniation risk. He was paralyzed with cisatracurium and maintained on continuous BIS and train-of-four monitoring. He remained paralyzed for over five days. As the neurosurgical team prepared to begin weaning paralysis, they expressed concern about his neurological status during emergence. Given his documented history of seizures, there was worry that re-emerging neuromuscular activity could lower his seizure threshold and worsen ICP at the most critical point of his recovery. I was his primary nurse for three consecutive nights.",
+                demonstrates: [
+                  "Pharmacokinetic depth \u2014 you understood Hofmann elimination AND its limits (laudanosine is renally excreted, not eliminated by the same pathway)",
+                  "The patient had renal failure \u2014 you identified this as the mechanism driving risk, not a coincidental comorbidity",
+                  "You translated a molecular-weight and sieving-coefficient argument into a clinical CVVHD recommendation \u2014 that is CRNA-level thinking",
+                  "You identified a problem the neurosurgical team was concerned about but had not yet connected to a pharmacokinetic mechanism",
+                  "The solution used existing infrastructure \u2014 the patient already had a dialysis port. No new procedures required.",
+                ],
+                framing: "This story is specifically for questions about creativity in clinical practice, applying knowledge beyond the textbook, or demonstrating that you think at the pharmacological mechanism level. The winning detail is not that you recommended CVVHD \u2014 it is that you reasoned your way to it through Hofmann elimination, laudanosine\u2019s renal excretion pathway, and the molecular weight and sieving characteristics that make it dialyzable. Walk the interviewer through that reasoning. That is what separates your answer from every other ICU nurse in the room.",
+                star: [
+                  { label: "Action", text: "Drawing on my understanding of pharmacokinetics, I identified the mechanism driving risk. Cisatracurium undergoes Hofmann elimination \u2014 spontaneous degradation independent of liver or kidneys. But its primary metabolite, laudanosine, is renally excreted. In a patient with renal failure, laudanosine accumulates. Prolonged accumulation lowers seizure threshold \u2014 the exact risk the team was worried about. The patient still had an accessible dialysis port. I knew laudanosine\u2019s molecular characteristics made it dialyzable: molecular weight approximately 350 daltons, sieving coefficient close to 1, low protein binding \u2014 meaning it would cross the filter effectively through both diffusion and convection. I recommended initiating CVVHD specifically to clear laudanosine before weaning paralysis." },
+                  { label: "Result", text: "CVVHD was initiated. We were able to safely wean the patient from cisatracurium while managing the laudanosine burden through the existing dialysis infrastructure. The solution restored safety using principles and technology already in the room." },
+                ],
+              },
+              {
+                icon: "BNR", color: "wn", colorHex: t.wn,
+                title: "Behavior, Not Results \u2014 Leadership Under Pressure",
+                subtitle: "Use for: handling failure, emotional intelligence, leadership philosophy, how you perform under pressure",
+                scenario: "In a Level I Trauma Neuro-Surgical ICU, you learn very quickly that you can do everything right and still lose the patient. The outcome is not always in your hands. What is always in your hands is your behavior. Every critical situation I enter is like being handed the basketball with three seconds on the clock. I am not always going to win that possession \u2014 but I am always going to take the shot the right way. I judge myself by behavior, not results. When things go wrong, it allows me to ask clearly: what did I do, what was in my control, what would I do differently? It enables me to fix the gaps that were actually mine to fix, without carrying the weight of the outcomes that were never mine to control.",
+                demonstrates: [
+                  "Emotional maturity \u2014 distinguishing between what is controllable and what is not is a mark of a provider who will not collapse under the pressure of a bad outcome",
+                  "The basketball analogy is memorable, personal, and specific to the high-pressure environment you came from",
+                  "This philosophy makes you coachable \u2014 you welcome feedback because you already evaluate yourself by behavior, not ego",
+                  "It explains how you build team culture \u2014 by focusing on process and behavior, you create an environment where others can also own their gaps without fear",
+                  "Directly answers the EI-type questions: how do you handle failure, how do you stay calm, how do you give and receive feedback",
+                ],
+                framing: "When asked how you handle failure, how you perform under pressure, or how you give or receive feedback \u2014 anchor on this. The basketball image is your hook. The \u201cbehavior not results\u201d philosophy is your substance. Close by explaining that this is also how you build team culture: when everyone judges themselves by what they did and not just the final outcome, accountability becomes a shared standard rather than a punishment.",
+              },
+            ].map((story, si) => (
+              <div key={si} style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${story.colorHex}`, borderRadius: "12px", padding: "24px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "9px", background: `${story.colorHex}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <span style={{ fontSize: "11px", fontWeight: 700, color: story.colorHex }}>{story.icon}</span>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "16px", fontWeight: 700 }}>{story.title}</div>
+                    <div style={{ fontSize: "12px", color: t.tM }}>{story.subtitle}</div>
+                  </div>
+                </div>
+
+                <div style={{ fontSize: "11px", fontWeight: 700, color: story.colorHex, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>The Scenario</div>
+                <p style={{ margin: "0 0 16px", fontSize: "13px", lineHeight: "1.8", color: t.t2 }}>{story.scenario}</p>
+
+                {story.star && story.star.map((s, j) => (
+                  <div key={j} style={{ marginBottom: "14px" }}>
+                    <div style={{ fontSize: "11px", fontWeight: 700, color: story.colorHex, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "6px" }}>{s.label}</div>
+                    <p style={{ margin: 0, fontSize: "13px", lineHeight: "1.8", color: t.tx }}>{s.text}</p>
                   </div>
                 ))}
-              </div>
 
-              <div style={{ padding: "12px 16px", background: `${t.ok}10`, borderRadius: "8px", border: `1px solid ${t.ok}30` }}>
-                <div style={{ fontSize: "11px", fontWeight: 700, color: t.ok, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Interview Framing</div>
-                <div style={{ fontSize: "13px", color: t.t2, lineHeight: "1.7" }}>
-                  When asked about a time you made a meaningful difference, or about proactivity, or about working in high-stakes interdisciplinary teams &mdash; this is your anchor story. The outcome was not saving the patient. The outcome was creating the only good that was possible from that situation. That distinction is powerful.
+                <div style={{ fontSize: "11px", fontWeight: 700, color: story.colorHex, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>What This Story Demonstrates</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
+                  {story.demonstrates.map((point, i) => (
+                    <div key={i} style={{ display: "flex", gap: "10px", padding: "9px 14px", background: t.bgS, borderRadius: "8px", fontSize: "13px", color: t.t2 }}>
+                      <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: story.colorHex, flexShrink: 0, marginTop: "6px" }} />
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ padding: "12px 16px", background: `${story.colorHex}10`, borderRadius: "8px", border: `1px solid ${story.colorHex}30` }}>
+                  <div style={{ fontSize: "11px", fontWeight: 700, color: story.colorHex, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Interview Framing</div>
+                  <div style={{ fontSize: "13px", color: t.t2, lineHeight: "1.7" }}>{story.framing}</div>
                 </div>
               </div>
-            </div>
-
-            <div style={{ padding: "16px 20px", background: t.bgC, border: `1px dashed ${t.bd}`, borderRadius: "10px", textAlign: "center" }}>
-              <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>Additional stories coming &mdash; add your STAR framework entries here as you build them out</p>
-            </div>
+            ))}
 
           </div>}
 
@@ -702,10 +773,96 @@ export default function App() {
             ))}
           </div>}
 
+          {/* SHADOW LOG TAB */}
+          {ipTab === "Shadow Log" && <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+            <div style={{ padding: "14px 18px", background: t.bgS, borderRadius: "10px", border: `1px solid ${t.bd}`, fontSize: "13px", color: t.tM, lineHeight: "1.7" }}>
+              40 hours across 4 CRNAs and 3 hospitals &mdash; WellSpan York, Chester County, and Lancaster General. The answers below are drawn directly from those experiences, framed around solution-driven clinical thinking. Click any card to expand the full breakdown.
+            </div>
+
+            {[
+              {
+                color: "ac", q: "Tell me about a time you demonstrated independent clinical judgment that led to a better patient outcome.",
+                source: "Shadow Log Reflection \u2014 Meningitis Patient, TNICU",
+                situation: "A patient in their 20s was admitted with meningitis and displaying what the team characterized as aggressive behavior. A Ketamine PRN order was in place for agitation management.",
+                task: "As the bedside nurse, I needed to assess whether the prescribed intervention was actually the right one for what I was observing.",
+                action: "Rather than defaulting to the ordered medication, I cross-referenced the patient\u2019s behavior against known Ketamine emergence and delirium profiles. The patient had already received Ketamine, and the behavior pattern I was seeing was more consistent with emergence delirium than true aggression. I recommended Midazolam instead, and advocated for that decision to the team.",
+                result: "The clinical picture aligned with my assessment \u2014 this was delirium, not aggression. Using additional Ketamine would have compounded the problem. The recommendation was accepted.",
+                why: "This story demonstrates that solution-driven thinking requires you to stop and ask why a patient is behaving a certain way before reaching for the nearest intervention. The answer required cross-referencing the pharmacology observed in the OR with what I was seeing at the bedside \u2014 exactly the kind of synthesis anesthesia demands.",
+              },
+              {
+                color: "bl", q: "What did your shadowing experience teach you about how CRNAs individualize patient care?",
+                source: "Shadowing Veronica Hincapie \u2014 WellSpan York Hospital",
+                situation: "A patient with a complex risk profile: older age, documented history of post-anesthesia nausea and vomiting, and a higher BMI. Each factor independently changes anesthetic risk. Together they demanded a customized plan.",
+                task: "Watch how an expert CRNA synthesizes multiple patient-specific variables into a single coherent anesthetic strategy.",
+                action: "Veronica chose a multimodal medication approach designed specifically around that patient\u2019s risk profile. She addressed emergence delirium risk proactively, managed bronchial and laryngeal spasm risk with intraoperative small-dose Fentanyl pushes, and adjusted her technique for the patient\u2019s BMI. Every decision was a deliberate response to a specific variable in that patient\u2019s system.",
+                result: "Smooth emergence, no adverse events. The outcome reflected the preparation \u2014 nothing was reactive because everything had been anticipated.",
+                why: "This experience confirmed that anesthesia is not a protocol applied to a diagnosis \u2014 it is a custom-built solution for an individual. That is where the painter analogy lives in practice: same landscape, entirely different brushwork.",
+              },
+              {
+                color: "pr", q: "Describe a time you observed effective teamwork under pressure and what you took from it.",
+                source: "Shadowing Jeannine Simms \u2014 Chester County Hospital",
+                situation: "The OR was running behind schedule after a complex morning. Anesthesia techs were stretched thin and struggling to restock carts between cases. Other providers were focused on their own cases.",
+                task: "Observe how a CRNA navigates the tension between individual case responsibility and collective team function.",
+                action: "Jeannine restocked her own anesthesia cart after every case \u2014 not because it was required, but because she understood the downstream impact on the team and the schedule. She helped OR nurses position patients before and after anesthetic administration. She allowed the utility CRNA to relieve a colleague who had not had a break during a long cardiac case.",
+                result: "The OR schedule recovered. Team cohesion was visible \u2014 every patient we accompanied to the OR noticed the dynamic energy between team members, which reinforced to them that they were safe during a vulnerable moment.",
+                why: "Jeannine demonstrated something I carry with me: advanced credentials add responsibility, not hierarchy. Being the most qualified person in the room means you have the most to give to the team around you.",
+              },
+              {
+                color: "wn", q: "How do you prepare for cases where complications are unpredictable?",
+                source: "CRNA Considerations \u2014 Multiple Providers, WellSpan York and Lancaster General",
+                situation: "Across every shadowing experience, one theme was consistent: the providers who had the smoothest cases were the ones who had prepared for the hardest ones.",
+                task: "Understand how expert CRNAs think about preparation \u2014 not just setup, but cognitive readiness for what might not go as planned.",
+                action: "What I observed was a structured mental model: primary intervention, secondary intervention, tertiary intervention \u2014 all mapped before the first incision. At Lancaster General, single-lung ventilation thoracotomies required bronchoscopic confirmation of tube placement after every patient repositioning. Reviewing previous anesthesia notes was part of the preparation \u2014 another CRNA\u2019s choices become a learning opportunity and a data point for your own plan.",
+                result: "The cases with the most complex potential for complications ran most smoothly \u2014 because the preparation had already accounted for the variables.",
+                why: "This maps directly to how I think in the TNICU. A patient\u2019s condition at 0200 is often the result of decisions made at 1400. Preparing primary, secondary, and tertiary responses before they are needed is not overcaution \u2014 it is the baseline expectation for high-acuity care.",
+              },
+              {
+                color: "ok", q: "What does mental flexibility mean to you, and how have you developed it?",
+                source: "Shadow Log Reflection Statement",
+                situation: "The concept emerged across every shadowing experience but was most clearly articulated by observing Veronica Hincapie adapt to a complex patient in real time.",
+                task: "Internalize what mental flexibility actually looks like in clinical practice \u2014 not as a concept, but as an observable skill.",
+                action: "Mental flexibility is the ability to hold multiple clinical variables simultaneously, cross-reference them against pharmacological and physiological knowledge, and produce a response that fits this patient in this moment \u2014 not the textbook patient. I began deliberately training this in the TNICU after my shadowing experiences by seeking out the most complex leadership scenarios available rather than defaulting to routine ones.",
+                result: "I now approach every patient with the explicit question: what is the system in front of me telling me, and does my planned response actually fit the system? That question changed how I give care.",
+                why: "Mental flexibility is a muscle. It requires consistent testing to grow. CRNA school is the environment designed to stress-test and develop that muscle at the highest level. I am not showing up to build it from zero \u2014 I am showing up to train it at the next level.",
+              },
+            ].map((item, i) => {
+              const colorMap = { ac: t.ac, bl: t.bl, pr: t.pr, wn: t.wn, ok: t.ok };
+              const clr = colorMap[item.color] || t.ac;
+              const open = !!ipOpen[i];
+              return (
+                <div key={i} style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderLeft: `4px solid ${clr}`, borderRadius: "12px", overflow: "hidden" }}>
+                  <button onClick={() => setIpOpen(o => ({ ...o, [i]: !o[i] }))} style={{ width: "100%", background: "transparent", border: "none", cursor: "pointer", padding: "18px 20px", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "12px" }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: "10px", fontWeight: 700, color: clr, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "5px" }}>Interview Question</div>
+                      <div style={{ fontSize: "14px", fontWeight: 600, color: t.tx, lineHeight: "1.5" }}>&ldquo;{item.q}&rdquo;</div>
+                      <div style={{ fontSize: "11px", color: t.tM, marginTop: "5px" }}>{item.source}</div>
+                    </div>
+                    <div style={{ fontSize: "18px", color: t.tM, flexShrink: 0, marginTop: "2px" }}>{open ? "\u2212" : "+"}</div>
+                  </button>
+                  {open && <div style={{ padding: "0 20px 20px", borderTop: `1px solid ${t.bd}` }}>
+                    {[
+                      { label: "Situation", text: item.situation, clr: t.t2 },
+                      { label: "Task", text: item.task, clr: t.t2 },
+                      { label: "Action", text: item.action, clr: t.tx },
+                      { label: "Result", text: item.result, clr: t.tx },
+                    ].map((s, j) => (
+                      <div key={j} style={{ marginTop: "14px" }}>
+                        <div style={{ fontSize: "10px", fontWeight: 700, color: clr, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>{s.label}</div>
+                        <div style={{ fontSize: "13px", color: s.clr, lineHeight: "1.75" }}>{s.text}</div>
+                      </div>
+                    ))}
+                    <div style={{ marginTop: "14px", padding: "12px 14px", background: `${clr}10`, borderRadius: "8px", border: `1px solid ${clr}25` }}>
+                      <div style={{ fontSize: "10px", fontWeight: 700, color: clr, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>Why This Answer Works for You</div>
+                      <div style={{ fontSize: "13px", color: t.t2, lineHeight: "1.75" }}>{item.why}</div>
+                    </div>
+                  </div>}
+                </div>
+              );
+            })}
+          </div>}
+
         </div>}
-
-
-        {/* RECEPTOR PHARMACOLOGY HUB */}
         {pg === "pg-recep" && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
           <div style={{ marginBottom: "24px" }}>
             <h2 style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: 700 }}>Receptor Pharmacology</h2>
