@@ -20,6 +20,7 @@ import { AcidBase } from "./components/AcidBase.jsx";
 import { ExperienceBank } from "./components/ExperienceBank.jsx";
 import { CRRTDevice } from "./components/CRRTDevice.jsx";
 import { VentDevice } from "./components/VentDevice.jsx";
+import { default as ICUScenarios } from "./components/ICUScenarios.jsx";
 
 export default function App() {
   const [theme, setTheme] = useState("light");
@@ -406,7 +407,9 @@ export default function App() {
 
                 {pg === "pg-exp" && <ExperienceBank t={t} theme={theme} />}
 
-                {(pg === "pg-anes" || pg === "pg-icu" || pg === "pg-ref") && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
+                {pg === "pg-icu" && <ICUScenarios t={t} />}
+
+                {(pg === "pg-anes" || pg === "pg-ref") && <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
           <h2 style={{ margin: "0 0 8px", fontSize: "22px", fontWeight: 700 }}>{sidebarLinks.find(l => l.id === pg)?.label}</h2>
           <p style={{ color: t.tM, fontSize: "13px", marginBottom: "20px" }}>Content coming soon</p>
           <PH t={t} text={`${sidebarLinks.find(l => l.id === pg)?.label} content will appear here...`} />

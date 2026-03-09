@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ICU_SCENARIOS } from "../data/icuScenarios.js";
+import { ICU_INTERVIEW_CATEGORIES } from "../data/icuInterviewQs.js";
 
 // Collapsible Section
 const Collapse = ({ t, title, icon, defaultOpen = false, children, borderColor }) => {
@@ -223,11 +224,111 @@ const ScenarioDetail = ({ s, t, onBack }) => {
   );
 };
 
+// Interview Q&A Category Card
+const CategoryCard = ({ cat, t, onClick, totalRevealed }) => (
+  <div onClick={onClick} style={{
+    padding: "20px", background: t.bgC, borderRadius: "12px", border: `1px solid ${t.bd}`,
+    borderLeft: `5px solid ${cat.color}`, cursor: "pointer", transition: "border-color 0.15s, transform 0.15s, box-shadow 0.15s"
+  }}
+    onMouseEnter={e => { e.currentTarget.style.borderColor = cat.color; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = `0 4px 16px ${cat.color}20`; }}
+    onMouseLeave={e => { e.currentTarget.style.borderColor = t.bd; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
+  >
+    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
+      <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: `${cat.color}15`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px" }}>{cat.icon}</div>
+      <div style={{ flex: 1 }}>
+        <div style={{ fontSize: "16px", fontWeight: 700, color: t.tx }}>{cat.title}</div>
+        <div style={{ fontSize: "11px", color: t.tM, marginTop: "2px" }}>{cat.questions.length} questions</div>
+      </div>
+    </div>
+    <div style={{ fontSize: "12px", color: t.t2, lineHeight: 1.6 }}>{cat.description}</div>
+  </div>
+);
+
+// Q&A Bank Detail View
+const QABankDetail = ({ cat, t, onBack }) => {
+  const [revealed, setRevealed] = useState({});
+  const [allRevealed, setAllRevealed] = useState(false);
+
+  const toggleReveal = (i) => setRevealed(prev => ({ ...prev, [i]: !prev[i] }));
+  const toggleAll = () => {
+    if (allRevealed) {
+      setRevealed({});
+      setAllRevealed(false);
+    } else {
+      const all = {};
+      cat.questions.forEach((_, i) => { all[i] = true; });
+      setRevealed(all);
+      setAllRevealed(true);
+    }
+  };
+
+  return (
+    <div>
+      <div style={{ marginBottom: "20px" }}>
+        <button onClick={onBack} style={{ background: "none", border: "none", color: t.ac, fontSize: "13px", cursor: "pointer", padding: "0", marginBottom: "12px", fontWeight: 600 }}>{"\u2190"} Back to Q&A Bank</button>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "8px" }}>
+          <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: `${cat.color}15`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "26px" }}>{cat.icon}</div>
+          <div>
+            <h2 style={{ margin: 0, fontSize: "22px", fontWeight: 700, color: t.tx }}>{cat.title}</h2>
+            <div style={{ fontSize: "13px", color: t.tM, marginTop: "2px" }}>{cat.description}</div>
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: "10px", marginTop: "14px", alignItems: "center" }}>
+          <span style={{ padding: "3px 10px", borderRadius: "6px", fontSize: "11px", fontWeight: 600, background: `${cat.color}15`, color: cat.color }}>{cat.questions.length} Questions</span>
+          <button onClick={toggleAll} style={{
+            padding: "6px 14px", borderRadius: "6px", border: `1px solid ${t.bd}`, background: t.bgS,
+            color: t.t2, fontSize: "11px", fontWeight: 600, cursor: "pointer"
+          }}>{allRevealed ? "Hide All Answers" : "Reveal All Answers"}</button>
+        </div>
+      </div>
+
+      <div style={{ padding: "14px 16px", background: `${cat.color}08`, borderRadius: "10px", border: `1px solid ${cat.color}25`, marginBottom: "16px" }}>
+        <div style={{ fontSize: "13px", color: t.t2, lineHeight: 1.7 }}>Practice answering each question aloud before revealing the strong answer. CRNA interviewers want to hear structured, systematic reasoning &mdash; not memorized scripts. If you do not know the answer, say so, then explain how you would find out.</div>
+      </div>
+
+      {cat.questions.map((qa, i) => (
+        <div key={i} style={{ marginBottom: "14px", borderRadius: "10px", border: `1px solid ${t.bd}`, overflow: "hidden", background: t.bgC }}>
+          <div style={{ padding: "14px 16px", borderLeft: `4px solid ${cat.color}` }}>
+            <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+              <span style={{ background: `${cat.color}18`, color: cat.color, padding: "2px 8px", borderRadius: "6px", fontSize: "10px", fontWeight: 700, whiteSpace: "nowrap", marginTop: "2px" }}>Q{i + 1}</span>
+              <div style={{ fontSize: "13px", fontWeight: 600, color: t.tx, lineHeight: 1.6 }}>{qa.q}</div>
+            </div>
+          </div>
+          {!revealed[i] ? (
+            <div style={{ padding: "8px 16px 14px", borderTop: `1px solid ${t.bd}` }}>
+              <button onClick={() => toggleReveal(i)} style={{
+                padding: "8px 20px", borderRadius: "8px", border: `1px solid ${cat.color}40`, background: `${cat.color}10`,
+                color: cat.color, fontSize: "12px", fontWeight: 600, cursor: "pointer", transition: "background 0.15s"
+              }}
+                onMouseEnter={e => e.currentTarget.style.background = `${cat.color}20`}
+                onMouseLeave={e => e.currentTarget.style.background = `${cat.color}10`}
+              >Reveal Strong Answer</button>
+            </div>
+          ) : (
+            <div style={{ padding: "12px 16px 14px", borderTop: `1px solid ${t.bd}`, background: `${cat.color}06` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                <div style={{ fontSize: "10px", fontWeight: 700, color: cat.color, textTransform: "uppercase", letterSpacing: "0.5px" }}>Strong Answer</div>
+                <button onClick={() => toggleReveal(i)} style={{ background: "none", border: "none", color: t.tM, fontSize: "11px", cursor: "pointer" }}>Hide</button>
+              </div>
+              <div style={{ fontSize: "13px", color: t.t2, lineHeight: 1.8 }}>{qa.a}</div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 // Main ICU Scenarios Page
 export default function ICUScenarios({ t }) {
   const [selected, setSelected] = useState(null);
+  const [mode, setMode] = useState("scenarios");
+  const [selectedCat, setSelectedCat] = useState(null);
 
-  if (selected) {
+  const totalQs = ICU_INTERVIEW_CATEGORIES.reduce((a, c) => a + c.questions.length, 0);
+
+  // Scenario detail view
+  if (mode === "scenarios" && selected) {
     return (
       <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
         <ScenarioDetail s={selected} t={t} onBack={() => setSelected(null)} />
@@ -235,47 +336,106 @@ export default function ICUScenarios({ t }) {
     );
   }
 
+  // Q&A category detail view
+  if (mode === "qabank" && selectedCat) {
+    return (
+      <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
+        <QABankDetail cat={selectedCat} t={t} onBack={() => setSelectedCat(null)} />
+      </div>
+    );
+  }
+
   return (
     <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "24px 16px" }}>
-      <div style={{ marginBottom: "24px" }}>
-        <h2 style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: 700 }}>ICU Clinical Scenarios</h2>
-        <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>The most commonly tested critical care scenarios in CRNA program interviews</p>
+      <div style={{ marginBottom: "20px" }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: 700, color: t.tx }}>ICU &amp; Critical Care</h2>
+        <p style={{ margin: 0, color: t.tM, fontSize: "13px" }}>Clinical scenarios and the most commonly asked ICU questions in CRNA program interviews</p>
       </div>
 
-      {/* Stats Bar */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginBottom: "24px" }}>
-        <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
-          <div style={{ fontSize: "11px", color: t.tM }}>Scenarios</div>
-          <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.length}</div>
-        </div>
-        <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
-          <div style={{ fontSize: "11px", color: t.tM }}>Interview Questions</div>
-          <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.interviewQs.length, 0)}</div>
-        </div>
-        <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
-          <div style={{ fontSize: "11px", color: t.tM }}>Clinical Pearls</div>
-          <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.pearls.length, 0)}</div>
-        </div>
-        <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
-          <div style={{ fontSize: "11px", color: t.tM }}>Mgmt Steps</div>
-          <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.management.length, 0)}</div>
-        </div>
-      </div>
-
-      {/* Priority Guide */}
-      <div style={{ padding: "16px", background: `${t.ac}08`, borderRadius: "10px", border: `1px solid ${t.ac}20`, marginBottom: "24px" }}>
-        <div style={{ fontSize: "13px", fontWeight: 700, color: t.ac, marginBottom: "6px" }}>Interview Priority Guide</div>
-        <div style={{ fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
-          Expect scenario-based clinical questions where you're given vital signs, labs, and a clinical picture and asked to walk through your assessment and management. Programs test your ability to think systematically under pressure. The top 3 most commonly asked: <strong style={{ color: t.tx }}>Sepsis/Septic Shock</strong>, <strong style={{ color: t.tx }}>ARDS/Respiratory Failure</strong>, and <strong style={{ color: t.tx }}>TBI/ICP Management</strong>. With your TNICU background, own the neuro scenarios.
-        </div>
-      </div>
-
-      {/* Scenario Cards Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "14px" }}>
-        {ICU_SCENARIOS.map(s => (
-          <ScenarioCard key={s.id} s={s} t={t} onClick={() => setSelected(s)} />
+      {/* Mode Toggle */}
+      <div style={{ display: "flex", gap: "4px", marginBottom: "24px", background: t.bgS, padding: "4px", borderRadius: "8px", maxWidth: "440px" }}>
+        {[
+          { id: "scenarios", label: "Clinical Scenarios", count: ICU_SCENARIOS.length },
+          { id: "qabank", label: "Interview Q&A Bank", count: totalQs }
+        ].map(m => (
+          <button key={m.id} onClick={() => { setMode(m.id); setSelected(null); setSelectedCat(null); }} style={{
+            flex: 1, padding: "9px 16px", borderRadius: "6px", border: "none", cursor: "pointer", fontSize: "12px", fontWeight: 600,
+            background: mode === m.id ? t.ac : "transparent", color: mode === m.id ? "#fff" : t.t2, transition: "all 0.15s"
+          }}>{m.label} ({m.count})</button>
         ))}
       </div>
+
+      {/* SCENARIOS MODE */}
+      {mode === "scenarios" && <>
+        {/* Stats Bar */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginBottom: "24px" }}>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Scenarios</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.length}</div>
+          </div>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Interview Questions</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.interviewQs.length, 0)}</div>
+          </div>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Clinical Pearls</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.pearls.length, 0)}</div>
+          </div>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Mgmt Steps</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_SCENARIOS.reduce((a, s) => a + s.management.length, 0)}</div>
+          </div>
+        </div>
+
+        {/* Priority Guide */}
+        <div style={{ padding: "16px", background: `${t.ac}08`, borderRadius: "10px", border: `1px solid ${t.ac}20`, marginBottom: "24px" }}>
+          <div style={{ fontSize: "13px", fontWeight: 700, color: t.ac, marginBottom: "6px" }}>Interview Priority Guide</div>
+          <div style={{ fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+            Expect scenario-based clinical questions where you are given vital signs, labs, and a clinical picture and asked to walk through your assessment and management. Programs test your ability to think systematically under pressure. The top 3 most commonly asked: <strong style={{ color: t.tx }}>Sepsis/Septic Shock</strong>, <strong style={{ color: t.tx }}>ARDS/Respiratory Failure</strong>, and <strong style={{ color: t.tx }}>TBI/ICP Management</strong>. With your TNICU background, own the neuro scenarios.
+          </div>
+        </div>
+
+        {/* Scenario Cards Grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "14px" }}>
+          {ICU_SCENARIOS.map(s => (
+            <ScenarioCard key={s.id} s={s} t={t} onClick={() => setSelected(s)} />
+          ))}
+        </div>
+      </>}
+
+      {/* Q&A BANK MODE */}
+      {mode === "qabank" && <>
+        {/* Stats */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginBottom: "24px" }}>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Categories</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{ICU_INTERVIEW_CATEGORIES.length}</div>
+          </div>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Total Questions</div>
+            <div style={{ fontSize: "22px", fontWeight: 700, color: t.ac }}>{totalQs}</div>
+          </div>
+          <div style={{ padding: "14px", background: t.bgC, borderRadius: "8px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+            <div style={{ fontSize: "11px", color: t.tM }}>Source</div>
+            <div style={{ fontSize: "13px", fontWeight: 600, color: t.ac, marginTop: "4px" }}>CCRN + Real Interviews</div>
+          </div>
+        </div>
+
+        {/* Info Banner */}
+        <div style={{ padding: "16px", background: `${t.ac}08`, borderRadius: "10px", border: `1px solid ${t.ac}20`, marginBottom: "24px" }}>
+          <div style={{ fontSize: "13px", fontWeight: 700, color: t.ac, marginBottom: "6px" }}>How to Use This Section</div>
+          <div style={{ fontSize: "12px", color: t.t2, lineHeight: 1.7 }}>
+            These are the most frequently asked clinical ICU questions in CRNA program interviews, compiled from real interview reports, CCRN review material, and CRNA School Prep Academy data. Click a category, read the question aloud, formulate your answer, then reveal the strong answer to compare. The strongest interviewees explain the <strong style={{ color: t.tx }}>pathophysiology behind their actions</strong> &mdash; not just what they would do, but why. Programs will push you to the edge of your knowledge to see how you reason under pressure.
+          </div>
+        </div>
+
+        {/* Category Cards Grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "14px" }}>
+          {ICU_INTERVIEW_CATEGORIES.map(cat => (
+            <CategoryCard key={cat.id} cat={cat} t={t} onClick={() => setSelectedCat(cat)} />
+          ))}
+        </div>
+      </>}
     </div>
   );
 }
