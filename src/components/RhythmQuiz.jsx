@@ -727,13 +727,17 @@ export default function RhythmQuiz({ t }) {
         goTo(-1);
       } else if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
-        setRevealed(true);
-        setShowDetails(true);
+        if (!revealed) {
+          setRevealed(true);
+          setShowDetails(true);
+        } else {
+          goTo(1);
+        }
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [goTo]);
+  }, [goTo, revealed]);
 
   // Focus container for key events
   useEffect(() => {
