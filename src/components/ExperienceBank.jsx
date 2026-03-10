@@ -18,14 +18,45 @@ const COMPETENCY_COLORS = {
   "Leadership Under Pressure": { bg: "rgba(59,130,246,0.1)", border: "#3b82f6", text: "#3b82f6" },
   "Accountability": { bg: "rgba(45,212,191,0.1)", border: "#2dd4bf", text: "#2dd4bf" },
   "Emotional Regulation": { bg: "rgba(34,197,94,0.1)", border: "#22c55e", text: "#22c55e" },
+  "Proactivity": { bg: "rgba(249,115,22,0.1)", border: "#f97316", text: "#f97316" },
+  "Cross-Functional Collaboration": { bg: "rgba(59,130,246,0.1)", border: "#3b82f6", text: "#3b82f6" },
+  "Patient-Centered Care": { bg: "rgba(249,168,37,0.1)", border: "#f59e0b", text: "#f59e0b" },
+  "Downstream Thinking": { bg: "rgba(6,182,212,0.1)", border: "#06b6d4", text: "#06b6d4" },
+  "Pharmacological Depth": { bg: "rgba(168,85,247,0.1)", border: "#a855f7", text: "#a855f7" },
+  "Independent Clinical Judgment": { bg: "rgba(45,212,191,0.1)", border: "#2dd4bf", text: "#2dd4bf" },
+  "Systems Thinking": { bg: "rgba(59,130,246,0.1)", border: "#3b82f6", text: "#3b82f6" },
+  "Creative Problem-Solving": { bg: "rgba(236,72,153,0.1)", border: "#ec4899", text: "#ec4899" },
+  "Self-Awareness": { bg: "rgba(168,85,247,0.1)", border: "#a855f7", text: "#a855f7" },
+  "Resilience": { bg: "rgba(239,68,68,0.1)", border: "#ef4444", text: "#ef4444" },
+  "Team Culture": { bg: "rgba(34,197,94,0.1)", border: "#22c55e", text: "#22c55e" },
+  "Professional Identity": { bg: "rgba(59,130,246,0.1)", border: "#3b82f6", text: "#3b82f6" },
+  "Communication": { bg: "rgba(6,182,212,0.1)", border: "#06b6d4", text: "#06b6d4" },
+  "Innovation": { bg: "rgba(236,72,153,0.1)", border: "#ec4899", text: "#ec4899" },
+  "Clinical Expertise": { bg: "rgba(45,212,191,0.1)", border: "#2dd4bf", text: "#2dd4bf" },
+  "Commitment to Growth": { bg: "rgba(34,197,94,0.1)", border: "#22c55e", text: "#22c55e" },
+  "Patient Advocacy": { bg: "rgba(249,168,37,0.1)", border: "#f59e0b", text: "#f59e0b" },
+  "Advocacy": { bg: "rgba(249,168,37,0.1)", border: "#f59e0b", text: "#f59e0b" },
+  "Critical Thinking": { bg: "rgba(45,212,191,0.1)", border: "#2dd4bf", text: "#2dd4bf" },
+  "Clinical Observation": { bg: "rgba(6,182,212,0.1)", border: "#06b6d4", text: "#06b6d4" },
+  "Teamwork": { bg: "rgba(34,197,94,0.1)", border: "#22c55e", text: "#22c55e" },
+  "Humility": { bg: "rgba(100,116,139,0.1)", border: "#64748b", text: "#64748b" },
+  "Leadership by Example": { bg: "rgba(59,130,246,0.1)", border: "#3b82f6", text: "#3b82f6" },
+  "Preparation": { bg: "rgba(249,115,22,0.1)", border: "#f97316", text: "#f97316" },
+  "Clinical Reasoning": { bg: "rgba(45,212,191,0.1)", border: "#2dd4bf", text: "#2dd4bf" },
+  "Mental Flexibility": { bg: "rgba(168,85,247,0.1)", border: "#a855f7", text: "#a855f7" },
+  "Adaptability": { bg: "rgba(6,182,212,0.1)", border: "#06b6d4", text: "#06b6d4" },
+  "Growth Mindset": { bg: "rgba(34,197,94,0.1)", border: "#22c55e", text: "#22c55e" },
 };
 
 export function ExperienceBank({ t, theme }) {
   const [selected, setSelected] = useState(null);
   const [activeTab, setActiveTab] = useState("star");
   const [expandedQ, setExpandedQ] = useState(null);
+  const [catFilter, setCatFilter] = useState("All");
 
   const exp = selected ? EXPERIENCES.find(e => e.id === selected) : null;
+  const categories = ["All", ...new Set(EXPERIENCES.map(e => e.category))];
+  const filtered = catFilter === "All" ? EXPERIENCES : EXPERIENCES.filter(e => e.category === catFilter);
 
   if (exp) {
     return <ExperienceDetail exp={exp} t={t} theme={theme} activeTab={activeTab} setActiveTab={setActiveTab} expandedQ={expandedQ} setExpandedQ={setExpandedQ} onBack={() => { setSelected(null); setActiveTab("star"); setExpandedQ(null); }} />;
@@ -42,7 +73,7 @@ export function ExperienceBank({ t, theme }) {
       </div>
 
       {/* Stats bar */}
-      <div style={{ display: "flex", gap: "16px", marginBottom: "28px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "16px", marginBottom: "20px", flexWrap: "wrap" }}>
         {[
           { label: "Stories", value: EXPERIENCES.length },
           { label: "Competencies Covered", value: [...new Set(EXPERIENCES.flatMap(e => e.competencies))].length },
@@ -55,18 +86,33 @@ export function ExperienceBank({ t, theme }) {
         ))}
       </div>
 
+      {/* Category filter */}
+      <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginBottom: "20px" }}>
+        {categories.map(cat => {
+          const clr = cat === "All" ? t.ac : (CATEGORY_COLORS[cat] || t.ac);
+          const active = catFilter === cat;
+          return (
+            <button key={cat} onClick={() => setCatFilter(cat)} style={{
+              padding: "6px 14px", borderRadius: "8px", border: `1px solid ${active ? clr : t.bd}`,
+              background: active ? `${clr}18` : "transparent", color: active ? clr : t.t2,
+              fontSize: "12px", fontWeight: active ? 600 : 400, cursor: "pointer", transition: "all 0.15s"
+            }}>{cat}{cat !== "All" ? ` (${EXPERIENCES.filter(e => e.category === cat).length})` : ""}</button>
+          );
+        })}
+      </div>
+
       {/* Story Cards */}
       <div style={{ display: "grid", gap: "16px" }}>
-        {EXPERIENCES.map(exp => (
+        {filtered.map(exp => (
           <ExperienceCard key={exp.id} exp={exp} t={t} theme={theme} onClick={() => setSelected(exp.id)} />
         ))}
       </div>
 
       {/* Empty state if no stories */}
-      {EXPERIENCES.length === 0 && (
+      {filtered.length === 0 && (
         <div style={{ textAlign: "center", padding: "60px 20px", color: t.tM }}>
-          <div style={{ fontSize: "32px", marginBottom: "12px" }}>No stories yet</div>
-          <p style={{ fontSize: "14px" }}>Add your first clinical story to get started.</p>
+          <div style={{ fontSize: "18px", marginBottom: "12px" }}>No stories in this category yet</div>
+          <p style={{ fontSize: "14px" }}>Select a different filter or add new stories.</p>
         </div>
       )}
 
