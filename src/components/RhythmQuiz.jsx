@@ -728,6 +728,7 @@ export default function RhythmQuiz({ t }) {
       } else if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
         setRevealed(true);
+        setShowDetails(true);
       }
     };
     window.addEventListener("keydown", handler);
@@ -789,7 +790,7 @@ export default function RhythmQuiz({ t }) {
         }}>{"\u2190"} Previous</button>
 
         {!revealed ? (
-          <button onClick={() => setRevealed(true)} style={{
+          <button onClick={() => { setRevealed(true); setShowDetails(true); }} style={{
             padding: "10px 24px", borderRadius: "8px", border: "none",
             background: t.ac, color: "#fff", fontSize: "13px", fontWeight: 600, cursor: "pointer",
             flex: 1, maxWidth: "260px",
