@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ICU_SCENARIOS } from "../data/icuScenarios.js";
 import { ICU_INTERVIEW_CATEGORIES } from "../data/icuInterviewQs.js";
+import RhythmQuiz from "./RhythmQuiz.jsx";
 
 // Collapsible Section
 const Collapse = ({ t, title, icon, defaultOpen = false, children, borderColor }) => {
@@ -353,10 +354,11 @@ export default function ICUScenarios({ t }) {
       </div>
 
       {/* Mode Toggle */}
-      <div style={{ display: "flex", gap: "4px", marginBottom: "24px", background: t.bgS, padding: "4px", borderRadius: "8px", maxWidth: "440px" }}>
+      <div style={{ display: "flex", gap: "4px", marginBottom: "24px", background: t.bgS, padding: "4px", borderRadius: "8px", maxWidth: "620px" }}>
         {[
           { id: "scenarios", label: "Clinical Scenarios", count: ICU_SCENARIOS.length },
-          { id: "qabank", label: "Interview Q&A Bank", count: totalQs }
+          { id: "qabank", label: "Interview Q&A Bank", count: totalQs },
+          { id: "rhythms", label: "Rhythm Strips", count: 18 }
         ].map(m => (
           <button key={m.id} onClick={() => { setMode(m.id); setSelected(null); setSelectedCat(null); }} style={{
             flex: 1, padding: "9px 16px", borderRadius: "6px", border: "none", cursor: "pointer", fontSize: "12px", fontWeight: 600,
@@ -436,6 +438,9 @@ export default function ICUScenarios({ t }) {
           ))}
         </div>
       </>}
+
+      {/* RHYTHM STRIPS MODE */}
+      {mode === "rhythms" && <RhythmQuiz t={t} />}
     </div>
   );
 }
