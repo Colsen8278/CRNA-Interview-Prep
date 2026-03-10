@@ -158,26 +158,33 @@ function generateStrip(rhythmId) {
       return pts;
     }
     case "afib": {
-      // Irregular R-R, no P waves, fibrillatory baseline
+      // Irregular R-R, no P waves, fine fibrillatory baseline
       const pts = [];
       let x = 10;
-      const intervals = [55, 80, 45, 100, 60, 70, 50, 90, 65, 55, 75, 85, 48, 95];
+      const intervals = [62, 88, 48, 105, 55, 74, 52, 96, 68, 58, 82, 90, 44, 100, 63, 77];
       let idx = 0;
       while (x < W - 30) {
         const interval = intervals[idx % intervals.length];
-        // fibrillatory baseline before QRS
-        const fibLen = interval - 22;
-        for (let i = 0; i <= 20; i++) {
-          const t = i / 20;
-          pts.push([x + t * fibLen, BL - 3 * Math.sin(t * 19) - 2 * Math.sin(t * 31)]);
+        // Fine fibrillatory baseline: very small amplitude, many points
+        const fibLen = interval - 26;
+        const numFibPts = Math.max(Math.floor(fibLen * 2), 10);
+        for (let i = 0; i <= numFibPts; i++) {
+          const t = i / numFibPts;
+          const fx = x + t * fibLen;
+          // Multiple overlapping tiny oscillations (1-2px max)
+          const fib = 1.2 * Math.sin(fx * 0.8) + 0.9 * Math.sin(fx * 1.3) + 0.6 * Math.sin(fx * 2.1);
+          pts.push([fx, BL - fib]);
         }
         x += fibLen;
-        pts.push(...normalQRS(x, 65));
+        // QRS complex
+        pts.push(...normalQRS(x, 62, 4, 10, 8));
         x += 8;
-        pts.push(...flatLine(x, 6));
-        x += 6;
-        pts.push(...sineBump(x, 10, 18));
-        x += 10;
+        // Brief ST segment
+        pts.push(...flatLine(x, 8));
+        x += 8;
+        // T wave
+        pts.push(...sineBump(x, 12, 18));
+        x += 12;
         idx++;
       }
       return pts;
