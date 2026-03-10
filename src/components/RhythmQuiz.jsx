@@ -808,14 +808,23 @@ export default function RhythmQuiz({ t }) {
         if (!revealed) {
           setRevealed(true);
           setShowDetails(true);
+        } else if (!answered) {
+          markAnswer(true);
+          setTimeout(advance, 150);
         } else {
           advance();
+        }
+      } else if (e.key === "Shift") {
+        e.preventDefault();
+        if (revealed && !answered) {
+          markAnswer(false);
+          setTimeout(advance, 150);
         }
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [advance, goBack, revealed, sessionActive]);
+  }, [advance, goBack, revealed, answered, sessionActive, markAnswer]);
 
   useEffect(() => {
     if (containerRef.current) containerRef.current.focus();
@@ -1007,7 +1016,10 @@ export default function RhythmQuiz({ t }) {
         Navigate
         <span style={{ margin: "0 8px", color: t.bd }}>|</span>
         <span style={{ padding: "2px 8px", background: t.bgS, borderRadius: "4px", border: `1px solid ${t.bd}`, marginRight: "4px" }}>Space</span>
-        Reveal / Next
+        Reveal / Correct
+        <span style={{ margin: "0 8px", color: t.bd }}>|</span>
+        <span style={{ padding: "2px 8px", background: t.bgS, borderRadius: "4px", border: `1px solid ${t.bd}`, marginRight: "4px" }}>Shift</span>
+        Wrong
       </div>
     </div>
   );
