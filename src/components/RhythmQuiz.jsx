@@ -628,170 +628,301 @@ const RHYTHMS = [
   },
 ];
 
-// ── Shuffle with no back-to-back repeat ──────────────────────────────
+// ── Spaced Repetition Queue Builder ──────────────────────────────────
+// Start with all 18 shuffled. Missed items re-enter 3-5 positions later.
+// Correct items re-enter 8-12 positions later. Queue is infinite until user stops.
 
-function shuffleNoRepeat(arr) {
-  const indices = arr.map((_, i) => i);
+function buildInitialQueue() {
+  const indices = RHYTHMS.map((_, i) => i);
   // Fisher-Yates shuffle
   for (let i = indices.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [indices[i], indices[j]] = [indices[j], indices[i]];
   }
-  // Fix any back-to-back repeats (shouldn't happen with unique items, but safety check)
+  // Fix back-to-back
   for (let i = 1; i < indices.length; i++) {
     if (indices[i] === indices[i - 1]) {
-      const swapIdx = (i + 1) % indices.length;
-      [indices[i], indices[swapIdx]] = [indices[swapIdx], indices[i]];
+      const sw = (i + 1) % indices.length;
+      [indices[i], indices[sw]] = [indices[sw], indices[i]];
     }
   }
   return indices;
 }
 
+function insertIntoQueue(queue, rhythmIdx, position) {
+  const insertAt = Math.min(position, queue.length);
+  const newQ = [...queue];
+  // Avoid placing right next to the same rhythm
+  let finalPos = insertAt;
+  if (finalPos > 0 && newQ[finalPos - 1] === rhythmIdx) finalPos++;
+  if (finalPos < newQ.length && newQ[finalPos] === rhythmIdx) finalPos++;
+  newQ.splice(Math.min(finalPos, newQ.length), 0, rhythmIdx);
+  return newQ;
+}
+
+// ── Session History (localStorage) ───────────────────────────────────
+
+const STORAGE_KEY = "crna-rhythm-quiz-history";
+
+function loadHistory() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+function saveSession(session) {
+  try {
+    const hist = loadHistory();
+    hist.unshift(session); // newest first
+    // Keep last 50 sessions
+    if (hist.length > 50) hist.length = 50;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(hist));
+  } catch { /* silent fail */ }
+}
+
 // ── EKG Grid Background ─────────────────────────────────────────────
 
 function EKGGrid({ t }) {
-  const smallColor = t.gridSmall || (t.bg === "#06090f" ? "rgba(239,68,68,0.06)" : "rgba(239,68,68,0.08)");
-  const largeColor = t.gridLarge || (t.bg === "#06090f" ? "rgba(239,68,68,0.14)" : "rgba(239,68,68,0.18)");
+  const smallColor = t.bg === "#06090f" ? "rgba(239,68,68,0.06)" : "rgba(239,68,68,0.08)";
+  const largeColor = t.bg === "#06090f" ? "rgba(239,68,68,0.14)" : "rgba(239,68,68,0.18)";
   const lines = [];
-  // Small grid (1mm = 10px)
-  for (let x = 0; x <= 800; x += 10) {
+  for (let x = 0; x <= 800; x += 10)
     lines.push(<line key={`sv${x}`} x1={x} y1={0} x2={x} y2={200} stroke={smallColor} strokeWidth={0.5} />);
-  }
-  for (let y = 0; y <= 200; y += 10) {
+  for (let y = 0; y <= 200; y += 10)
     lines.push(<line key={`sh${y}`} x1={0} y1={y} x2={800} y2={y} stroke={smallColor} strokeWidth={0.5} />);
-  }
-  // Large grid (5mm = 50px)
-  for (let x = 0; x <= 800; x += 50) {
+  for (let x = 0; x <= 800; x += 50)
     lines.push(<line key={`lv${x}`} x1={x} y1={0} x2={x} y2={200} stroke={largeColor} strokeWidth={1} />);
-  }
-  for (let y = 0; y <= 200; y += 50) {
+  for (let y = 0; y <= 200; y += 50)
     lines.push(<line key={`lh${y}`} x1={0} y1={y} x2={800} y2={y} stroke={largeColor} strokeWidth={1} />);
-  }
   return <g>{lines}</g>;
 }
 
 // ── Main Component ──────────────────────────────────────────────────
 
 export default function RhythmQuiz({ t }) {
-  const [order, setOrder] = useState(() => shuffleNoRepeat(RHYTHMS));
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const [queue, setQueue] = useState(() => buildInitialQueue());
+  const [queuePos, setQueuePos] = useState(0);
   const [revealed, setRevealed] = useState(false);
-  const [score, setScore] = useState({ correct: 0, total: 0 });
   const [answered, setAnswered] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [perRhythm, setPerRhythm] = useState({}); // { rhythmId: { correct: N, total: N } }
+  const [sessionActive, setSessionActive] = useState(true);
+  const [history, setHistory] = useState(() => loadHistory());
+  const [showHistory, setShowHistory] = useState(false);
   const containerRef = useRef(null);
 
-  const rhythm = RHYTHMS[order[currentIdx]];
+  const rhythmIdx = queue[queuePos];
+  const rhythm = RHYTHMS[rhythmIdx] || RHYTHMS[0];
   const points = generateStrip(rhythm.id);
   const polylineStr = points.map(([x, y]) => `${x},${y}`).join(" ");
-  const total = RHYTHMS.length;
+  const traceColor = t.bg === "#06090f" ? "#22c55e" : "#16a34a";
 
-  const goTo = useCallback((dir) => {
-    if (dir === 1 && currentIdx < order.length - 1) {
-      setCurrentIdx(i => i + 1);
-      setRevealed(false);
-      setAnswered(false);
-      setShowDetails(false);
-    } else if (dir === -1 && currentIdx > 0) {
-      setCurrentIdx(i => i - 1);
+  const advance = useCallback(() => {
+    if (queuePos < queue.length - 1) {
+      setQueuePos(p => p + 1);
       setRevealed(false);
       setAnswered(false);
       setShowDetails(false);
     }
-  }, [currentIdx, order.length]);
+  }, [queuePos, queue.length]);
 
-  const restart = useCallback(() => {
-    setOrder(shuffleNoRepeat(RHYTHMS));
-    setCurrentIdx(0);
+  const goBack = useCallback(() => {
+    if (queuePos > 0) {
+      setQueuePos(p => p - 1);
+      setRevealed(false);
+      setAnswered(false);
+      setShowDetails(false);
+    }
+  }, [queuePos]);
+
+  const markAnswer = useCallback((correct) => {
+    if (answered) return;
+    setScore(s => ({ correct: s.correct + (correct ? 1 : 0), total: s.total + 1 }));
+    setAnswered(true);
+
+    // Track per-rhythm stats
+    setPerRhythm(prev => {
+      const id = rhythm.id;
+      const cur = prev[id] || { correct: 0, total: 0 };
+      return { ...prev, [id]: { correct: cur.correct + (correct ? 1 : 0), total: cur.total + 1 } };
+    });
+
+    // Spaced repetition: re-insert into queue
+    setQueue(q => {
+      const remaining = q.slice(queuePos + 1);
+      if (correct) {
+        // Got it right: re-insert 8-12 positions later
+        const delay = 8 + Math.floor(Math.random() * 5);
+        return [...q.slice(0, queuePos + 1), ...insertIntoQueue(remaining, rhythmIdx, delay)];
+      } else {
+        // Missed: re-insert 3-5 positions later (comes back soon)
+        const delay = 3 + Math.floor(Math.random() * 3);
+        return [...q.slice(0, queuePos + 1), ...insertIntoQueue(remaining, rhythmIdx, delay)];
+      }
+    });
+  }, [answered, rhythm.id, rhythmIdx, queuePos]);
+
+  const endSession = useCallback(() => {
+    if (score.total === 0) {
+      setSessionActive(false);
+      return;
+    }
+    const session = {
+      date: new Date().toISOString(),
+      correct: score.correct,
+      total: score.total,
+      pct: Math.round((score.correct / score.total) * 100),
+      perRhythm: { ...perRhythm },
+    };
+    saveSession(session);
+    setHistory(loadHistory());
+    setSessionActive(false);
+  }, [score, perRhythm]);
+
+  const newSession = useCallback(() => {
+    setQueue(buildInitialQueue());
+    setQueuePos(0);
     setRevealed(false);
     setAnswered(false);
     setShowDetails(false);
     setScore({ correct: 0, total: 0 });
+    setPerRhythm({});
+    setSessionActive(true);
+    setShowHistory(false);
   }, []);
-
-  const markAnswer = (correct) => {
-    if (!answered) {
-      setScore(s => ({ correct: s.correct + (correct ? 1 : 0), total: s.total + 1 }));
-      setAnswered(true);
-    }
-  };
 
   // Keyboard navigation
   useEffect(() => {
     const handler = (e) => {
+      if (!sessionActive) return;
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        goTo(1);
+        advance();
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        goTo(-1);
+        goBack();
       } else if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
         if (!revealed) {
           setRevealed(true);
           setShowDetails(true);
         } else {
-          goTo(1);
+          advance();
         }
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [goTo, revealed]);
+  }, [advance, goBack, revealed, sessionActive]);
 
-  // Focus container for key events
   useEffect(() => {
     if (containerRef.current) containerRef.current.focus();
   }, []);
 
-  const traceColor = t.bg === "#06090f" ? "#22c55e" : "#16a34a";
-  const completed = currentIdx === order.length - 1 && revealed;
+  // ── Session Ended View ──
+  if (!sessionActive) {
+    return (
+      <div ref={containerRef} tabIndex={-1} style={{ outline: "none" }}>
+        {score.total > 0 && (
+          <div style={{ padding: "32px", background: t.bgC, borderRadius: "12px", border: `1px solid ${t.bd}`, textAlign: "center", marginBottom: "24px" }}>
+            <div style={{ fontSize: "12px", color: t.tM, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "8px" }}>Session Complete</div>
+            <div style={{ fontSize: "44px", fontWeight: 700, color: score.correct / score.total >= 0.7 ? t.ok : t.wn, marginBottom: "4px" }}>
+              {score.correct}/{score.total}
+            </div>
+            <div style={{ fontSize: "15px", color: t.t2, marginBottom: "20px" }}>{Math.round(score.correct / score.total * 100)}% correct</div>
 
+            {/* Per-rhythm breakdown */}
+            {Object.keys(perRhythm).length > 0 && (
+              <div style={{ textAlign: "left", marginBottom: "20px" }}>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px", textAlign: "center" }}>Rhythm Breakdown</div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "6px" }}>
+                  {Object.entries(perRhythm).map(([id, s]) => {
+                    const r = RHYTHMS.find(r => r.id === id);
+                    const pct = Math.round((s.correct / s.total) * 100);
+                    return (
+                      <div key={id} style={{ padding: "8px 12px", background: t.bgS, borderRadius: "6px", display: "flex", justifyContent: "space-between", alignItems: "center", borderLeft: `3px solid ${pct >= 70 ? t.ok : pct >= 40 ? t.wn : t.dg}` }}>
+                        <span style={{ fontSize: "12px", color: t.tx }}>{r ? r.name : id}</span>
+                        <span style={{ fontSize: "12px", fontWeight: 700, color: pct >= 70 ? t.ok : pct >= 40 ? t.wn : t.dg }}>{s.correct}/{s.total}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            <button onClick={newSession} style={{
+              padding: "12px 28px", borderRadius: "8px", border: "none",
+              background: t.ac, color: "#fff", fontSize: "14px", fontWeight: 600, cursor: "pointer",
+            }}>New Session</button>
+          </div>
+        )}
+
+        {!score.total && (
+          <div style={{ textAlign: "center", padding: "40px", marginBottom: "24px" }}>
+            <button onClick={newSession} style={{
+              padding: "12px 28px", borderRadius: "8px", border: "none",
+              background: t.ac, color: "#fff", fontSize: "14px", fontWeight: 600, cursor: "pointer",
+            }}>Start Session</button>
+          </div>
+        )}
+
+        {/* Session History */}
+        <SessionHistory history={history} t={t} />
+      </div>
+    );
+  }
+
+  // ── Active Session View ──
   return (
     <div ref={containerRef} tabIndex={-1} style={{ outline: "none" }}>
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", flexWrap: "wrap", gap: "10px" }}>
-        <div>
-          <div style={{ fontSize: "11px", color: t.tM, marginBottom: "4px" }}>Rhythm {currentIdx + 1} of {order.length}</div>
-          <div style={{ height: "4px", width: "200px", background: t.bgS, borderRadius: "2px", overflow: "hidden" }}>
-            <div style={{ height: "100%", width: `${((currentIdx + 1) / order.length) * 100}%`, background: t.ac, transition: "width 0.3s", borderRadius: "2px" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <div>
+            <div style={{ fontSize: "11px", color: t.tM, marginBottom: "2px" }}>Question {score.total + (answered ? 0 : 1)}</div>
+            {score.total > 0 && (
+              <div style={{ fontSize: "14px", fontWeight: 700, color: score.correct / score.total >= 0.7 ? t.ok : t.wn }}>
+                {score.correct}/{score.total} ({Math.round(score.correct / score.total * 100)}%)
+              </div>
+            )}
           </div>
         </div>
-        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          {score.total > 0 && (
-            <span style={{ fontSize: "13px", fontWeight: 600, color: score.correct / score.total >= 0.7 ? t.ok : t.wn }}>
-              {score.correct}/{score.total} ({Math.round(score.correct / score.total * 100)}%)
-            </span>
-          )}
-          <button onClick={restart} style={{
+        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          <button onClick={() => setShowHistory(!showHistory)} style={{
             padding: "6px 12px", borderRadius: "6px", border: `1px solid ${t.bd}`,
             background: t.bgS, color: t.t2, fontSize: "11px", fontWeight: 600, cursor: "pointer"
-          }}>Reshuffle</button>
+          }}>History</button>
+          <button onClick={endSession} style={{
+            padding: "6px 14px", borderRadius: "6px", border: `1px solid ${t.dg}40`,
+            background: `${t.dg}10`, color: t.dg, fontSize: "11px", fontWeight: 600, cursor: "pointer"
+          }}>End Session</button>
         </div>
       </div>
+
+      {/* Inline history toggle */}
+      {showHistory && (
+        <div style={{ marginBottom: "16px" }}>
+          <SessionHistory history={history} t={t} compact />
+        </div>
+      )}
 
       {/* Rhythm Strip */}
       <div style={{ background: t.bg === "#06090f" ? "#0a0a0a" : "#fff8f6", borderRadius: "12px", border: `1px solid ${t.bd}`, overflow: "hidden", marginBottom: "16px" }}>
         <svg viewBox="0 0 800 200" style={{ width: "100%", display: "block" }}>
           <EKGGrid t={t} />
-          <polyline
-            points={polylineStr}
-            fill="none"
-            stroke={traceColor}
-            strokeWidth={2}
-            strokeLinejoin="round"
-            strokeLinecap="round"
-          />
+          <polyline points={polylineStr} fill="none" stroke={traceColor} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
         </svg>
       </div>
 
       {/* Controls */}
       <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
-        <button onClick={() => goTo(-1)} disabled={currentIdx === 0} style={{
+        <button onClick={goBack} disabled={queuePos === 0} style={{
           padding: "10px 18px", borderRadius: "8px", border: `1px solid ${t.bd}`,
-          background: t.bgC, color: currentIdx === 0 ? t.tM : t.tx, fontSize: "13px", fontWeight: 600,
-          cursor: currentIdx === 0 ? "default" : "pointer", opacity: currentIdx === 0 ? 0.4 : 1,
-        }}>{"\u2190"} Previous</button>
+          background: t.bgC, color: queuePos === 0 ? t.tM : t.tx, fontSize: "13px", fontWeight: 600,
+          cursor: queuePos === 0 ? "default" : "pointer", opacity: queuePos === 0 ? 0.4 : 1,
+        }}>{"\u2190"} Prev</button>
 
         {!revealed ? (
           <button onClick={() => { setRevealed(true); setShowDetails(true); }} style={{
@@ -812,27 +943,24 @@ export default function RhythmQuiz({ t }) {
           </div>
         ) : (
           <div style={{ padding: "10px 18px", borderRadius: "8px", background: t.bgS, border: `1px solid ${t.bd}`, fontSize: "12px", color: t.tM, display: "flex", alignItems: "center" }}>
-            {"\u2190 \u2192"} arrow keys to navigate
+            Space or {"\u2192"} for next
           </div>
         )}
 
-        <button onClick={() => goTo(1)} disabled={currentIdx === order.length - 1} style={{
+        <button onClick={advance} style={{
           padding: "10px 18px", borderRadius: "8px", border: `1px solid ${t.bd}`,
-          background: t.bgC, color: currentIdx === order.length - 1 ? t.tM : t.tx, fontSize: "13px", fontWeight: 600,
-          cursor: currentIdx === order.length - 1 ? "default" : "pointer", opacity: currentIdx === order.length - 1 ? 0.4 : 1,
+          background: t.bgC, color: t.tx, fontSize: "13px", fontWeight: 600, cursor: "pointer",
         }}>Next {"\u2192"}</button>
       </div>
 
       {/* Answer Panel */}
       {revealed && (
         <div style={{ background: t.bgC, border: `1px solid ${t.bd}`, borderRadius: "12px", overflow: "hidden" }}>
-          {/* Rhythm Name */}
           <div style={{ padding: "20px 24px", borderBottom: `1px solid ${t.bd}`, background: `${t.ac}08` }}>
             <div style={{ fontSize: "10px", fontWeight: 700, color: t.ac, textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" }}>Answer</div>
             <div style={{ fontSize: "22px", fontWeight: 700, color: t.tx }}>{rhythm.name}</div>
           </div>
 
-          {/* Quick Facts */}
           <div style={{ padding: "16px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px", borderBottom: `1px solid ${t.bd}` }}>
             {[
               { label: "Rate", value: rhythm.rate },
@@ -848,7 +976,6 @@ export default function RhythmQuiz({ t }) {
             ))}
           </div>
 
-          {/* Expandable Details */}
           <button onClick={() => setShowDetails(!showDetails)} style={{
             width: "100%", padding: "12px 24px", background: "transparent", border: "none",
             borderBottom: showDetails ? `1px solid ${t.bd}` : "none",
@@ -873,21 +1000,6 @@ export default function RhythmQuiz({ t }) {
         </div>
       )}
 
-      {/* Completion */}
-      {completed && score.total > 0 && (
-        <div style={{ marginTop: "20px", padding: "24px", background: `${t.ac}08`, borderRadius: "12px", border: `1px solid ${t.ac}25`, textAlign: "center" }}>
-          <div style={{ fontSize: "18px", fontWeight: 700, color: t.tx, marginBottom: "6px" }}>Round Complete</div>
-          <div style={{ fontSize: "36px", fontWeight: 700, color: score.correct / score.total >= 0.7 ? t.ok : t.wn }}>
-            {score.correct}/{score.total}
-          </div>
-          <div style={{ fontSize: "13px", color: t.tM, marginBottom: "16px" }}>{Math.round(score.correct / score.total * 100)}% correct</div>
-          <button onClick={restart} style={{
-            padding: "10px 24px", borderRadius: "8px", border: "none",
-            background: t.ac, color: "#fff", fontSize: "13px", fontWeight: 600, cursor: "pointer",
-          }}>Reshuffle &amp; Start Over</button>
-        </div>
-      )}
-
       {/* Keyboard hint */}
       <div style={{ marginTop: "14px", fontSize: "11px", color: t.tM, textAlign: "center" }}>
         <span style={{ padding: "2px 6px", background: t.bgS, borderRadius: "4px", border: `1px solid ${t.bd}`, marginRight: "4px" }}>{"\u2190"}</span>
@@ -895,7 +1007,55 @@ export default function RhythmQuiz({ t }) {
         Navigate
         <span style={{ margin: "0 8px", color: t.bd }}>|</span>
         <span style={{ padding: "2px 8px", background: t.bgS, borderRadius: "4px", border: `1px solid ${t.bd}`, marginRight: "4px" }}>Space</span>
-        Reveal
+        Reveal / Next
+      </div>
+    </div>
+  );
+}
+
+// ── Session History Component ────────────────────────────────────────
+
+function SessionHistory({ history, t, compact }) {
+  if (!history || history.length === 0) {
+    return (
+      <div style={{ padding: compact ? "14px" : "24px", background: t.bgC, borderRadius: "10px", border: `1px solid ${t.bd}`, textAlign: "center" }}>
+        <div style={{ fontSize: "13px", color: t.tM }}>No previous sessions recorded</div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ background: t.bgC, borderRadius: "10px", border: `1px solid ${t.bd}`, overflow: "hidden" }}>
+      <div style={{ padding: "12px 16px", borderBottom: `1px solid ${t.bd}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: "13px", fontWeight: 700, color: t.tx }}>Session History</span>
+        <span style={{ fontSize: "11px", color: t.tM }}>{history.length} session{history.length !== 1 ? "s" : ""}</span>
+      </div>
+      <div style={{ maxHeight: compact ? "200px" : "400px", overflowY: "auto" }}>
+        {history.map((s, i) => {
+          const d = new Date(s.date);
+          const dateStr = d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+          const timeStr = d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+          return (
+            <div key={i} style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "10px 16px", borderBottom: i < history.length - 1 ? `1px solid ${t.bd}` : "none",
+            }}>
+              <div>
+                <span style={{ fontSize: "13px", fontWeight: 600, color: t.tx }}>{dateStr}</span>
+                <span style={{ fontSize: "12px", color: t.tM, marginLeft: "8px" }}>{timeStr}</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span style={{ fontSize: "12px", color: t.t2 }}>{s.correct}/{s.total}</span>
+                <span style={{
+                  fontSize: "12px", fontWeight: 700,
+                  color: s.pct >= 80 ? t.ok : s.pct >= 60 ? t.wn : t.dg,
+                  background: s.pct >= 80 ? `${t.ok}15` : s.pct >= 60 ? `${t.wn}15` : `${t.dg}15`,
+                  padding: "2px 8px", borderRadius: "6px",
+                }}>{s.pct}%</span>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
