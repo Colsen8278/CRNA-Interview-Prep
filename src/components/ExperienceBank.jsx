@@ -313,20 +313,16 @@ function ExperienceDetail({ exp, t, theme, activeTab, setActiveTab, expandedQ, s
               <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.85, color: t.tx }}>{exp.whyItWorks}</p>
             </div>
 
-            <div style={{ padding: "20px", background: t.bgS, borderRadius: "10px", border: `1px solid ${t.bd}` }}>
-              <h4 style={{ margin: "0 0 12px", fontSize: "14px", fontWeight: 700, color: t.tx }}>Delivery Notes</h4>
-              <ul style={{ margin: 0, paddingLeft: "20px", display: "grid", gap: "8px" }}>
-                {[
-                  "Open with the relationship context first — 'one of my closest friends on the unit' — so the emotional weight is established before the violation is disclosed",
-                  "When describing the colleague who came to you, quote her verbatim: 'I respect your judgment, you'd actually do something about it, and I trust you.' This is the most powerful sentence in the story because it shows the culture you built",
-                  "Pause after stating you confirmed the violation. Don't rush past this. The weight of confirmation is the pivot of the story",
-                  "Close with the principle, not the outcome. The resolution of the HR process is less important than your reasoning framework",
-                  "If asked about the outcome for the other nurse, be honest that it was handled through proper channels and redirect to what the experience taught you as a leader",
-                ].map((note, i) => (
-                  <li key={i} style={{ fontSize: "13px", lineHeight: 1.7, color: t.t2 }}>{note}</li>
-                ))}
-              </ul>
-            </div>
+            {exp.deliveryNotes && exp.deliveryNotes.length > 0 && (
+              <div style={{ padding: "20px", background: t.bgS, borderRadius: "10px", border: `1px solid ${t.bd}` }}>
+                <h4 style={{ margin: "0 0 12px", fontSize: "14px", fontWeight: 700, color: t.tx }}>Delivery Notes</h4>
+                <ul style={{ margin: 0, paddingLeft: "20px", display: "grid", gap: "8px" }}>
+                  {exp.deliveryNotes.map((note, i) => (
+                    <li key={i} style={{ fontSize: "13px", lineHeight: 1.7, color: t.t2 }}>{note}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
 
